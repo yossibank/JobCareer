@@ -1,6 +1,6 @@
 import XCTest
 
-class SwiftArchitectureTemplateUITests: XCTestCase {
+class JobCareerUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false

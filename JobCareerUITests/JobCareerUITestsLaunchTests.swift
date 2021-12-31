@@ -1,6 +1,6 @@
 import XCTest
 
-class SwiftArchitectureTemplateUITestsLaunchTests: XCTestCase {
+class JobCareerUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

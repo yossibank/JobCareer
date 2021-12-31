@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "78A386F727401A9D00DF51CF"
                BuildableName = "SwiftArchitectureTemplate.app"
-               BlueprintName = "SwiftArchitectureTemplate"
-               ReferencedContainer = "container:SwiftArchitectureTemplate.xcodeproj">
+               BlueprintName = "JobCareer"
+               ReferencedContainer = "container:JobCareer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:SwiftArchitectureTemplate.xctestplan"
+            reference = "container:JobCareer.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -40,8 +40,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "78A3870D27401A9F00DF51CF"
                BuildableName = "SwiftArchitectureTemplateTests.xctest"
-               BlueprintName = "SwiftArchitectureTemplateTests"
-               ReferencedContainer = "container:SwiftArchitectureTemplate.xcodeproj">
+               BlueprintName = "JobCareerTests"
+               ReferencedContainer = "container:JobCareer.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -50,8 +50,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "78A3871727401A9F00DF51CF"
                BuildableName = "SwiftArchitectureTemplateUITests.xctest"
-               BlueprintName = "SwiftArchitectureTemplateUITests"
-               ReferencedContainer = "container:SwiftArchitectureTemplate.xcodeproj">
+               BlueprintName = "JobCareerUITests"
+               ReferencedContainer = "container:JobCareer.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -102,8 +102,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "78A386F727401A9D00DF51CF"
             BuildableName = "SwiftArchitectureTemplate.app"
-            BlueprintName = "SwiftArchitectureTemplate"
-            ReferencedContainer = "container:SwiftArchitectureTemplate.xcodeproj">
+            BlueprintName = "JobCareer"
+            ReferencedContainer = "container:JobCareer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -119,8 +119,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "78A386F727401A9D00DF51CF"
             BuildableName = "SwiftArchitectureTemplate.app"
-            BlueprintName = "SwiftArchitectureTemplate"
-            ReferencedContainer = "container:SwiftArchitectureTemplate.xcodeproj">
+            BlueprintName = "JobCareer"
+            ReferencedContainer = "container:JobCareer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

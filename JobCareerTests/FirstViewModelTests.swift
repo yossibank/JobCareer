@@ -1,6 +1,6 @@
 @testable import Data
 @testable import Domain
-@testable import SwiftArchitectureTemplate
+@testable import JobCareer
 import XCTest
 
 final class FirstViewModelTests: XCTestCase {
