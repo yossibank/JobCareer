@@ -5,8 +5,7 @@ import Utility
 struct PackageConfig {
 
     static func setup() {
-        /* setup GoogleService-Info.Plist */
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
         DomainConfig.setup(baseURL: API.baseURL)
         UtilityConfig.setup(analytics: FirebaseProvider())
     }
