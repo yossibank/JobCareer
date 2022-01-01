@@ -15,6 +15,11 @@ jobs:
     - name: Show Xcode Version
       run: xcodebuild -version
 
+    - name: Copy GoogleService-Info.plist
+      env:
+        GOOGLE_SERVICE: ${{ secrets.GOOGLE_SERVICE_JSON }}
+      run: echo $GOOGLE_SERVICE | base64 --decode --ignore-garbage > ./app/google-services.json
+
     - name: Cache Swift Packages
       uses: actions/cache@v1
       with:
