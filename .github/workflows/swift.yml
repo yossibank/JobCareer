@@ -24,7 +24,7 @@ jobs:
 
     - name: Build
       run: xcodebuild
-        -scheme SwiftArchitectureTemplate
+        -scheme JobCareer
         -sdk iphonesimulator
         -configuration Debug
         build
@@ -33,7 +33,7 @@ jobs:
 
     - name: Run tests
       run: xcodebuild
-        -scheme SwiftArchitectureTemplate
+        -scheme JobCareer
         -sdk iphonesimulator
         -destination 'platform=iOS Simulator,name=iPhone 13'
         clean test
