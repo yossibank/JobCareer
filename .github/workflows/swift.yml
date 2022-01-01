@@ -15,10 +15,16 @@ jobs:
     - name: Show Xcode Version
       run: xcodebuild -version
 
-    - name: Copy GoogleService-Info.plist
+    - name: Translate secrets of base64 into json
       env:
         GOOGLE_SERVICE: ${{ secrets.GOOGLE_SERVICE_JSON }}
-      run: echo $GOOGLE_SERVICE | base64 --decode --ignore-garbage > ./app/google-services.json
+      run: echo $GOOGLE_SERVICE | base64 --decode > ./JobCareer/output.json
+
+    - name: Translate json into plist and generate GoogleService-info.plist
+      run: plutil -convert xml1 ./JobCareer/output.json -o ./JobCareer/GoogleService-info.plist
+
+    - name: Remove json file
+      run: rm JobCareer/output.json
 
     - name: Cache Swift Packages
       uses: actions/cache@v1
