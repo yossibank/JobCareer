@@ -1,0 +1,16 @@
+{
+  "API_KEY" : "AIzaSyB9Ougq8aZHT7cC4bEs835MLXKDJzB_4pI",
+  "BUNDLE_ID" : "com.gmail.yossibank07.job-career.develop",
+  "CLIENT_ID" : "988473001435-14vtaf9sktub81pvj8qdj0vd8hp43que.apps.googleusercontent.com",
+  "GCM_SENDER_ID" : "988473001435",
+  "GOOGLE_APP_ID" : "1:988473001435:ios:13149b8f1f71903960d3fe",
+  "IS_ADS_ENABLED" : false,
+  "IS_ANALYTICS_ENABLED" : false,
+  "IS_APPINVITE_ENABLED" : true,
+  "IS_GCM_ENABLED" : true,
+  "IS_SIGNIN_ENABLED" : true,
+  "PLIST_VERSION" : "1",
+  "PROJECT_ID" : "jobcareer-9ffa8",
+  "REVERSED_CLIENT_ID" : "com.googleusercontent.apps.988473001435-14vtaf9sktub81pvj8qdj0vd8hp43que",
+  "STORAGE_BUCKET" : "jobcareer-9ffa8.appspot.com"
+}

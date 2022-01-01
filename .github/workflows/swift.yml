@@ -15,6 +15,17 @@ jobs:
     - name: Show Xcode Version
       run: xcodebuild -version
 
+    - name: Translate secrets of base64 into GoogleService-info.json
+      env:
+        GOOGLE_SERVICE: ${{ secrets.GOOGLE_SERVICE_JSON }}
+      run: echo $GOOGLE_SERVICE | base64 --decode > ./JobCareer/GoogleService-info.json
+
+    - name: Translate json into plist and generate GoogleService-info.plist
+      run: plutil -convert xml1 ./JobCareer/GoogleService-info.json -o ./JobCareer/GoogleService-info.plist
+
+    - name: Remove Json file
+      run: rm JobCareer/GoogleService-info.json
+
     - name: Cache Swift Packages
       uses: actions/cache@v1
       with:
@@ -24,7 +35,7 @@ jobs:
 
     - name: Build
       run: xcodebuild
-        -scheme SwiftArchitectureTemplate
+        -scheme JobCareer
         -sdk iphonesimulator
         -configuration Debug
         build
@@ -33,7 +44,7 @@ jobs:
 
     - name: Run tests
       run: xcodebuild
-        -scheme SwiftArchitectureTemplate
+        -scheme JobCareer
         -sdk iphonesimulator
         -destination 'platform=iOS Simulator,name=iPhone 13'
         clean test

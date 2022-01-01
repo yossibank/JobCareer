@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "78A386F727401A9D00DF51CF"
-               BuildableName = "SwiftArchitectureTemplate.app"
+               BuildableName = "JobCareer.app"
                BlueprintName = "JobCareer"
                ReferencedContainer = "container:JobCareer.xcodeproj">
             </BuildableReference>
@@ -39,7 +39,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "78A3870D27401A9F00DF51CF"
-               BuildableName = "SwiftArchitectureTemplateTests.xctest"
+               BuildableName = "JobCareerTests.xctest"
                BlueprintName = "JobCareerTests"
                ReferencedContainer = "container:JobCareer.xcodeproj">
             </BuildableReference>
@@ -49,7 +49,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "78A3871727401A9F00DF51CF"
-               BuildableName = "SwiftArchitectureTemplateUITests.xctest"
+               BuildableName = "JobCareerUITests.xctest"
                BlueprintName = "JobCareerUITests"
                ReferencedContainer = "container:JobCareer.xcodeproj">
             </BuildableReference>
@@ -101,7 +101,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "78A386F727401A9D00DF51CF"
-            BuildableName = "SwiftArchitectureTemplate.app"
+            BuildableName = "JobCareer.app"
             BlueprintName = "JobCareer"
             ReferencedContainer = "container:JobCareer.xcodeproj">
          </BuildableReference>
@@ -118,7 +118,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "78A386F727401A9D00DF51CF"
-            BuildableName = "SwiftArchitectureTemplate.app"
+            BuildableName = "JobCareer.app"
             BlueprintName = "JobCareer"
             ReferencedContainer = "container:JobCareer.xcodeproj">
          </BuildableReference>

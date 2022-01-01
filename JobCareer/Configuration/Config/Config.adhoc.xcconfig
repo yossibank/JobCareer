@@ -1,4 +1,4 @@
-BUNDLE_DISPLAY_NAME = ADHOC
+BUNDLE_DISPLAY_NAME = JobCareer-ADH
 PRODUCT_BUNDLE_IDENTIFIER = com.gmail.yossibank07.job-career.adhoc
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "ADHOC" "-D" "DEBUG"
 OTHER_LDFLAGS = -ObjC
