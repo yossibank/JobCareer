@@ -1,4 +1,4 @@
-BUNDLE_DISPLAY_NAME = DEVELOP
+BUNDLE_DISPLAY_NAME = JobCareer-DEV
 PRODUCT_BUNDLE_IDENTIFIER = com.gmail.yossibank07.job-career.develop
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "DEBUG"
 OTHER_LDFLAGS = -ObjC
