@@ -1,7 +1,8 @@
 import UIKit
 
 protocol HomeViewControllerDelegate: AnyObject {
-    func didItemSelected()
+    func showFirstView()
+    func showFirstDetailView()
 }
 
 extension HomeViewController: VCInjectable {
@@ -43,6 +44,6 @@ extension HomeViewController: UICollectionViewDelegate {
             animated: true
         )
 
-        delegate.didItemSelected()
+        delegate.showFirstView()
     }
 }

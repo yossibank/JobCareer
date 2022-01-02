@@ -50,7 +50,14 @@ extension HomeFlowController: FlowController {
 
 extension HomeFlowController: HomeViewControllerDelegate {
 
-    func didItemSelected() {
-        print("TAP")
+    func showFirstView() {
+        let vc = Resources.ViewControllers.App.first()
+        vc.delegate = self
+        navVC.pushViewController(vc, animated: true)
+    }
+
+    func showFirstDetailView() {
+        let vc = Resources.ViewControllers.App.firstDetail()
+        navVC.pushViewController(vc, animated: true)
     }
 }

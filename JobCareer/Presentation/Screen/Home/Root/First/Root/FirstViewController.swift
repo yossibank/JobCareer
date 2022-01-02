@@ -2,10 +2,6 @@ import Combine
 import UIKit
 import Utility
 
-protocol FirstViewControllerDelegate: AnyObject {
-    func didNextButtonTapped()
-}
-
 extension FirstViewController: VCInjectable {
     typealias VM = FirstViewModel
     typealias UI = FirstUI
@@ -18,7 +14,7 @@ final class FirstViewController: UIViewController {
     var viewModel: VM!
     var ui: UI!
 
-    weak var delegate: FirstViewControllerDelegate!
+    weak var delegate: HomeViewControllerDelegate!
 
     private var cancellables: Set<AnyCancellable> = []
 }
@@ -53,7 +49,7 @@ private extension FirstViewController {
     func setupEvent() {
         ui.buttonTapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-            self.delegate.didNextButtonTapped()
+            self.delegate.showFirstDetailView()
         }
         .store(in: &cancellables)
 

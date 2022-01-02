@@ -60,12 +60,12 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
 
             case .home:
                 let vc = Resources.ViewControllers.App.home()
+                vc.delegate = self
                 navVC.pushViewController(vc, animated: true)
 
             case .first:
                 let vc = Resources.ViewControllers.App.first()
                 vc.delegate = self
-
                 navVC.pushViewController(vc, animated: true)
 
             case .firstDetail:
@@ -79,9 +79,15 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
     }
 }
 
-extension DEBUG_FlowController: FirstViewControllerDelegate {
+extension DEBUG_FlowController: HomeViewControllerDelegate {
 
-    func didNextButtonTapped() {
+    func showFirstView() {
+        let vc = Resources.ViewControllers.App.first()
+        vc.delegate = self
+        navVC.pushViewController(vc, animated: true)
+    }
+
+    func showFirstDetailView() {
         let vc = Resources.ViewControllers.App.firstDetail()
         navVC.pushViewController(vc, animated: true)
     }
