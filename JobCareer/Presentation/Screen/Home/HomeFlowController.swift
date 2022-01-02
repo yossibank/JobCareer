@@ -2,7 +2,7 @@ import UIKit
 
 // MARK: - stored properties & init
 
-final class FirstFlowController: UIViewController {
+final class HomeFlowController: UIViewController {
 
     private let navVC = NavigationController()
 
@@ -19,7 +19,7 @@ final class FirstFlowController: UIViewController {
 
 // MARK: - override methods
 
-extension FirstFlowController {
+extension HomeFlowController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -33,13 +33,13 @@ extension FirstFlowController {
 
 // MARK: - protocol
 
-extension FirstFlowController: FlowController {
+extension HomeFlowController: FlowController {
 
     func start() {
-        let vc = Resources.ViewControllers.App.first()
+        let vc = Resources.ViewControllers.App.home()
         vc.delegate = self
 
-        tabBarItem.title = "FIRST"
+        tabBarItem.title = "HOME"
         tabBarItem.image = UIImage(systemName: "a.circle")
 
         navVC.viewControllers = [vc]
@@ -48,12 +48,9 @@ extension FirstFlowController: FlowController {
 
 // MARK: - delegate
 
-extension FirstFlowController: FirstViewControllerDelegate {
+extension HomeFlowController: HomeViewControllerDelegate {
 
-    func didNextButtonTapped() {
-        navVC.pushViewController(
-            Resources.ViewControllers.App.firstDetail(),
-            animated: true
-        )
+    func didItemSelected() {
+        print("TAP")
     }
 }

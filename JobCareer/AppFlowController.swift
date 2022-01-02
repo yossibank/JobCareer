@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: - Stored Properties & Init
+// MARK: - stored properties & init
 
 final class AppFlowController: UIViewController {
 

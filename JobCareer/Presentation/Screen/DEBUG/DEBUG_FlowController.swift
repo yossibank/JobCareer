@@ -2,7 +2,7 @@
 
 import UIKit
 
-// MARK: - Stored Properties & Init
+// MARK: - stored properties & init
 
 final class DEBUG_FlowController: UIViewController {
 
@@ -48,7 +48,7 @@ extension DEBUG_FlowController: FlowController {
     }
 }
 
-// MARK: - Delegate
+// MARK: - delegate
 
 extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
 

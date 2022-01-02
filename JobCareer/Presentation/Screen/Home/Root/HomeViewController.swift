@@ -1,5 +1,9 @@
 import UIKit
 
+protocol HomeViewControllerDelegate: AnyObject {
+    func didItemSelected()
+}
+
 extension HomeViewController: VCInjectable {
     typealias VM = NoViewModel
     typealias UI = HomeUI
@@ -8,8 +12,11 @@ extension HomeViewController: VCInjectable {
 // MARK: - stored properties
 
 final class HomeViewController: UIViewController {
+
     var viewModel: VM!
     var ui: UI!
+
+    weak var delegate: HomeViewControllerDelegate!
 }
 
 // MARK: - override methods
@@ -28,9 +35,14 @@ extension HomeViewController {
 extension HomeViewController: UICollectionViewDelegate {
 
     func collectionView(
-        _: UICollectionView,
+        _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        print(indexPath)
+        collectionView.deselectItem(
+            at: indexPath,
+            animated: true
+        )
+
+        delegate.didItemSelected()
     }
 }

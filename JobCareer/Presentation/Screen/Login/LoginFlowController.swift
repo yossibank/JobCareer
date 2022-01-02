@@ -4,7 +4,7 @@ protocol LoginFlowControllerDelegate: AnyObject {
     func didLoginButtonTapped()
 }
 
-// MARK: - Stored Properties & Init
+// MARK: - stored properties & init
 
 final class LoginFlowController: UIViewController {
 

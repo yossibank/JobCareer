@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: - Stored Properties & Init
+// MARK: - stored properties & init
 
 final class MainFlowController: UIViewController {
 
@@ -39,9 +39,9 @@ extension MainFlowController: FlowController {
         let flows: [FlowController]
 
         #if DEBUG
-        flows = [FirstFlowController(), SecondFlowController(), DEBUG_FlowController()]
+        flows = [HomeFlowController(), SecondFlowController(), DEBUG_FlowController()]
         #else
-        flows = [FirstFlowController(), SecondFlowController()]
+        flows = [HomeFlowController(), SecondFlowController()]
         #endif
 
         tabController.setViewControllers(flows, animated: false)
