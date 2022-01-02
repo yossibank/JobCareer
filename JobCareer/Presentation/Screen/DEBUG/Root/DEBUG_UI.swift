@@ -18,6 +18,7 @@ extension DEBUG_UI {
 
     func setupTableView(delegate: UITableViewDelegate) {
         dataSource = configureDataSource()
+
         tableView.register(
             UITableViewCell.self,
             forCellReuseIdentifier: UITableViewCell.resourceName

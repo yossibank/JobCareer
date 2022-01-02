@@ -21,6 +21,13 @@ extension Resources {
                 return instance
             }
 
+            func home() -> HomeViewController {
+                let instance = HomeViewController()
+                instance.inject(ui: HomeUI())
+                instance.title = "HOME"
+                return instance
+            }
+
             func first() -> FirstViewController {
                 let instance = FirstViewController()
                 instance.inject(viewModel: FirstViewModel(), ui: FirstUI())

@@ -58,6 +58,10 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
                 let vc = Resources.ViewControllers.App.debugBottomSheetList()
                 navVC.present(vc, animated: true)
 
+            case .home:
+                let vc = Resources.ViewControllers.App.home()
+                navVC.pushViewController(vc, animated: true)
+
             case .first:
                 let vc = Resources.ViewControllers.App.first()
                 vc.delegate = self
