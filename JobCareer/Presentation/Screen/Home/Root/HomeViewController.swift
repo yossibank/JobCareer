@@ -3,6 +3,7 @@ import UIKit
 protocol HomeViewControllerDelegate: AnyObject {
     func showFirstView()
     func showFirstDetailView()
+    func backRootView()
 }
 
 extension HomeViewController: VCInjectable {

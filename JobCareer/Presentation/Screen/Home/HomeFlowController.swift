@@ -4,6 +4,8 @@ import UIKit
 
 final class HomeFlowController: UIViewController {
 
+    weak var delegate: MainFlowControllerDelegate!
+
     private let navVC = NavigationController()
 
     init() {
@@ -58,6 +60,11 @@ extension HomeFlowController: HomeViewControllerDelegate {
 
     func showFirstDetailView() {
         let vc = Resources.ViewControllers.App.firstDetail()
+        vc.delegate = self
         navVC.pushViewController(vc, animated: true)
+    }
+
+    func backRootView() {
+        delegate.rootView(type: .home)
     }
 }

@@ -37,7 +37,7 @@ extension Resources {
 
             func firstDetail() -> FirstDetailViewController {
                 let instance = FirstDetailViewController()
-                instance.inject()
+                instance.inject(ui: FirstDetailUI())
                 instance.title = "FIRST DETAIL"
                 return instance
             }

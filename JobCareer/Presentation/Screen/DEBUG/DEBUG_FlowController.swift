@@ -6,6 +6,8 @@ import UIKit
 
 final class DEBUG_FlowController: UIViewController {
 
+    weak var delegate: MainFlowControllerDelegate!
+
     private let navVC = NavigationController()
 
     init() {
@@ -70,6 +72,7 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
 
             case .firstDetail:
                 let vc = Resources.ViewControllers.App.firstDetail()
+                vc.delegate = self
                 navVC.pushViewController(vc, animated: true)
 
             case .second:
@@ -89,7 +92,12 @@ extension DEBUG_FlowController: HomeViewControllerDelegate {
 
     func showFirstDetailView() {
         let vc = Resources.ViewControllers.App.firstDetail()
+        vc.delegate = self
         navVC.pushViewController(vc, animated: true)
+    }
+
+    func backRootView() {
+        delegate.rootView(type: .debug)
     }
 }
 

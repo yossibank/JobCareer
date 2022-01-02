@@ -1,5 +1,11 @@
 import UIKit
 
+enum TabBarType: Int {
+    case home
+    case second
+    case debug
+}
+
 final class TabBarController: UITabBarController {
 
     override func viewDidLoad() {

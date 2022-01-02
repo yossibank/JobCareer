@@ -36,6 +36,7 @@ extension AppFlowController: FlowController {
 
         if AppDataHolder.isLogin ?? false {
             add(mainFlowController)
+            mainFlowController.delegate = self
             mainFlowController.start()
         } else {
             loginFlowController.delegate = self
@@ -46,6 +47,14 @@ extension AppFlowController: FlowController {
 }
 
 // MARK: - delegate
+
+extension AppFlowController: MainFlowControllerDelegate {
+
+    func rootView(type: TabBarType) {
+        start()
+        tabBarController?.selectedIndex = type.rawValue
+    }
+}
 
 extension AppFlowController: LoginFlowControllerDelegate {
 

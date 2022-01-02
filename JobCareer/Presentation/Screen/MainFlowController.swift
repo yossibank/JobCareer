@@ -1,8 +1,14 @@
 import UIKit
 
+protocol MainFlowControllerDelegate: AnyObject {
+    func rootView(type: TabBarType)
+}
+
 // MARK: - stored properties & init
 
 final class MainFlowController: UIViewController {
+
+    weak var delegate: MainFlowControllerDelegate!
 
     private let tabController = TabBarController()
 
@@ -38,14 +44,29 @@ extension MainFlowController: FlowController {
     func start() {
         let flows: [FlowController]
 
+        let homeFlowController = HomeFlowController()
+        homeFlowController.delegate = self
+
+        let secondFlowController = SecondFlowController()
+
+        let debugFlowController = DEBUG_FlowController()
+        debugFlowController.delegate = self
+
         #if DEBUG
-        flows = [HomeFlowController(), SecondFlowController(), DEBUG_FlowController()]
+        flows = [homeFlowController, secondFlowController, debugFlowController]
         #else
-        flows = [HomeFlowController(), SecondFlowController()]
+        flows = [homeFlowController, secondFlowController]
         #endif
 
         tabController.setViewControllers(flows, animated: false)
 
         flows.forEach { $0.start() }
+    }
+}
+
+extension MainFlowController: MainFlowControllerDelegate {
+
+    func rootView(type: TabBarType) {
+        delegate.rootView(type: type)
     }
 }
