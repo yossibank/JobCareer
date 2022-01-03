@@ -39,8 +39,8 @@ extension AppFlowController: FlowController {
             mainFlowController.delegate = self
             mainFlowController.start()
         } else {
-            loginFlowController.delegate = self
             add(loginFlowController)
+            loginFlowController.delegate = self
             loginFlowController.start()
         }
     }
