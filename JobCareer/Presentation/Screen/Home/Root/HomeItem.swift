@@ -26,12 +26,12 @@ enum HomeSection: CaseIterable, CustomStringConvertible {
 
             case .contents:
                 return [
-                    .contents(.init(title: "content1")),
-                    .contents(.init(title: "content2")),
-                    .contents(.init(title: "content3")),
-                    .contents(.init(title: "content4")),
-                    .contents(.init(title: "content5")),
-                    .contents(.init(title: "content6"))
+                    .contents(.init(image: Resources.Images.App.appIcon, description: "content1")),
+                    .contents(.init(image: Resources.Images.App.appIcon, description: "content2")),
+                    .contents(.init(image: Resources.Images.App.appIcon, description: "content3")),
+                    .contents(.init(image: Resources.Images.App.appIcon, description: "content4")),
+                    .contents(.init(image: Resources.Images.App.appIcon, description: "content5")),
+                    .contents(.init(image: Resources.Images.App.appIcon, description: "content6"))
                 ]
         }
     }
@@ -40,13 +40,4 @@ enum HomeSection: CaseIterable, CustomStringConvertible {
 enum HomeItem: Hashable {
     case news(News)
     case contents(Contents)
-}
-
-struct News: Hashable {
-    let title: String
-    let description: String?
-}
-
-struct Contents: Hashable {
-    let title: String
 }

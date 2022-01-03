@@ -1,5 +1,10 @@
 import UIKit
 
+struct News: Hashable {
+    let title: String
+    let description: String?
+}
+
 // MARK: - stored properties & init
 
 final class NewsCell: UICollectionViewCell {
@@ -31,9 +36,9 @@ final class NewsCell: UICollectionViewCell {
 
 extension NewsCell {
 
-    func configure(title: String, description: String?) {
-        titleLabel.text = title
-        descriptionLabel.text = description
+    func configure(item: News) {
+        titleLabel.text = item.title
+        descriptionLabel.text = item.description
     }
 }
 

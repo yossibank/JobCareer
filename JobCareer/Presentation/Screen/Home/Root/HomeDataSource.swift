@@ -13,7 +13,7 @@ extension HomeUI {
             }
 
             switch (section, item) {
-                case let (.news, .news(content)):
+                case let (.news, .news(item)):
                     guard
                         let cell = collectionView.dequeueReusableCell(
                             withReuseIdentifier: NewsCell.resourceName,
@@ -23,20 +23,21 @@ extension HomeUI {
                         return UICollectionViewCell()
                     }
 
-                    cell.configure(
-                        title: content.title,
-                        description: content.description
-                    )
+                    cell.configure(item: item)
 
                     return cell
 
-                case (.contents, .contents):
-                    let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: UICollectionViewCell.resourceName,
-                        for: indexPath
-                    )
+                case let (.contents, .contents(item)):
+                    guard
+                        let cell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: ContentsCell.resourceName,
+                            for: indexPath
+                        ) as? ContentsCell
+                    else {
+                        return UICollectionViewCell()
+                    }
 
-                    cell.backgroundColor = .yellow
+                    cell.configure(item: item, index: indexPath.row)
 
                     return cell
 

@@ -30,8 +30,8 @@ extension HomeUI {
         )
 
         collectionView.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: UICollectionViewCell.resourceName
+            ContentsCell.self,
+            forCellWithReuseIdentifier: ContentsCell.resourceName
         )
 
         collectionView.dataSource = dataSource

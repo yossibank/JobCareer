@@ -16,11 +16,6 @@ enum FontSize: CGFloat {
 
 extension Stylable where Self == UILabel {
 
-    init(styles: [ViewStyle<Self>]) {
-        self.init()
-        styles.forEach { apply($0) }
-    }
-
     init(
         styles: [ViewStyle<Self>],
         fontType: FontType,
@@ -62,6 +57,18 @@ extension ViewStyle where T: UILabel {
     static var rightAlignment: ViewStyle<T> {
         ViewStyle<T> {
             $0.textAlignment = .right
+        }
+    }
+
+    static var numberOfLinesZero: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.numberOfLines = 0
+        }
+    }
+
+    static var contentLines: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.numberOfLines = 5
         }
     }
 }
