@@ -22,12 +22,18 @@ final class HomeUI {
 extension HomeUI {
 
     func setupCollectionView(delegate: UICollectionViewDelegate) {
-        dataSource = configureDataSource()
+        dataSource = configureDataSource(collectionView: collectionView)
+
+        collectionView.register(
+            NewsCell.self,
+            forCellWithReuseIdentifier: NewsCell.resourceName
+        )
 
         collectionView.register(
             UICollectionViewCell.self,
             forCellWithReuseIdentifier: UICollectionViewCell.resourceName
         )
+
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
 
@@ -41,43 +47,6 @@ extension HomeUI {
             dataSourceSnapshot,
             animatingDifferences: false
         )
-    }
-}
-
-// MARK: - private methods
-
-private extension HomeUI {
-
-    func configureDataSource() -> UICollectionViewDiffableDataSource<HomeSection, HomeItem> {
-        .init(collectionView: collectionView) { collectionView, indexPath, _ in
-            guard
-                let section = HomeSection.allCases.any(at: indexPath.section)
-            else {
-                return nil
-            }
-
-            switch section {
-                case .news:
-                    let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: UICollectionViewCell.resourceName,
-                        for: indexPath
-                    )
-
-                    cell.backgroundColor = .red
-
-                    return cell
-
-                case .contents:
-                    let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: UICollectionViewCell.resourceName,
-                        for: indexPath
-                    )
-
-                    cell.backgroundColor = .yellow
-
-                    return cell
-            }
-        }
     }
 }
 

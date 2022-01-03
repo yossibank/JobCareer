@@ -16,28 +16,37 @@ enum HomeSection: CaseIterable, CustomStringConvertible {
         switch self {
             case .news:
                 return [
-                    .init(title: "news1", description: "news1 description"),
-                    .init(title: "news2", description: "news2 description"),
-                    .init(title: "news3", description: "news3 description"),
-                    .init(title: "news4", description: "news4 description"),
-                    .init(title: "news5", description: "news5 description"),
-                    .init(title: "news6", description: "news6 description")
+                    .news(.init(title: "news1", description: "description1")),
+                    .news(.init(title: "news2", description: "description2")),
+                    .news(.init(title: "news3", description: "description3")),
+                    .news(.init(title: "news4", description: "description4")),
+                    .news(.init(title: "news5", description: "description5")),
+                    .news(.init(title: "news6", description: "description6"))
                 ]
 
             case .contents:
                 return [
-                    .init(title: "contents1", description: "contents1 description"),
-                    .init(title: "contents2", description: "contents2 description"),
-                    .init(title: "contents3", description: "contents3 description"),
-                    .init(title: "contents4", description: "contents4 description"),
-                    .init(title: "contents5", description: "contents5 description"),
-                    .init(title: "contents6", description: "contents6 description")
+                    .contents(.init(title: "content1")),
+                    .contents(.init(title: "content2")),
+                    .contents(.init(title: "content3")),
+                    .contents(.init(title: "content4")),
+                    .contents(.init(title: "content5")),
+                    .contents(.init(title: "content6"))
                 ]
         }
     }
 }
 
-struct HomeItem: Hashable {
+enum HomeItem: Hashable {
+    case news(News)
+    case contents(Contents)
+}
+
+struct News: Hashable {
     let title: String
     let description: String?
+}
+
+struct Contents: Hashable {
+    let title: String
 }

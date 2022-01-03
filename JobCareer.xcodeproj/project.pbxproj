@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		781F9C9F274758E00034F911 /* DEBUG_BottomSheetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F9C9E274758E00034F911 /* DEBUG_BottomSheetListViewController.swift */; };
 		781F9CA12747598F0034F911 /* DEBUG_BottomSheetListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F9CA02747598F0034F911 /* DEBUG_BottomSheetListUI.swift */; };
+		78214F4727829DA1008CB225 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78214F4627829DA1008CB225 /* NewsCell.swift */; };
+		78214F4927829F3F008CB225 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78214F4827829F3F008CB225 /* LabelStyle.swift */; };
+		7824D6632782B8E100F3AA1C /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824D6622782B8E100F3AA1C /* HomeDataSource.swift */; };
 		78625645274635C200472228 /* DEBUG_UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78625644274635C200472228 /* DEBUG_UI.swift */; };
 		78844F98274348C200A02E9B /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78844F97274348C200A02E9B /* String+Util.swift */; };
 		78844F9A2743490200A02E9B /* Array+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78844F992743490200A02E9B /* Array+Util.swift */; };
@@ -115,6 +118,9 @@
 /* Begin PBXFileReference section */
 		781F9C9E274758E00034F911 /* DEBUG_BottomSheetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_BottomSheetListViewController.swift; sourceTree = "<group>"; };
 		781F9CA02747598F0034F911 /* DEBUG_BottomSheetListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_BottomSheetListUI.swift; sourceTree = "<group>"; };
+		78214F4627829DA1008CB225 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		78214F4827829F3F008CB225 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
+		7824D6622782B8E100F3AA1C /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		78625644274635C200472228 /* DEBUG_UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_UI.swift; sourceTree = "<group>"; };
 		78844F97274348C200A02E9B /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
 		78844F992743490200A02E9B /* Array+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Util.swift"; sourceTree = "<group>"; };
@@ -230,6 +236,22 @@
 				78A93CF3277D69D1005A3DB2 /* BottomSheet */,
 			);
 			path = Contents;
+			sourceTree = "<group>";
+		};
+		78214F4527829D7E008CB225 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7824D6612782B86600F3AA1C /* Cell */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7824D6612782B86600F3AA1C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				78214F4627829DA1008CB225 /* NewsCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		78844F962743476B00A02E9B /* AppUtil */ = {
@@ -352,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				7896FDA22781909F0071B06C /* BottomSheet */,
+				78214F4527829D7E008CB225 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,6 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				78DD435C27424D6D006684D0 /* ButtonStyle.swift */,
+				78214F4827829F3F008CB225 /* LabelStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -587,6 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				78AA802A278135AE00BD0E76 /* HomeItem.swift */,
+				7824D6622782B8E100F3AA1C /* HomeDataSource.swift */,
 				78AA802C2781370E00BD0E76 /* HomeLayout.swift */,
 				78EE794F2780124900F7FCB9 /* HomeUI.swift */,
 				78EE79512780125200F7FCB9 /* HomeViewController.swift */,
@@ -812,13 +837,16 @@
 				78DD434A274246E1006684D0 /* Localizable.swift in Sources */,
 				78BA64CD2744F609005B2D61 /* BottomSheetUI.swift in Sources */,
 				78DD435827424842006684D0 /* UserInterface.swift in Sources */,
+				7824D6632782B8E100F3AA1C /* HomeDataSource.swift in Sources */,
 				78DD435D27424D6D006684D0 /* ButtonStyle.swift in Sources */,
+				78214F4927829F3F008CB225 /* LabelStyle.swift in Sources */,
 				78844FA027434B6100A02E9B /* Images.swift in Sources */,
 				7896FDA127817C1A0071B06C /* FirstDetailUI.swift in Sources */,
 				78DD434827424536006684D0 /* Style.swift in Sources */,
 				78B3D0BF2776F93500A8EC6F /* UIView+Layout.swift in Sources */,
 				78A4E9392778659F005FBB36 /* MainFlowController.swift in Sources */,
 				78DD4373274254D1006684D0 /* FirstDetailViewController.swift in Sources */,
+				78214F4727829DA1008CB225 /* NewsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
