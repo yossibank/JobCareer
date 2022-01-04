@@ -74,6 +74,19 @@ extension HomeUI {
                     section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 4)
             }
 
+            if #available(iOS 14.0, *) {
+                let headerSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .estimated(44)
+                )
+                let header = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerSize,
+                    elementKind: HomeHeader.resourceName,
+                    alignment: .top
+                )
+                section.boundarySupplementaryItems = [header]
+            }
+
             return section
         }
 

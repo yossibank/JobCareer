@@ -25,6 +25,12 @@ extension HomeUI {
         dataSource = configureDataSource(collectionView: collectionView)
 
         collectionView.register(
+            HomeHeader.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HomeHeader.resourceName
+        )
+
+        collectionView.register(
             NewsCell.self,
             forCellWithReuseIdentifier: NewsCell.resourceName
         )
@@ -34,6 +40,28 @@ extension HomeUI {
             forCellWithReuseIdentifier: ContentsCell.resourceName
         )
 
+        if #available(iOS 14.0, *) {
+            let header = UICollectionView.SupplementaryRegistration<HomeHeader>(
+                elementKind: HomeHeader.resourceName
+            ) { view, _, indexPath in
+                guard
+                    let section = HomeSection.allCases.any(at: indexPath.section)
+                else {
+                    return
+                }
+
+                view.configure(title: section.description)
+            }
+
+            dataSource.supplementaryViewProvider = { collectionView, _, indexPath in
+                collectionView.dequeueConfiguredReusableSupplementary(
+                    using: header,
+                    for: indexPath
+                )
+            }
+        }
+
+        collectionView.backgroundColor = .systemBackground
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
 
