@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: - Stored Properties & Init
+// MARK: - stored properties & init
 
 final class AppFlowController: UIViewController {
 
@@ -36,16 +36,25 @@ extension AppFlowController: FlowController {
 
         if AppDataHolder.isLogin ?? false {
             add(mainFlowController)
+            mainFlowController.delegate = self
             mainFlowController.start()
         } else {
-            loginFlowController.delegate = self
             add(loginFlowController)
+            loginFlowController.delegate = self
             loginFlowController.start()
         }
     }
 }
 
 // MARK: - delegate
+
+extension AppFlowController: MainFlowControllerDelegate {
+
+    func rootView(type: TabBarType) {
+        start()
+        tabBarController?.selectedIndex = type.rawValue
+    }
+}
 
 extension AppFlowController: LoginFlowControllerDelegate {
 

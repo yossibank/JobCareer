@@ -2,9 +2,11 @@
 
 import UIKit
 
-// MARK: - Stored Properties & Init
+// MARK: - stored properties & init
 
 final class DEBUG_FlowController: UIViewController {
+
+    weak var delegate: MainFlowControllerDelegate!
 
     private let navVC = NavigationController()
 
@@ -48,7 +50,7 @@ extension DEBUG_FlowController: FlowController {
     }
 }
 
-// MARK: - Delegate
+// MARK: - delegate
 
 extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
 
@@ -58,14 +60,19 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
                 let vc = Resources.ViewControllers.App.debugBottomSheetList()
                 navVC.present(vc, animated: true)
 
+            case .home:
+                let vc = Resources.ViewControllers.App.home()
+                vc.delegate = self
+                navVC.pushViewController(vc, animated: true)
+
             case .first:
                 let vc = Resources.ViewControllers.App.first()
                 vc.delegate = self
-
                 navVC.pushViewController(vc, animated: true)
 
             case .firstDetail:
                 let vc = Resources.ViewControllers.App.firstDetail()
+                vc.delegate = self
                 navVC.pushViewController(vc, animated: true)
 
             case .second:
@@ -75,11 +82,22 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
     }
 }
 
-extension DEBUG_FlowController: FirstViewControllerDelegate {
+extension DEBUG_FlowController: HomeViewControllerDelegate {
 
-    func didNextButtonTapped() {
-        let vc = Resources.ViewControllers.App.firstDetail()
+    func showFirstView() {
+        let vc = Resources.ViewControllers.App.first()
+        vc.delegate = self
         navVC.pushViewController(vc, animated: true)
+    }
+
+    func showFirstDetailView() {
+        let vc = Resources.ViewControllers.App.firstDetail()
+        vc.delegate = self
+        navVC.pushViewController(vc, animated: true)
+    }
+
+    func backRootView() {
+        delegate.rootView(type: .debug)
     }
 }
 
