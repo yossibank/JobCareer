@@ -5,10 +5,10 @@ enum HomeSection: CaseIterable, CustomStringConvertible {
     var description: String {
         switch self {
             case .news:
-                return "ニュース"
+                return Resources.Strings.Home.news
 
             case .contents:
-                return "コンテンツ"
+                return Resources.Strings.Home.contents
         }
     }
 

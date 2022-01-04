@@ -1,4 +1,11 @@
-"login_button_title" = "ログイン";
+/* Components */
 "next_button_title" = "次へ";
 "back_button_title" = "戻る";
 "cancel_button_title" = "キャンセル";
+
+/* Login */
+"login_button_title" = "ログイン";
+
+/* Home */
+"news" = "ニュース";
+"contents" = "コンテンツ";
