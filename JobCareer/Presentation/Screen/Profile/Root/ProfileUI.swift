@@ -2,7 +2,7 @@ import UIKit
 
 // MARK: - stored properties
 
-final class AccountUI {
+final class ProfileUI {
 
     private let button: UIButton = .init(
         style: .someStyle,
@@ -12,7 +12,7 @@ final class AccountUI {
 
 // MARK: - protocol
 
-extension AccountUI: UserInterface {
+extension ProfileUI: UserInterface {
 
     func setupView(rootView: UIView) {
         rootView.backgroundColor = .systemBackground

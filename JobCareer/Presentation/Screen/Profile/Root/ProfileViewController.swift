@@ -1,20 +1,20 @@
 import UIKit
 
-extension AccountViewController: VCInjectable {
-    typealias VM = AccountViewModel
-    typealias UI = AccountUI
+extension ProfileViewController: VCInjectable {
+    typealias VM = ProfileViewModel
+    typealias UI = ProfileUI
 }
 
 // MARK: - stored properties
 
-final class AccountViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     var viewModel: VM!
     var ui: UI!
 }
 
 // MARK: - override methods
 
-extension AccountViewController {
+extension ProfileViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
