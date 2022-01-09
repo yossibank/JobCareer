@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780E2B6B278A88C300B01F28 /* ProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780E2B6A278A88C300B01F28 /* ProfileItem.swift */; };
+		780E2B6D278A88D100B01F28 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780E2B6C278A88D100B01F28 /* ProfileDataSource.swift */; };
+		780E2B6F278A88DD00B01F28 /* ProfileLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780E2B6E278A88DD00B01F28 /* ProfileLayout.swift */; };
 		781F9C9F274758E00034F911 /* DEBUG_BottomSheetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F9C9E274758E00034F911 /* DEBUG_BottomSheetListViewController.swift */; };
 		781F9CA12747598F0034F911 /* DEBUG_BottomSheetListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F9CA02747598F0034F911 /* DEBUG_BottomSheetListUI.swift */; };
 		78214F4727829DA1008CB225 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78214F4627829DA1008CB225 /* NewsCell.swift */; };
@@ -124,6 +127,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		780E2B6A278A88C300B01F28 /* ProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItem.swift; sourceTree = "<group>"; };
+		780E2B6C278A88D100B01F28 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
+		780E2B6E278A88DD00B01F28 /* ProfileLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLayout.swift; sourceTree = "<group>"; };
 		781F9C9E274758E00034F911 /* DEBUG_BottomSheetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_BottomSheetListViewController.swift; sourceTree = "<group>"; };
 		781F9CA02747598F0034F911 /* DEBUG_BottomSheetListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_BottomSheetListUI.swift; sourceTree = "<group>"; };
 		78214F4627829DA1008CB225 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -284,6 +290,9 @@
 		7860A6DD2786EBA1004C26DE /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				780E2B6A278A88C300B01F28 /* ProfileItem.swift */,
+				780E2B6C278A88D100B01F28 /* ProfileDataSource.swift */,
+				780E2B6E278A88DD00B01F28 /* ProfileLayout.swift */,
 				7860A6E02786EBBC004C26DE /* ProfileUI.swift */,
 				7860A6E22786EBC8004C26DE /* ProfileViewController.swift */,
 				7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */,
@@ -875,9 +884,11 @@
 				781F9C9F274758E00034F911 /* DEBUG_BottomSheetListViewController.swift in Sources */,
 				78844F9E27434B3C00A02E9B /* Resources.swift in Sources */,
 				78DD435627424825006684D0 /* ViewModel.swift in Sources */,
+				780E2B6D278A88D100B01F28 /* ProfileDataSource.swift in Sources */,
 				78DD4336274238DC006684D0 /* API.swift in Sources */,
 				7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */,
 				78F382732783EC15004664C9 /* HomeHeader.swift in Sources */,
+				780E2B6B278A88C300B01F28 /* ProfileItem.swift in Sources */,
 				78A93CF2277D502D005A3DB2 /* LoginUI.swift in Sources */,
 				78C20EF2277B3ADF00C7EC65 /* DEBUG_FlowController.swift in Sources */,
 				78DD435A274249CC006684D0 /* VCInjectable.swift in Sources */,
@@ -885,6 +896,7 @@
 				78DD4368274251D3006684D0 /* SecondUI.swift in Sources */,
 				78EE79522780125200F7FCB9 /* HomeViewController.swift in Sources */,
 				78AA802B278135AE00BD0E76 /* HomeItem.swift in Sources */,
+				780E2B6F278A88DD00B01F28 /* ProfileLayout.swift in Sources */,
 				78DD436E27425455006684D0 /* FirstViewController.swift in Sources */,
 				78BA64CB2744E479005B2D61 /* CommonBottomSheetContentView.swift in Sources */,
 				78ACDFA927898D5300449821 /* ProfileFlowController.swift in Sources */,

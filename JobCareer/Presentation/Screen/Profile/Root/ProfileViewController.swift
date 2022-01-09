@@ -19,5 +19,23 @@ extension ProfileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ui.setupView(rootView: view)
+        ui.setupCollectionView(delegate: self)
+    }
+}
+
+// MARK: - delegate
+
+extension ProfileViewController: UICollectionViewDelegate {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        collectionView.deselectItem(
+            at: indexPath,
+            animated: true
+        )
+
+        print(indexPath)
     }
 }
