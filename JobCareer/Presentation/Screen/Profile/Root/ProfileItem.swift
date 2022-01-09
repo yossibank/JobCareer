@@ -15,18 +15,18 @@ enum ProfileSection: CaseIterable, CustomStringConvertible {
     var initialItems: [ProfileItem] {
         switch self {
             case .main:
-                return [.main("MAIN1")]
+                return [.main(.init(name: "TEST1", icon: Resources.Images.Test.testIcon))]
 
             case .career:
                 return [
-                    .career("CAREER1"),
-                    .career("CAREER2")
+                    .career(.init(title: "CAREER1", description: "career description")),
+                    .career(.init(title: "CAREER2", description: "career description"))
                 ]
         }
     }
 }
 
 enum ProfileItem: Hashable {
-    case main(String)
-    case career(String)
+    case main(Main)
+    case career(Career)
 }

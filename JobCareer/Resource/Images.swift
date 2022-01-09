@@ -9,4 +9,8 @@ struct ImageResources {
     struct General {
         static let bottomSheetBar: UIImage = #imageLiteral(resourceName: "BottomSheet")
     }
+
+    struct Test {
+        static let testIcon: UIImage = #imageLiteral(resourceName: "penguin")
+    }
 }

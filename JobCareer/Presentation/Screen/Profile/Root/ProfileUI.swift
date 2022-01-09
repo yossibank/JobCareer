@@ -25,8 +25,13 @@ extension ProfileUI {
         dataSource = configureDataSource(collectionView: collectionView)
 
         collectionView.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: UICollectionViewCell.resourceName
+            MainCell.self,
+            forCellWithReuseIdentifier: MainCell.resourceName
+        )
+
+        collectionView.register(
+            CareerCell.self,
+            forCellWithReuseIdentifier: CareerCell.resourceName
         )
 
         collectionView.backgroundColor = .systemBackground

@@ -13,23 +13,31 @@ extension ProfileUI {
             }
 
             switch (section, item) {
-                case let (.main, .main(text)):
-                    let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: UICollectionViewCell.resourceName,
-                        for: indexPath
-                    )
+                case let (.main, .main(item)):
+                    guard
+                        let cell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: MainCell.resourceName,
+                            for: indexPath
+                        ) as? MainCell
+                    else {
+                        return UICollectionViewCell()
+                    }
 
-                    cell.backgroundColor = .red
+                    cell.configure(item: item)
 
                     return cell
 
-                case let (.career, .career(text)):
-                    let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: UICollectionViewCell.resourceName,
-                        for: indexPath
-                    )
+                case let (.career, .career(item)):
+                    guard
+                        let cell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: CareerCell.resourceName,
+                            for: indexPath
+                        ) as? CareerCell
+                    else {
+                        return UICollectionViewCell()
+                    }
 
-                    cell.backgroundColor = .blue
+                    cell.configure(item: item)
 
                     return cell
 
