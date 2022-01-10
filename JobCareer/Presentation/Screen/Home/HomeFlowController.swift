@@ -41,7 +41,7 @@ extension HomeFlowController: FlowController {
         let vc = Resources.ViewControllers.App.home()
         vc.delegate = self
 
-        tabBarItem.title = "HOME"
+        tabBarItem.title = Resources.Strings.Home.home
         tabBarItem.image = UIImage(systemName: "a.circle")
 
         navVC.viewControllers = [vc]

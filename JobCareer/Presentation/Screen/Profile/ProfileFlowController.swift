@@ -38,7 +38,7 @@ extension ProfileFlowController: FlowController {
     func start() {
         let vc = Resources.ViewControllers.App.profile()
 
-        tabBarItem.title = "PROFILE"
+        tabBarItem.title = Resources.Strings.Profile.profile
         tabBarItem.image = UIImage(systemName: "b.circle")
 
         navVC.viewControllers = [vc]

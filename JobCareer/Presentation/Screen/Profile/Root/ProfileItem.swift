@@ -5,10 +5,10 @@ enum ProfileSection: CaseIterable, CustomStringConvertible {
     var description: String {
         switch self {
             case .main:
-                return "プロフィール"
+                return Resources.Strings.Profile.profile
 
             case .career:
-                return "経歴"
+                return Resources.Strings.Profile.career
         }
     }
 

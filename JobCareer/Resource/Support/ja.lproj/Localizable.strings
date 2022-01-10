@@ -7,5 +7,10 @@
 "login_button_title" = "ログイン";
 
 /* Home */
+"home" = "ホーム";
 "news" = "ニュース";
 "contents" = "コンテンツ";
+
+/* Profile */
+"profile" = "プロフィール";
+"career" = "経歴";
