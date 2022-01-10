@@ -94,7 +94,7 @@
 		78E35E2B277C3F37002EDE43 /* AppDataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E35E2A277C3F37002EDE43 /* AppDataHolder.swift */; };
 		78EE79502780124900F7FCB9 /* HomeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EE794F2780124900F7FCB9 /* HomeUI.swift */; };
 		78EE79522780125200F7FCB9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EE79512780125200F7FCB9 /* HomeViewController.swift */; };
-		78F382732783EC15004664C9 /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F382722783EC15004664C9 /* HomeHeader.swift */; };
+		78F382732783EC15004664C9 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F382722783EC15004664C9 /* CollectionViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,7 +223,7 @@
 		78E35E2A277C3F37002EDE43 /* AppDataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataHolder.swift; sourceTree = "<group>"; };
 		78EE794F2780124900F7FCB9 /* HomeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUI.swift; sourceTree = "<group>"; };
 		78EE79512780125200F7FCB9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		78F382722783EC15004664C9 /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
+		78F382722783EC15004664C9 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -686,7 +686,7 @@
 		78F382742783FF97004664C9 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				78F382722783EC15004664C9 /* HomeHeader.swift */,
+				78F382722783EC15004664C9 /* CollectionViewHeader.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -903,7 +903,7 @@
 				780E2B6D278A88D100B01F28 /* ProfileDataSource.swift in Sources */,
 				78DD4336274238DC006684D0 /* API.swift in Sources */,
 				7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */,
-				78F382732783EC15004664C9 /* HomeHeader.swift in Sources */,
+				78F382732783EC15004664C9 /* CollectionViewHeader.swift in Sources */,
 				780E2B6B278A88C300B01F28 /* ProfileItem.swift in Sources */,
 				78A93CF2277D502D005A3DB2 /* LoginUI.swift in Sources */,
 				78C20EF2277B3ADF00C7EC65 /* DEBUG_FlowController.swift in Sources */,
