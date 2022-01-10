@@ -40,7 +40,7 @@ private extension CollectionViewHeader {
 
             constraints:
             headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
+            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
         )
     }
 }

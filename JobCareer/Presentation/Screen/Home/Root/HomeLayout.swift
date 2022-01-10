@@ -19,14 +19,14 @@ extension HomeUI {
                 case .news:
                     let itemSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalHeight(1.0)
+                        heightDimension: .estimated(44)
                     )
                     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                    item.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 12)
+                    item.contentInsets = .init(top: 0, leading: 8, bottom: 0, trailing: 0)
 
                     let groupSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalWidth(0.5)
+                        heightDimension: .estimated(44)
                     )
                     let group = NSCollectionLayoutGroup.horizontal(
                         layoutSize: groupSize,
