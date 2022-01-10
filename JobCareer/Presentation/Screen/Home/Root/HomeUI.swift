@@ -25,9 +25,9 @@ extension HomeUI {
         dataSource = configureDataSource(collectionView: collectionView)
 
         collectionView.register(
-            HomeHeader.self,
+            CollectionViewHeader.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: HomeHeader.resourceName
+            withReuseIdentifier: CollectionViewHeader.resourceName
         )
 
         collectionView.register(
@@ -41,8 +41,8 @@ extension HomeUI {
         )
 
         if #available(iOS 14.0, *) {
-            let header = UICollectionView.SupplementaryRegistration<HomeHeader>(
-                elementKind: HomeHeader.resourceName
+            let header = UICollectionView.SupplementaryRegistration<CollectionViewHeader>(
+                elementKind: CollectionViewHeader.resourceName
             ) { view, _, indexPath in
                 guard
                     let section = HomeSection.allCases.any(at: indexPath.section)

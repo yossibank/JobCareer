@@ -22,7 +22,6 @@ extension ProfileUI {
                         heightDimension: .fractionalHeight(1.0)
                     )
                     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                    item.contentInsets = .init(top: 8, leading: 12, bottom: 8, trailing: 12)
 
                     let groupSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
@@ -54,9 +53,23 @@ extension ProfileUI {
                     )
 
                     section = NSCollectionLayoutSection(group: group)
-                    section.contentInsets = .init(top: 8, leading: 12, bottom: 8, trailing: 12)
-                    section.interGroupSpacing = 12
             }
+
+            if #available(iOS 14.0, *) {
+                let headerSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .estimated(44)
+                )
+                let header = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerSize,
+                    elementKind: CollectionViewHeader.resourceName,
+                    alignment: .top
+                )
+                section.boundarySupplementaryItems = [header]
+            }
+
+            section.interGroupSpacing = 12
+            section.contentInsets = .init(top: 8, leading: 12, bottom: 8, trailing: 12)
 
             return section
         }

@@ -2,7 +2,7 @@ import UIKit
 
 // MARK: - stored properties & init
 
-final class HomeHeader: UICollectionReusableView {
+final class CollectionViewHeader: UICollectionReusableView {
 
     private let headerLabel: UILabel = .init(
         styles: [.leftAlignment],
@@ -23,7 +23,7 @@ final class HomeHeader: UICollectionReusableView {
 
 // MARK: - internal methods
 
-extension HomeHeader {
+extension CollectionViewHeader {
 
     func configure(title: String) {
         headerLabel.text = title
@@ -32,7 +32,7 @@ extension HomeHeader {
 
 // MARK: - private methods
 
-private extension HomeHeader {
+private extension CollectionViewHeader {
 
     func setupView() {
         addSubViews(

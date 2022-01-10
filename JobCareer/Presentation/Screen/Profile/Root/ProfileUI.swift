@@ -25,6 +25,12 @@ extension ProfileUI {
         dataSource = configureDataSource(collectionView: collectionView)
 
         collectionView.register(
+            CollectionViewHeader.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: CollectionViewHeader.resourceName
+        )
+
+        collectionView.register(
             MainCell.self,
             forCellWithReuseIdentifier: MainCell.resourceName
         )
@@ -33,6 +39,27 @@ extension ProfileUI {
             CareerCell.self,
             forCellWithReuseIdentifier: CareerCell.resourceName
         )
+
+        if #available(iOS 14.0, *) {
+            let header = UICollectionView.SupplementaryRegistration<CollectionViewHeader>(
+                elementKind: CollectionViewHeader.resourceName
+            ) { view, _, indexPath in
+                guard
+                    let section = ProfileSection.allCases.any(at: indexPath.section)
+                else {
+                    return
+                }
+
+                view.configure(title: section.description)
+            }
+
+            dataSource.supplementaryViewProvider = { collectionView, _, indexPath in
+                collectionView.dequeueConfiguredReusableSupplementary(
+                    using: header,
+                    for: indexPath
+                )
+            }
+        }
 
         collectionView.backgroundColor = .systemBackground
         collectionView.dataSource = dataSource
