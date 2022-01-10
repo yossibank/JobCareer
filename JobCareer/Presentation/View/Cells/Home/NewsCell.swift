@@ -9,6 +9,14 @@ struct News: Hashable {
 
 final class NewsCell: UICollectionViewCell {
 
+    private lazy var stackView: UIStackView = .init(
+        subViews: [titleLabel, descriptionLabel],
+        style: .vertical,
+        distributon: .fill,
+        alignment: .fill,
+        space: 12
+    )
+
     private let titleLabel: UILabel = .init(
         styles: [.centerAlignment],
         fontType: .bold,
@@ -16,7 +24,7 @@ final class NewsCell: UICollectionViewCell {
     )
 
     private let descriptionLabel: UILabel = .init(
-        styles: [.leftAlignment],
+        styles: [.leftAlignment, .numberOfLinesZero],
         fontType: .system,
         fontSize: .h3
     )
@@ -52,16 +60,13 @@ private extension NewsCell {
         contentView.layer.cornerRadius = 8.0
 
         contentView.addSubViews(
-            titleLabel,
-            descriptionLabel,
+            stackView,
 
             constraints:
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
         )
     }
 }

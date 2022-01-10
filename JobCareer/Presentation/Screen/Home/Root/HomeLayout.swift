@@ -19,14 +19,14 @@ extension HomeUI {
                 case .news:
                     let itemSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalHeight(1.0)
+                        heightDimension: .estimated(44)
                     )
                     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                    item.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 12)
+                    item.contentInsets = .init(top: 0, leading: 8, bottom: 0, trailing: 0)
 
                     let groupSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalWidth(0.5)
+                        heightDimension: .estimated(44)
                     )
                     let group = NSCollectionLayoutGroup.horizontal(
                         layoutSize: groupSize,
@@ -34,6 +34,7 @@ extension HomeUI {
                     )
 
                     section = NSCollectionLayoutSection(group: group)
+                    section.contentInsets = .init(top: 8, leading: 0, bottom: 16, trailing: 0)
                     section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
 
                 case .contents:
@@ -42,14 +43,14 @@ extension HomeUI {
                         heightDimension: .fractionalHeight(1.0)
                     )
                     let leadingItem = NSCollectionLayoutItem(layoutSize: leadingItemSize)
-                    leadingItem.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+                    leadingItem.contentInsets = .init(top: 0, leading: 8, bottom: 0, trailing: 4)
 
                     let trailingItemSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalHeight(0.3)
+                        heightDimension: .fractionalHeight(1.0)
                     )
                     let trailingItem = NSCollectionLayoutItem(layoutSize: trailingItemSize)
-                    trailingItem.contentInsets = .init(top: 8, leading: 12, bottom: 8, trailing: 8)
+                    trailingItem.contentInsets = .init(top: 0, leading: 4, bottom: 8, trailing: 8)
 
                     let trailingGroupSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(0.4),
@@ -71,7 +72,8 @@ extension HomeUI {
                     )
 
                     section = NSCollectionLayoutSection(group: nestedGroup)
-                    section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 4)
+                    section.contentInsets = .init(top: 12, leading: 0, bottom: 12, trailing: 0)
+                    section.interGroupSpacing = 12
             }
 
             if #available(iOS 14.0, *) {

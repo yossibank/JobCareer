@@ -26,12 +26,12 @@ enum HomeSection: CaseIterable, CustomStringConvertible {
 
             case .contents:
                 return [
-                    .contents(.init(image: Resources.Images.App.appIcon, description: "content1")),
-                    .contents(.init(image: Resources.Images.App.appIcon, description: "content2")),
-                    .contents(.init(image: Resources.Images.App.appIcon, description: "content3")),
-                    .contents(.init(image: Resources.Images.App.appIcon, description: "content4")),
-                    .contents(.init(image: Resources.Images.App.appIcon, description: "content5")),
-                    .contents(.init(image: Resources.Images.App.appIcon, description: "content6"))
+                    .contents(.init(image: Resources.Images.Test.testIcon, description: "content1")),
+                    .contents(.init(image: Resources.Images.Test.testIcon, description: "content2")),
+                    .contents(.init(image: Resources.Images.Test.testIcon, description: "content3")),
+                    .contents(.init(image: Resources.Images.Test.testIcon, description: "content4")),
+                    .contents(.init(image: Resources.Images.Test.testIcon, description: "content5")),
+                    .contents(.init(image: Resources.Images.Test.testIcon, description: "content6"))
                 ]
         }
     }
