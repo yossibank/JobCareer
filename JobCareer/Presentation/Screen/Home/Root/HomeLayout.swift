@@ -81,7 +81,7 @@ extension HomeUI {
                 )
                 let header = NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: headerSize,
-                    elementKind: HomeHeader.resourceName,
+                    elementKind: CollectionViewHeader.resourceName,
                     alignment: .top
                 )
                 section.boundarySupplementaryItems = [header]

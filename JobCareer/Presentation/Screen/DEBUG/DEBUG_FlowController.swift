@@ -65,6 +65,10 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
                 vc.delegate = self
                 navVC.pushViewController(vc, animated: true)
 
+            case .profile:
+                let vc = Resources.ViewControllers.App.profile()
+                navVC.pushViewController(vc, animated: true)
+
             case .first:
                 let vc = Resources.ViewControllers.App.first()
                 vc.delegate = self

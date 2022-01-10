@@ -11,8 +11,6 @@ final class NavigationController: UINavigationController {
 extension UINavigationBar {
 
     func setupBackGroundColor(color: UIColor) {
-        isTranslucent = false
-
         if #available(iOS 15.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
@@ -20,6 +18,7 @@ extension UINavigationBar {
             standardAppearance = appearance
             scrollEdgeAppearance = appearance
         } else {
+            isTranslucent = false
             barTintColor = color
         }
     }

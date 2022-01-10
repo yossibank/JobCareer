@@ -28,6 +28,13 @@ extension Resources {
                 return instance
             }
 
+            func profile() -> ProfileViewController {
+                let instance = ProfileViewController()
+                instance.inject(viewModel: ProfileViewModel(), ui: ProfileUI())
+                instance.title = "PROFILE"
+                return instance
+            }
+
             func first() -> FirstViewController {
                 let instance = FirstViewController()
                 instance.inject(viewModel: FirstViewModel(), ui: FirstUI())

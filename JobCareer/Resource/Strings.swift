@@ -8,7 +8,13 @@ struct StringResource {
     }
 
     struct Home {
+        @Localizable static var home = "home"
         @Localizable static var news = "news"
         @Localizable static var contents = "contents"
+    }
+
+    struct Profile {
+        @Localizable static var profile = "profile"
+        @Localizable static var career = "career"
     }
 }

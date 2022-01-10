@@ -47,15 +47,15 @@ extension MainFlowController: FlowController {
         let homeFlowController = HomeFlowController()
         homeFlowController.delegate = self
 
-        let secondFlowController = SecondFlowController()
+        let profileFlowController = ProfileFlowController()
 
         let debugFlowController = DEBUG_FlowController()
         debugFlowController.delegate = self
 
         #if DEBUG
-        flows = [homeFlowController, secondFlowController, debugFlowController]
+        flows = [homeFlowController, profileFlowController, debugFlowController]
         #else
-        flows = [homeFlowController, secondFlowController]
+        flows = [homeFlowController, profileFlowController]
         #endif
 
         tabController.setViewControllers(flows, animated: false)

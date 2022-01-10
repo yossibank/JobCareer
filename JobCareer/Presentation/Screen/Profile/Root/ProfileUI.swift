@@ -2,7 +2,7 @@ import UIKit
 
 // MARK: - stored properties
 
-final class HomeUI {
+final class ProfileUI {
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
@@ -13,13 +13,13 @@ final class HomeUI {
         return collectionView
     }()
 
-    private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<HomeSection, HomeItem>()
-    private var dataSource: UICollectionViewDiffableDataSource<HomeSection, HomeItem>!
+    private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<ProfileSection, ProfileItem>()
+    private var dataSource: UICollectionViewDiffableDataSource<ProfileSection, ProfileItem>!
 }
 
 // MARK: - internal methods
 
-extension HomeUI {
+extension ProfileUI {
 
     func setupCollectionView(delegate: UICollectionViewDelegate) {
         dataSource = configureDataSource(collectionView: collectionView)
@@ -31,13 +31,13 @@ extension HomeUI {
         )
 
         collectionView.register(
-            NewsCell.self,
-            forCellWithReuseIdentifier: NewsCell.resourceName
+            MainCell.self,
+            forCellWithReuseIdentifier: MainCell.resourceName
         )
 
         collectionView.register(
-            ContentsCell.self,
-            forCellWithReuseIdentifier: ContentsCell.resourceName
+            CareerCell.self,
+            forCellWithReuseIdentifier: CareerCell.resourceName
         )
 
         if #available(iOS 14.0, *) {
@@ -45,7 +45,7 @@ extension HomeUI {
                 elementKind: CollectionViewHeader.resourceName
             ) { view, _, indexPath in
                 guard
-                    let section = HomeSection.allCases.any(at: indexPath.section)
+                    let section = ProfileSection.allCases.any(at: indexPath.section)
                 else {
                     return
                 }
@@ -65,9 +65,9 @@ extension HomeUI {
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
 
-        dataSourceSnapshot.appendSections(HomeSection.allCases)
+        dataSourceSnapshot.appendSections(ProfileSection.allCases)
 
-        HomeSection.allCases.forEach {
+        ProfileSection.allCases.forEach {
             dataSourceSnapshot.appendItems($0.initialItems, toSection: $0)
         }
 
@@ -80,7 +80,7 @@ extension HomeUI {
 
 // MARK: - protocol
 
-extension HomeUI: UserInterface {
+extension ProfileUI: UserInterface {
 
     func setupView(rootView: UIView) {
         rootView.backgroundColor = .systemBackground

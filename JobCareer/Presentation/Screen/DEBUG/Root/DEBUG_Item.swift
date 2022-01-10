@@ -10,7 +10,7 @@ enum DEBUG_Section: String, CaseIterable {
                 return [.bottomSheetContent]
 
             case .viewController:
-                return [.home, .first, .firstDetail, .second]
+                return [.home, .profile, .first, .firstDetail, .second]
         }
     }
 }
@@ -22,6 +22,7 @@ enum DEBUG_Item: String, Hashable {
 
     /* ViewController */
     case home
+    case profile
     case first
     case firstDetail
     case second
