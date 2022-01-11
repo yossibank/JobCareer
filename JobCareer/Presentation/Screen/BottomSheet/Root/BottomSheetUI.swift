@@ -4,19 +4,14 @@ import UIKit
 
 final class BottomSheetUI {
 
-    private let containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemBackground
-        view.layer.cornerRadius = 16.0
-        view.layer.masksToBounds = true
-        return view
-    }()
+    private let containerView: UIView = .init(
+        style: .maskToBounds,
+        cornerRadius: .bottomSheet
+    )
 
-    private let bottomSheetLineImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = Resources.Images.General.bottomSheetBar
-        return imageView
-    }()
+    private let bottomSheetLineImageView: UIImageView = .init(
+        image: Resources.Images.General.bottomSheetBar
+    )
 
     private let baseView = UIView()
 }

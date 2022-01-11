@@ -1,19 +1,5 @@
 import UIKit
 
-enum FontType {
-    case system
-    case bold
-    case italic
-}
-
-enum FontSize: CGFloat {
-    case h1 = 22
-    case h2 = 19
-    case h3 = 16
-    case h4 = 13
-    case h5 = 10
-}
-
 extension Stylable where Self == UILabel {
 
     init(
