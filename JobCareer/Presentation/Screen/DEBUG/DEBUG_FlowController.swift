@@ -44,7 +44,7 @@ extension DEBUG_FlowController: FlowController {
         vc.delegate = self
 
         tabBarItem.title = "DEBUG"
-        tabBarItem.image = UIImage(systemName: "c.circle")
+        tabBarItem.image = Resources.Images.Tabs.debug
 
         navVC.viewControllers = [vc]
     }
