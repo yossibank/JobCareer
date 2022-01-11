@@ -43,7 +43,7 @@ extension DEBUG_FlowController: FlowController {
         let vc = Resources.ViewControllers.App.debug()
         vc.delegate = self
 
-        tabBarItem.title = "DEBUG"
+        tabBarItem.title = Resources.Strings.Title.debug
         tabBarItem.image = Resources.Images.Tabs.debug
 
         navVC.viewControllers = [vc]
