@@ -20,6 +20,8 @@
 		7824D6692782CE5100F3AA1C /* StackViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824D6682782CE5100F3AA1C /* StackViewStyle.swift */; };
 		7832D463278A9B4600A959B1 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832D462278A9B4600A959B1 /* MainCell.swift */; };
 		7832D465278A9B4F00A959B1 /* CareerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832D464278A9B4F00A959B1 /* CareerCell.swift */; };
+		783ED8C8278D5E8600E7D076 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783ED8C7278D5E8500E7D076 /* ViewStyle.swift */; };
+		783ED8CA278D5F7B00E7D076 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783ED8C9278D5F7B00E7D076 /* Sizes.swift */; };
 		7860A6E12786EBBC004C26DE /* ProfileUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E02786EBBC004C26DE /* ProfileUI.swift */; };
 		7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E22786EBC8004C26DE /* ProfileViewController.swift */; };
 		7860A6E52786EBD1004C26DE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */; };
@@ -60,7 +62,6 @@
 		78C20EE7277B35D200C7EC65 /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EE6277B35D200C7EC65 /* AppFlowController.swift */; };
 		78C20EEA277B35F800C7EC65 /* LoginFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EE9277B35F800C7EC65 /* LoginFlowController.swift */; };
 		78C20EEC277B360000C7EC65 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EEB277B360000C7EC65 /* LoginViewController.swift */; };
-		78C20EEF277B394800C7EC65 /* SecondFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EEE277B394800C7EC65 /* SecondFlowController.swift */; };
 		78C20EF2277B3ADF00C7EC65 /* DEBUG_FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF1277B3ADF00C7EC65 /* DEBUG_FlowController.swift */; };
 		78C20EF4277B401600C7EC65 /* DEBUG_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF3277B401600C7EC65 /* DEBUG_Item.swift */; };
 		78C20EF6277B42F800C7EC65 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF5277B42F800C7EC65 /* FlowController.swift */; };
@@ -142,6 +143,8 @@
 		7824D6682782CE5100F3AA1C /* StackViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewStyle.swift; sourceTree = "<group>"; };
 		7832D462278A9B4600A959B1 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		7832D464278A9B4F00A959B1 /* CareerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerCell.swift; sourceTree = "<group>"; };
+		783ED8C7278D5E8500E7D076 /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
+		783ED8C9278D5F7B00E7D076 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		7860A6E02786EBBC004C26DE /* ProfileUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUI.swift; sourceTree = "<group>"; };
 		7860A6E22786EBC8004C26DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -188,7 +191,6 @@
 		78C20EE6277B35D200C7EC65 /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		78C20EE9277B35F800C7EC65 /* LoginFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowController.swift; sourceTree = "<group>"; };
 		78C20EEB277B360000C7EC65 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		78C20EEE277B394800C7EC65 /* SecondFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondFlowController.swift; sourceTree = "<group>"; };
 		78C20EF1277B3ADF00C7EC65 /* DEBUG_FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_FlowController.swift; sourceTree = "<group>"; };
 		78C20EF3277B401600C7EC65 /* DEBUG_Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_Item.swift; sourceTree = "<group>"; };
 		78C20EF5277B42F800C7EC65 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				78844FAC2743AEAC00A02E9B /* ResourcesSupport.swift */,
 				78844FA127434B6E00A02E9B /* Colors.swift */,
 				78844F9F27434B6100A02E9B /* Images.swift */,
+				783ED8C9278D5F7B00E7D076 /* Sizes.swift */,
 				78DD434B27424739006684D0 /* Strings.swift */,
 				78844FA327435C2800A02E9B /* ViewControllers.swift */,
 				78844F9B27434ACD00A02E9B /* Support */,
@@ -612,6 +615,7 @@
 				7824D6662782CADB00F3AA1C /* ImageViewStyle.swift */,
 				78214F4827829F3F008CB225 /* LabelStyle.swift */,
 				7824D6682782CE5100F3AA1C /* StackViewStyle.swift */,
+				783ED8C7278D5E8500E7D076 /* ViewStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -638,7 +642,6 @@
 		78DD436027424E69006684D0 /* Second */ = {
 			isa = PBXGroup;
 			children = (
-				78C20EEE277B394800C7EC65 /* SecondFlowController.swift */,
 				78C20EED277B391100C7EC65 /* Root */,
 			);
 			path = Second;
@@ -878,7 +881,6 @@
 				78CB9D2B277705FF00AA8A94 /* UIControl+Publisher.swift in Sources */,
 				7824D6692782CE5100F3AA1C /* StackViewStyle.swift in Sources */,
 				78C20EF4277B401600C7EC65 /* DEBUG_Item.swift in Sources */,
-				78C20EEF277B394800C7EC65 /* SecondFlowController.swift in Sources */,
 				78844F98274348C200A02E9B /* String+Util.swift in Sources */,
 				78DD432F27423592006684D0 /* Package.swift in Sources */,
 				78BA64D32744FD9D005B2D61 /* BottomSheet+Convenience.swift in Sources */,
@@ -894,6 +896,7 @@
 				7824D6652782C71C00F3AA1C /* ContentsCell.swift in Sources */,
 				7860A6E52786EBD1004C26DE /* ProfileViewModel.swift in Sources */,
 				7860A6E12786EBBC004C26DE /* ProfileUI.swift in Sources */,
+				783ED8CA278D5F7B00E7D076 /* Sizes.swift in Sources */,
 				78DD43442742440D006684D0 /* LoadingState.swift in Sources */,
 				78EE79502780124900F7FCB9 /* HomeUI.swift in Sources */,
 				78DD434C27424739006684D0 /* Strings.swift in Sources */,
@@ -912,6 +915,7 @@
 				78DD4368274251D3006684D0 /* SecondUI.swift in Sources */,
 				78EE79522780125200F7FCB9 /* HomeViewController.swift in Sources */,
 				78AA802B278135AE00BD0E76 /* HomeItem.swift in Sources */,
+				783ED8C8278D5E8600E7D076 /* ViewStyle.swift in Sources */,
 				780E2B6F278A88DD00B01F28 /* ProfileLayout.swift in Sources */,
 				78DD436E27425455006684D0 /* FirstViewController.swift in Sources */,
 				78BA64CB2744E479005B2D61 /* CommonBottomSheetContentView.swift in Sources */,

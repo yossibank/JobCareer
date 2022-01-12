@@ -25,9 +25,9 @@ extension ViewStyle where T: UIButton {
 
     static var bottomSheetDefaultStyle: ViewStyle<T> {
         ViewStyle<T> {
-            $0.titleLabel?.font = .systemFont(ofSize: 19)
+            $0.titleLabel?.font = .systemFont(ofSize: FontSize.h2.rawValue)
             $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = 1.0
+            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
             $0.backgroundColor = .black
             $0.normalTitleColor = .white
             $0.selectedTitleColor = .white
@@ -39,9 +39,9 @@ extension ViewStyle where T: UIButton {
 
     static var bottomSheetCanceltStyle: ViewStyle<T> {
         ViewStyle<T> {
-            $0.titleLabel?.font = .systemFont(ofSize: 19)
+            $0.titleLabel?.font = .systemFont(ofSize: FontSize.h2.rawValue)
             $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = 1.0
+            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
             $0.backgroundColor = .white
             $0.normalTitleColor = .black
             $0.selectedTitleColor = .black
@@ -53,9 +53,9 @@ extension ViewStyle where T: UIButton {
 
     static var bottomSheetAlertStyle: ViewStyle<T> {
         ViewStyle<T> {
-            $0.titleLabel?.font = .systemFont(ofSize: 19)
+            $0.titleLabel?.font = .systemFont(ofSize: FontSize.h2.rawValue)
             $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = 1.0
+            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
             $0.backgroundColor = .red
             $0.normalTitleColor = .white
             $0.selectedTitleColor = .white
