@@ -100,8 +100,8 @@ extension DEBUG_FlowController: HomeViewControllerDelegate {
         navVC.pushViewController(vc, animated: true)
     }
 
-    func backRootView() {
-        delegate.rootView(type: .debug)
+    func showMainView() {
+        delegate.showMainView(type: .debug)
     }
 }
 

@@ -50,7 +50,7 @@ extension AppFlowController: FlowController {
 
 extension AppFlowController: MainFlowControllerDelegate {
 
-    func rootView(type: TabBarType) {
+    func showMainView(type: TabBarType) {
         start()
         tabBarController?.selectedIndex = type.rawValue
     }

@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MainFlowControllerDelegate: AnyObject {
-    func rootView(type: TabBarType)
+    func showMainView(type: TabBarType)
     func showLoginView()
 }
 
@@ -68,8 +68,8 @@ extension MainFlowController: FlowController {
 
 extension MainFlowController: MainFlowControllerDelegate {
 
-    func rootView(type: TabBarType) {
-        delegate.rootView(type: type)
+    func showMainView(type: TabBarType) {
+        delegate.showMainView(type: type)
     }
 
     func showLoginView() {
