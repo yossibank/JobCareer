@@ -42,6 +42,8 @@ extension BottomSheetAction {
     }
 }
 
+// MARK: - stored properties & init
+
 final class CommonBottomSheetContentView: UIView {
 
     private lazy var baseStackView: UIStackView = {

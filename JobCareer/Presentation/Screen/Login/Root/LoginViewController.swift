@@ -1,9 +1,13 @@
 import Combine
 import UIKit
 
+// MARK: - screen transition management
+
 protocol LoginViewControllerDelegate: AnyObject {
     func didLoginButtonTapped()
 }
+
+// MARK: - inject
 
 extension LoginViewController: VCInjectable {
     typealias VM = NoViewModel

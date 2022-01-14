@@ -1,5 +1,7 @@
 import UIKit
 
+// MARK: - screen transition management
+
 protocol MainFlowControllerDelegate: AnyObject {
     func showMainView()
     func didLogoutButtonTapped()
@@ -65,6 +67,8 @@ extension MainFlowController: FlowController {
         flows.forEach { $0.start() }
     }
 }
+
+// MARK: - delegate
 
 extension MainFlowController: MainFlowControllerDelegate {
 

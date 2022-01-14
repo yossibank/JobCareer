@@ -1,5 +1,7 @@
 import UIKit
 
+// MARK: - override init
+
 final class NavigationController: UINavigationController {
 
     override func viewDidLoad() {
@@ -7,6 +9,8 @@ final class NavigationController: UINavigationController {
         navigationBar.setupBackGroundColor(color: .systemBackground)
     }
 }
+
+// MARK: - extension
 
 extension UINavigationBar {
 

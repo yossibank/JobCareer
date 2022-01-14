@@ -1,5 +1,7 @@
 import UIKit
 
+// MARK: - screen transition management
+
 protocol LoginFlowControllerDelegate: AnyObject {
     func didLoginButtonTapped()
 }

@@ -2,6 +2,8 @@
 
 import UIKit
 
+// MARK: - inject
+
 extension DEBUG_BottomSheetListViewController: VCInjectable {
     typealias VM = NoViewModel
     typealias UI = DEBUG_BottomSheetListUI

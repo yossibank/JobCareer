@@ -1,10 +1,14 @@
 import UIKit
 
+// MARK: - screen transition management
+
 protocol HomeViewControllerDelegate: AnyObject {
     func showFirstView()
     func showFirstDetailView()
     func showMainView()
 }
+
+// MARK: - inject
 
 extension HomeViewController: VCInjectable {
     typealias VM = NoViewModel

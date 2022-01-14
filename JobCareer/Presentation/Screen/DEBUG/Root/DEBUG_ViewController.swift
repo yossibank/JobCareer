@@ -2,9 +2,13 @@
 
 import UIKit
 
+// MARK: - screen transition management
+
 protocol DEBUG_ViewControllerDelegate: AnyObject {
     func didItemSelected(item: DEBUG_Item)
 }
+
+// MARK: - inject
 
 extension DEBUG_ViewController: VCInjectable {
     typealias VM = NoViewModel

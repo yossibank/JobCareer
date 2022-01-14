@@ -63,6 +63,8 @@ extension ProfileUI {
     }
 }
 
+// MARK: - delegate
+
 extension ProfileUI: LogoutCellDelegate {
 
     func didLogoutButtonTapped() {

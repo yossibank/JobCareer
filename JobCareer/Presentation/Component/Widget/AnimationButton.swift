@@ -1,5 +1,7 @@
 import UIKit
 
+// MARK: - init
+
 final class AnimationButton: UIButton {
 
     init(
