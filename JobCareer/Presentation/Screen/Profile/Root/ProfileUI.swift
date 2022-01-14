@@ -1,6 +1,12 @@
 import Combine
 import UIKit
 
+// MARK: - screen transition management
+
+protocol ProfileViewDelegate: AnyObject {
+    func showLoginView()
+}
+
 // MARK: - stored properties
 
 final class ProfileUI {
@@ -14,7 +20,7 @@ final class ProfileUI {
         return collectionView
     }()
 
-    var cancellables: Set<AnyCancellable> = []
+    weak var delegate: ProfileViewDelegate!
 
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<ProfileSection, ProfileItem>()
     private var dataSource: UICollectionViewDiffableDataSource<ProfileSection, ProfileItem>!
@@ -108,5 +114,9 @@ extension ProfileUI: UserInterface {
             collectionView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor)
         )
+    }
+
+    func injectDelegate(delegate: ProfileViewDelegate) {
+        self.delegate = delegate
     }
 }

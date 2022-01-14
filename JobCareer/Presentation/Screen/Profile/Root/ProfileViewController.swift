@@ -1,5 +1,13 @@
 import UIKit
 
+// MARK: - screen transition management
+
+protocol ProfileViewControllerDelegate: AnyObject {
+    func showLoginView()
+}
+
+// MARK: - inject
+
 extension ProfileViewController: VCInjectable {
     typealias VM = ProfileViewModel
     typealias UI = ProfileUI
@@ -10,6 +18,8 @@ extension ProfileViewController: VCInjectable {
 final class ProfileViewController: UIViewController {
     var viewModel: VM!
     var ui: UI!
+
+    weak var delegate: ProfileViewControllerDelegate!
 }
 
 // MARK: - override methods
@@ -20,6 +30,7 @@ extension ProfileViewController {
         super.viewDidLoad()
         ui.setupView(rootView: view)
         ui.setupCollectionView(delegate: self)
+        ui.injectDelegate(delegate: self)
     }
 }
 
@@ -37,5 +48,12 @@ extension ProfileViewController: UICollectionViewDelegate {
         )
 
         print(indexPath)
+    }
+}
+
+extension ProfileViewController: ProfileViewDelegate {
+
+    func showLoginView() {
+        delegate.showLoginView()
     }
 }

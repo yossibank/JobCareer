@@ -2,6 +2,7 @@ import UIKit
 
 protocol MainFlowControllerDelegate: AnyObject {
     func rootView(type: TabBarType)
+    func showLoginView()
 }
 
 // MARK: - stored properties & init
@@ -48,6 +49,7 @@ extension MainFlowController: FlowController {
         homeFlowController.delegate = self
 
         let profileFlowController = ProfileFlowController()
+        profileFlowController.delegate = self
 
         let debugFlowController = DEBUG_FlowController()
         debugFlowController.delegate = self
@@ -68,5 +70,9 @@ extension MainFlowController: MainFlowControllerDelegate {
 
     func rootView(type: TabBarType) {
         delegate.rootView(type: type)
+    }
+
+    func showLoginView() {
+        delegate.showLoginView()
     }
 }

@@ -1,4 +1,3 @@
-import Combine
 import UIKit
 
 extension ProfileUI {
@@ -6,8 +5,9 @@ extension ProfileUI {
     func configureDataSource(
         collectionView: UICollectionView
     ) -> UICollectionViewDiffableDataSource<ProfileSection, ProfileItem> {
-        .init(collectionView: collectionView) { collectionView, indexPath, item in
+        .init(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
             guard
+                let self = self,
                 let section = ProfileSection.allCases.any(at: indexPath.section)
             else {
                 return nil
@@ -52,10 +52,7 @@ extension ProfileUI {
                         return UICollectionViewCell()
                     }
 
-                    cell.buttonTapPublisher.sink { _ in
-                        print("TAP!!!")
-                    }
-                    .store(in: &self.cancellables)
+                    cell.delegate = self
 
                     return cell
 
@@ -63,5 +60,12 @@ extension ProfileUI {
                     return nil
             }
         }
+    }
+}
+
+extension ProfileUI: LogoutCellDelegate {
+
+    func showLoginView() {
+        delegate.showLoginView()
     }
 }

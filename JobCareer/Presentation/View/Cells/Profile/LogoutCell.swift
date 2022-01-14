@@ -1,6 +1,11 @@
 import Combine
 import UIKit
 
+// MARK: - screen transition management
+protocol LogoutCellDelegate: AnyObject {
+    func showLoginView()
+}
+
 // MARK: - stored properties & init
 
 final class LogoutCell: UICollectionViewCell {
@@ -11,13 +16,27 @@ final class LogoutCell: UICollectionViewCell {
         titleColor: Resources.Colors.dynamicColor
     )
 
+    private var cancellables: Set<AnyCancellable> = []
+
     lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
         logoutButton.publisher(for: .touchUpInside)
     }()
 
+    weak var delegate: LogoutCellDelegate!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+
+        buttonTapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate.showLoginView()
+        }
+        .store(in: &cancellables)
+    }
+
+    @objc func tapped() {
+        delegate.showLoginView()
     }
 
     @available(*, unavailable)

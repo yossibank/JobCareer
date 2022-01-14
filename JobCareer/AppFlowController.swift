@@ -54,6 +54,11 @@ extension AppFlowController: MainFlowControllerDelegate {
         start()
         tabBarController?.selectedIndex = type.rawValue
     }
+
+    func showLoginView() {
+        AppDataHolder.isLogin = false
+        start()
+    }
 }
 
 extension AppFlowController: LoginFlowControllerDelegate {
