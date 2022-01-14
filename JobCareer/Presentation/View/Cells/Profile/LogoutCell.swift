@@ -6,7 +6,7 @@ final class LogoutCell: UICollectionViewCell {
 
     private let logoutButton: UIButton = .init(
         style: .maskToBounds,
-        title: "ログアウト",
+        title: Resources.Strings.Profile.logout,
         titleColor: Resources.Colors.dynamicColor
     )
 
