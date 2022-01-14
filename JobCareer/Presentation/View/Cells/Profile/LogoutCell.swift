@@ -1,3 +1,4 @@
+import Combine
 import UIKit
 
 // MARK: - stored properties & init
@@ -9,6 +10,10 @@ final class LogoutCell: UICollectionViewCell {
         title: Resources.Strings.Profile.logout,
         titleColor: Resources.Colors.dynamicColor
     )
+
+    lazy var buttonTapPublisher: UIControl.Publisher<UIButton> = {
+        logoutButton.publisher(for: .touchUpInside)
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

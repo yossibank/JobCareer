@@ -1,3 +1,4 @@
+import Combine
 import UIKit
 
 extension ProfileUI {
@@ -50,6 +51,11 @@ extension ProfileUI {
                     else {
                         return UICollectionViewCell()
                     }
+
+                    cell.buttonTapPublisher.sink { _ in
+                        print("TAP!!!")
+                    }
+                    .store(in: &self.cancellables)
 
                     return cell
 

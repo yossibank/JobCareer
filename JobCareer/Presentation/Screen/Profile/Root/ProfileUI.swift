@@ -1,3 +1,4 @@
+import Combine
 import UIKit
 
 // MARK: - stored properties
@@ -12,6 +13,8 @@ final class ProfileUI {
 
         return collectionView
     }()
+
+    var cancellables: Set<AnyCancellable> = []
 
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<ProfileSection, ProfileItem>()
     private var dataSource: UICollectionViewDiffableDataSource<ProfileSection, ProfileItem>!
