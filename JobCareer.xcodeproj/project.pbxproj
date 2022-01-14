@@ -78,6 +78,7 @@
 		78C20EF4277B401600C7EC65 /* DEBUG_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF3277B401600C7EC65 /* DEBUG_Item.swift */; };
 		78C20EF6277B42F800C7EC65 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF5277B42F800C7EC65 /* FlowController.swift */; };
 		78C57E4F2791136E00F212A0 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E4E2791136E00F212A0 /* LogoutCell.swift */; };
+		78C57E522791280C00F212A0 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E512791280C00F212A0 /* AnimationButton.swift */; };
 		78CB9D2B277705FF00AA8A94 /* UIControl+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */; };
 		78DD432427415522006684D0 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 78DD432327415522006684D0 /* Data */; };
 		78DD432727422AB1006684D0 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 78DD432627422AB1006684D0 /* Domain */; };
@@ -206,6 +207,7 @@
 		78C20EF3277B401600C7EC65 /* DEBUG_Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_Item.swift; sourceTree = "<group>"; };
 		78C20EF5277B42F800C7EC65 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		78C57E4E2791136E00F212A0 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
+		78C57E512791280C00F212A0 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Publisher.swift"; sourceTree = "<group>"; };
 		78DD432527421126006684D0 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Domain; sourceTree = "<group>"; };
 		78DD432C274234FE006684D0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -521,6 +523,14 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		78C57E50279127D800F212A0 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				78C57E512791280C00F212A0 /* AnimationButton.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		78DD432827423475006684D0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +622,7 @@
 			isa = PBXGroup;
 			children = (
 				78DD435B27424D33006684D0 /* Style */,
+				78C57E50279127D800F212A0 /* Widget */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -895,6 +906,7 @@
 			files = (
 				78DD436227424E7C006684D0 /* DEBUG_ViewController.swift in Sources */,
 				78625645274635C200472228 /* DEBUG_UI.swift in Sources */,
+				78C57E522791280C00F212A0 /* AnimationButton.swift in Sources */,
 				78AA802F278163B600BD0E76 /* HomeFlowController.swift in Sources */,
 				781F9CA12747598F0034F911 /* DEBUG_BottomSheetListUI.swift in Sources */,
 				78C20EF6277B42F800C7EC65 /* FlowController.swift in Sources */,

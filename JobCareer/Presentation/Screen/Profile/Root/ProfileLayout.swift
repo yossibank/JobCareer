@@ -77,7 +77,7 @@ extension ProfileUI {
                     )
 
                     section = NSCollectionLayoutSection(group: group)
-                    section.contentInsets = .init(top: 8, leading: 120, bottom: 32, trailing: 120)
+                    section.contentInsets = .init(top: 32, leading: 96, bottom: 32, trailing: 96)
             }
 
             section.interGroupSpacing = 12

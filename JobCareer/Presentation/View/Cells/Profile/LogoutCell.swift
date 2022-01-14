@@ -5,13 +5,13 @@ import UIKit
 
 final class LogoutCell: UICollectionViewCell {
 
-    private let logoutButton: UIButton = .init(
-        style: .maskToBounds,
+    private let logoutButton: AnimationButton = .init(
+        style: .cornerStyle,
         title: Resources.Strings.Profile.logout,
         titleColor: Resources.Colors.dynamicColor
     )
 
-    lazy var buttonTapPublisher: UIControl.Publisher<UIButton> = {
+    lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
         logoutButton.publisher(for: .touchUpInside)
     }()
 
@@ -31,10 +31,6 @@ final class LogoutCell: UICollectionViewCell {
 private extension LogoutCell {
 
     func setupView() {
-        contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = UIColor.random.cgColor
-        contentView.layer.cornerRadius = 8.0
-
         contentView.addSubViews(
             logoutButton,
 

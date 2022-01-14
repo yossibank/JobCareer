@@ -5,12 +5,10 @@ extension Stylable where Self == UIButton {
     init(
         style: ViewStyle<Self>,
         title: String,
-        titleColor: UIColor = .systemBackground,
         for state: UIControl.State = .normal
     ) {
         self.init()
         self.setTitle(title, for: state)
-        self.setTitleColor(titleColor, for: state)
         apply(style)
     }
 }
@@ -22,6 +20,14 @@ extension ViewStyle where T: UIButton {
             $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = .random
             $0.layer.cornerRadius = 4.0
+        }
+    }
+
+    static var cornerStyle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.layer.borderColor = Resources.Colors.borderColor.cgColor
+            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
+            $0.layer.cornerRadius = CornerRadiusSize.biggest.rawValue
         }
     }
 
