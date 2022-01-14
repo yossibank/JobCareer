@@ -41,6 +41,18 @@ extension ProfileUI {
 
                     return cell
 
+                case (.logout, .logout):
+                    guard
+                        let cell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: LogoutCell.resourceName,
+                            for: indexPath
+                        ) as? LogoutCell
+                    else {
+                        return UICollectionViewCell()
+                    }
+
+                    return cell
+
                 default:
                     return nil
             }

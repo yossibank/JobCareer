@@ -40,6 +40,11 @@ extension ProfileUI {
             forCellWithReuseIdentifier: CareerCell.resourceName
         )
 
+        collectionView.register(
+            LogoutCell.self,
+            forCellWithReuseIdentifier: LogoutCell.resourceName
+        )
+
         if #available(iOS 14.0, *) {
             let header = UICollectionView.SupplementaryRegistration<CollectionViewHeader>(
                 elementKind: CollectionViewHeader.resourceName
@@ -50,7 +55,13 @@ extension ProfileUI {
                     return
                 }
 
-                view.configure(title: section.description)
+                switch section {
+                    case .main, .career:
+                        view.configure(title: section.description)
+
+                    default:
+                        break
+                }
             }
 
             dataSource.supplementaryViewProvider = { collectionView, _, indexPath in

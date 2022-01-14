@@ -1,6 +1,7 @@
 enum ProfileSection: CaseIterable, CustomStringConvertible {
     case main
     case career
+    case logout
 
     var description: String {
         switch self {
@@ -9,6 +10,9 @@ enum ProfileSection: CaseIterable, CustomStringConvertible {
 
             case .career:
                 return Resources.Strings.Profile.career
+
+            case .logout:
+                return "ログアウト"
         }
     }
 
@@ -22,6 +26,9 @@ enum ProfileSection: CaseIterable, CustomStringConvertible {
                     .career(.init(title: "CAREER1", description: "career description")),
                     .career(.init(title: "CAREER2", description: "career description"))
                 ]
+
+            case .logout:
+                return [.logout]
         }
     }
 }
@@ -29,4 +36,5 @@ enum ProfileSection: CaseIterable, CustomStringConvertible {
 enum ProfileItem: Hashable {
     case main(Main)
     case career(Career)
+    case logout
 }
