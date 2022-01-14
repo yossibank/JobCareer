@@ -4,7 +4,7 @@ import UIKit
 // MARK: - screen transition management
 
 protocol ProfileViewDelegate: AnyObject {
-    func showLoginView()
+    func didLogoutButtonTapped()
 }
 
 // MARK: - stored properties

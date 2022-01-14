@@ -1,8 +1,8 @@
 import UIKit
 
 protocol MainFlowControllerDelegate: AnyObject {
-    func showMainView(type: TabBarType)
-    func showLoginView()
+    func showMainView()
+    func didLogoutButtonTapped()
 }
 
 // MARK: - stored properties & init
@@ -68,11 +68,12 @@ extension MainFlowController: FlowController {
 
 extension MainFlowController: MainFlowControllerDelegate {
 
-    func showMainView(type: TabBarType) {
-        delegate.showMainView(type: type)
+    func showMainView() {
+        delegate.showMainView()
     }
 
-    func showLoginView() {
-        delegate.showLoginView()
+    func didLogoutButtonTapped() {
+        tabController.selectedIndex = TabBarType.home.rawValue
+        delegate.didLogoutButtonTapped()
     }
 }

@@ -65,6 +65,6 @@ extension HomeFlowController: HomeViewControllerDelegate {
     }
 
     func showMainView() {
-        delegate.showMainView(type: .home)
+        delegate.showMainView()
     }
 }

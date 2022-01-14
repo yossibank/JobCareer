@@ -3,7 +3,7 @@ import UIKit
 
 // MARK: - screen transition management
 protocol LogoutCellDelegate: AnyObject {
-    func showLoginView()
+    func didLogoutButtonTapped()
 }
 
 // MARK: - stored properties & init
@@ -26,17 +26,14 @@ final class LogoutCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         setupView()
 
         buttonTapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-            self.delegate.showLoginView()
+            self.delegate.didLogoutButtonTapped()
         }
         .store(in: &cancellables)
-    }
-
-    @objc func tapped() {
-        delegate.showLoginView()
     }
 
     @available(*, unavailable)

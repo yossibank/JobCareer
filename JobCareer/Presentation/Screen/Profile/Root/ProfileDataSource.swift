@@ -65,7 +65,7 @@ extension ProfileUI {
 
 extension ProfileUI: LogoutCellDelegate {
 
-    func showLoginView() {
-        delegate.showLoginView()
+    func didLogoutButtonTapped() {
+        delegate.didLogoutButtonTapped()
     }
 }

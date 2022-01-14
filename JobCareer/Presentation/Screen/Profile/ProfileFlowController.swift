@@ -52,7 +52,7 @@ extension ProfileFlowController: FlowController {
 
 extension ProfileFlowController: ProfileViewControllerDelegate {
 
-    func showLoginView() {
-        delegate.showLoginView()
+    func didLogoutButtonTapped() {
+        delegate.didLogoutButtonTapped()
     }
 }

@@ -3,7 +3,7 @@ import UIKit
 // MARK: - screen transition management
 
 protocol ProfileViewControllerDelegate: AnyObject {
-    func showLoginView()
+    func didLogoutButtonTapped()
 }
 
 // MARK: - inject
@@ -53,7 +53,7 @@ extension ProfileViewController: UICollectionViewDelegate {
 
 extension ProfileViewController: ProfileViewDelegate {
 
-    func showLoginView() {
-        delegate.showLoginView()
+    func didLogoutButtonTapped() {
+        delegate.didLogoutButtonTapped()
     }
 }
