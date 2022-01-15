@@ -17,7 +17,6 @@ final class ProfileUI {
             frame: .zero,
             collectionViewLayout: createLayout()
         )
-
         return collectionView
     }()
 

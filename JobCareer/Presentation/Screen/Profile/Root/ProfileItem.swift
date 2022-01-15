@@ -12,7 +12,7 @@ enum ProfileSection: CaseIterable, CustomStringConvertible {
                 return Resources.Strings.Profile.career
 
             case .logout:
-                return "ログアウト"
+                return Resources.Strings.Profile.logout
         }
     }
 
