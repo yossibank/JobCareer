@@ -26,6 +26,11 @@ jobs:
     - name: Remove Json file
       run: rm JobCareer/GoogleService-info.json
 
+    - name: Before Cache
+      run: |
+        mkdir -p ~/SourcePackages
+        ls ~/SourcePackages
+
     - name: Cache Swift Packages
       uses: actions/cache@v1
       with:
