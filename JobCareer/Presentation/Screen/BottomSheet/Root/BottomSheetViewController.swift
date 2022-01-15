@@ -1,11 +1,13 @@
 import UIKit
 
+// MARK: - inject
+
 extension BottomSheetViewController: VCInjectable {
     typealias VM = NoViewModel
     typealias UI = BottomSheetUI
 }
 
-// MARK: - stored properties
+// MARK: - stored properties & init
 
 final class BottomSheetViewController: UIViewController {
 

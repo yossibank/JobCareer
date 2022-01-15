@@ -6,6 +6,8 @@ enum TabBarType: Int {
     case debug
 }
 
+// MARK: - override methods
+
 final class TabBarController: UITabBarController {
 
     override func viewDidLoad() {

@@ -23,6 +23,14 @@ extension ViewStyle where T: UIButton {
         }
     }
 
+    static var cornerStyle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.layer.borderColor = Resources.Colors.borderColor.cgColor
+            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
+            $0.layer.cornerRadius = CornerRadiusSize.biggest.rawValue
+        }
+    }
+
     static var bottomSheetDefaultStyle: ViewStyle<T> {
         ViewStyle<T> {
             $0.titleLabel?.font = .systemFont(ofSize: FontSize.h2.rawValue)

@@ -1,7 +1,10 @@
 import UIKit
 
+// MARK: - screen transition management
+
 protocol MainFlowControllerDelegate: AnyObject {
-    func rootView(type: TabBarType)
+    func showMainView()
+    func didLogoutButtonTapped()
 }
 
 // MARK: - stored properties & init
@@ -48,6 +51,7 @@ extension MainFlowController: FlowController {
         homeFlowController.delegate = self
 
         let profileFlowController = ProfileFlowController()
+        profileFlowController.delegate = self
 
         let debugFlowController = DEBUG_FlowController()
         debugFlowController.delegate = self
@@ -64,9 +68,16 @@ extension MainFlowController: FlowController {
     }
 }
 
+// MARK: - delegate
+
 extension MainFlowController: MainFlowControllerDelegate {
 
-    func rootView(type: TabBarType) {
-        delegate.rootView(type: type)
+    func showMainView() {
+        delegate.showMainView()
+    }
+
+    func didLogoutButtonTapped() {
+        tabController.selectedIndex = TabBarType.home.rawValue
+        delegate.didLogoutButtonTapped()
     }
 }

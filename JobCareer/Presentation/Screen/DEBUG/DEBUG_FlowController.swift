@@ -67,6 +67,7 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
 
             case .profile:
                 let vc = Resources.ViewControllers.App.profile()
+                vc.delegate = self
                 navVC.pushViewController(vc, animated: true)
 
             case .first:
@@ -100,8 +101,15 @@ extension DEBUG_FlowController: HomeViewControllerDelegate {
         navVC.pushViewController(vc, animated: true)
     }
 
-    func backRootView() {
-        delegate.rootView(type: .debug)
+    func showMainView() {
+        delegate.showMainView()
+    }
+}
+
+extension DEBUG_FlowController: ProfileViewControllerDelegate {
+
+    func didLogoutButtonTapped() {
+        delegate.didLogoutButtonTapped()
     }
 }
 

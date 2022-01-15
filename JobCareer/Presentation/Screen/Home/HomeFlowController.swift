@@ -64,7 +64,7 @@ extension HomeFlowController: HomeViewControllerDelegate {
         navVC.pushViewController(vc, animated: true)
     }
 
-    func backRootView() {
-        delegate.rootView(type: .home)
+    func showMainView() {
+        delegate.showMainView()
     }
 }

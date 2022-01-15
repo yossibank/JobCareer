@@ -5,8 +5,9 @@ extension ProfileUI {
     func configureDataSource(
         collectionView: UICollectionView
     ) -> UICollectionViewDiffableDataSource<ProfileSection, ProfileItem> {
-        .init(collectionView: collectionView) { collectionView, indexPath, item in
+        .init(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
             guard
+                let self = self,
                 let section = ProfileSection.allCases.any(at: indexPath.section)
             else {
                 return nil
@@ -38,6 +39,20 @@ extension ProfileUI {
                     }
 
                     cell.configure(item: item)
+
+                    return cell
+
+                case (.logout, .logout):
+                    guard
+                        let cell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: LogoutCell.resourceName,
+                            for: indexPath
+                        ) as? LogoutCell
+                    else {
+                        return UICollectionViewCell()
+                    }
+
+                    self.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
 
                     return cell
 

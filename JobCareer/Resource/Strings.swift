@@ -16,6 +16,7 @@ struct StringResource {
     struct Profile {
         @Localizable static var profile = "profile"
         @Localizable static var career = "career"
+        @Localizable static var logout = "logout"
     }
 
     struct Title {

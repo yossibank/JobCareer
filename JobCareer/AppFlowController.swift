@@ -50,9 +50,15 @@ extension AppFlowController: FlowController {
 
 extension AppFlowController: MainFlowControllerDelegate {
 
-    func rootView(type: TabBarType) {
+    func showMainView() {
         start()
-        tabBarController?.selectedIndex = type.rawValue
+    }
+
+    func didLogoutButtonTapped() {
+        // TODO: ログアウト処理の中で成功した際にfalseにする
+        AppDataHolder.isLogin = false
+
+        start()
     }
 }
 

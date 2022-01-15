@@ -50,6 +50,12 @@ enum CornerRadiusSize: CGFloat {
     /** 16.0 */
     case bottomSheet = 16.0
 
+    /** 8.0 */
+    case biggest = 8.0
+
+    /** 6.0 */
+    case bigger = 6.0
+
     /** 4.0 */
     case big = 4.0
 

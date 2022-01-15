@@ -1,4 +1,12 @@
+import Combine
 import UIKit
+
+// MARK: - screen transition management
+
+protocol ProfileViewDelegate: AnyObject {
+    typealias LogoutButtonPublisher = UIControl.Publisher<AnimationButton>
+    func didLogoutButtonTapped(_ publisher: LogoutButtonPublisher)
+}
 
 // MARK: - stored properties
 
@@ -9,9 +17,10 @@ final class ProfileUI {
             frame: .zero,
             collectionViewLayout: createLayout()
         )
-
         return collectionView
     }()
+
+    weak var delegate: ProfileViewDelegate!
 
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<ProfileSection, ProfileItem>()
     private var dataSource: UICollectionViewDiffableDataSource<ProfileSection, ProfileItem>!
@@ -40,6 +49,11 @@ extension ProfileUI {
             forCellWithReuseIdentifier: CareerCell.resourceName
         )
 
+        collectionView.register(
+            LogoutCell.self,
+            forCellWithReuseIdentifier: LogoutCell.resourceName
+        )
+
         if #available(iOS 14.0, *) {
             let header = UICollectionView.SupplementaryRegistration<CollectionViewHeader>(
                 elementKind: CollectionViewHeader.resourceName
@@ -50,7 +64,13 @@ extension ProfileUI {
                     return
                 }
 
-                view.configure(title: section.description)
+                switch section {
+                    case .main, .career:
+                        view.configure(title: section.description)
+
+                    default:
+                        break
+                }
             }
 
             dataSource.supplementaryViewProvider = { collectionView, _, indexPath in
@@ -94,5 +114,9 @@ extension ProfileUI: UserInterface {
             collectionView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor)
         )
+    }
+
+    func injectDelegate(delegate: ProfileViewDelegate) {
+        self.delegate = delegate
     }
 }
