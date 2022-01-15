@@ -26,7 +26,7 @@ jobs:
     - name: Remove Json file
       run: rm JobCareer/GoogleService-info.json
 
-    - name: Before Cache
+    - name: Before Cache SPM
       run: |
         mkdir -p ~/SourcePackages
         ls ~/SourcePackages
