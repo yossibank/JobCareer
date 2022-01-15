@@ -52,7 +52,7 @@ extension ProfileUI {
                         return UICollectionViewCell()
                     }
 
-                    cell.delegate = self
+                    self.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
 
                     return cell
 
@@ -60,14 +60,5 @@ extension ProfileUI {
                     return nil
             }
         }
-    }
-}
-
-// MARK: - delegate
-
-extension ProfileUI: LogoutCellDelegate {
-
-    func didLogoutButtonTapped() {
-        delegate.didLogoutButtonTapped()
     }
 }

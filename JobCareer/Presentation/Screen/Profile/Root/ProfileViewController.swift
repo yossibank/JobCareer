@@ -1,3 +1,4 @@
+import Combine
 import UIKit
 
 // MARK: - screen transition management
@@ -20,6 +21,8 @@ final class ProfileViewController: UIViewController {
     var ui: UI!
 
     weak var delegate: ProfileViewControllerDelegate!
+
+    private var cancellables: Set<AnyCancellable> = []
 }
 
 // MARK: - override methods
@@ -53,7 +56,11 @@ extension ProfileViewController: UICollectionViewDelegate {
 
 extension ProfileViewController: ProfileViewDelegate {
 
-    func didLogoutButtonTapped() {
-        delegate.didLogoutButtonTapped()
+    func didLogoutButtonTapped(_ publisher: LogoutButtonPublisher) {
+        publisher.sink { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate.didLogoutButtonTapped()
+        }
+        .store(in: &cancellables)
     }
 }
