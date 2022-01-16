@@ -7,6 +7,12 @@ struct StringResource {
         @Localizable static var cancelButtonTitle = "cancel_button_title"
     }
 
+    struct TextField {
+        @Localizable static var emailPlaceholder = "email_textfield_placeholder"
+        @Localizable static var passwordPlaceholder = "password_textfield_placeholder"
+        @Localizable static var confirmPasswordPlaceholder = "confirm_password_textfield_placeholder"
+    }
+
     struct Home {
         @Localizable static var home = "home"
         @Localizable static var news = "news"

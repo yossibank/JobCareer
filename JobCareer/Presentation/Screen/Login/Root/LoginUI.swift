@@ -35,17 +35,17 @@ final class LoginUI {
 
     private let emailTextField: BottomBorderTextField = .init(
         style: .emailStyle,
-        placeholder: "メールアドレス"
+        placeholder: Resources.Strings.TextField.emailPlaceholder
     )
 
     private let passwordTextField: BottomBorderTextField = .init(
         style: .passwordStyle,
-        placeholder: "パスワード"
+        placeholder: Resources.Strings.TextField.passwordPlaceholder
     )
 
     private let confirmPasswordTextField: BottomBorderTextField = .init(
         style: .passwordStyle,
-        placeholder: "パスワード(確認)"
+        placeholder: Resources.Strings.TextField.confirmPasswordPlaceholder
     )
 
     private let loginButton: UIButton = .init(
