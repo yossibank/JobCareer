@@ -1,4 +1,5 @@
 import Combine
+import Lottie
 import UIKit
 
 // MARK: - stored properties
