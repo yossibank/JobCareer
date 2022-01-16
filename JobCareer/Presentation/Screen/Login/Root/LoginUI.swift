@@ -44,8 +44,9 @@ final class LoginUI {
     )
 
     private let loginButton: UIButton = .init(
-        style: .someStyle,
-        title: Resources.Strings.Button.loginTitle
+        style: .cornerStyle,
+        title: Resources.Strings.Button.loginTitle,
+        titleColor: Resources.Colors.dynamicColor
     )
 
     lazy var buttonTapPublisher: UIControl.Publisher<UIButton> = {
