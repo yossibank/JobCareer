@@ -12,7 +12,7 @@ final class LoginUI {
     )
 
     private lazy var outputStackView: UIStackView = .init(
-        subViews: [emailTextField, passwordTextField, confirmPasswordTextField],
+        subViews: [emailTextField, passwordTextField],
         style: .vertical,
         space: 16
     )
@@ -31,11 +31,6 @@ final class LoginUI {
     private let passwordTextField: BottomBorderTextField = .init(
         style: .passwordStyle,
         placeholder: Resources.Strings.TextField.passwordPlaceholder
-    )
-
-    private let confirmPasswordTextField: BottomBorderTextField = .init(
-        style: .passwordStyle,
-        placeholder: Resources.Strings.TextField.confirmPasswordPlaceholder
     )
 
     private let loginButton: AnimationButton = .init(
@@ -67,7 +62,6 @@ extension LoginUI: UserInterface {
             animationView.heightAnchor.constraint(equalToConstant: 160),
             emailTextField.heightAnchor.constraint(equalToConstant: 48),
             passwordTextField.heightAnchor.constraint(equalToConstant: 48),
-            confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 48),
             loginButton.heightAnchor.constraint(equalToConstant: 56)
         )
     }
