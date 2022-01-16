@@ -55,9 +55,6 @@ extension AppFlowController: MainFlowControllerDelegate {
     }
 
     func didLogoutButtonTapped() {
-        // TODO: ログアウト処理の中で成功した際にfalseにする
-        AppDataHolder.isLogin = false
-
         start()
     }
 }
