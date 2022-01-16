@@ -1,5 +1,4 @@
 import Combine
-import Lottie
 import UIKit
 
 // MARK: - stored properties
@@ -7,18 +6,12 @@ import UIKit
 final class LoginUI {
 
     private lazy var stackView: UIStackView = .init(
-        subViews: [imageStackView, inputStackView, loginButtonStackView],
+        subViews: [animationView, outputStackView, loginButtonStackView],
         style: .vertical,
-        space: 64
+        space: 48
     )
 
-    private lazy var imageStackView: UIStackView = .init(
-        subViews: [iconImage],
-        style: .vertical,
-        alignment: .trailing
-    )
-
-    private lazy var inputStackView: UIStackView = .init(
+    private lazy var outputStackView: UIStackView = .init(
         subViews: [emailTextField, passwordTextField, confirmPasswordTextField],
         style: .vertical,
         space: 16
@@ -29,9 +22,11 @@ final class LoginUI {
         style: .vertical
     )
 
-    private let iconImage: UIImageView = .init(
-        image: Resources.Images.Test.testIcon
-    )
+    private let animationView: UIView = {
+        let view = UIView()
+        view.setAnimation(animation: .penguin, loopMode: .autoReverse)
+        return view
+    }()
 
     private let emailTextField: BottomBorderTextField = .init(
         style: .emailStyle,
@@ -73,7 +68,7 @@ extension LoginUI: UserInterface {
             stackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: 56),
             stackView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -56),
 
-            iconImage.widthAnchor.constraint(equalToConstant: 100),
+            animationView.heightAnchor.constraint(equalToConstant: 160),
             emailTextField.heightAnchor.constraint(equalToConstant: 48),
             passwordTextField.heightAnchor.constraint(equalToConstant: 48),
             confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 48),

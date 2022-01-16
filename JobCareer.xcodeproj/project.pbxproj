@@ -30,6 +30,8 @@
 		7853DCBC2793BFBD000EAEFF /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCBB2793BFBD000EAEFF /* TextFieldStyle.swift */; };
 		7853DCBE2793C15E000EAEFF /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCBD2793C15E000EAEFF /* BottomBorderTextField.swift */; };
 		7853DCC12793D68B000EAEFF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7853DCC02793D68B000EAEFF /* Lottie */; };
+		7853DCC82793DD0B000EAEFF /* penguin.json in Resources */ = {isa = PBXBuildFile; fileRef = 7853DCC72793DD0B000EAEFF /* penguin.json */; };
+		7853DCCA2793DD71000EAEFF /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCC92793DD71000EAEFF /* Animations.swift */; };
 		7860A6E12786EBBC004C26DE /* ProfileUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E02786EBBC004C26DE /* ProfileUI.swift */; };
 		7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E22786EBC8004C26DE /* ProfileViewController.swift */; };
 		7860A6E52786EBD1004C26DE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */; };
@@ -155,6 +157,8 @@
 		783ED8C9278D5F7B00E7D076 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		7853DCBB2793BFBD000EAEFF /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		7853DCBD2793C15E000EAEFF /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
+		7853DCC72793DD0B000EAEFF /* penguin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = penguin.json; sourceTree = "<group>"; };
+		7853DCC92793DD71000EAEFF /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		7860A6E02786EBBC004C26DE /* ProfileUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUI.swift; sourceTree = "<group>"; };
 		7860A6E22786EBC8004C26DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -299,6 +303,14 @@
 				7832D462278A9B4600A959B1 /* MainCell.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		7853DCC22793DC97000EAEFF /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				7853DCC72793DD0B000EAEFF /* penguin.json */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		7860A6DC2786EB89004C26DE /* Profile */ = {
@@ -560,11 +572,13 @@
 				78DD4349274246E1006684D0 /* Localizable.swift */,
 				78844F9D27434B3C00A02E9B /* Resources.swift */,
 				78844FAC2743AEAC00A02E9B /* ResourcesSupport.swift */,
+				7853DCC92793DD71000EAEFF /* Animations.swift */,
 				78844FA127434B6E00A02E9B /* Colors.swift */,
 				78844F9F27434B6100A02E9B /* Images.swift */,
 				783ED8C9278D5F7B00E7D076 /* Sizes.swift */,
 				78DD434B27424739006684D0 /* Strings.swift */,
 				78844FA327435C2800A02E9B /* ViewControllers.swift */,
+				7853DCC22793DC97000EAEFF /* Animation */,
 				78844F9B27434ACD00A02E9B /* Support */,
 			);
 			path = Resource;
@@ -847,6 +861,7 @@
 				78A3870527401A9F00DF51CF /* Assets.xcassets in Resources */,
 				78B8662B277FF1D0004439E4 /* GoogleService-Info.plist in Resources */,
 				78A4E9342777FC75005FBB36 /* Localizable.strings in Resources */,
+				7853DCC82793DD0B000EAEFF /* penguin.json in Resources */,
 				78A3870827401A9F00DF51CF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -939,6 +954,7 @@
 				78844F9E27434B3C00A02E9B /* Resources.swift in Sources */,
 				78DD435627424825006684D0 /* ViewModel.swift in Sources */,
 				780E2B6D278A88D100B01F28 /* ProfileDataSource.swift in Sources */,
+				7853DCCA2793DD71000EAEFF /* Animations.swift in Sources */,
 				78DD4336274238DC006684D0 /* API.swift in Sources */,
 				7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */,
 				78F382732783EC15004664C9 /* CollectionViewHeader.swift in Sources */,
