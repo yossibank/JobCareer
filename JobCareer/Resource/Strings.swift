@@ -7,6 +7,12 @@ struct StringResource {
         @Localizable static var cancelButtonTitle = "cancel_button_title"
     }
 
+    struct TextField {
+        @Localizable static var emailPlaceholder = "email_textfield_placeholder"
+        @Localizable static var passwordPlaceholder = "password_textfield_placeholder"
+        @Localizable static var confirmPasswordPlaceholder = "confirm_password_textfield_placeholder"
+    }
+
     struct Home {
         @Localizable static var home = "home"
         @Localizable static var news = "news"
@@ -19,13 +25,16 @@ struct StringResource {
         @Localizable static var logout = "logout"
     }
 
-    struct Title {
-        static var login = "LOGIN"
-        static var home = "HOME"
-        static var profile = "PROFILE"
-        static var first = "FIRST"
-        static var firstDetail = "FIRST DETAIL"
-        static var second = "SECOND"
-        static var debug = "DEBUG"
+    struct Navigation {
+
+        struct Title {
+            @Localizable static var login = "login"
+            static var home = "HOME"
+            static var profile = "PROFILE"
+            static var first = "FIRST"
+            static var firstDetail = "FIRST DETAIL"
+            static var second = "SECOND"
+            static var debug = "DEBUG"
+        }
     }
 }

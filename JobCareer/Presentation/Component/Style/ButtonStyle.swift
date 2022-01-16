@@ -5,10 +5,12 @@ extension Stylable where Self == UIButton {
     init(
         style: ViewStyle<Self>,
         title: String,
+        titleColor: UIColor = .systemBackground,
         for state: UIControl.State = .normal
     ) {
         self.init()
         self.setTitle(title, for: state)
+        self.setTitleColor(titleColor, for: state)
         apply(style)
     }
 }

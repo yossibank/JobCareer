@@ -4,6 +4,9 @@
 "cancel_button_title" = "キャンセル";
 
 /* Login */
+"email_textfield_placeholder" = "メールアドレス";
+"password_textfield_placeholder" = "パスワード";
+"confirm_password_textfield_placeholder" = "パスワード(確認)";
 "login_button_title" = "ログイン";
 
 /* Home */
@@ -15,3 +18,6 @@
 "profile" = "プロフィール";
 "career" = "経歴";
 "logout" = "ログアウト";
+
+/* Navigation */
+"login" = "ログイン";
