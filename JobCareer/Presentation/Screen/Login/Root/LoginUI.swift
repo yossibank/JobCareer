@@ -6,7 +6,7 @@ import UIKit
 final class LoginUI {
 
     private lazy var stackView: UIStackView = .init(
-        subViews: [animationView, outputStackView, loginButtonStackView],
+        subViews: [animationView, outputStackView, loginButton],
         style: .vertical,
         space: 48
     )
@@ -15,11 +15,6 @@ final class LoginUI {
         subViews: [emailTextField, passwordTextField, confirmPasswordTextField],
         style: .vertical,
         space: 16
-    )
-
-    private lazy var loginButtonStackView: UIStackView = .init(
-        subViews: [loginButton],
-        style: .vertical
     )
 
     private let animationView: UIView = {
@@ -43,13 +38,13 @@ final class LoginUI {
         placeholder: Resources.Strings.TextField.confirmPasswordPlaceholder
     )
 
-    private let loginButton: UIButton = .init(
+    private let loginButton: AnimationButton = .init(
         style: .cornerStyle,
         title: Resources.Strings.Button.loginTitle,
         titleColor: Resources.Colors.dynamicColor
     )
 
-    lazy var buttonTapPublisher: UIControl.Publisher<UIButton> = {
+    lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
         loginButton.publisher(for: .touchUpInside)
     }()
 }
