@@ -25,13 +25,16 @@ struct StringResource {
         @Localizable static var logout = "logout"
     }
 
-    struct Title {
-        static var login = "LOGIN"
-        static var home = "HOME"
-        static var profile = "PROFILE"
-        static var first = "FIRST"
-        static var firstDetail = "FIRST DETAIL"
-        static var second = "SECOND"
-        static var debug = "DEBUG"
+    struct Navigation {
+
+        struct Title {
+            @Localizable static var login = "login"
+            static var home = "HOME"
+            static var profile = "PROFILE"
+            static var first = "FIRST"
+            static var firstDetail = "FIRST DETAIL"
+            static var second = "SECOND"
+            static var debug = "DEBUG"
+        }
     }
 }

@@ -17,42 +17,42 @@ extension Resources {
             func login() -> LoginViewController {
                 let instance = LoginViewController()
                 instance.inject(ui: LoginUI())
-                instance.title = Resources.Strings.Title.login
+                instance.title = Resources.Strings.Navigation.Title.login
                 return instance
             }
 
             func home() -> HomeViewController {
                 let instance = HomeViewController()
                 instance.inject(ui: HomeUI())
-                instance.title = Resources.Strings.Title.home
+                instance.title = Resources.Strings.Navigation.Title.home
                 return instance
             }
 
             func profile() -> ProfileViewController {
                 let instance = ProfileViewController()
                 instance.inject(viewModel: ProfileViewModel(), ui: ProfileUI())
-                instance.title = Resources.Strings.Title.profile
+                instance.title = Resources.Strings.Navigation.Title.profile
                 return instance
             }
 
             func first() -> FirstViewController {
                 let instance = FirstViewController()
                 instance.inject(viewModel: FirstViewModel(), ui: FirstUI())
-                instance.title = Resources.Strings.Title.first
+                instance.title = Resources.Strings.Navigation.Title.first
                 return instance
             }
 
             func firstDetail() -> FirstDetailViewController {
                 let instance = FirstDetailViewController()
                 instance.inject(ui: FirstDetailUI())
-                instance.title = Resources.Strings.Title.firstDetail
+                instance.title = Resources.Strings.Navigation.Title.firstDetail
                 return instance
             }
 
             func second() -> SecondViewController {
                 let instance = SecondViewController()
                 instance.inject(viewModel: SecondViewModel(), ui: SecondUI())
-                instance.title = Resources.Strings.Title.second
+                instance.title = Resources.Strings.Navigation.Title.second
                 return instance
             }
 
@@ -67,7 +67,7 @@ extension Resources {
             func debug() -> DEBUG_ViewController {
                 let instance = DEBUG_ViewController()
                 instance.inject(ui: DEBUG_UI())
-                instance.title = Resources.Strings.Title.debug
+                instance.title = Resources.Strings.Navigation.Title.debug
                 return instance
             }
 
