@@ -5,9 +5,9 @@ extension Stylable where Self == UIStackView {
     init(
         subViews: [UIView],
         style: ViewStyle<Self>,
-        distributon: UIStackView.Distribution,
-        alignment: UIStackView.Alignment,
-        space: CGFloat
+        distributon: UIStackView.Distribution = .fill,
+        alignment: UIStackView.Alignment = .fill,
+        space: CGFloat = 0
     ) {
         self.init()
         subViews.forEach { self.addArrangedSubview($0) }

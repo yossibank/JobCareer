@@ -27,6 +27,8 @@
 		7853DCB62792F8FA000EAEFF /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7853DCB52792F8FA000EAEFF /* FirebaseCrashlytics */; };
 		7853DCB82792F8FA000EAEFF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7853DCB72792F8FA000EAEFF /* FirebaseFirestore */; };
 		7853DCBA2792F8FA000EAEFF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7853DCB92792F8FA000EAEFF /* FirebaseStorage */; };
+		7853DCBC2793BFBD000EAEFF /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCBB2793BFBD000EAEFF /* TextFieldStyle.swift */; };
+		7853DCBE2793C15E000EAEFF /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCBD2793C15E000EAEFF /* BottomBorderTextField.swift */; };
 		7860A6E12786EBBC004C26DE /* ProfileUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E02786EBBC004C26DE /* ProfileUI.swift */; };
 		7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E22786EBC8004C26DE /* ProfileViewController.swift */; };
 		7860A6E52786EBD1004C26DE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */; };
@@ -150,6 +152,8 @@
 		7832D464278A9B4F00A959B1 /* CareerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerCell.swift; sourceTree = "<group>"; };
 		783ED8C7278D5E8500E7D076 /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
 		783ED8C9278D5F7B00E7D076 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
+		7853DCBB2793BFBD000EAEFF /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
+		7853DCBD2793C15E000EAEFF /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
 		7860A6E02786EBBC004C26DE /* ProfileUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUI.swift; sourceTree = "<group>"; };
 		7860A6E22786EBC8004C26DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -513,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				78C57E512791280C00F212A0 /* AnimationButton.swift */,
+				7853DCBD2793C15E000EAEFF /* BottomBorderTextField.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 				7824D6662782CADB00F3AA1C /* ImageViewStyle.swift */,
 				78214F4827829F3F008CB225 /* LabelStyle.swift */,
 				7824D6682782CE5100F3AA1C /* StackViewStyle.swift */,
+				7853DCBB2793BFBD000EAEFF /* TextFieldStyle.swift */,
 				783ED8C7278D5E8500E7D076 /* ViewStyle.swift */,
 			);
 			path = Style;
@@ -932,8 +938,10 @@
 				78DD4336274238DC006684D0 /* API.swift in Sources */,
 				7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */,
 				78F382732783EC15004664C9 /* CollectionViewHeader.swift in Sources */,
+				7853DCBE2793C15E000EAEFF /* BottomBorderTextField.swift in Sources */,
 				780E2B6B278A88C300B01F28 /* ProfileItem.swift in Sources */,
 				78A93CF2277D502D005A3DB2 /* LoginUI.swift in Sources */,
+				7853DCBC2793BFBD000EAEFF /* TextFieldStyle.swift in Sources */,
 				78C20EF2277B3ADF00C7EC65 /* DEBUG_FlowController.swift in Sources */,
 				78DD435A274249CC006684D0 /* VCInjectable.swift in Sources */,
 				7824D6672782CADB00F3AA1C /* ImageViewStyle.swift in Sources */,
