@@ -3,10 +3,11 @@
 "back_button_title" = "戻る";
 "cancel_button_title" = "キャンセル";
 
-/* Login */
+/* SignUp/Login */
 "email_textfield_placeholder" = "メールアドレス";
 "password_textfield_placeholder" = "パスワード";
 "confirm_password_textfield_placeholder" = "パスワード(確認)";
+"signUp_button_title" = "新規登録";
 "login_button_title" = "ログイン";
 
 /* Home */
@@ -20,4 +21,5 @@
 "logout" = "ログアウト";
 
 /* Navigation */
+"signUp" = "新規登録";
 "login" = "ログイン";

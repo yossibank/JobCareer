@@ -1,6 +1,7 @@
 struct StringResource {
 
     struct Button {
+        @Localizable static var signUpTitle = "signUp_button_title"
         @Localizable static var loginTitle = "login_button_title"
         @Localizable static var nextTitle = "next_button_title"
         @Localizable static var backTitle = "back_button_title"
@@ -28,6 +29,7 @@ struct StringResource {
     struct Navigation {
 
         struct Title {
+            @Localizable static var signUp = "signUp"
             @Localizable static var login = "login"
             static var home = "HOME"
             static var profile = "PROFILE"

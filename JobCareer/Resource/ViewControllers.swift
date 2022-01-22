@@ -14,6 +14,13 @@ extension Resources {
 
         struct AppControllers {
 
+            func signUp() -> SignUpViewController {
+                let instance = SignUpViewController()
+                instance.inject(ui: SignUpUI())
+                instance.title = Resources.Strings.Navigation.Title.login
+                return instance
+            }
+
             func login() -> LoginViewController {
                 let instance = LoginViewController()
                 instance.inject(ui: LoginUI())

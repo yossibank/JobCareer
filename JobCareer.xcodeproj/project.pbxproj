@@ -78,6 +78,9 @@
 		78C57E4F2791136E00F212A0 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E4E2791136E00F212A0 /* LogoutCell.swift */; };
 		78C57E522791280C00F212A0 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E512791280C00F212A0 /* AnimationButton.swift */; };
 		78CB9D2B277705FF00AA8A94 /* UIControl+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */; };
+		78D03FD1279BE37C0058878F /* SignUpFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D03FD0279BE37C0058878F /* SignUpFlowController.swift */; };
+		78D03FD4279BE38C0058878F /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D03FD3279BE38C0058878F /* SignUpUI.swift */; };
+		78D03FD6279BE3950058878F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D03FD5279BE3950058878F /* SignUpViewController.swift */; };
 		78DD432427415522006684D0 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 78DD432327415522006684D0 /* Data */; };
 		78DD432727422AB1006684D0 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 78DD432627422AB1006684D0 /* Domain */; };
 		78DD432D274234FE006684D0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD432C274234FE006684D0 /* Configuration.swift */; };
@@ -211,6 +214,9 @@
 		78C57E4E2791136E00F212A0 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
 		78C57E512791280C00F212A0 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Publisher.swift"; sourceTree = "<group>"; };
+		78D03FD0279BE37C0058878F /* SignUpFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFlowController.swift; sourceTree = "<group>"; };
+		78D03FD3279BE38C0058878F /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
+		78D03FD5279BE3950058878F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		78DD432527421126006684D0 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Domain; sourceTree = "<group>"; };
 		78DD432C274234FE006684D0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		78DD432E27423592006684D0 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -536,6 +542,24 @@
 			path = Widget;
 			sourceTree = "<group>";
 		};
+		78D03FCF279BE1D70058878F /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				78D03FD0279BE37C0058878F /* SignUpFlowController.swift */,
+				78D03FD2279BE3810058878F /* Root */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		78D03FD2279BE3810058878F /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				78D03FD3279BE38C0058878F /* SignUpUI.swift */,
+				78D03FD5279BE3950058878F /* SignUpViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		78DD432827423475006684D0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,7 +668,7 @@
 				78EE794D2780122E00F7FCB9 /* Home */,
 				78C20EE8277B35E000C7EC65 /* Login */,
 				7860A6DC2786EB89004C26DE /* Profile */,
-				78DD436027424E69006684D0 /* Second */,
+				78D03FCF279BE1D70058878F /* SignUp */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -724,6 +748,7 @@
 				78EE794F2780124900F7FCB9 /* HomeUI.swift */,
 				78EE79512780125200F7FCB9 /* HomeViewController.swift */,
 				78DD435F27424E64006684D0 /* First */,
+				78DD436027424E69006684D0 /* Second */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -949,6 +974,7 @@
 				783ED8CA278D5F7B00E7D076 /* Sizes.swift in Sources */,
 				78DD43442742440D006684D0 /* LoadingState.swift in Sources */,
 				78EE79502780124900F7FCB9 /* HomeUI.swift in Sources */,
+				78D03FD4279BE38C0058878F /* SignUpUI.swift in Sources */,
 				78DD434C27424739006684D0 /* Strings.swift in Sources */,
 				781F9C9F274758E00034F911 /* DEBUG_BottomSheetListViewController.swift in Sources */,
 				78844F9E27434B3C00A02E9B /* Resources.swift in Sources */,
@@ -980,8 +1006,10 @@
 				78DD435827424842006684D0 /* UserInterface.swift in Sources */,
 				7824D6632782B8E100F3AA1C /* HomeDataSource.swift in Sources */,
 				78DD435D27424D6D006684D0 /* ButtonStyle.swift in Sources */,
+				78D03FD1279BE37C0058878F /* SignUpFlowController.swift in Sources */,
 				78214F4927829F3F008CB225 /* LabelStyle.swift in Sources */,
 				78844FA027434B6100A02E9B /* Images.swift in Sources */,
+				78D03FD6279BE3950058878F /* SignUpViewController.swift in Sources */,
 				7896FDA127817C1A0071B06C /* FirstDetailUI.swift in Sources */,
 				78DD434827424536006684D0 /* Style.swift in Sources */,
 				78B3D0BF2776F93500A8EC6F /* UIView+Layout.swift in Sources */,
