@@ -6,7 +6,7 @@ import UIKit
 final class LoginUI {
 
     private lazy var stackView: UIStackView = .init(
-        subViews: [animationView, outputStackView, loginButton],
+        subViews: [animationView, outputStackView, loginButton, signUpButton],
         style: .vertical,
         space: 48
     )
@@ -39,6 +39,13 @@ final class LoginUI {
         titleColor: Resources.Colors.dynamicColor
     )
 
+    private let signUpButton: AnimationButton = .init(
+        title: "新規登録はこちらから",
+        titleColor: Resources.Colors.dynamicColor,
+        fontType: .bold,
+        fontSize: .h4
+    )
+
     lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
         loginButton.publisher(for: .touchUpInside)
     }()
@@ -62,7 +69,8 @@ extension LoginUI: UserInterface {
             animationView.heightAnchor.constraint(equalToConstant: 160),
             emailTextField.heightAnchor.constraint(equalToConstant: 48),
             passwordTextField.heightAnchor.constraint(equalToConstant: 48),
-            loginButton.heightAnchor.constraint(equalToConstant: 56)
+            loginButton.heightAnchor.constraint(equalToConstant: 56),
+            signUpButton.heightAnchor.constraint(equalToConstant: 56)
         )
     }
 }
