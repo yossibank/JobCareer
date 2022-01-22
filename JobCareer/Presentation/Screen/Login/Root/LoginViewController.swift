@@ -4,7 +4,8 @@ import UIKit
 // MARK: - screen transition management
 
 protocol LoginViewControllerDelegate: AnyObject {
-    func didLoginButtonTapped()
+    func showMainScreen()
+    func showSignUpScreen()
 }
 
 // MARK: - inject
@@ -49,10 +50,16 @@ extension LoginViewController {
 private extension LoginViewController {
 
     func setupEvent() {
-        ui.buttonTapPublisher.sink { [weak self] _ in
+        ui.loginButtonTapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
             AppDataHolder.isLogin = true
-            self.delegate.didLoginButtonTapped()
+            self.delegate.showMainScreen()
+        }
+        .store(in: &cancellables)
+
+        ui.signUpButtonTapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate.showSignUpScreen()
         }
         .store(in: &cancellables)
     }

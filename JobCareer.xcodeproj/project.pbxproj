@@ -78,7 +78,6 @@
 		78C57E4F2791136E00F212A0 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E4E2791136E00F212A0 /* LogoutCell.swift */; };
 		78C57E522791280C00F212A0 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E512791280C00F212A0 /* AnimationButton.swift */; };
 		78CB9D2B277705FF00AA8A94 /* UIControl+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */; };
-		78D03FD1279BE37C0058878F /* SignUpFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D03FD0279BE37C0058878F /* SignUpFlowController.swift */; };
 		78D03FD4279BE38C0058878F /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D03FD3279BE38C0058878F /* SignUpUI.swift */; };
 		78D03FD6279BE3950058878F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D03FD5279BE3950058878F /* SignUpViewController.swift */; };
 		78DD432427415522006684D0 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 78DD432327415522006684D0 /* Data */; };
@@ -214,7 +213,6 @@
 		78C57E4E2791136E00F212A0 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
 		78C57E512791280C00F212A0 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Publisher.swift"; sourceTree = "<group>"; };
-		78D03FD0279BE37C0058878F /* SignUpFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFlowController.swift; sourceTree = "<group>"; };
 		78D03FD3279BE38C0058878F /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		78D03FD5279BE3950058878F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		78DD432527421126006684D0 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Domain; sourceTree = "<group>"; };
@@ -546,7 +544,6 @@
 		78D03FCF279BE1D70058878F /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				78D03FD0279BE37C0058878F /* SignUpFlowController.swift */,
 				78D03FD2279BE3810058878F /* Root */,
 			);
 			path = SignUp;
@@ -1006,7 +1003,6 @@
 				78DD435827424842006684D0 /* UserInterface.swift in Sources */,
 				7824D6632782B8E100F3AA1C /* HomeDataSource.swift in Sources */,
 				78DD435D27424D6D006684D0 /* ButtonStyle.swift in Sources */,
-				78D03FD1279BE37C0058878F /* SignUpFlowController.swift in Sources */,
 				78214F4927829F3F008CB225 /* LabelStyle.swift in Sources */,
 				78844FA027434B6100A02E9B /* Images.swift in Sources */,
 				78D03FD6279BE3950058878F /* SignUpViewController.swift in Sources */,

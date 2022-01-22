@@ -3,7 +3,7 @@ import UIKit
 // MARK: - screen transition management
 
 protocol LoginFlowControllerDelegate: AnyObject {
-    func didLoginButtonTapped()
+    func showMainScreen()
 }
 
 // MARK: - stored properties & init
@@ -55,7 +55,20 @@ extension LoginFlowController: FlowController {
 
 extension LoginFlowController: LoginViewControllerDelegate {
 
-    func didLoginButtonTapped() {
-        delegate?.didLoginButtonTapped()
+    func showMainScreen() {
+        delegate?.showMainScreen()
+    }
+
+    func showSignUpScreen() {
+        let vc = Resources.ViewControllers.App.signUp()
+        vc.delegate = self
+        present(vc, animated: true)
+    }
+}
+
+extension LoginFlowController: SignUpViewControllerDelegate {
+
+    func didSignUpButtonTapped() {
+        print("SignUp")
     }
 }

@@ -61,7 +61,7 @@ extension AppFlowController: MainFlowControllerDelegate {
 
 extension AppFlowController: LoginFlowControllerDelegate {
 
-    func didLoginButtonTapped() {
+    func showMainScreen() {
         start()
     }
 }

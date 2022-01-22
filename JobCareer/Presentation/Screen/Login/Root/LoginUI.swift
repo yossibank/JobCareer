@@ -40,14 +40,18 @@ final class LoginUI {
     )
 
     private let signUpButton: AnimationButton = .init(
-        title: "新規登録はこちらから",
+        title: Resources.Strings.Button.hereIsSignUpTitle,
         titleColor: Resources.Colors.dynamicColor,
         fontType: .bold,
         fontSize: .h4
     )
 
-    lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
+    lazy var loginButtonTapPublisher: UIControl.Publisher<AnimationButton> = {
         loginButton.publisher(for: .touchUpInside)
+    }()
+
+    lazy var signUpButtonTapPublisher: UIControl.Publisher<AnimationButton> = {
+        signUpButton.publisher(for: .touchUpInside)
     }()
 }
 
