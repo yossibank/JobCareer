@@ -4,7 +4,7 @@ import UIKit
 // MARK: - screen transition management
 
 protocol ProfileViewControllerDelegate: AnyObject {
-    func didLogoutButtonTapped()
+    func showLoginScreen()
 }
 
 // MARK: - inject
@@ -60,7 +60,7 @@ extension ProfileViewController: ProfileViewDelegate {
         publisher.sink { [weak self] _ in
             guard let self = self else { return }
             AppDataHolder.isLogin = false
-            self.delegate.didLogoutButtonTapped()
+            self.delegate.showLoginScreen()
         }
         .store(in: &cancellables)
     }

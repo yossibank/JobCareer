@@ -40,7 +40,7 @@ private extension FirstDetailViewController {
     func setupEvent() {
         ui.buttonTapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-            self.delegate.showMainView()
+            self.delegate.showMainScreen()
         }
         .store(in: &cancellables)
     }

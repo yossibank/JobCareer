@@ -52,19 +52,19 @@ extension HomeFlowController: FlowController {
 
 extension HomeFlowController: HomeViewControllerDelegate {
 
-    func showFirstView() {
+    func showFirstScreen() {
         let vc = Resources.ViewControllers.App.first()
         vc.delegate = self
         navVC.pushViewController(vc, animated: true)
     }
 
-    func showFirstDetailView() {
+    func showFirstDetailScreen() {
         let vc = Resources.ViewControllers.App.firstDetail()
         vc.delegate = self
         navVC.pushViewController(vc, animated: true)
     }
 
-    func showMainView() {
-        delegate.showMainView()
+    func showMainScreen() {
+        delegate.showMainScreen()
     }
 }

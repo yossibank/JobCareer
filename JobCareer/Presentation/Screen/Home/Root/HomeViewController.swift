@@ -3,9 +3,9 @@ import UIKit
 // MARK: - screen transition management
 
 protocol HomeViewControllerDelegate: AnyObject {
-    func showFirstView()
-    func showFirstDetailView()
-    func showMainView()
+    func showFirstScreen()
+    func showFirstDetailScreen()
+    func showMainScreen()
 }
 
 // MARK: - inject
@@ -49,6 +49,6 @@ extension HomeViewController: UICollectionViewDelegate {
             animated: true
         )
 
-        delegate.showFirstView()
+        delegate.showFirstScreen()
     }
 }

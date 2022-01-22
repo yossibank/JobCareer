@@ -3,8 +3,8 @@ import UIKit
 // MARK: - screen transition management
 
 protocol MainFlowControllerDelegate: AnyObject {
-    func showMainView()
-    func didLogoutButtonTapped()
+    func showMainScreen()
+    func showLoginScreen()
 }
 
 // MARK: - stored properties & init
@@ -72,12 +72,12 @@ extension MainFlowController: FlowController {
 
 extension MainFlowController: MainFlowControllerDelegate {
 
-    func showMainView() {
-        delegate.showMainView()
+    func showMainScreen() {
+        delegate.showMainScreen()
     }
 
-    func didLogoutButtonTapped() {
+    func showLoginScreen() {
         tabController.selectedIndex = TabBarType.home.rawValue
-        delegate.didLogoutButtonTapped()
+        delegate.showLoginScreen()
     }
 }
