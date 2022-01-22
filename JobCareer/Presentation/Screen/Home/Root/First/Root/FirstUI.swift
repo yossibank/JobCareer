@@ -5,15 +5,15 @@ import UIKit
 
 final class FirstUI {
 
-    private let button: UIButton = .init(
+    private let firstDetailbutton: UIButton = .init(
         style: .someStyle,
         title: Resources.Strings.Button.nextTitle
     )
 
     private let someSwitch: UISwitch = .init()
 
-    lazy var buttonTapPublisher: UIControl.Publisher<UIButton> = {
-        button.publisher(for: .touchUpInside)
+    lazy var firstDetailButtonTapPublisher: UIControl.Publisher<UIButton> = {
+        firstDetailbutton.publisher(for: .touchUpInside)
     }()
 
     lazy var someSwitchPublisher: AnyPublisher<Bool, Never> = {
@@ -29,17 +29,17 @@ extension FirstUI: UserInterface {
         rootView.backgroundColor = .systemBackground
 
         rootView.addSubViews(
-            button,
+            firstDetailbutton,
             someSwitch,
 
             constraints:
-            button.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: rootView.centerYAnchor),
-            button.widthAnchor.constraint(equalToConstant: 100),
-            button.heightAnchor.constraint(equalToConstant: 100),
+            firstDetailbutton.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
+            firstDetailbutton.centerYAnchor.constraint(equalTo: rootView.centerYAnchor),
+            firstDetailbutton.widthAnchor.constraint(equalToConstant: 100),
+            firstDetailbutton.heightAnchor.constraint(equalToConstant: 100),
 
             someSwitch.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
-            someSwitch.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10)
+            someSwitch.topAnchor.constraint(equalTo: firstDetailbutton.bottomAnchor, constant: 10)
         )
     }
 }

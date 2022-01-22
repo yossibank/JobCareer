@@ -49,9 +49,9 @@ extension FirstViewController {
 private extension FirstViewController {
 
     func setupEvent() {
-        ui.buttonTapPublisher.sink { [weak self] _ in
+        ui.firstDetailButtonTapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-            self.delegate.showFirstDetailScreen()
+            self.delegate.didFirstDetailButtonTapped()
         }
         .store(in: &cancellables)
 

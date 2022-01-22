@@ -4,7 +4,7 @@ import UIKit
 // MARK: - screen transition management
 
 protocol SignUpViewControllerDelegate: AnyObject {
-    func didSignUpButtonTapped()
+    func didRegisterAccount()
 }
 
 // MARK: - inject
@@ -52,7 +52,7 @@ private extension SignUpViewController {
         ui.buttonTapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
             AppDataHolder.isLogin = true
-            self.delegate.didSignUpButtonTapped()
+            self.delegate.didRegisterAccount()
         }
         .store(in: &cancellables)
     }

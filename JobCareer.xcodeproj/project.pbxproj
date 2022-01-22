@@ -479,7 +479,6 @@
 			children = (
 				78C20EE9277B35F800C7EC65 /* LoginFlowController.swift */,
 				78C20EF8277B458500C7EC65 /* Root */,
-				78D03FCF279BE1D70058878F /* SignUp */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -546,7 +545,8 @@
 			children = (
 				78D03FD2279BE3810058878F /* Root */,
 			);
-			path = SignUp;
+			name = SignUp;
+			path = ../SignUp;
 			sourceTree = "<group>";
 		};
 		78D03FD2279BE3810058878F /* Root */ = {
@@ -666,6 +666,7 @@
 				78EE794D2780122E00F7FCB9 /* Home */,
 				78C20EE8277B35E000C7EC65 /* Login */,
 				7860A6DC2786EB89004C26DE /* Profile */,
+				78D03FCF279BE1D70058878F /* SignUp */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
