@@ -49,6 +49,15 @@ final class SignUpUI {
     }()
 }
 
+// MARK: - internal methods
+
+extension SignUpUI {
+
+    func getSignUpButtonOffsetY(rootView: UIView) -> CGFloat {
+        signUpButton.convert(rootView.frame, to: rootView).origin.y
+    }
+}
+
 // MARK: - protocol
 
 extension SignUpUI: UserInterface {

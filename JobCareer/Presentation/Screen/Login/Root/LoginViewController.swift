@@ -64,16 +64,22 @@ private extension LoginViewController {
     }
 
     func setupKeyboard() {
-        keyboardHandler = KeyboardHandler { [weak self] state in
+        keyboardHandler = KeyboardHandler { [weak self] keyboard in
             guard let self = self else { return }
 
             let offsetY = self.ui.getLoginButtonOffsetY(rootView: self.view)
             let space = 8.0
-            let resizeOffsetY = self.view.frame.height - offsetY - state.height + space
+            let resizeOffsetY = self.view.frame.height - offsetY - keyboard.height + space
 
-            state.isVisible
-                ? (self.view.frame.origin.y -= resizeOffsetY)
-                : (self.view.frame.origin.y = 0)
+            switch keyboard.state {
+                case .willShow:
+                    UIView.animate(withDuration: keyboard.animationDuration) {
+                        self.view.frame.origin.y == 0 ? self.view.frame.origin.y -= resizeOffsetY : ()
+                    }
+
+                case .willHide, .unset:
+                    self.view.frame.origin.y = 0
+            }
         }
     }
 }

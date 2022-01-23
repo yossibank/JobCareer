@@ -11,8 +11,6 @@ enum KeyboardTransitionState {
 struct KeyboardState {
     var state: KeyboardTransitionState = .unset
     var height = 0.0
-    var isVisible = false
-    var frame: CGRect = .zero
     var animationDuration = 0.0
 
     private let frameEnd = UIResponder.keyboardFrameEndUserInfoKey
@@ -22,7 +20,6 @@ struct KeyboardState {
         switch note.name {
             case UIResponder.keyboardWillShowNotification:
                 state = .willShow
-                isVisible = true
 
                 if let keyboardEndFrame = note.userInfo?[frameEnd] as? CGRect {
                     height = Double(keyboardEndFrame.size.height)
@@ -34,7 +31,6 @@ struct KeyboardState {
 
             case UIResponder.keyboardWillHideNotification:
                 state = .willHide
-                isVisible = false
 
                 if let animationDurationValue = note.userInfo?[animationEnd] as? NSNumber {
                     animationDuration = animationDurationValue.doubleValue
