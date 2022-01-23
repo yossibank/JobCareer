@@ -6,7 +6,7 @@ final class NavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.setupBackGroundColor(color: .systemBackground)
+        navigationBar.setupBackGroundColor(color: Resources.Colors.staticColor)
     }
 }
 

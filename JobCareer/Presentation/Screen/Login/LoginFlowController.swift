@@ -63,7 +63,9 @@ extension LoginFlowController: LoginViewControllerDelegate {
     func didSignUpButtonTapped() {
         let vc = Resources.ViewControllers.App.signUp()
         vc.delegate = self
-        present(vc, animated: true)
+
+        let navVC = NavigationController(rootViewController: vc)
+        present(navVC, animated: true)
     }
 }
 

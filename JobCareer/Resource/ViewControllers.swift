@@ -17,7 +17,7 @@ extension Resources {
             func signUp() -> SignUpViewController {
                 let instance = SignUpViewController()
                 instance.inject(ui: SignUpUI())
-                instance.title = Resources.Strings.Navigation.Title.login
+                instance.title = Resources.Strings.Navigation.Title.signUp
                 return instance
             }
 
