@@ -17,7 +17,6 @@ extension SignUpViewController: VCInjectable {
 // MARK: - stored properties
 
 final class SignUpViewController: UIViewController {
-
     var viewModel: VM!
     var ui: UI!
 

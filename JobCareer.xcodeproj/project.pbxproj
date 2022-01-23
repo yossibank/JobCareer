@@ -46,6 +46,8 @@
 		78844FA927437E7B00A02E9B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78844FA827437E7B00A02E9B /* Utility.swift */; };
 		78844FAB27437EC700A02E9B /* FirstViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78844FAA27437EC700A02E9B /* FirstViewModelTests.swift */; };
 		78844FAD2743AEAC00A02E9B /* ResourcesSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78844FAC2743AEAC00A02E9B /* ResourcesSupport.swift */; };
+		7894BF0B279CFC4100038B46 /* KeyboardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7894BF0A279CFC4100038B46 /* KeyboardState.swift */; };
+		7894BF0D279D002B00038B46 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7894BF0C279D002B00038B46 /* KeyboardHandler.swift */; };
 		7896FDA127817C1A0071B06C /* FirstDetailUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7896FDA027817C1A0071B06C /* FirstDetailUI.swift */; };
 		789A4E5E2741440000DD4661 /* Utility in Frameworks */ = {isa = PBXBuildFile; productRef = 789A4E5D2741440000DD4661 /* Utility */; };
 		789A4E5F2741440000DD4661 /* Utility in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 789A4E5D2741440000DD4661 /* Utility */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -175,6 +177,8 @@
 		78844FA827437E7B00A02E9B /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		78844FAA27437EC700A02E9B /* FirstViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModelTests.swift; sourceTree = "<group>"; };
 		78844FAC2743AEAC00A02E9B /* ResourcesSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesSupport.swift; sourceTree = "<group>"; };
+		7894BF0A279CFC4100038B46 /* KeyboardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardState.swift; sourceTree = "<group>"; };
+		7894BF0C279D002B00038B46 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		7896FDA027817C1A0071B06C /* FirstDetailUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDetailUI.swift; sourceTree = "<group>"; };
 		789A4E5B27413FD300DD4661 /* Utility */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utility; sourceTree = "<group>"; };
 		789A4E6227414B3A00DD4661 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
@@ -575,6 +579,8 @@
 			children = (
 				78BA64D22744FD9D005B2D61 /* BottomSheet+Convenience.swift */,
 				78DD433727423995006684D0 /* FirebaseProvider.swift */,
+				7894BF0C279D002B00038B46 /* KeyboardHandler.swift */,
+				7894BF0A279CFC4100038B46 /* KeyboardState.swift */,
 				78DD43432742440D006684D0 /* LoadingState.swift */,
 				78DD434727424536006684D0 /* Style.swift */,
 				78844FA6274367C900A02E9B /* TopViewControllerAccessible.swift */,
@@ -994,6 +1000,7 @@
 				78AA802B278135AE00BD0E76 /* HomeItem.swift in Sources */,
 				783ED8C8278D5E8600E7D076 /* ViewStyle.swift in Sources */,
 				780E2B6F278A88DD00B01F28 /* ProfileLayout.swift in Sources */,
+				7894BF0D279D002B00038B46 /* KeyboardHandler.swift in Sources */,
 				78DD436E27425455006684D0 /* FirstViewController.swift in Sources */,
 				78BA64CB2744E479005B2D61 /* CommonBottomSheetContentView.swift in Sources */,
 				78ACDFA927898D5300449821 /* ProfileFlowController.swift in Sources */,
@@ -1013,6 +1020,7 @@
 				78A4E9392778659F005FBB36 /* MainFlowController.swift in Sources */,
 				78DD4373274254D1006684D0 /* FirstDetailViewController.swift in Sources */,
 				78214F4727829DA1008CB225 /* NewsCell.swift in Sources */,
+				7894BF0B279CFC4100038B46 /* KeyboardState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

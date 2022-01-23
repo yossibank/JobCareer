@@ -55,6 +55,15 @@ final class LoginUI {
     }()
 }
 
+// MARK: - internal methods
+
+extension LoginUI {
+
+    func getLoginButtonOffsetY(rootView: UIView) -> CGFloat {
+        loginButton.convert(rootView.frame, to: rootView).origin.y
+    }
+}
+
 // MARK: - protocol
 
 extension LoginUI: UserInterface {

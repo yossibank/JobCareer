@@ -18,7 +18,6 @@ extension DEBUG_ViewController: VCInjectable {
 // MARK: - stored properties
 
 final class DEBUG_ViewController: UIViewController {
-
     var viewModel: VM!
     var ui: UI!
 

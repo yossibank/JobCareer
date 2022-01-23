@@ -12,7 +12,6 @@ extension FirstViewController: VCInjectable {
 // MARK: - stored properties
 
 final class FirstViewController: UIViewController {
-
     var viewModel: VM!
     var ui: UI!
 

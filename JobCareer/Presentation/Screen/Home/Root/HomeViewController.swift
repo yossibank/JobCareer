@@ -18,7 +18,6 @@ extension HomeViewController: VCInjectable {
 // MARK: - stored properties
 
 final class HomeViewController: UIViewController {
-
     var viewModel: VM!
     var ui: UI!
 
