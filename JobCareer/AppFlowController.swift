@@ -64,4 +64,10 @@ extension AppFlowController: LoginFlowControllerDelegate {
     func didLoginButtonTapped() {
         start()
     }
+
+    func didRegisterAccount() {
+        dismiss(animated: true) { [weak self] in
+            self?.start()
+        }
+    }
 }

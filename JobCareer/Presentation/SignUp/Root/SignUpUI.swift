@@ -49,7 +49,7 @@ final class SignUpUI {
 extension SignUpUI: UserInterface {
 
     func setupView(rootView: UIView) {
-        rootView.backgroundColor = .systemBackground
+        rootView.backgroundColor = Resources.Colors.staticColor
 
         rootView.addSubViews(
             stackView,
