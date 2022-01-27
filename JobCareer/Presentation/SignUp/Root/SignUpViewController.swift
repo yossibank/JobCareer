@@ -1,5 +1,6 @@
 import Combine
 import UIKit
+import Utility
 
 // MARK: - screen transition management
 
@@ -10,7 +11,7 @@ protocol SignUpViewControllerDelegate: AnyObject {
 // MARK: - inject
 
 extension SignUpViewController: VCInjectable {
-    typealias VM = NoViewModel
+    typealias VM = SignUpViewModel
     typealias UI = SignUpUI
 }
 
@@ -33,8 +34,9 @@ extension SignUpViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ui.setupView(rootView: view)
-        setupEvent()
         setupKeyboard()
+        setupEvent()
+        bindToViewModel()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -46,15 +48,6 @@ extension SignUpViewController {
 // MARK: - private methods
 
 private extension SignUpViewController {
-
-    func setupEvent() {
-        ui.buttonTapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            AppDataHolder.isLogin = true
-            self.delegate.didRegisterAccount()
-        }
-        .store(in: &cancellables)
-    }
 
     func setupKeyboard() {
         keyboardHandler = KeyboardHandler { [weak self] keyboard in
@@ -74,5 +67,51 @@ private extension SignUpViewController {
                     self.view.frame.origin.y = 0
             }
         }
+    }
+
+    func setupEvent() {
+        ui.buttonTapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+            self.viewModel.signUp()
+        }
+        .store(in: &cancellables)
+
+        viewModel.$state.receive(on: DispatchQueue.main).sink { [weak self] state in
+            Logger.debug(message: "\(state)")
+
+            switch state {
+                case .standby:
+                    Logger.debug(message: "standby")
+
+                case .loading:
+                    Logger.debug(message: "loading")
+
+                case let .done(entities):
+                    AppDataHolder.isLogin = true
+                    self?.delegate.didRegisterAccount()
+                    Logger.debug(message: "\(entities)")
+
+                case let .failed(error):
+                    Logger.debug(message: "\(error.localizedDescription)")
+            }
+        }
+        .store(in: &cancellables)
+    }
+
+    func bindToViewModel() {
+        ui.emailTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.email, on: viewModel)
+            .store(in: &cancellables)
+
+        ui.passwordTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.password, on: viewModel)
+            .store(in: &cancellables)
+
+        ui.confirmPasswordTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.confirmPassword, on: viewModel)
+            .store(in: &cancellables)
     }
 }

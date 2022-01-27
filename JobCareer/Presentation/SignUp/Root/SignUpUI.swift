@@ -44,6 +44,18 @@ final class SignUpUI {
         titleColor: Resources.Colors.dynamicColor
     )
 
+    lazy var emailTextPublisher: AnyPublisher<String, Never> = {
+        emailTextField.textDidChangePublisher
+    }()
+
+    lazy var passwordTextPublisher: AnyPublisher<String, Never> = {
+        passwordTextField.textDidChangePublisher
+    }()
+
+    lazy var confirmPasswordTextPublisher: AnyPublisher<String, Never> = {
+        emailTextField.textDidChangePublisher
+    }()
+
     lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
         signUpButton.publisher(for: .touchUpInside)
     }()
