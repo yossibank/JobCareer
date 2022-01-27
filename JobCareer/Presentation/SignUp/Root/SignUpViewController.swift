@@ -76,26 +76,28 @@ private extension SignUpViewController {
         }
         .store(in: &cancellables)
 
-        viewModel.$state.receive(on: DispatchQueue.main).sink { [weak self] state in
-            Logger.debug(message: "\(state)")
+        viewModel.$state
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                guard let self = self else { return }
 
-            switch state {
-                case .standby:
-                    Logger.debug(message: "standby")
+                switch state {
+                    case .standby:
+                        Logger.debug(message: "standby")
 
-                case .loading:
-                    Logger.debug(message: "loading")
+                    case .loading:
+                        Logger.debug(message: "loading")
 
-                case let .done(entities):
-                    AppDataHolder.isLogin = true
-                    self?.delegate.didRegisterAccount()
-                    Logger.debug(message: "\(entities)")
+                    case let .done(entities):
+                        AppDataHolder.isLogin = true
+                        self.delegate.didRegisterAccount()
+                        Logger.debug(message: "\(entities)")
 
-                case let .failed(error):
-                    Logger.debug(message: "\(error.localizedDescription)")
+                    case let .failed(error):
+                        Logger.debug(message: "\(error.localizedDescription)")
+                }
             }
-        }
-        .store(in: &cancellables)
+            .store(in: &cancellables)
     }
 
     func bindToViewModel() {
