@@ -5,7 +5,8 @@ extension Stylable where Self == UILabel {
     init(
         styles: [ViewStyle<Self>],
         fontType: FontType,
-        fontSize: FontSize
+        fontSize: FontSize,
+        textColor: UIColor = Resources.Colors.dynamicColor
     ) {
         self.init()
 
@@ -20,11 +21,11 @@ extension Stylable where Self == UILabel {
                 self.font = .italicSystemFont(ofSize: fontSize.rawValue)
         }
 
+        self.textColor = textColor
+
         styles.forEach { apply($0) }
     }
 }
-
-
 
 extension ViewStyle where T: UILabel {
 

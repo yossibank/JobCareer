@@ -89,20 +89,20 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
 
 extension DEBUG_FlowController: HomeViewControllerDelegate {
 
-    func showFirstView() {
+    func didFirstButtonTapped() {
         let vc = Resources.ViewControllers.App.first()
         vc.delegate = self
         navVC.pushViewController(vc, animated: true)
     }
 
-    func showFirstDetailView() {
+    func didFirstDetailButtonTapped() {
         let vc = Resources.ViewControllers.App.firstDetail()
         vc.delegate = self
         navVC.pushViewController(vc, animated: true)
     }
 
-    func showMainView() {
-        delegate.showMainView()
+    func didHomeButtonTapped() {
+        delegate.didHomeButtonTapped()
     }
 }
 

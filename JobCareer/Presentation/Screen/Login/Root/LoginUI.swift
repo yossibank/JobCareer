@@ -6,7 +6,7 @@ import UIKit
 final class LoginUI {
 
     private lazy var stackView: UIStackView = .init(
-        subViews: [animationView, outputStackView, loginButton],
+        subViews: [animationView, outputStackView, loginButton, signUpButton],
         style: .vertical,
         space: 48
     )
@@ -39,9 +39,29 @@ final class LoginUI {
         titleColor: Resources.Colors.dynamicColor
     )
 
-    lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
+    private let signUpButton: AnimationButton = .init(
+        title: Resources.Strings.Button.hereIsSignUpTitle,
+        titleColor: Resources.Colors.dynamicColor,
+        fontType: .bold,
+        fontSize: .h4
+    )
+
+    lazy var loginButtonTapPublisher: UIControl.Publisher<AnimationButton> = {
         loginButton.publisher(for: .touchUpInside)
     }()
+
+    lazy var signUpButtonTapPublisher: UIControl.Publisher<AnimationButton> = {
+        signUpButton.publisher(for: .touchUpInside)
+    }()
+}
+
+// MARK: - internal methods
+
+extension LoginUI {
+
+    func getLoginButtonOffsetY(rootView: UIView) -> CGFloat {
+        loginButton.convert(rootView.frame, to: rootView).origin.y
+    }
 }
 
 // MARK: - protocol
@@ -62,7 +82,8 @@ extension LoginUI: UserInterface {
             animationView.heightAnchor.constraint(equalToConstant: 160),
             emailTextField.heightAnchor.constraint(equalToConstant: 48),
             passwordTextField.heightAnchor.constraint(equalToConstant: 48),
-            loginButton.heightAnchor.constraint(equalToConstant: 56)
+            loginButton.heightAnchor.constraint(equalToConstant: 56),
+            signUpButton.heightAnchor.constraint(equalToConstant: 56)
         )
     }
 }

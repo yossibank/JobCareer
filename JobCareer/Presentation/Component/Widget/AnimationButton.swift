@@ -5,15 +5,31 @@ import UIKit
 final class AnimationButton: UIButton {
 
     init(
-        style: ViewStyle<AnimationButton>,
+        style: ViewStyle<AnimationButton>? = nil,
         title: String,
         titleColor: UIColor = .systemBackground,
+        fontType: FontType = .system,
+        fontSize: FontSize = .h3,
         for state: UIControl.State = .normal
     ) {
         super.init(frame: .zero)
         self.setTitle(title, for: state)
         self.setTitleColor(titleColor, for: state)
-        apply(style)
+
+        switch fontType {
+            case .system:
+                self.titleLabel?.font = .systemFont(ofSize: fontSize.rawValue)
+
+            case .bold:
+                self.titleLabel?.font = .boldSystemFont(ofSize: fontSize.rawValue)
+
+            case .italic:
+                self.titleLabel?.font = .italicSystemFont(ofSize: fontSize.rawValue)
+        }
+
+        if let style = style {
+            apply(style)
+        }
     }
 
     @available(*, unavailable)

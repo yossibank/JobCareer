@@ -3,9 +3,9 @@ import UIKit
 // MARK: - screen transition management
 
 protocol HomeViewControllerDelegate: AnyObject {
-    func showFirstView()
-    func showFirstDetailView()
-    func showMainView()
+    func didFirstButtonTapped()
+    func didFirstDetailButtonTapped()
+    func didHomeButtonTapped()
 }
 
 // MARK: - inject
@@ -18,7 +18,6 @@ extension HomeViewController: VCInjectable {
 // MARK: - stored properties
 
 final class HomeViewController: UIViewController {
-
     var viewModel: VM!
     var ui: UI!
 
@@ -49,6 +48,6 @@ extension HomeViewController: UICollectionViewDelegate {
             animated: true
         )
 
-        delegate.showFirstView()
+        delegate.didFirstButtonTapped()
     }
 }

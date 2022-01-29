@@ -3,7 +3,7 @@ import UIKit
 // MARK: - screen transition management
 
 protocol MainFlowControllerDelegate: AnyObject {
-    func showMainView()
+    func didHomeButtonTapped()
     func didLogoutButtonTapped()
 }
 
@@ -72,8 +72,8 @@ extension MainFlowController: FlowController {
 
 extension MainFlowController: MainFlowControllerDelegate {
 
-    func showMainView() {
-        delegate.showMainView()
+    func didHomeButtonTapped() {
+        delegate.didHomeButtonTapped()
     }
 
     func didLogoutButtonTapped() {

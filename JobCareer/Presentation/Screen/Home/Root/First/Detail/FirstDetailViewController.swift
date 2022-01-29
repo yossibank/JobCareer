@@ -11,7 +11,6 @@ extension FirstDetailViewController: VCInjectable {
 // MARK: - stored properties
 
 final class FirstDetailViewController: UIViewController {
-
     var viewModel: VM!
     var ui: UI!
 
@@ -38,9 +37,9 @@ extension FirstDetailViewController {
 private extension FirstDetailViewController {
 
     func setupEvent() {
-        ui.buttonTapPublisher.sink { [weak self] _ in
+        ui.homeButtonTapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
-            self.delegate.showMainView()
+            self.delegate.didHomeButtonTapped()
         }
         .store(in: &cancellables)
     }

@@ -17,7 +17,7 @@ public struct UsecaseImpl<R, M>: Usecase {
     var repository: R
     var mapper: M
     var analytics: Analytics = .shared
-    var useTestData: Bool
+    var useTestData: Bool = false
 
     func toPublisher<T: Equatable, E: Error>(
         closure: @escaping (@escaping Future<T, E>.Promise) -> Void

@@ -43,7 +43,7 @@ extension BottomBorderTextField {
             width: frame.size.width,
             height: 1.0
         )
-        border.backgroundColor = Resources.Colors.borderColor.cgColor
+        border.backgroundColor = Resources.Colors.borderBottomColor.cgColor
 
         layer.addSublayer(border)
         layer.masksToBounds = true

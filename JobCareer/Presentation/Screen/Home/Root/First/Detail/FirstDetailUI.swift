@@ -5,13 +5,13 @@ import UIKit
 
 final class FirstDetailUI {
 
-    private let button: UIButton = .init(
+    private let homeButton: UIButton = .init(
         style: .someStyle,
         title: Resources.Strings.Button.backTitle
     )
 
-    lazy var buttonTapPublisher: UIControl.Publisher<UIButton> = {
-        button.publisher(for: .touchUpInside)
+    lazy var homeButtonTapPublisher: UIControl.Publisher<UIButton> = {
+        homeButton.publisher(for: .touchUpInside)
     }()
 }
 
@@ -23,13 +23,13 @@ extension FirstDetailUI: UserInterface {
         rootView.backgroundColor = .systemBackground
 
         rootView.addSubViews(
-            button,
+            homeButton,
 
             constraints:
-            button.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: rootView.centerYAnchor),
-            button.widthAnchor.constraint(equalToConstant: 100),
-            button.heightAnchor.constraint(equalToConstant: 100)
+            homeButton.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
+            homeButton.centerYAnchor.constraint(equalTo: rootView.centerYAnchor),
+            homeButton.widthAnchor.constraint(equalToConstant: 100),
+            homeButton.heightAnchor.constraint(equalToConstant: 100)
         )
     }
 }

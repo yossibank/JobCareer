@@ -6,7 +6,6 @@ import UIKit
 // MARK: - stored properties
 
 final class DEBUG_BottomSheetListUI {
-
     var titleAvailable = true
     var messageType: MessageType = .normal
     var selectedStyles: [BottomSheetAction.ButtonStyle] = []
@@ -15,7 +14,6 @@ final class DEBUG_BottomSheetListUI {
 
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<SectionKind, ItemKind>()
     private var dataSource: UITableViewDiffableDataSource<SectionKind, ItemKind>!
-
     private var cancellables: Set<AnyCancellable> = []
 }
 

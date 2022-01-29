@@ -5,9 +5,7 @@ import UIKit
 // MARK: - stored properties
 
 final class DEBUG_UI {
-
     private let tableView = UITableView()
-
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<DEBUG_Section, DEBUG_Item>()
     private var dataSource: UITableViewDiffableDataSource<DEBUG_Section, DEBUG_Item>!
 }

@@ -4,6 +4,7 @@ import UIKit
 
 protocol LoginFlowControllerDelegate: AnyObject {
     func didLoginButtonTapped()
+    func didRegisterAccount()
 }
 
 // MARK: - stored properties & init
@@ -57,5 +58,20 @@ extension LoginFlowController: LoginViewControllerDelegate {
 
     func didLoginButtonTapped() {
         delegate?.didLoginButtonTapped()
+    }
+
+    func didSignUpButtonTapped() {
+        let vc = Resources.ViewControllers.App.signUp()
+        vc.delegate = self
+
+        let navVC = NavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+}
+
+extension LoginFlowController: SignUpViewControllerDelegate {
+
+    func didRegisterAccount() {
+        delegate?.didRegisterAccount()
     }
 }
