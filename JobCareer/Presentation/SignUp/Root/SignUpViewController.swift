@@ -56,7 +56,7 @@ private extension SignUpViewController {
             guard let self = self else { return }
 
             let offsetY = self.ui.getSignUpButtonOffsetY(rootView: self.view)
-            let space = 64.0
+            let space = 80.0
             let resizeOffsetY = keyboard.height - (self.view.frame.height - offsetY) + space
 
             switch keyboard.state {
@@ -121,35 +121,73 @@ private extension SignUpViewController {
             .store(in: &cancellables)
 
         viewModel.emailValidated
-            .receive(on: DispatchQueue.main)
             .dropFirst()
             .debounce(for: 0.5, scheduler: DispatchQueue.main)
-            .sink { [weak self] validate in
+            .sink { [weak self] validation in
                 guard let self = self else { return }
 
-                switch validate {
+                switch validation {
                     case .valid:
-                        print("問題なし！！！")
+                        self.ui.setValidationText(
+                            text: "OK ✅",
+                            validColor: .green,
+                            type: .email
+                        )
 
                     case let .invalid(error):
-                        print(error.localizedDescription)
+                        self.ui.setValidationText(
+                            text: error.localizedDescription,
+                            validColor: .red,
+                            type: .email
+                        )
                 }
             }
             .store(in: &cancellables)
 
         viewModel.passwordValidated
-            .receive(on: DispatchQueue.main)
             .dropFirst()
             .debounce(for: 0.5, scheduler: DispatchQueue.main)
-            .sink { [weak self] validate in
+            .sink { [weak self] validation in
                 guard let self = self else { return }
 
-                switch validate {
+                switch validation {
                     case .valid:
-                        print("問題なし！！！")
+                        self.ui.setValidationText(
+                            text: "OK ✅",
+                            validColor: .green,
+                            type: .password
+                        )
 
                     case let .invalid(error):
-                        print(error.localizedDescription)
+                        self.ui.setValidationText(
+                            text: error.localizedDescription,
+                            validColor: .red,
+                            type: .password
+                        )
+                }
+            }
+            .store(in: &cancellables)
+
+        viewModel.confirmPasswordValidated
+            .dropFirst()
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .sink { [weak self] validation in
+                guard let self = self else { return }
+
+                switch validation {
+                    case .valid:
+                        self.ui.setValidationText(
+                            text: "OK ✅",
+                            validColor: .green,
+                            type: .confirmPassword
+                        )
+
+                    case let .invalid(error):
+                        self.ui.setValidationText(
+                            text: error.localizedDescription,
+                            validColor: .red,
+                            type: .confirmPassword
+                        )
                 }
             }
             .store(in: &cancellables)

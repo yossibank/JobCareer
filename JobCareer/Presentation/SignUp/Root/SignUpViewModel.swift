@@ -13,8 +13,14 @@ final class SignUpViewModel: ViewModel {
     }
 
     var passwordValidated: AnyPublisher<ValidationResult, Never> {
-        Publishers.CombineLatest($password, $confirmPassword).map { password, confirmPassword in
-            PasswordValidator(password: password, confirmPassword: confirmPassword).validate()
+        $password.map { password in
+            PasswordValidator(password: password).validate()
+        }.eraseToAnyPublisher()
+    }
+
+    var confirmPasswordValidated: AnyPublisher<ValidationResult, Never> {
+        $confirmPassword.combineLatest($password) { password, confirmPassword in
+            ConfirmPasswordValidator(password: password, confirmPassword: confirmPassword).validate()
         }.eraseToAnyPublisher()
     }
 

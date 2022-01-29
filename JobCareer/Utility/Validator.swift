@@ -84,13 +84,21 @@ struct EmailValidator: Validator {
 
 struct PasswordValidator: Validator {
     let password: String
-    let confirmPassword: String
 
     func validate() -> ValidationResult {
         if password.count < 6 {
             return .invalid(PasswordValidationError.length)
         }
 
+        return .valid
+    }
+}
+
+struct ConfirmPasswordValidator: Validator {
+    let password: String
+    let confirmPassword: String
+
+    func validate() -> ValidationResult {
         if password != confirmPassword {
             return .invalid(PasswordValidationError.unmatch)
         }
