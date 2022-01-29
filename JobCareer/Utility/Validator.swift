@@ -40,6 +40,7 @@ enum ValidationResult {
 
 enum EmailValidationError: ValidationError {
     case emtpy
+    case regex
 }
 
 extension EmailValidationError: LocalizedError {
@@ -48,6 +49,9 @@ extension EmailValidationError: LocalizedError {
         switch self {
             case .emtpy:
                 return "メールアドレスが入力されていません"
+
+            case .regex:
+                return "メールアドレスの形式が正しくありません"
         }
     }
 }
@@ -76,6 +80,13 @@ struct EmailValidator: Validator {
     func validate() -> ValidationResult {
         if email.isEmpty {
             return .invalid(EmailValidationError.emtpy)
+        }
+
+        let regex = "[A-Z0-9a-z._+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let isRegexValid = NSPredicate(format:"SELF MATCHES %@", regex).evaluate(with: email)
+
+        guard isRegexValid else {
+            return .invalid(EmailValidationError.regex)
         }
 
         return .valid
