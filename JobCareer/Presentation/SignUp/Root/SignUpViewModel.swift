@@ -24,6 +24,27 @@ final class SignUpViewModel: ViewModel {
         }.eraseToAnyPublisher()
     }
 
+    var isEnabled: AnyPublisher<Bool, Never> {
+        Publishers.CombineLatest3($email, $password, $confirmPassword)
+            .map { email, password, confirmPassword in
+                let isEmailValid = EmailValidator(
+                    email: email
+                ).validate().isValid
+
+                let isPasswordValid = PasswordValidator(
+                    password: password
+                ).validate().isValid
+
+                let isConfirmPasswordValid = ConfirmPasswordValidator(
+                    password: password,
+                    confirmPassword: confirmPassword
+                ).validate().isValid
+
+                return isEmailValid && isPasswordValid && isConfirmPasswordValid
+
+            }.eraseToAnyPublisher()
+    }
+
     @Published var email: String = .blank
     @Published var password: String = .blank
     @Published var confirmPassword: String = .blank

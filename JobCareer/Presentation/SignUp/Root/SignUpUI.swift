@@ -86,6 +86,13 @@ final class SignUpUI {
         titleColor: Resources.Colors.dynamicColor
     )
 
+    var isEnabled: Bool = false {
+        didSet {
+            signUpButton.alpha = isEnabled ? 1.0 : 0.5
+            signUpButton.isEnabled = isEnabled
+        }
+    }
+
     lazy var emailTextPublisher: AnyPublisher<String, Never> = {
         emailTextField.textDidChangePublisher
     }()

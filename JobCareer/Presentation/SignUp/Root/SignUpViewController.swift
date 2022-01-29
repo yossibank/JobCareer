@@ -56,7 +56,7 @@ private extension SignUpViewController {
             guard let self = self else { return }
 
             let offsetY = self.ui.getSignUpButtonOffsetY(rootView: self.view)
-            let space = 80.0
+            let space = 100.0
             let resizeOffsetY = keyboard.height - (self.view.frame.height - offsetY) + space
 
             switch keyboard.state {
@@ -189,6 +189,14 @@ private extension SignUpViewController {
                             type: .confirmPassword
                         )
                 }
+            }
+            .store(in: &cancellables)
+
+        viewModel.isEnabled
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .sink { [weak self] isEnabled in
+                guard let self = self else { return }
+                self.ui.isEnabled = isEnabled
             }
             .store(in: &cancellables)
     }
