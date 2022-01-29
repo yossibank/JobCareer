@@ -68,6 +68,7 @@
 		78ACDFA927898D5300449821 /* ProfileFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ACDFA827898D5300449821 /* ProfileFlowController.swift */; };
 		78B3D0BF2776F93500A8EC6F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B3D0BE2776F93500A8EC6F /* UIView+Layout.swift */; };
 		78B8662B277FF1D0004439E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78B8662A277FF1CF004439E4 /* GoogleService-Info.plist */; };
+		78B9C4A227A4F11B009BB8D7 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B9C4A127A4F11B009BB8D7 /* Validator.swift */; };
 		78BA64C32744C82A005B2D61 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA64C22744C82A005B2D61 /* BottomSheetViewController.swift */; };
 		78BA64C82744DA66005B2D61 /* UIButton+StateConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA64C72744DA66005B2D61 /* UIButton+StateConvenience.swift */; };
 		78BA64CB2744E479005B2D61 /* CommonBottomSheetContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA64CA2744E479005B2D61 /* CommonBottomSheetContentView.swift */; };
@@ -207,6 +208,7 @@
 		78ACDFA827898D5300449821 /* ProfileFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowController.swift; sourceTree = "<group>"; };
 		78B3D0BE2776F93500A8EC6F /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		78B8662A277FF1CF004439E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		78B9C4A127A4F11B009BB8D7 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		78BA64C22744C82A005B2D61 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		78BA64C72744DA66005B2D61 /* UIButton+StateConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+StateConvenience.swift"; sourceTree = "<group>"; };
 		78BA64CA2744E479005B2D61 /* CommonBottomSheetContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBottomSheetContentView.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				782F03E727A2A773001A7B50 /* UITextField+Publisher.swift */,
 				78A4E93A27786631005FBB36 /* UIViewController+Container.swift */,
 				78B3D0BE2776F93500A8EC6F /* UIView+Layout.swift */,
+				78B9C4A127A4F11B009BB8D7 /* Validator.swift */,
 				78844F962743476B00A02E9B /* AppUtil */,
 			);
 			path = Utility;
@@ -956,6 +959,7 @@
 				78DD436A27425445006684D0 /* FirstViewModel.swift in Sources */,
 				78844FA427435C2800A02E9B /* ViewControllers.swift in Sources */,
 				78844F9A2743490200A02E9B /* Array+Util.swift in Sources */,
+				78B9C4A227A4F11B009BB8D7 /* Validator.swift in Sources */,
 				78A4E93B27786631005FBB36 /* UIViewController+Container.swift in Sources */,
 				7832D463278A9B4600A959B1 /* MainCell.swift in Sources */,
 				78DD437827425B6F006684D0 /* NavigationController.swift in Sources */,

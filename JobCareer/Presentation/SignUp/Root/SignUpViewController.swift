@@ -34,9 +34,11 @@ extension SignUpViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ui.setupView(rootView: view)
+        ui.setupTextField(delegate: self)
         setupKeyboard()
         setupEvent()
         bindToViewModel()
+        bindToView()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,12 +57,12 @@ private extension SignUpViewController {
 
             let offsetY = self.ui.getSignUpButtonOffsetY(rootView: self.view)
             let space = 64.0
-            let resizeOffsetY = self.view.frame.height - offsetY - keyboard.height - space
+            let resizeOffsetY = keyboard.height - (self.view.frame.height - offsetY) + space
 
             switch keyboard.state {
                 case .willShow:
                     UIView.animate(withDuration: keyboard.animationDuration) {
-                        self.view.frame.origin.y == 0 ? self.view.frame.origin.y += resizeOffsetY : ()
+                        self.view.frame.origin.y == 0 ? self.view.frame.origin.y -= resizeOffsetY : ()
                     }
 
                 case .willHide, .unset:
@@ -75,7 +77,26 @@ private extension SignUpViewController {
             self.viewModel.signUp()
         }
         .store(in: &cancellables)
+    }
 
+    func bindToViewModel() {
+        ui.emailTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.email, on: viewModel)
+            .store(in: &cancellables)
+
+        ui.passwordTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.password, on: viewModel)
+            .store(in: &cancellables)
+
+        ui.confirmPasswordTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.confirmPassword, on: viewModel)
+            .store(in: &cancellables)
+    }
+
+    func bindToView() {
         viewModel.$state
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
@@ -98,22 +119,48 @@ private extension SignUpViewController {
                 }
             }
             .store(in: &cancellables)
+
+        viewModel.emailValidated
+            .receive(on: DispatchQueue.main)
+            .dropFirst()
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .sink { [weak self] validate in
+                guard let self = self else { return }
+
+                switch validate {
+                    case .valid:
+                        print("問題なし！！！")
+
+                    case let .invalid(error):
+                        print(error.localizedDescription)
+                }
+            }
+            .store(in: &cancellables)
+
+        viewModel.passwordValidated
+            .receive(on: DispatchQueue.main)
+            .dropFirst()
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .sink { [weak self] validate in
+                guard let self = self else { return }
+
+                switch validate {
+                    case .valid:
+                        print("問題なし！！！")
+
+                    case let .invalid(error):
+                        print(error.localizedDescription)
+                }
+            }
+            .store(in: &cancellables)
     }
+}
 
-    func bindToViewModel() {
-        ui.emailTextPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.email, on: viewModel)
-            .store(in: &cancellables)
+// MARK: - delegate
+extension SignUpViewController: UITextFieldDelegate {
 
-        ui.passwordTextPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.password, on: viewModel)
-            .store(in: &cancellables)
-
-        ui.confirmPasswordTextPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.confirmPassword, on: viewModel)
-            .store(in: &cancellables)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

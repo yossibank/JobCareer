@@ -6,14 +6,26 @@ final class SignUpViewModel: ViewModel {
 
     typealias State = LoadingState<UserEntity, AppError>
 
-    private var cancellables: Set<AnyCancellable> = []
+    var emailValidated: AnyPublisher<ValidationResult, Never> {
+        $email.map { email in
+            EmailValidator(email: email).validate()
+        }.eraseToAnyPublisher()
+    }
 
-    private let usecase: SignUpUsecase
+    var passwordValidated: AnyPublisher<ValidationResult, Never> {
+        Publishers.CombineLatest($password, $confirmPassword).map { password, confirmPassword in
+            PasswordValidator(password: password, confirmPassword: confirmPassword).validate()
+        }.eraseToAnyPublisher()
+    }
 
     @Published var email: String = .blank
     @Published var password: String = .blank
     @Published var confirmPassword: String = .blank
     @Published private(set) var state: State = .standby
+
+    private var cancellables: Set<AnyCancellable> = []
+
+    private let usecase: SignUpUsecase
 
     init(usecase: SignUpUsecase = Domain.Usecase.SignUp()) {
         self.usecase = usecase

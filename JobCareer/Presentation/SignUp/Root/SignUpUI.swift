@@ -34,7 +34,7 @@ final class SignUpUI {
     )
 
     private let confirmPasswordTextField: BottomBorderTextField = .init(
-        style: .passwordStyle,
+        style: .confirmPasswordStyle,
         placeholder: Resources.Strings.TextField.confirmPasswordPlaceholder
     )
 
@@ -53,7 +53,7 @@ final class SignUpUI {
     }()
 
     lazy var confirmPasswordTextPublisher: AnyPublisher<String, Never> = {
-        emailTextField.textDidChangePublisher
+        confirmPasswordTextField.textDidChangePublisher
     }()
 
     lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
@@ -64,6 +64,12 @@ final class SignUpUI {
 // MARK: - internal methods
 
 extension SignUpUI {
+
+    func setupTextField(delegate: UITextFieldDelegate) {
+        [emailTextField, passwordTextField, confirmPasswordTextField].forEach {
+            $0.delegate = delegate
+        }
+    }
 
     func getSignUpButtonOffsetY(rootView: UIView) -> CGFloat {
         signUpButton.convert(rootView.frame, to: rootView).origin.y

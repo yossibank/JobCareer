@@ -19,6 +19,7 @@ extension ViewStyle where T: UITextField {
             $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)
             $0.textAlignment = .left
             $0.clearButtonMode = .unlessEditing
+            $0.textContentType = .emailAddress
             $0.keyboardType = .emailAddress
         }
     }
@@ -28,7 +29,17 @@ extension ViewStyle where T: UITextField {
             $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)
             $0.textAlignment = .left
             $0.clearButtonMode = .unlessEditing
-            $0.keyboardType = .emailAddress
+            $0.textContentType = .password
+            $0.isSecureTextEntry = true
+        }
+    }
+
+    static var confirmPasswordStyle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)
+            $0.textAlignment = .left
+            $0.clearButtonMode = .unlessEditing
+            $0.textContentType = .newPassword
             $0.isSecureTextEntry = true
         }
     }

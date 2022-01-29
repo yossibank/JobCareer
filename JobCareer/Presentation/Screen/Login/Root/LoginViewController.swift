@@ -68,8 +68,8 @@ private extension LoginViewController {
             guard let self = self else { return }
 
             let offsetY = self.ui.getLoginButtonOffsetY(rootView: self.view)
-            let space = 8.0
-            let resizeOffsetY = self.view.frame.height - offsetY - keyboard.height + space
+            let space = 64.0
+            let resizeOffsetY = keyboard.height - (self.view.frame.height - offsetY) + space
 
             switch keyboard.state {
                 case .willShow:
