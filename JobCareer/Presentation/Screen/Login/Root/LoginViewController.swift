@@ -117,7 +117,7 @@ private extension LoginViewController {
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
-                        self.showErrorSheet(body: Resources.Strings.Error.failedLoginMessage)
+                        self.showErrorSheet(body: Resources.Strings.Alert.failedLoginMessage)
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }

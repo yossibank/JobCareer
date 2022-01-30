@@ -111,13 +111,22 @@ private extension SignUpViewController {
 
                     case let .done(entity):
                         AppDataHolder.isLogin = true
-                        self.delegate.didRegisterAccount()
+
+                        self.showSimpleSheet(
+                            title: Resources.Strings.Alert.done,
+                            body: Resources.Strings.Alert.successSignUpMessage,
+                            dismissCallBack:  { [weak self] in
+                                self?.dismiss(animated: true)
+                                self?.delegate.didRegisterAccount()
+                            }
+                        )
+
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
                         let body = error.errorMessage?.contain(pattern: "already") ?? false
-                            ? Resources.Strings.Error.duplicateEmailAddress
-                            : Resources.Strings.Error.failedSignUpMessage
+                            ? Resources.Strings.Alert.duplicateEmailAddress
+                            : Resources.Strings.Alert.failedSignUpMessage
 
                         self.showErrorSheet(body: body)
                         Logger.debug(message: "\(error.localizedDescription)")

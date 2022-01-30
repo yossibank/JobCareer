@@ -15,10 +15,12 @@ struct StringResource {
         @Localizable static var confirmPasswordPlaceholder = "confirm_password_textfield_placeholder"
     }
 
-    struct Error {
+    struct Alert {
         @Localizable static var error = "error"
+        @Localizable static var done = "done"
         @Localizable static var ok = "OK"
         @Localizable static var failedLoginMessage = "failed_login_message"
+        @Localizable static var successSignUpMessage = "success_signUp_message"
         @Localizable static var failedSignUpMessage = "failed_signUp_message"
         @Localizable static var duplicateEmailAddress = "failed_duplicate_email_address"
     }
