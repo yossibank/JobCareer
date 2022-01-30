@@ -75,6 +75,13 @@ final class LoginUI {
         fontSize: .h4
     )
 
+    private let indicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .medium
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
     var isEnabled: Bool = false {
         didSet {
             loginButton.alpha = isEnabled ? 1.0 : 0.5
@@ -124,6 +131,14 @@ extension LoginUI {
     func getLoginButtonOffsetY(rootView: UIView) -> CGFloat {
         loginButton.convert(rootView.frame, to: rootView).origin.y
     }
+
+    func startIndicator() {
+        indicator.startAnimating()
+    }
+
+    func stopIndicator() {
+        indicator.stopAnimating()
+    }
 }
 
 // MARK: - protocol
@@ -135,11 +150,15 @@ extension LoginUI: UserInterface {
 
         rootView.addSubViews(
             stackView,
+            indicator,
 
             constraints:
             stackView.centerYAnchor.constraint(equalTo: rootView.centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: 56),
             stackView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -56),
+
+            indicator.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
+            indicator.centerYAnchor.constraint(equalTo: rootView.centerYAnchor),
 
             animationView.heightAnchor.constraint(equalToConstant: 160),
             emailTextField.heightAnchor.constraint(equalToConstant: 48),

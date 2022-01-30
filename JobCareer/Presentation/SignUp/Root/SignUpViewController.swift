@@ -107,10 +107,13 @@ private extension SignUpViewController {
                         Logger.debug(message: "standby")
 
                     case .loading:
+                        self.ui.startIndicator()
                         Logger.debug(message: "loading")
 
                     case let .done(entity):
                         AppDataHolder.isLogin = true
+
+                        self.ui.stopIndicator()
 
                         self.showSimpleSheet(
                             title: Resources.Strings.Alert.done,
@@ -128,6 +131,7 @@ private extension SignUpViewController {
                             ? Resources.Strings.Alert.duplicateEmailAddress
                             : Resources.Strings.Alert.failedSignUpMessage
 
+                        self.ui.stopIndicator()
                         self.showErrorSheet(body: body)
                         Logger.debug(message: "\(error.localizedDescription)")
                 }

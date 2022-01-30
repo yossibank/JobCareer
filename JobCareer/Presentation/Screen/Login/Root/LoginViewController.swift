@@ -109,14 +109,17 @@ private extension LoginViewController {
                         Logger.debug(message: "standby")
 
                     case .loading:
+                        self.ui.startIndicator()
                         Logger.debug(message: "loading")
 
                     case let .done(entity):
                         AppDataHolder.isLogin = true
+                        self.ui.stopIndicator()
                         self.delegate.didLoginButtonTapped()
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
+                        self.ui.stopIndicator()
                         self.showErrorSheet(body: Resources.Strings.Alert.failedLoginMessage)
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
