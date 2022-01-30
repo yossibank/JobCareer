@@ -193,7 +193,7 @@ private extension SignUpViewController {
             .store(in: &cancellables)
 
         viewModel.isEnabled
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
                 self.ui.isEnabled = isEnabled

@@ -46,37 +46,32 @@ extension BottomSheetAction {
 
 final class CommonBottomSheetContentView: UIView {
 
-    private lazy var baseStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabelBackView, messageBodyLabel])
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 24
-        return stackView
-    }()
+    private lazy var baseStackView: UIStackView = .init(
+        subViews: [titleLabelBackView, messageBodyLabel, buttonContainerStackView],
+        style: .vertical,
+        distributon: .equalSpacing,
+        space: 16
+    )
 
     private let titleLabelBackView = UIView()
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 20)
-        return label
-    }()
+    private let titleLabel: UILabel = .init(
+        styles: [.numberOfLinesZero, .centerAlignment],
+        fontType: .bold,
+        fontSize: .h1
+    )
 
-    private let messageBodyLabel: UILabel = {
-        let label = UILabel()
-        label.font = .italicSystemFont(ofSize: 18)
-        return label
-    }()
+    private let messageBodyLabel: UILabel = .init(
+        styles: [.numberOfLinesZero, .centerAlignment],
+        fontType: .italic,
+        fontSize: .h2
+    )
 
-    private lazy var buttonContainerStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.spacing = 16
-        baseStackView.addArrangedSubview(stackView)
-        return stackView
-    }()
+    private lazy var buttonContainerStackView: UIStackView = .init(
+        subViews: [],
+        style: .vertical,
+        space: 16
+    )
 
     private var cancellables: Set<AnyCancellable> = []
 

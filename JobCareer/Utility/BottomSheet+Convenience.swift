@@ -44,4 +44,35 @@ extension UIViewController {
             completion: completion
         )
     }
+
+    func showErrorSheet(
+        body: String? = nil,
+        dismissCallBack: VoidBlock? = nil,
+        completion: VoidBlock? = nil
+    ) {
+        let commonBottomSheetView = CommonBottomSheetContentView()
+        let action: BottomSheetAction = .init(
+            title: "OK",
+            style: .alert
+        ) { [weak self] in
+            self?.dismiss(animated: true)
+        }
+
+        commonBottomSheetView.set(
+            title: "エラー",
+            body: body,
+            actions: [action]
+        )
+
+        let bottomSheetVC = Resources.ViewControllers.App.bottomSheet(
+            dismissCallBack: dismissCallBack
+        )
+        bottomSheetVC.set(view: commonBottomSheetView)
+
+        present(
+            bottomSheetVC,
+            animated: true,
+            completion: completion
+        )
+    }
 }

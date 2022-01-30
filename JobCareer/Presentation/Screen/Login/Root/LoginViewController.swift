@@ -117,6 +117,7 @@ private extension LoginViewController {
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
+                        self.showErrorSheet(body: error.localizedDescription)
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }
@@ -171,7 +172,7 @@ private extension LoginViewController {
             .store(in: &cancellables)
 
         viewModel.isEnabled
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
                 self.ui.isEnabled = isEnabled
