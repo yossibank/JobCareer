@@ -52,14 +52,14 @@ extension UIViewController {
     ) {
         let commonBottomSheetView = CommonBottomSheetContentView()
         let action: BottomSheetAction = .init(
-            title: "OK",
+            title: Resources.Strings.Error.ok,
             style: .alert
         ) { [weak self] in
             self?.dismiss(animated: true)
         }
 
         commonBottomSheetView.set(
-            title: "エラー",
+            title: Resources.Strings.Error.error,
             body: body,
             actions: [action]
         )

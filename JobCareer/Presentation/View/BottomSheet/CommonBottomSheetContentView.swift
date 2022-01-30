@@ -62,7 +62,7 @@ final class CommonBottomSheetContentView: UIView {
     )
 
     private let messageBodyLabel: UILabel = .init(
-        styles: [.numberOfLinesZero, .centerAlignment],
+        styles: [.numberOfLinesZero],
         fontType: .italic,
         fontSize: .h2
     )

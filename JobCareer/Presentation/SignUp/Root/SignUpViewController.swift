@@ -115,6 +115,11 @@ private extension SignUpViewController {
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
+                        let body = error.errorMessage?.contain(pattern: "already") ?? false
+                            ? Resources.Strings.Error.duplicateEmailAddress
+                            : Resources.Strings.Error.failedSignUpMessage
+
+                        self.showErrorSheet(body: body)
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }
@@ -122,7 +127,7 @@ private extension SignUpViewController {
 
         viewModel.emailValidated
             .dropFirst()
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .sink { [weak self] validation in
                 guard let self = self else { return }
 
@@ -146,7 +151,7 @@ private extension SignUpViewController {
 
         viewModel.passwordValidated
             .dropFirst()
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .sink { [weak self] validation in
                 guard let self = self else { return }
 
@@ -170,7 +175,7 @@ private extension SignUpViewController {
 
         viewModel.confirmPasswordValidated
             .dropFirst()
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .sink { [weak self] validation in
                 guard let self = self else { return }
 
@@ -193,7 +198,7 @@ private extension SignUpViewController {
             .store(in: &cancellables)
 
         viewModel.isEnabled
-            .debounce(for: 0.3, scheduler: DispatchQueue.main)
+            .debounce(for: 0.1, scheduler: DispatchQueue.main)
             .sink { [weak self] isEnabled in
                 guard let self = self else { return }
                 self.ui.isEnabled = isEnabled

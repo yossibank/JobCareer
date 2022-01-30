@@ -3,6 +3,13 @@
 "back_button_title" = "戻る";
 "cancel_button_title" = "キャンセル";
 
+/* Error */
+"error" = "エラー";
+"ok" = "OK";
+"failed_login_message" = "ログインに失敗しました\nご入力内容をもう一度ご確認ください";
+"failed_signUp_message" = "登録に失敗しました\nご入力内容をもう一度ご確認ください";
+"failed_duplicate_email_address" = "既に登録されているメールアドレスです\n別のメールアドレスをご使用ください";
+
 /* SignUp/Login */
 "email_textfield_placeholder" = "メールアドレス";
 "password_textfield_placeholder" = "パスワード";
