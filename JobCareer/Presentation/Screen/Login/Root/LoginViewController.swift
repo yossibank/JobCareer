@@ -1,5 +1,6 @@
 import Combine
 import UIKit
+import Utility
 
 // MARK: - screen transition management
 
@@ -34,9 +35,11 @@ extension LoginViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ui.setupView(rootView: view)
-        setupEvent()
+        ui.setupTextField(delegate: self)
         setupKeyboard()
+        setupEvent()
         bindToViewModel()
+        bindToView()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -48,22 +51,6 @@ extension LoginViewController {
 // MARK: - private methods
 
 private extension LoginViewController {
-
-    func setupEvent() {
-        ui.loginButtonTapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            self.viewModel.login()
-            AppDataHolder.isLogin = true
-            self.delegate.didLoginButtonTapped()
-        }
-        .store(in: &cancellables)
-
-        ui.signUpButtonTapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            self.delegate.didSignUpButtonTapped()
-        }
-        .store(in: &cancellables)
-    }
 
     func setupKeyboard() {
         keyboardHandler = KeyboardHandler { [weak self] keyboard in
@@ -85,6 +72,20 @@ private extension LoginViewController {
         }
     }
 
+    func setupEvent() {
+        ui.loginButtonTapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+            self.viewModel.login()
+        }
+        .store(in: &cancellables)
+
+        ui.signUpButtonTapPublisher.sink { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate.didSignUpButtonTapped()
+        }
+        .store(in: &cancellables)
+    }
+
     func bindToViewModel() {
         ui.emailTextPublisher
             .receive(on: DispatchQueue.main)
@@ -95,5 +96,96 @@ private extension LoginViewController {
             .receive(on: DispatchQueue.main)
             .assign(to: \.password, on: viewModel)
             .store(in: &cancellables)
+    }
+
+    func bindToView() {
+        viewModel.$state
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                guard let self = self else { return }
+
+                switch state {
+                    case .standby:
+                        Logger.debug(message: "standby")
+
+                    case .loading:
+                        Logger.debug(message: "loading")
+
+                    case let .done(entity):
+                        AppDataHolder.isLogin = true
+                        self.delegate.didLoginButtonTapped()
+                        Logger.debug(message: "\(entity)")
+
+                    case let .failed(error):
+                        Logger.debug(message: "\(error.localizedDescription)")
+                }
+            }
+            .store(in: &cancellables)
+
+        viewModel.emailValidated
+            .dropFirst()
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .sink { [weak self] validation in
+                guard let self = self else { return }
+
+                switch validation {
+                    case .valid:
+                        self.ui.setValidationText(
+                            text: "OK ✅",
+                            validColor: .green,
+                            type: .email
+                        )
+
+                    case let .invalid(error):
+                        self.ui.setValidationText(
+                            text: error.localizedDescription,
+                            validColor: .red,
+                            type: .email
+                        )
+                }
+            }
+            .store(in: &cancellables)
+
+        viewModel.passwordValidated
+            .dropFirst()
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .sink { [weak self] validation in
+                guard let self = self else { return }
+
+                switch validation {
+                    case .valid:
+                        self.ui.setValidationText(
+                            text: "OK ✅",
+                            validColor: .green,
+                            type: .password
+                        )
+
+                    case let .invalid(error):
+                        self.ui.setValidationText(
+                            text: error.localizedDescription,
+                            validColor: .red,
+                            type: .password
+                        )
+                }
+            }
+            .store(in: &cancellables)
+
+        viewModel.isEnabled
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .sink { [weak self] isEnabled in
+                guard let self = self else { return }
+                self.ui.isEnabled = isEnabled
+            }
+            .store(in: &cancellables)
+    }
+}
+
+// MARK: - delegate
+
+extension LoginViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

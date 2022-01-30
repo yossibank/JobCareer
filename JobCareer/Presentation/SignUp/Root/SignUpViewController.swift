@@ -109,10 +109,10 @@ private extension SignUpViewController {
                     case .loading:
                         Logger.debug(message: "loading")
 
-                    case let .done(entities):
+                    case let .done(entity):
                         AppDataHolder.isLogin = true
                         self.delegate.didRegisterAccount()
-                        Logger.debug(message: "\(entities)")
+                        Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
                         Logger.debug(message: "\(error.localizedDescription)")

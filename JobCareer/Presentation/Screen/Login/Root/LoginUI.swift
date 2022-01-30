@@ -5,6 +5,11 @@ import UIKit
 
 final class LoginUI {
 
+    enum OutputType {
+        case email
+        case password
+    }
+
     private lazy var stackView: UIStackView = .init(
         subViews: [animationView, outputStackView, loginButton, signUpButton],
         style: .vertical,
@@ -12,9 +17,21 @@ final class LoginUI {
     )
 
     private lazy var outputStackView: UIStackView = .init(
-        subViews: [emailTextField, passwordTextField],
+        subViews: [emailStackView, passwordStackView],
         style: .vertical,
         space: 16
+    )
+
+    private lazy var emailStackView: UIStackView = .init(
+        subViews: [emailTextField, emailValidationLabel],
+        style: .vertical,
+        space: 4
+    )
+
+    private lazy var passwordStackView: UIStackView = .init(
+        subViews: [passwordTextField, passwordValidationLabel],
+        style: .vertical,
+        space: 4
     )
 
     private let animationView: UIView = {
@@ -28,9 +45,21 @@ final class LoginUI {
         placeholder: Resources.Strings.TextField.emailPlaceholder
     )
 
+    private let emailValidationLabel: UILabel = .init(
+        styles: [.leftAlignment],
+        fontType: .bold,
+        fontSize: .h5
+    )
+
     private let passwordTextField: BottomBorderTextField = .init(
         style: .passwordStyle,
         placeholder: Resources.Strings.TextField.passwordPlaceholder
+    )
+
+    private let passwordValidationLabel: UILabel = .init(
+        styles: [.leftAlignment],
+        fontType: .bold,
+        fontSize: .h5
     )
 
     private let loginButton: AnimationButton = .init(
@@ -45,6 +74,13 @@ final class LoginUI {
         fontType: .bold,
         fontSize: .h4
     )
+
+    var isEnabled: Bool = false {
+        didSet {
+            loginButton.alpha = isEnabled ? 1.0 : 0.5
+            loginButton.isEnabled = isEnabled
+        }
+    }
 
     lazy var emailTextPublisher: AnyPublisher<String, Never> = {
         emailTextField.textDidChangePublisher
@@ -66,6 +102,24 @@ final class LoginUI {
 // MARK: - internal methods
 
 extension LoginUI {
+
+    func setupTextField(delegate: UITextFieldDelegate) {
+        [emailTextField, passwordTextField].forEach {
+            $0.delegate = delegate
+        }
+    }
+
+    func setValidationText(text: String, validColor: UIColor, type: OutputType) {
+        switch type {
+            case .email:
+                emailValidationLabel.text = text
+                emailValidationLabel.textColor = validColor
+
+            case .password:
+                passwordValidationLabel.text = text
+                passwordValidationLabel.textColor = validColor
+        }
+    }
 
     func getLoginButtonOffsetY(rootView: UIView) -> CGFloat {
         loginButton.convert(rootView.frame, to: rootView).origin.y
