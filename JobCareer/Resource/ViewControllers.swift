@@ -23,7 +23,7 @@ extension Resources {
 
             func login() -> LoginViewController {
                 let instance = LoginViewController()
-                instance.inject(ui: LoginUI())
+                instance.inject(viewModel: LoginViewModel(), ui: LoginUI())
                 instance.title = Resources.Strings.Navigation.Title.login
                 return instance
             }

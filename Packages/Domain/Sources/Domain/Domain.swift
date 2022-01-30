@@ -3,6 +3,7 @@ import Data
 public struct EmptyRepository {}
 
 public typealias FetchSampleUsecase = UsecaseImpl<Repos.Sample.Get, SampleMapper>
+public typealias LoginUsecase = UsecaseImpl<Repos.Firebase.Auth, UserMapper>
 public typealias SignUpUsecase = UsecaseImpl<Repos.Firebase.Auth, UserMapper>
 
 public struct Domain {
@@ -14,6 +15,13 @@ public struct Domain {
                 repository: Repos.Sample.Get(),
                 mapper: SampleMapper(),
                 useTestData: useTestData
+            )
+        }
+
+        public static func Login() -> LoginUsecase {
+            .init(
+                repository: Repos.Firebase.Auth(),
+                mapper: UserMapper()
             )
         }
 

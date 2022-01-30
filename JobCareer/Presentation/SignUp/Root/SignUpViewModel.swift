@@ -66,7 +66,7 @@ extension SignUpViewModel {
     func signUp() {
         state = .loading
 
-        usecase.execute(email: email, password: password)
+        usecase.signUp(email: email, password: password)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):

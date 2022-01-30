@@ -11,7 +11,7 @@ protocol LoginViewControllerDelegate: AnyObject {
 // MARK: - inject
 
 extension LoginViewController: VCInjectable {
-    typealias VM = NoViewModel
+    typealias VM = LoginViewModel
     typealias UI = LoginUI
 }
 
@@ -36,6 +36,7 @@ extension LoginViewController {
         ui.setupView(rootView: view)
         setupEvent()
         setupKeyboard()
+        bindToViewModel()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -51,6 +52,7 @@ private extension LoginViewController {
     func setupEvent() {
         ui.loginButtonTapPublisher.sink { [weak self] _ in
             guard let self = self else { return }
+            self.viewModel.login()
             AppDataHolder.isLogin = true
             self.delegate.didLoginButtonTapped()
         }
@@ -81,5 +83,17 @@ private extension LoginViewController {
                     self.view.frame.origin.y = 0
             }
         }
+    }
+
+    func bindToViewModel() {
+        ui.emailTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.email, on: viewModel)
+            .store(in: &cancellables)
+
+        ui.passwordTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.password, on: viewModel)
+            .store(in: &cancellables)
     }
 }

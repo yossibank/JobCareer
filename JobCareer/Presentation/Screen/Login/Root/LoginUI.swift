@@ -46,6 +46,14 @@ final class LoginUI {
         fontSize: .h4
     )
 
+    lazy var emailTextPublisher: AnyPublisher<String, Never> = {
+        emailTextField.textDidChangePublisher
+    }()
+
+    lazy var passwordTextPublisher: AnyPublisher<String, Never> = {
+        passwordTextField.textDidChangePublisher
+    }()
+
     lazy var loginButtonTapPublisher: UIControl.Publisher<AnimationButton> = {
         loginButton.publisher(for: .touchUpInside)
     }()
