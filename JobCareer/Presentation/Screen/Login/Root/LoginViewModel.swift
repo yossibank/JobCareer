@@ -2,7 +2,7 @@ import Combine
 import Domain
 import Utility
 
-final class SignUpViewModel: ViewModel {
+final class LoginViewModel: ViewModel {
 
     typealias State = LoadingState<UserEntity, AppError>
 
@@ -18,55 +18,37 @@ final class SignUpViewModel: ViewModel {
         }.eraseToAnyPublisher()
     }
 
-    var confirmPasswordValidated: AnyPublisher<ValidationResult, Never> {
-        $confirmPassword.combineLatest($password) { password, confirmPassword in
-            ConfirmPasswordValidator(password: password, confirmPassword: confirmPassword).validate()
-        }.eraseToAnyPublisher()
-    }
-
     var isEnabled: AnyPublisher<Bool, Never> {
-        Publishers.CombineLatest3($email, $password, $confirmPassword)
-            .map { email, password, confirmPassword in
-                let isEmailValid = EmailValidator(
-                    email: email
-                ).validate().isValid
-
-                let isPasswordValid = PasswordValidator(
-                    password: password
-                ).validate().isValid
-
-                let isConfirmPasswordValid = ConfirmPasswordValidator(
-                    password: password,
-                    confirmPassword: confirmPassword
-                ).validate().isValid
-
-                return isEmailValid && isPasswordValid && isConfirmPasswordValid
-
-            }.eraseToAnyPublisher()
+        Publishers.CombineLatest($email, $password)
+            .map { email, password in
+                let isEmailValid = EmailValidator(email: email).validate().isValid
+                let isPasswordValid = PasswordValidator(password: password).validate().isValid
+                return isEmailValid && isPasswordValid
+            }
+            .eraseToAnyPublisher()
     }
 
     @Published var email: String = .blank
     @Published var password: String = .blank
-    @Published var confirmPassword: String = .blank
     @Published private(set) var state: State = .standby
 
     private var cancellables: Set<AnyCancellable> = []
 
-    private let usecase: SignUpUsecase
+    private let usecase: LoginUsecase
 
-    init(usecase: SignUpUsecase = Domain.Usecase.SignUp()) {
+    init(usecase: LoginUsecase = Domain.Usecase.Login()) {
         self.usecase = usecase
     }
 }
 
 // MARK: - internal methods
 
-extension SignUpViewModel {
+extension LoginViewModel {
 
-    func signUp() {
+    func login() {
         state = .loading
 
-        usecase.signUp(email: email, password: password)
+        usecase.login(email: email, password: password)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):

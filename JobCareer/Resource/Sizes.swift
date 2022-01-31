@@ -8,20 +8,20 @@ enum FontType {
 
 enum FontSize: CGFloat {
 
-    /** 22 */
-    case h1 = 22
+    /** 21 */
+    case h1 = 21
 
-    /** 19 */
-    case h2 = 19
+    /** 18 */
+    case h2 = 18
 
-    /** 16 */
-    case h3 = 16
+    /** 15 */
+    case h3 = 15
 
-    /** 13 */
-    case h4 = 13
+    /** 12 */
+    case h4 = 12
 
-    /** 10 */
-    case h5 = 10
+    /** 9 */
+    case h5 = 9
 
     /** 0 */
     case none = 0
