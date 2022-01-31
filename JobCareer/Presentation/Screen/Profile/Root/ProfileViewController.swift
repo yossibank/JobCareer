@@ -31,9 +31,9 @@ extension ProfileViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ui.injectDelegate(delegate: self)
         ui.setupView(rootView: view)
         ui.setupCollectionView(delegate: self)
-        ui.injectDelegate(delegate: self)
     }
 }
 
