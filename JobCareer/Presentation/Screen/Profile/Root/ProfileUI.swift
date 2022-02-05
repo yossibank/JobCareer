@@ -20,13 +20,6 @@ final class ProfileUI {
         return collectionView
     }()
 
-    private let indicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.style = .medium
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
-
     weak var delegate: ProfileViewDelegate!
 
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<ProfileSection, ProfileItem>()
@@ -103,14 +96,6 @@ extension ProfileUI {
             animatingDifferences: false
         )
     }
-
-    func startIndicator() {
-        indicator.startAnimating()
-    }
-
-    func stopIndicator() {
-        indicator.stopAnimating()
-    }
 }
 
 // MARK: - protocol
@@ -122,16 +107,12 @@ extension ProfileUI: UserInterface {
 
         rootView.addSubViews(
             collectionView,
-            indicator,
 
             constraints:
             collectionView.topAnchor.constraint(equalTo: rootView.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-
-            indicator.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
-            indicator.centerYAnchor.constraint(equalTo: rootView.centerYAnchor)
+            collectionView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor)
         )
     }
 

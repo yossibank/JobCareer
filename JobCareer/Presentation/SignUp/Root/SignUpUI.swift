@@ -86,13 +86,6 @@ final class SignUpUI {
         titleColor: Resources.Colors.dynamicColor
     )
 
-    private let indicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.style = .medium
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
-
     var isEnabled: Bool = false {
         didSet {
             signUpButton.alpha = isEnabled ? 1.0 : 0.5
@@ -146,14 +139,6 @@ extension SignUpUI {
     func getSignUpButtonOffsetY(rootView: UIView) -> CGFloat {
         signUpButton.convert(rootView.frame, to: rootView).origin.y
     }
-
-    func startIndicator() {
-        indicator.startAnimating()
-    }
-
-    func stopIndicator() {
-        indicator.stopAnimating()
-    }
 }
 
 // MARK: - protocol
@@ -165,15 +150,11 @@ extension SignUpUI: UserInterface {
 
         rootView.addSubViews(
             stackView,
-            indicator,
 
             constraints:
             stackView.centerYAnchor.constraint(equalTo: rootView.centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: 56),
             stackView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -56),
-
-            indicator.centerXAnchor.constraint(equalTo: rootView.centerXAnchor),
-            indicator.centerYAnchor.constraint(equalTo: rootView.centerYAnchor),
 
             animationView.heightAnchor.constraint(equalToConstant: 120),
             emailTextField.heightAnchor.constraint(equalToConstant: 48),

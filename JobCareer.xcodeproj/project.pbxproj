@@ -113,6 +113,7 @@
 		78E35E2B277C3F37002EDE43 /* AppDataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E35E2A277C3F37002EDE43 /* AppDataHolder.swift */; };
 		78EE79502780124900F7FCB9 /* HomeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EE794F2780124900F7FCB9 /* HomeUI.swift */; };
 		78EE79522780125200F7FCB9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EE79512780125200F7FCB9 /* HomeViewController.swift */; };
+		78EFA3F427AEAB5E00795193 /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EFA3F327AEAB5E00795193 /* IndicatorViewController.swift */; };
 		78F382732783EC15004664C9 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F382722783EC15004664C9 /* CollectionViewHeader.swift */; };
 /* End PBXBuildFile section */
 
@@ -257,6 +258,7 @@
 		78E35E2A277C3F37002EDE43 /* AppDataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataHolder.swift; sourceTree = "<group>"; };
 		78EE794F2780124900F7FCB9 /* HomeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUI.swift; sourceTree = "<group>"; };
 		78EE79512780125200F7FCB9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		78EFA3F327AEAB5E00795193 /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
 		78F382722783EC15004664C9 /* CollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -589,6 +591,7 @@
 			children = (
 				78BA64D22744FD9D005B2D61 /* BottomSheet+Convenience.swift */,
 				78DD433727423995006684D0 /* FirebaseProvider.swift */,
+				78EFA3F327AEAB5E00795193 /* IndicatorViewController.swift */,
 				7894BF0C279D002B00038B46 /* KeyboardHandler.swift */,
 				7894BF0A279CFC4100038B46 /* KeyboardState.swift */,
 				78DD43432742440D006684D0 /* LoadingState.swift */,
@@ -983,6 +986,7 @@
 				78DD436627424F5E006684D0 /* SecondViewModel.swift in Sources */,
 				78C20EEC277B360000C7EC65 /* LoginViewController.swift in Sources */,
 				78BA64C32744C82A005B2D61 /* BottomSheetViewController.swift in Sources */,
+				78EFA3F427AEAB5E00795193 /* IndicatorViewController.swift in Sources */,
 				78DD436427424F55006684D0 /* SecondViewController.swift in Sources */,
 				78C57E4F2791136E00F212A0 /* LogoutCell.swift in Sources */,
 				7824D6652782C71C00F3AA1C /* ContentsCell.swift in Sources */,

@@ -17,7 +17,7 @@ extension SignUpViewController: VCInjectable {
 
 // MARK: - stored properties
 
-final class SignUpViewController: UIViewController {
+final class SignUpViewController: IndicatorViewController {
     var viewModel: VM!
     var ui: UI!
 
@@ -107,12 +107,12 @@ private extension SignUpViewController {
                         Logger.debug(message: "standby")
 
                     case .loading:
-                        self.ui.startIndicator()
+                        self.startIndicator()
                         Logger.debug(message: "loading")
 
                     case let .done(entity):
                         AppDataHolder.isLogin = true
-                        self.ui.stopIndicator()
+                        self.stopIndicator()
                         self.showBottomSheet(
                             type: .signUp(
                                 content: .init(
@@ -126,7 +126,7 @@ private extension SignUpViewController {
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
-                        self.ui.stopIndicator()
+                        self.stopIndicator()
                         self.showBottomSheet(
                             type: .error(
                                 content: .init(

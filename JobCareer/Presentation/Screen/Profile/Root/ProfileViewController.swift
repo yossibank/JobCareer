@@ -17,7 +17,7 @@ extension ProfileViewController: VCInjectable {
 
 // MARK: - stored properties
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: IndicatorViewController {
     var viewModel: VM!
     var ui: UI!
 
@@ -54,17 +54,17 @@ private extension ProfileViewController {
                         Logger.debug(message: "standby")
 
                     case .loading:
-                        self.ui.startIndicator()
+                        self.startIndicator()
                         Logger.debug(message: "loading")
 
                     case let .done(entity):
                         AppDataHolder.isLogin = false
-                        self.ui.stopIndicator()
+                        self.stopIndicator()
                         self.delegate.didLogoutButtonTapped()
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
-                        self.ui.stopIndicator()
+                        self.stopIndicator()
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }
