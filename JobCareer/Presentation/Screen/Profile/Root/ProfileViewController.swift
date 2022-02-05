@@ -54,14 +54,17 @@ private extension ProfileViewController {
                         Logger.debug(message: "standby")
 
                     case .loading:
+                        self.ui.startIndicator()
                         Logger.debug(message: "loading")
 
                     case let .done(entity):
                         AppDataHolder.isLogin = false
+                        self.ui.stopIndicator()
                         self.delegate.didLogoutButtonTapped()
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
+                        self.ui.stopIndicator()
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }
