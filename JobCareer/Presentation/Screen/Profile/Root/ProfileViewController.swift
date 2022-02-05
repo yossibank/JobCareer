@@ -1,5 +1,6 @@
 import Combine
 import UIKit
+import Utility
 
 // MARK: - screen transition management
 
@@ -37,6 +38,35 @@ extension ProfileViewController {
     }
 }
 
+// MARK: - private methods
+
+private extension ProfileViewController {
+
+    func bindToView() {
+        viewModel.$state
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                guard let self = self else { return }
+
+                switch state {
+                    case .standby:
+                        Logger.debug(message: "standby")
+
+                    case .loading:
+                        Logger.debug(message: "loading")
+
+                    case let .done(entity):
+                        AppDataHolder.isLogin = false
+                        Logger.debug(message: "\(entity)")
+
+                    case let .failed(error):
+                        Logger.debug(message: "\(error.localizedDescription)")
+                }
+            }
+            .store(in: &cancellables)
+    }
+}
+
 // MARK: - delegate
 
 extension ProfileViewController: UICollectionViewDelegate {
@@ -58,9 +88,13 @@ extension ProfileViewController: ProfileViewDelegate {
 
     func didLogoutButtonTapped(_ publisher: LogoutButtonPublisher) {
         publisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            AppDataHolder.isLogin = false
-            self.delegate.didLogoutButtonTapped()
+            self?.showSimpleSheet(
+                title: "ログアウト",
+                body: "ログアウトしてもよろしいでしょうか？",
+                completion: { [weak self] in
+                    self?.delegate.didLogoutButtonTapped()
+                }
+            )
         }
         .store(in: &cancellables)
     }
