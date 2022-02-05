@@ -17,7 +17,7 @@ extension SignUpViewController: VCInjectable {
 
 // MARK: - stored properties
 
-final class SignUpViewController: UIViewController {
+final class SignUpViewController: IndicatorViewController {
     var viewModel: VM!
     var ui: UI!
 
@@ -107,32 +107,38 @@ private extension SignUpViewController {
                         Logger.debug(message: "standby")
 
                     case .loading:
-                        self.ui.startIndicator()
+                        self.startIndicator()
                         Logger.debug(message: "loading")
 
                     case let .done(entity):
                         AppDataHolder.isLogin = true
-
-                        self.ui.stopIndicator()
-
-                        self.showSimpleSheet(
-                            title: Resources.Strings.Alert.done,
-                            body: Resources.Strings.Alert.successSignUpMessage,
-                            dismissCallBack:  { [weak self] in
-                                self?.dismiss(animated: true)
-                                self?.delegate.didRegisterAccount()
-                            }
+                        self.stopIndicator()
+                        self.showBottomSheet(
+                            type: .signUp(
+                                content: .init(
+                                    handler: { [weak self] in
+                                        self?.presentingViewController?.dismiss(animated: true)
+                                        self?.delegate.didRegisterAccount()
+                                    }
+                                )
+                            )
                         )
-
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
-                        let body = error.errorMessage?.contain(pattern: "already") ?? false
-                            ? Resources.Strings.Alert.duplicateEmailAddress
-                            : Resources.Strings.Alert.failedSignUpMessage
-
-                        self.ui.stopIndicator()
-                        self.showErrorSheet(body: body)
+                        self.stopIndicator()
+                        self.showBottomSheet(
+                            type: .error(
+                                content: .init(
+                                    body: error.errorMessage?.contain(pattern: "already") ?? false
+                                        ? Resources.Strings.Alert.duplicateEmailAddress
+                                        : Resources.Strings.Alert.failedSignUpMessage,
+                                    handler: { [weak self] in
+                                        self?.dismiss(animated: true)
+                                    }
+                                )
+                            )
+                        )
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }

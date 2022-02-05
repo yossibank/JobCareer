@@ -18,7 +18,7 @@ extension LoginViewController: VCInjectable {
 
 // MARK: - stored properties
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: IndicatorViewController {
     var viewModel: VM!
     var ui: UI!
 
@@ -109,18 +109,27 @@ private extension LoginViewController {
                         Logger.debug(message: "standby")
 
                     case .loading:
-                        self.ui.startIndicator()
+                        self.startIndicator()
                         Logger.debug(message: "loading")
 
                     case let .done(entity):
                         AppDataHolder.isLogin = true
-                        self.ui.stopIndicator()
+                        self.stopIndicator()
                         self.delegate.didLoginButtonTapped()
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
-                        self.ui.stopIndicator()
-                        self.showErrorSheet(body: Resources.Strings.Alert.failedLoginMessage)
+                        self.stopIndicator()
+                        self.showBottomSheet(
+                            type: .error(
+                                content: .init(
+                                    body: Resources.Strings.Alert.failedLoginMessage,
+                                    handler: { [weak self] in
+                                        self?.dismiss(animated: true)
+                                    }
+                                )
+                            )
+                        )
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }

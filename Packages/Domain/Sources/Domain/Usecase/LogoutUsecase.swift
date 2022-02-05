@@ -1,13 +1,13 @@
 import Combine
 import Data
 
-public extension UsecaseImpl where R == Repos.FirebaseAuth.Login, M == UserMapper {
+public extension UsecaseImpl where R == Repos.FirebaseAuth.Logout, M == EmptyMapper {
 
-    func login(email: String, password: String) -> AnyPublisher<UserEntity, APIError> {
+    func logout() -> AnyPublisher<EmptyEntity, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
 
-            repository.login(email: email, password: password) { result in
+            repository.logout { result in
                 switch result {
                     case let .success(response):
                         let entity = mapper.convert(response: response)

@@ -3,8 +3,9 @@ import Data
 public struct EmptyRepository {}
 
 public typealias FetchSampleUsecase = UsecaseImpl<Repos.Sample.Get, SampleMapper>
-public typealias LoginUsecase = UsecaseImpl<Repos.Firebase.Auth, UserMapper>
-public typealias SignUpUsecase = UsecaseImpl<Repos.Firebase.Auth, UserMapper>
+public typealias LoginUsecase = UsecaseImpl<Repos.FirebaseAuth.Login, UserMapper>
+public typealias LogoutUsecase = UsecaseImpl<Repos.FirebaseAuth.Logout, EmptyMapper>
+public typealias SignUpUsecase = UsecaseImpl<Repos.FirebaseAuth.SignUp, UserMapper>
 
 public struct Domain {
 
@@ -20,14 +21,21 @@ public struct Domain {
 
         public static func Login() -> LoginUsecase {
             .init(
-                repository: Repos.Firebase.Auth(),
+                repository: Repos.FirebaseAuth.Login(),
                 mapper: UserMapper()
+            )
+        }
+
+        public static func Logout() -> LogoutUsecase {
+            .init(
+                repository: Repos.FirebaseAuth.Logout(),
+                mapper: EmptyMapper()
             )
         }
 
         public static func SignUp() -> SignUpUsecase {
             .init(
-                repository: Repos.Firebase.Auth(),
+                repository: Repos.FirebaseAuth.SignUp(),
                 mapper: UserMapper()
             )
         }

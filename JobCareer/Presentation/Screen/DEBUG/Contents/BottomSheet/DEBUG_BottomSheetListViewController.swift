@@ -104,9 +104,13 @@ extension DEBUG_BottomSheetListViewController: UITableViewDelegate {
                 }
 
                 showBottomSheet(
-                    title: title,
-                    body: body,
-                    actions: actions
+                    type: .debug(
+                        content: .init(
+                            title: title,
+                            body: body,
+                            actions: actions
+                        )
+                    )
                 )
 
             default:

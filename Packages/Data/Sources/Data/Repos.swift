@@ -7,8 +7,10 @@ public struct Repos {
         public typealias Delete = Repository<SampleDeleteRequest>
     }
 
-    public struct Firebase {
-        public typealias Auth = FirebaseAuthManager
+    public struct FirebaseAuth {
+        public typealias Login = FirebaseAuthManager
+        public typealias Logout = FirebaseAuthManager
+        public typealias SignUp = FirebaseAuthManager
     }
 
     public struct Onboarding {

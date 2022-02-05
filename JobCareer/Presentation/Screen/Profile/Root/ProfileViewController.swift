@@ -1,5 +1,6 @@
 import Combine
 import UIKit
+import Utility
 
 // MARK: - screen transition management
 
@@ -16,7 +17,7 @@ extension ProfileViewController: VCInjectable {
 
 // MARK: - stored properties
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: IndicatorViewController {
     var viewModel: VM!
     var ui: UI!
 
@@ -34,6 +35,40 @@ extension ProfileViewController {
         ui.injectDelegate(delegate: self)
         ui.setupView(rootView: view)
         ui.setupCollectionView(delegate: self)
+        bindToView()
+    }
+}
+
+// MARK: - private methods
+
+private extension ProfileViewController {
+
+    func bindToView() {
+        viewModel.$state
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                guard let self = self else { return }
+
+                switch state {
+                    case .standby:
+                        Logger.debug(message: "standby")
+
+                    case .loading:
+                        self.startIndicator()
+                        Logger.debug(message: "loading")
+
+                    case let .done(entity):
+                        AppDataHolder.isLogin = false
+                        self.stopIndicator()
+                        self.delegate.didLogoutButtonTapped()
+                        Logger.debug(message: "\(entity)")
+
+                    case let .failed(error):
+                        self.stopIndicator()
+                        Logger.debug(message: "\(error.localizedDescription)")
+                }
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -58,9 +93,16 @@ extension ProfileViewController: ProfileViewDelegate {
 
     func didLogoutButtonTapped(_ publisher: LogoutButtonPublisher) {
         publisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            AppDataHolder.isLogin = false
-            self.delegate.didLogoutButtonTapped()
+            self?.showBottomSheet(
+                type: .logout(
+                    content: .init(
+                        handler: { [weak self] in
+                            self?.dismiss(animated: true)
+                            self?.viewModel.logout()
+                        }
+                    )
+                )
+            )
         }
         .store(in: &cancellables)
     }
