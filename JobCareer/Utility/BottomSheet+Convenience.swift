@@ -67,8 +67,8 @@ enum BottomSheetType {
 
             case let .logout(content):
                 return .init(
-                    title: "警告",
-                    body: "ログアウトしてもよろしいでしょうか？",
+                    title: Resources.Strings.Alert.warn,
+                    body: Resources.Strings.Alert.wouldYouLikeToLogout,
                     actions: [.init(
                         title: Resources.Strings.Alert.ok,
                         style: .alert,

@@ -94,7 +94,7 @@ extension ProfileViewController: ProfileViewDelegate {
                 type: .logout(
                     content: .init(
                         handler: { [weak self] in
-                            self?.presentingViewController?.dismiss(animated: true)
+                            self?.dismiss(animated: true)
                             self?.viewModel.logout()
                         }
                     )

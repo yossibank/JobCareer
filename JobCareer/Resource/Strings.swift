@@ -19,10 +19,12 @@ struct StringResource {
         @Localizable static var error = "error"
         @Localizable static var done = "done"
         @Localizable static var ok = "OK"
+        @Localizable static var warn = "warn"
         @Localizable static var failedLoginMessage = "failed_login_message"
         @Localizable static var successSignUpMessage = "success_signUp_message"
         @Localizable static var failedSignUpMessage = "failed_signUp_message"
         @Localizable static var duplicateEmailAddress = "failed_duplicate_email_address"
+        @Localizable static var wouldYouLikeToLogout = "would_you_like_to_logout"
     }
 
     struct Home {
