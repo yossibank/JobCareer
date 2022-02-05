@@ -1,5 +1,84 @@
 import UIKit
 
+enum BottomSheetType {
+    case debug(content: DebugContent)
+    case error(content: ErrorContent)
+    case signUp(content: SignUpContent)
+    case logout(content: LogoutContent)
+
+    struct BottomSheetContent {
+        let title: String?
+        let body: String?
+        let actions: [BottomSheetAction]
+        var dismissCallback: VoidBlock?
+        var completion: VoidBlock?
+    }
+
+    struct DebugContent {
+        let title: String?
+        let body: String?
+        let actions: [BottomSheetAction]
+    }
+
+    struct SignUpContent {
+        let handler: VoidBlock
+    }
+
+    struct LogoutContent {
+        let handler: VoidBlock
+    }
+
+    struct ErrorContent {
+        let body: String?
+        let handler: VoidBlock
+    }
+
+    var content: BottomSheetContent {
+        switch self {
+            case let .debug(content):
+                return .init(
+                    title: content.title,
+                    body: content.body,
+                    actions: content.actions
+                )
+
+            case let .error(content):
+                return .init(
+                    title: Resources.Strings.Alert.error,
+                    body: content.body,
+                    actions: [.init(
+                        title: Resources.Strings.Alert.ok,
+                        style: .alert,
+                        handler: content.handler
+                    )]
+                )
+
+            case let .signUp(content):
+                return .init(
+                    title: Resources.Strings.Alert.done,
+                    body: Resources.Strings.Alert.successSignUpMessage,
+                    actions: [.init(
+                        title: Resources.Strings.Alert.ok,
+                        style: .default,
+                        handler: content.handler
+                    )],
+                    dismissCallback: content.handler
+                )
+
+            case let .logout(content):
+                return .init(
+                    title: "警告",
+                    body: "ログアウトしてもよろしいでしょうか？",
+                    actions: [.init(
+                        title: Resources.Strings.Alert.ok,
+                        style: .alert,
+                        handler: content.handler
+                    )]
+                )
+        }
+    }
+}
+
 extension UIViewController {
 
     func showBottomSheet(
@@ -19,94 +98,24 @@ extension UIViewController {
         )
     }
 
-    func showBottomSheet(
-        title: String?,
-        body: String?,
-        actions: [BottomSheetAction],
-        dismissCallBack: VoidBlock? = nil,
-        completion: VoidBlock? = nil
-    ) {
+    func showBottomSheet(type: BottomSheetType) {
         let commonBottomSheetView = CommonBottomSheetContentView()
+        let content = type.content
         commonBottomSheetView.set(
-            title: title,
-            body: body,
-            actions: actions
+            title: content.title,
+            body: content.body,
+            actions: content.actions
         )
 
         let bottomSheetVC = Resources.ViewControllers.App.bottomSheet(
-            dismissCallBack: dismissCallBack
+            dismissCallBack: content.dismissCallback
         )
         bottomSheetVC.set(view: commonBottomSheetView)
 
         present(
             bottomSheetVC,
             animated: true,
-            completion: completion
-        )
-    }
-
-    func showSimpleSheet(
-        title: String? = nil,
-        body: String? = nil,
-        dismissCallBack: VoidBlock? = nil,
-        completion: VoidBlock? = nil
-    ) {
-        let commonBottomSheetView = CommonBottomSheetContentView()
-        let action: BottomSheetAction = .init(
-            title: Resources.Strings.Alert.ok,
-            style: .default
-        ) { [weak self] in
-            self?.dismiss(animated: true) {
-                dismissCallBack?()
-            }
-        }
-
-        commonBottomSheetView.set(
-            title: title,
-            body: body,
-            actions: [action]
-        )
-
-        let bottomSheetVC = Resources.ViewControllers.App.bottomSheet(
-            dismissCallBack: dismissCallBack
-        )
-        bottomSheetVC.set(view: commonBottomSheetView)
-
-        present(
-            bottomSheetVC,
-            animated: true,
-            completion: completion
-        )
-    }
-
-    func showErrorSheet(
-        body: String? = nil,
-        dismissCallBack: VoidBlock? = nil,
-        completion: VoidBlock? = nil
-    ) {
-        let commonBottomSheetView = CommonBottomSheetContentView()
-        let action: BottomSheetAction = .init(
-            title: Resources.Strings.Alert.ok,
-            style: .alert
-        ) { [weak self] in
-            self?.dismiss(animated: true)
-        }
-
-        commonBottomSheetView.set(
-            title: Resources.Strings.Alert.error,
-            body: body,
-            actions: [action]
-        )
-
-        let bottomSheetVC = Resources.ViewControllers.App.bottomSheet(
-            dismissCallBack: dismissCallBack
-        )
-        bottomSheetVC.set(view: commonBottomSheetView)
-
-        present(
-            bottomSheetVC,
-            animated: true,
-            completion: completion
+            completion: content.completion
         )
     }
 }

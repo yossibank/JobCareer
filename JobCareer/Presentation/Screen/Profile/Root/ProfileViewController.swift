@@ -35,6 +35,7 @@ extension ProfileViewController {
         ui.injectDelegate(delegate: self)
         ui.setupView(rootView: view)
         ui.setupCollectionView(delegate: self)
+        bindToView()
     }
 }
 
@@ -57,6 +58,7 @@ private extension ProfileViewController {
 
                     case let .done(entity):
                         AppDataHolder.isLogin = false
+                        self.delegate.didLogoutButtonTapped()
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
@@ -88,12 +90,15 @@ extension ProfileViewController: ProfileViewDelegate {
 
     func didLogoutButtonTapped(_ publisher: LogoutButtonPublisher) {
         publisher.sink { [weak self] _ in
-            self?.showSimpleSheet(
-                title: "ログアウト",
-                body: "ログアウトしてもよろしいでしょうか？",
-                completion: { [weak self] in
-                    self?.delegate.didLogoutButtonTapped()
-                }
+            self?.showBottomSheet(
+                type: .logout(
+                    content: .init(
+                        handler: { [weak self] in
+                            self?.presentingViewController?.dismiss(animated: true)
+                            self?.viewModel.logout()
+                        }
+                    )
+                )
             )
         }
         .store(in: &cancellables)

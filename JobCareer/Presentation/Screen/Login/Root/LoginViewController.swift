@@ -120,7 +120,16 @@ private extension LoginViewController {
 
                     case let .failed(error):
                         self.ui.stopIndicator()
-                        self.showErrorSheet(body: Resources.Strings.Alert.failedLoginMessage)
+                        self.showBottomSheet(
+                            type: .error(
+                                content: .init(
+                                    body: Resources.Strings.Alert.failedLoginMessage,
+                                    handler: { [weak self] in
+                                        self?.dismiss(animated: true)
+                                    }
+                                )
+                            )
+                        )
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }
