@@ -37,4 +37,19 @@ public struct FirebaseAuthManager {
             }
         }
     }
+
+    public func logout(
+        completion: @escaping (Result<EmptyResponse, APIError>) -> Void
+    ) {
+        guard let _ = Auth.auth().currentUser else {
+            return
+        }
+
+        do {
+            try Auth.auth().signOut()
+            completion(.success(.init()))
+        } catch {
+            completion(.failure(.error(error.localizedDescription)))
+        }
+    }
 }
