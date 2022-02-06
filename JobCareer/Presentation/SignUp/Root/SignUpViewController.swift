@@ -73,8 +73,7 @@ private extension SignUpViewController {
 
     func setupEvent() {
         ui.buttonTapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            self.viewModel.signUp()
+            self?.viewModel.signUp()
         }
         .store(in: &cancellables)
     }
@@ -148,26 +147,7 @@ private extension SignUpViewController {
             .dropFirst()
             .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .sink { [weak self] validation in
-                guard let self = self else { return }
-
-                switch validation {
-                    case .none:
-                        break
-
-                    case .valid:
-                        self.ui.setValidationText(
-                            text: "OK ✅",
-                            validColor: .green,
-                            type: .email
-                        )
-
-                    case let .invalid(error):
-                        self.ui.setValidationText(
-                            text: error.localizedDescription,
-                            validColor: .red,
-                            type: .email
-                        )
-                }
+                self?.ui.emailValidation = validation
             }
             .store(in: &cancellables)
 
@@ -175,26 +155,7 @@ private extension SignUpViewController {
             .dropFirst()
             .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .sink { [weak self] validation in
-                guard let self = self else { return }
-
-                switch validation {
-                    case .none:
-                        break
-
-                    case .valid:
-                        self.ui.setValidationText(
-                            text: "OK ✅",
-                            validColor: .green,
-                            type: .password
-                        )
-
-                    case let .invalid(error):
-                        self.ui.setValidationText(
-                            text: error.localizedDescription,
-                            validColor: .red,
-                            type: .password
-                        )
-                }
+                self?.ui.passwordValidation = validation
             }
             .store(in: &cancellables)
 
@@ -202,34 +163,14 @@ private extension SignUpViewController {
             .dropFirst()
             .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .sink { [weak self] validation in
-                guard let self = self else { return }
-
-                switch validation {
-                    case .none:
-                        break
-
-                    case .valid:
-                        self.ui.setValidationText(
-                            text: "OK ✅",
-                            validColor: .green,
-                            type: .confirmPassword
-                        )
-
-                    case let .invalid(error):
-                        self.ui.setValidationText(
-                            text: error.localizedDescription,
-                            validColor: .red,
-                            type: .confirmPassword
-                        )
-                }
+                self?.ui.confirmPasswordValidation = validation
             }
             .store(in: &cancellables)
 
         viewModel.isEnabled
             .debounce(for: 0.1, scheduler: DispatchQueue.main)
             .sink { [weak self] isEnabled in
-                guard let self = self else { return }
-                self.ui.isEnabled = isEnabled
+                self?.ui.isEnabled = isEnabled
             }
             .store(in: &cancellables)
     }
