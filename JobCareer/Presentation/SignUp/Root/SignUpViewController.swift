@@ -151,6 +151,9 @@ private extension SignUpViewController {
                 guard let self = self else { return }
 
                 switch validation {
+                    case .none:
+                        break
+
                     case .valid:
                         self.ui.setValidationText(
                             text: "OK ✅",
@@ -175,6 +178,9 @@ private extension SignUpViewController {
                 guard let self = self else { return }
 
                 switch validation {
+                    case .none:
+                        break
+
                     case .valid:
                         self.ui.setValidationText(
                             text: "OK ✅",
@@ -199,6 +205,9 @@ private extension SignUpViewController {
                 guard let self = self else { return }
 
                 switch validation {
+                    case .none:
+                        break
+
                     case .valid:
                         self.ui.setValidationText(
                             text: "OK ✅",

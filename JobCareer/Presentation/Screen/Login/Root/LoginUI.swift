@@ -5,11 +5,6 @@ import UIKit
 
 final class LoginUI {
 
-    enum OutputType {
-        case email
-        case password
-    }
-
     private lazy var stackView: UIStackView = .init(
         subViews: [animationView, outputStackView, loginButton, signUpButton],
         style: .vertical,
@@ -82,6 +77,40 @@ final class LoginUI {
         }
     }
 
+    var emailValidation: ValidationResult = .none {
+        didSet {
+            switch emailValidation {
+                case .none:
+                    break
+
+                case .valid:
+                    emailValidationLabel.text = "OK ✅"
+                    emailValidationLabel.textColor = .green
+
+                case let .invalid(error):
+                    emailValidationLabel.text = error.localizedDescription
+                    emailValidationLabel.textColor = .red
+            }
+        }
+    }
+
+    var passwordValidation: ValidationResult = .none {
+        didSet {
+            switch passwordValidation {
+                case .none:
+                    break
+
+                case .valid:
+                    passwordValidationLabel.text = "OK ✅"
+                    passwordValidationLabel.textColor = .green
+
+                case let .invalid(error):
+                    passwordValidationLabel.text = error.localizedDescription
+                    passwordValidationLabel.textColor = .red
+            }
+        }
+    }
+
     lazy var emailTextPublisher: AnyPublisher<String, Never> = {
         emailTextField.textDidChangePublisher
     }()
@@ -106,18 +135,6 @@ extension LoginUI {
     func setupTextField(delegate: UITextFieldDelegate) {
         [emailTextField, passwordTextField].forEach {
             $0.delegate = delegate
-        }
-    }
-
-    func setValidationText(text: String, validColor: UIColor, type: OutputType) {
-        switch type {
-            case .email:
-                emailValidationLabel.text = text
-                emailValidationLabel.textColor = validColor
-
-            case .password:
-                passwordValidationLabel.text = text
-                passwordValidationLabel.textColor = validColor
         }
     }
 
