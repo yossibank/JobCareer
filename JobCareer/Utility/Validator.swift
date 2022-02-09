@@ -24,11 +24,15 @@ extension CompositeValidator {
 }
 
 enum ValidationResult {
+    case none
     case valid
     case invalid(ValidationError)
 
     var isValid: Bool {
         switch self {
+            case .none:
+                return false
+
             case .valid:
                 return true
 

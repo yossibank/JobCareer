@@ -74,14 +74,12 @@ private extension LoginViewController {
 
     func setupEvent() {
         ui.loginButtonTapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            self.viewModel.login()
+            self?.viewModel.login()
         }
         .store(in: &cancellables)
 
         ui.signUpButtonTapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            self.delegate.didSignUpButtonTapped()
+            self?.delegate.didSignUpButtonTapped()
         }
         .store(in: &cancellables)
     }
@@ -139,23 +137,7 @@ private extension LoginViewController {
             .dropFirst()
             .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .sink { [weak self] validation in
-                guard let self = self else { return }
-
-                switch validation {
-                    case .valid:
-                        self.ui.setValidationText(
-                            text: "OK ✅",
-                            validColor: .green,
-                            type: .email
-                        )
-
-                    case let .invalid(error):
-                        self.ui.setValidationText(
-                            text: error.localizedDescription,
-                            validColor: .red,
-                            type: .email
-                        )
-                }
+                self?.ui.emailValidation = validation
             }
             .store(in: &cancellables)
 
@@ -163,31 +145,14 @@ private extension LoginViewController {
             .dropFirst()
             .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .sink { [weak self] validation in
-                guard let self = self else { return }
-
-                switch validation {
-                    case .valid:
-                        self.ui.setValidationText(
-                            text: "OK ✅",
-                            validColor: .green,
-                            type: .password
-                        )
-
-                    case let .invalid(error):
-                        self.ui.setValidationText(
-                            text: error.localizedDescription,
-                            validColor: .red,
-                            type: .password
-                        )
-                }
+                self?.ui.passwordValidation = validation
             }
             .store(in: &cancellables)
 
         viewModel.isEnabled
             .debounce(for: 0.1, scheduler: DispatchQueue.main)
             .sink { [weak self] isEnabled in
-                guard let self = self else { return }
-                self.ui.isEnabled = isEnabled
+                self?.ui.isEnabled = isEnabled
             }
             .store(in: &cancellables)
     }

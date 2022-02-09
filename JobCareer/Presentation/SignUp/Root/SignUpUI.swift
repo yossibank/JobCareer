@@ -5,12 +5,6 @@ import UIKit
 
 final class SignUpUI {
 
-    enum OutputType {
-        case email
-        case password
-        case confirmPassword
-    }
-
     private lazy var stackView: UIStackView = .init(
         subViews: [animationView, outputStackView, signUpButton],
         style: .vertical,
@@ -93,6 +87,57 @@ final class SignUpUI {
         }
     }
 
+    var emailValidation: ValidationResult = .none {
+        didSet {
+            switch emailValidation {
+                case .none:
+                    break
+
+                case .valid:
+                    emailValidationLabel.text = "OK ✅"
+                    emailValidationLabel.textColor = .green
+
+                case let .invalid(error):
+                    emailValidationLabel.text = error.localizedDescription
+                    emailValidationLabel.textColor = .red
+            }
+        }
+    }
+
+    var passwordValidation: ValidationResult = .none {
+        didSet {
+            switch passwordValidation {
+                case .none:
+                    break
+
+                case .valid:
+                    passwordValidationLabel.text = "OK ✅"
+                    passwordValidationLabel.textColor = .green
+
+                case let .invalid(error):
+                    passwordValidationLabel.text = error.localizedDescription
+                    passwordValidationLabel.textColor = .red
+            }
+        }
+    }
+
+    var confirmPasswordValidation: ValidationResult = .none {
+        didSet {
+            switch confirmPasswordValidation {
+                case .none:
+                    break
+
+                case .valid:
+                    confirmPasswordValidationLabel.text = "OK ✅"
+                    confirmPasswordValidationLabel.textColor = .green
+
+                case let .invalid(error):
+                    confirmPasswordValidationLabel.text = error.localizedDescription
+                    confirmPasswordValidationLabel.textColor = .red
+            }
+        }
+    }
+
     lazy var emailTextPublisher: AnyPublisher<String, Never> = {
         emailTextField.textDidChangePublisher
     }()
@@ -117,22 +162,6 @@ extension SignUpUI {
     func setupTextField(delegate: UITextFieldDelegate) {
         [emailTextField, passwordTextField, confirmPasswordTextField].forEach {
             $0.delegate = delegate
-        }
-    }
-
-    func setValidationText(text: String, validColor: UIColor, type: OutputType) {
-        switch type {
-            case .email:
-                emailValidationLabel.text = text
-                emailValidationLabel.textColor = validColor
-
-            case .password:
-                passwordValidationLabel.text = text
-                passwordValidationLabel.textColor = validColor
-
-            case .confirmPassword:
-                confirmPasswordValidationLabel.text = text
-                confirmPasswordValidationLabel.textColor = validColor
         }
     }
 
