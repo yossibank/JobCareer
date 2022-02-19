@@ -2,13 +2,13 @@ import UIKit
 
 enum BottomSheetType {
     case debug(content: DebugContent)
-    case error(content: ErrorContent)
-    case signUp(content: SignUpContent)
-    case logout(content: LogoutContent)
+    case error(content: OneButton)
+    case signUp(content: OneButton)
+    case logout(content: OneButton)
 
     struct BottomSheetContent {
-        let title: String?
-        let body: String?
+        var title: String?
+        var body: String?
         let actions: [BottomSheetAction]
         var dismissCallback: VoidBlock?
         var completion: VoidBlock?
@@ -20,16 +20,8 @@ enum BottomSheetType {
         let actions: [BottomSheetAction]
     }
 
-    struct SignUpContent {
-        let handler: VoidBlock
-    }
-
-    struct LogoutContent {
-        let handler: VoidBlock
-    }
-
-    struct ErrorContent {
-        let body: String?
+    struct OneButton {
+        var body: String?
         let handler: VoidBlock
     }
 

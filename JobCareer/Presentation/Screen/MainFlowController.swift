@@ -53,10 +53,10 @@ extension MainFlowController: FlowController {
         let profileFlowController = ProfileFlowController()
         profileFlowController.delegate = self
 
+        #if DEBUG
         let debugFlowController = DEBUG_FlowController()
         debugFlowController.delegate = self
 
-        #if DEBUG
         flows = [homeFlowController, profileFlowController, debugFlowController]
         #else
         flows = [homeFlowController, profileFlowController]

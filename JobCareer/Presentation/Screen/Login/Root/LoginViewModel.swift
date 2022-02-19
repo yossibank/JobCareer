@@ -63,4 +63,23 @@ extension LoginViewModel {
             }
             .store(in: &cancellables)
     }
+
+    func testLogin() {
+        state = .loading
+
+        usecase.login(email: "test@test.com", password: "testtest")
+            .sink { [weak self] completion in
+                switch completion {
+                    case let .failure(error):
+                        self?.state = .failed(.init(error: error))
+                        Logger.debug(message: error.localizedDescription)
+
+                    case .finished:
+                        Logger.debug(message: "finished")
+                }
+            } receiveValue: { [weak self] state in
+                self?.state = .done(state)
+            }
+            .store(in: &cancellables)
+    }
 }

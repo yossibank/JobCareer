@@ -78,6 +78,11 @@ private extension LoginViewController {
         }
         .store(in: &cancellables)
 
+        ui.testLoginButtonTapPublisher.sink { [weak self] _ in
+            self?.viewModel.testLogin()
+        }
+        .store(in: &cancellables)
+
         ui.signUpButtonTapPublisher.sink { [weak self] _ in
             self?.delegate.didSignUpButtonTapped()
         }
