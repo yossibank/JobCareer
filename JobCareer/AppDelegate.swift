@@ -33,5 +33,6 @@ extension UIWindow: AppFlowControllerDelegate {
             return
         }
         overrideUserInterfaceStyle = style
+        AppDataHolder.colorTheme = value
     }
 }
