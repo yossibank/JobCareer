@@ -57,9 +57,9 @@ final class ThemeCell: UITableViewCell {
 
 extension ThemeCell {
 
-    func configure(title: String, value: Int?) {
+    func configure(title: String, themeStyle: Int?) {
         titleLabel.text = title.addSpaceAfterUppercase().uppercased()
-        themeSegment.selectedSegmentIndex = value ?? 0
+        themeSegment.selectedSegmentIndex = themeStyle ?? 0
     }
 }
 

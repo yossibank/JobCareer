@@ -99,7 +99,11 @@ private extension DEBUG_UI {
                     return UITableViewCell()
                 }
 
-                cell.configure(title: content.rawValue, value: AppDataHolder.colorTheme)
+                cell.configure(
+                    title: content.rawValue,
+                    themeStyle: AppDataHolder.colorTheme
+                )
+
                 delegate.selectedThemeIndex(cell.segmentPublisher)
 
                 return cell
