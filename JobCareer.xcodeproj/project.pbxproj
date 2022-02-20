@@ -83,6 +83,7 @@
 		78C20EF6277B42F800C7EC65 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF5277B42F800C7EC65 /* FlowController.swift */; };
 		78C57E4F2791136E00F212A0 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E4E2791136E00F212A0 /* LogoutCell.swift */; };
 		78C57E522791280C00F212A0 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E512791280C00F212A0 /* AnimationButton.swift */; };
+		78C5F95027C1EEA90068453E /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5F94F27C1EEA90068453E /* ThemeCell.swift */; };
 		78CB9D2B277705FF00AA8A94 /* UIControl+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */; };
 		78D03FD4279BE38C0058878F /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D03FD3279BE38C0058878F /* SignUpUI.swift */; };
 		78D03FD6279BE3950058878F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D03FD5279BE3950058878F /* SignUpViewController.swift */; };
@@ -225,6 +226,7 @@
 		78C20EF5277B42F800C7EC65 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		78C57E4E2791136E00F212A0 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
 		78C57E512791280C00F212A0 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
+		78C5F94F27C1EEA90068453E /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Publisher.swift"; sourceTree = "<group>"; };
 		78D03FD3279BE38C0058878F /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
 		78D03FD5279BE3950058878F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 		78A067C2278BE89B001E5A97 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				78C5F94E27C1ED4B0068453E /* Debug */,
 				78F382742783FF97004664C9 /* Header */,
 				78214F4527829D7E008CB225 /* Home */,
 				7832D460278A9AE100A959B1 /* Profile */,
@@ -553,6 +556,14 @@
 				7853DCBD2793C15E000EAEFF /* BottomBorderTextField.swift */,
 			);
 			path = Widget;
+			sourceTree = "<group>";
+		};
+		78C5F94E27C1ED4B0068453E /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				78C5F94F27C1EEA90068453E /* ThemeCell.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		78D03FCF279BE1D70058878F /* SignUp */ = {
@@ -993,6 +1004,7 @@
 				7860A6E52786EBD1004C26DE /* ProfileViewModel.swift in Sources */,
 				7860A6E12786EBBC004C26DE /* ProfileUI.swift in Sources */,
 				783ED8CA278D5F7B00E7D076 /* Sizes.swift in Sources */,
+				78C5F95027C1EEA90068453E /* ThemeCell.swift in Sources */,
 				78DD43442742440D006684D0 /* LoadingState.swift in Sources */,
 				78EE79502780124900F7FCB9 /* HomeUI.swift in Sources */,
 				78D03FD4279BE38C0058878F /* SignUpUI.swift in Sources */,

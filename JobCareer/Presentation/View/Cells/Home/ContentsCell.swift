@@ -9,16 +9,13 @@ struct Contents: Hashable {
 
 final class ContentsCell: UICollectionViewCell {
 
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(
-            subViews: [labelView, contentImageView],
-            style: .vertical,
-            distributon: .fillEqually,
-            alignment: .fill,
-            space: 10
-        )
-        return stackView
-    }()
+    private lazy var stackView: UIStackView = .init(
+        subViews: [labelView, contentImageView],
+        style: .vertical,
+        distributon: .fillEqually,
+        alignment: .fill,
+        space: 10
+    )
 
     private let contentImageView: UIView = .init()
 
