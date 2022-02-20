@@ -32,9 +32,15 @@ extension DEBUG_UI {
 
         dataSourceSnapshot.appendSections(DEBUG_Section.allCases)
 
-        DEBUG_Section.allCases.forEach {
-            dataSourceSnapshot.appendItems($0.initialItems, toSection: $0)
-        }
+        dataSourceSnapshot.appendItems(
+            DEBUG_Component.allCases.map { $0.component },
+            toSection: .component
+        )
+
+        dataSourceSnapshot.appendItems(
+            DEBUG_Controller.allCases.map { $0.component },
+            toSection: .viewController
+        )
 
         dataSource.apply(
             dataSourceSnapshot,
@@ -72,8 +78,16 @@ private extension DEBUG_UI {
             withIdentifier: UITableViewCell.resourceName,
             for: indexPath
         )
+
+        switch item {
+            case let .component(content):
+                cell.textLabel?.text = content.rawValue.addSpaceAfterUppercase().uppercased()
+
+            case let .controller(content):
+                cell.textLabel?.text = content.rawValue.addSpaceAfterUppercase().uppercased()
+        }
+
         cell.textLabel?.font = .italicSystemFont(ofSize: 18)
-        cell.textLabel?.text = item.rawValue.addSpaceAfterUppercase().uppercased()
 
         return cell
     }

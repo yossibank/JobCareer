@@ -3,29 +3,46 @@
 enum DEBUG_Section: String, CaseIterable {
     case component
     case viewController
+}
 
-    var initialItems: [DEBUG_Item] {
-        switch self {
-            case .component:
-                return [.bottomSheetContent]
+enum DEBUG_Item: Hashable {
+    case component(DEBUG_Component)
+    case controller(DEBUG_Controller)
+}
 
-            case .viewController:
-                return [.home, .profile, .first, .firstDetail, .second]
-        }
+enum DEBUG_Component: String, CaseIterable, Hashable {
+    case bottomSheetContent
+
+    var component: DEBUG_Item {
+        .component(.bottomSheetContent)
     }
 }
 
-enum DEBUG_Item: String, Hashable {
-
-    /* Component */
-    case bottomSheetContent
-
-    /* ViewController */
+enum DEBUG_Controller: String, CaseIterable, Hashable {
     case home
     case profile
     case first
     case firstDetail
     case second
+
+    var component: DEBUG_Item {
+        switch self {
+            case .home:
+                return .controller(.home)
+
+            case .profile:
+                return .controller(.profile)
+
+            case .first:
+                return .controller(.first)
+
+            case .firstDetail:
+                return .controller(.firstDetail)
+
+            case .second:
+                return .controller(.second)
+        }
+    }
 }
 
 #endif
