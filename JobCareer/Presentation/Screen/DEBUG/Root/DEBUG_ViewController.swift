@@ -5,6 +5,7 @@ import UIKit
 // MARK: - screen transition management
 
 protocol DEBUG_ViewControllerDelegate: AnyObject {
+    func didDevelopmentSelected(item: DEBUG_Development)
     func didComponentSelected(item: DEBUG_Component)
     func didControllerSelected(item: DEBUG_Controller)
 }
@@ -73,6 +74,10 @@ extension DEBUG_ViewController: UITableViewDelegate {
         let section = DEBUG_Section.allCases[indexPath.section]
 
         switch section {
+            case .development:
+                let item = DEBUG_Development.allCases[indexPath.row]
+                delegate.didDevelopmentSelected(item: item)
+
             case .component:
                 let item = DEBUG_Component.allCases[indexPath.row]
                 delegate.didComponentSelected(item: item)

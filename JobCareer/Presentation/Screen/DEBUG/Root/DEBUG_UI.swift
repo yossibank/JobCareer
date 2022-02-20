@@ -32,15 +32,9 @@ extension DEBUG_UI {
 
         dataSourceSnapshot.appendSections(DEBUG_Section.allCases)
 
-        dataSourceSnapshot.appendItems(
-            DEBUG_Component.allCases.map { $0.component },
-            toSection: .component
-        )
-
-        dataSourceSnapshot.appendItems(
-            DEBUG_Controller.allCases.map { $0.component },
-            toSection: .viewController
-        )
+        DEBUG_Section.allCases.forEach {
+            dataSourceSnapshot.appendItems($0.items, toSection: $0)
+        }
 
         dataSource.apply(
             dataSourceSnapshot,
@@ -80,6 +74,9 @@ private extension DEBUG_UI {
         )
 
         switch item {
+            case let .development(content):
+                cell.textLabel?.text = content.rawValue.addSpaceAfterUppercase().uppercased()
+
             case let .component(content):
                 cell.textLabel?.text = content.rawValue.addSpaceAfterUppercase().uppercased()
 

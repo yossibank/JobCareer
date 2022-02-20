@@ -54,6 +54,13 @@ extension DEBUG_FlowController: FlowController {
 
 extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
 
+    func didDevelopmentSelected(item: DEBUG_Development) {
+        switch item {
+            case .theme:
+                print("theme")
+        }
+    }
+
     func didComponentSelected(item: DEBUG_Component) {
         switch item {
             case .bottomSheetContent:

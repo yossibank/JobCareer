@@ -1,13 +1,36 @@
 #if DEBUG
 
 enum DEBUG_Section: String, CaseIterable {
+    case development
     case component
     case viewController
+
+    var items: [DEBUG_Item] {
+        switch self {
+            case .development:
+                return DEBUG_Development.allCases.map { $0.component }
+
+            case .component:
+                return DEBUG_Component.allCases.map { $0.component }
+
+            case .viewController:
+                return DEBUG_Controller.allCases.map { $0.component }
+        }
+    }
 }
 
 enum DEBUG_Item: Hashable {
+    case development(DEBUG_Development)
     case component(DEBUG_Component)
     case controller(DEBUG_Controller)
+}
+
+enum DEBUG_Development: String, CaseIterable, Hashable {
+    case theme
+
+    var component: DEBUG_Item {
+        .development(.theme)
+    }
 }
 
 enum DEBUG_Component: String, CaseIterable, Hashable {
