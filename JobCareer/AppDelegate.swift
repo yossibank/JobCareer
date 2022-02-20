@@ -5,7 +5,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private let appFlowController: AppFlowController = .init()
+    private lazy var appFlowController: AppFlowController = {
+        let controller = AppFlowController()
+        controller.delegate = window
+        return controller
+    }()
 
     func application(
         _: UIApplication,
@@ -19,5 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appFlowController.start()
 
         return true
+    }
+}
+
+extension UIWindow: AppFlowControllerDelegate {
+
+    func didChangeThemeSelected(value: Int) {
+        guard let style = UIUserInterfaceStyle(rawValue: value) else {
+            return
+        }
+        overrideUserInterfaceStyle = style
     }
 }

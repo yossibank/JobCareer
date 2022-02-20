@@ -1,5 +1,6 @@
 #if DEBUG
 
+import Combine
 import UIKit
 
 // MARK: - stored properties & init
@@ -35,6 +36,10 @@ final class ThemeCell: UITableViewCell {
             )
         }
         return themeSegment
+    }()
+
+    lazy var segmentPublisher: AnyPublisher<Int, Never> = {
+        themeSegment.selectedIndexPublisher
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -96,6 +96,10 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
                 navVC.pushViewController(vc, animated: true)
         }
     }
+
+    func didChangeThemeSelected(value: Int) {
+        delegate.didChangeThemeSelected(value: value)
+    }
 }
 
 extension DEBUG_FlowController: HomeViewControllerDelegate {

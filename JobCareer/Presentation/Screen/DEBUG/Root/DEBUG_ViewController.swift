@@ -1,5 +1,6 @@
 #if DEBUG
 
+import Combine
 import UIKit
 
 // MARK: - screen transition management
@@ -8,6 +9,7 @@ protocol DEBUG_ViewControllerDelegate: AnyObject {
     func didDevelopmentSelected(item: DEBUG_Development)
     func didComponentSelected(item: DEBUG_Component)
     func didControllerSelected(item: DEBUG_Controller)
+    func didChangeThemeSelected(value: Int)
 }
 
 // MARK: - inject
@@ -24,6 +26,8 @@ final class DEBUG_ViewController: UIViewController {
     var ui: UI!
 
     weak var delegate: DEBUG_ViewControllerDelegate!
+
+    private var cancellables: Set<AnyCancellable> = []
 }
 
 // MARK: - override methods
@@ -32,6 +36,7 @@ extension DEBUG_ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ui.injectDelegate(delegate: self)
         ui.setupView(rootView: view)
         ui.setupTableView(delegate: self)
     }
@@ -86,6 +91,16 @@ extension DEBUG_ViewController: UITableViewDelegate {
                 let item = DEBUG_Controller.allCases[indexPath.row]
                 delegate.didControllerSelected(item: item)
         }
+    }
+}
+
+extension DEBUG_ViewController: DEBUG_UI_Delegate {
+
+    func selectedThemeIndex(_ publisher: AnyPublisher<Int, Never>) {
+        publisher.sink { [weak self] value in
+            self?.delegate.didChangeThemeSelected(value: value)
+        }
+        .store(in: &cancellables)
     }
 }
 

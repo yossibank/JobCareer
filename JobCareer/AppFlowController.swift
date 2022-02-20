@@ -1,11 +1,17 @@
 import UIKit
 
+protocol AppFlowControllerDelegate: AnyObject {
+    func didChangeThemeSelected(value: Int)
+}
+
 // MARK: - stored properties & init
 
 final class AppFlowController: UIViewController {
 
     private let mainFlowController = MainFlowController()
     private let loginFlowController = LoginFlowController()
+
+    weak var delegate: AppFlowControllerDelegate!
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -56,6 +62,10 @@ extension AppFlowController: MainFlowControllerDelegate {
 
     func didLogoutButtonTapped() {
         start()
+    }
+
+    func didChangeThemeSelected(value: Int) {
+        delegate.didChangeThemeSelected(value: value)
     }
 }
 

@@ -1,11 +1,21 @@
 #if DEBUG
 
+import Combine
 import UIKit
+
+// MARK: - debug UI event protocol
+
+protocol DEBUG_UI_Delegate: AnyObject {
+    func selectedThemeIndex(_ publisher: AnyPublisher<Int, Never>)
+}
 
 // MARK: - stored properties
 
 final class DEBUG_UI {
     private let tableView = UITableView()
+
+    weak var delegate: DEBUG_UI_Delegate!
+
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<DEBUG_Section, DEBUG_Item>()
     private var dataSource: UITableViewDiffableDataSource<DEBUG_Section, DEBUG_Item>!
 }
@@ -13,6 +23,10 @@ final class DEBUG_UI {
 // MARK: - internal methods
 
 extension DEBUG_UI {
+
+    func injectDelegate(delegate: DEBUG_UI_Delegate) {
+        self.delegate = delegate
+    }
 
     func setupTableView(delegate: UITableViewDelegate) {
         dataSource = configureDataSource()
@@ -86,6 +100,7 @@ private extension DEBUG_UI {
                 }
 
                 cell.configure(title: content.rawValue)
+                delegate.selectedThemeIndex(cell.segmentPublisher)
 
                 return cell
 

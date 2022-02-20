@@ -30,6 +30,10 @@ final class ProfileUI {
 
 extension ProfileUI {
 
+    func injectDelegate(delegate: ProfileViewDelegate) {
+        self.delegate = delegate
+    }
+
     func setupCollectionView(delegate: UICollectionViewDelegate) {
         dataSource = configureDataSource(collectionView: collectionView)
 
@@ -114,9 +118,5 @@ extension ProfileUI: UserInterface {
             collectionView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor)
         )
-    }
-
-    func injectDelegate(delegate: ProfileViewDelegate) {
-        self.delegate = delegate
     }
 }
