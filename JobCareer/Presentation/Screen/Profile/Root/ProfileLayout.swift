@@ -3,7 +3,6 @@ import UIKit
 extension ProfileUI {
 
     func createLayout() -> UICollectionViewLayout {
-
         let sectionProvider = { [weak self] (sectionIndex: Int, _: NSCollectionLayoutEnvironment)
             -> NSCollectionLayoutSection? in
 

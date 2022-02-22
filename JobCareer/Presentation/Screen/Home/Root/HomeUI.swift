@@ -3,7 +3,6 @@ import UIKit
 // MARK: - stored properties
 
 final class HomeUI {
-
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
             frame: .zero,
@@ -44,9 +43,7 @@ extension HomeUI {
             let header = UICollectionView.SupplementaryRegistration<CollectionViewHeader>(
                 elementKind: CollectionViewHeader.resourceName
             ) { view, _, indexPath in
-                guard
-                    let section = HomeSection.allCases.any(at: indexPath.section)
-                else {
+                guard let section = HomeSection.allCases.any(at: indexPath.section) else {
                     return
                 }
 

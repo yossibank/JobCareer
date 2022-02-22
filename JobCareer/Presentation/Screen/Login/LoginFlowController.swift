@@ -10,10 +10,9 @@ protocol LoginFlowControllerDelegate: AnyObject {
 // MARK: - stored properties & init
 
 final class LoginFlowController: UIViewController {
+    weak var delegate: LoginFlowControllerDelegate?
 
     private let navVC = NavigationController()
-
-    weak var delegate: LoginFlowControllerDelegate?
 
     init() {
         super.init(nibName: nil, bundle: nil)

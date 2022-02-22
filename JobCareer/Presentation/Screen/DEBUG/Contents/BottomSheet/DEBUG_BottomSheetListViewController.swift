@@ -49,7 +49,6 @@ extension DEBUG_BottomSheetListViewController: UITableViewDelegate {
 
         header.textLabel?.textColor = .white
         header.textLabel?.text = section.rawValue.uppercased()
-
         return header
     }
 
@@ -75,9 +74,7 @@ extension DEBUG_BottomSheetListViewController: UITableViewDelegate {
                     ui.selectedStyles.append(style)
                 }
 
-                guard
-                    let item = ui.selectedTableItem(index: indexPath)
-                else {
+                guard let item = ui.selectedTableItem(index: indexPath) else {
                     return
                 }
 

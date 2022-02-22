@@ -45,14 +45,6 @@ extension BottomSheetAction {
 // MARK: - stored properties & init
 
 final class CommonBottomSheetContentView: UIView {
-
-    private lazy var baseStackView: UIStackView = .init(
-        subViews: [titleLabelBackView, messageBodyLabel, buttonContainerStackView],
-        style: .vertical,
-        distributon: .equalSpacing,
-        space: 16
-    )
-
     private let titleLabelBackView = UIView()
 
     private let titleLabel: UILabel = .init(
@@ -70,6 +62,13 @@ final class CommonBottomSheetContentView: UIView {
     private lazy var buttonContainerStackView: UIStackView = .init(
         subViews: [],
         style: .vertical,
+        space: 16
+    )
+
+    private lazy var baseStackView: UIStackView = .init(
+        subViews: [titleLabelBackView, messageBodyLabel, buttonContainerStackView],
+        style: .vertical,
+        distributon: .equalSpacing,
         space: 16
     )
 

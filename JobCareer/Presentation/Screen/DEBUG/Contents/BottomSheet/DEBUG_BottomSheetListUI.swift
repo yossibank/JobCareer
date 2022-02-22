@@ -61,18 +61,16 @@ extension DEBUG_BottomSheetListUI {
 private extension DEBUG_BottomSheetListUI {
 
     func configureDataSource() -> UITableViewDiffableDataSource<SectionKind, ItemKind> {
-        .init(tableView: tableView) { [weak self] _, index, item in
-            guard
-                let self = self
-            else {
+        .init(tableView: tableView) { [weak self] _, _, item in
+            guard let self = self else {
                 return UITableViewCell()
             }
 
-            return self.makeCell(index: index, item: item)
+            return self.makeCell(item: item)
         }
     }
 
-    func makeCell(index _:IndexPath, item: ItemKind) -> UITableViewCell? {
+    func makeCell(item: ItemKind) -> UITableViewCell? {
         let cell = UITableViewCell()
 
         switch item {
@@ -86,7 +84,6 @@ private extension DEBUG_BottomSheetListUI {
 
                 cell.accessoryView = titleSwitch
                 cell.textLabel?.text = "TITLE AVAILABLE"
-
                 return cell
 
             case .message:
@@ -103,13 +100,7 @@ private extension DEBUG_BottomSheetListUI {
                 }
 
                 messageSegment.selectedIndexPublisher.sink { [weak self] index in
-                    guard
-                        let self = self
-                    else {
-                        return
-                    }
-
-                    self.messageType = MessageType.allCases.any(at: index) ?? .normal
+                    self?.messageType = MessageType.allCases.any(at: index) ?? .normal
                 }
                 .store(in: &cancellables)
 
@@ -119,18 +110,15 @@ private extension DEBUG_BottomSheetListUI {
 
                 cell.accessoryView = messageSegment
                 cell.textLabel?.text = "MESSAGE AVAILABLE"
-
                 return cell
 
             case let .action(style):
                 cell.textLabel?.text = String(describing: style)
                 cell.accessoryType = selectedStyles.contains(style) ? .checkmark : .none
-
                 return cell
 
             case .show:
                 cell.textLabel?.text = "SHOW BOTTOM SHEET"
-
                 return cell
         }
     }

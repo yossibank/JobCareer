@@ -3,14 +3,13 @@ import Domain
 import Utility
 
 final class ProfileViewModel: ViewModel {
-
     typealias State = LoadingState<EmptyEntity, AppError>
 
     @Published private(set) var state: State = .standby
 
-    private var cancellables: Set<AnyCancellable> = []
-
     private let usecase: LogoutUsecase
+
+    private var cancellables: Set<AnyCancellable> = []
 
     init(usecase: LogoutUsecase = Domain.Usecase.Logout()) {
         self.usecase = usecase

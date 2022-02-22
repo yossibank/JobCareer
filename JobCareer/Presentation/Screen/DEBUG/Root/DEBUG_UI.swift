@@ -12,9 +12,9 @@ protocol DEBUG_UI_Delegate: AnyObject {
 // MARK: - stored properties
 
 final class DEBUG_UI {
-    private let tableView = UITableView()
-
     weak var delegate: DEBUG_UI_Delegate!
+
+    private let tableView = UITableView()
 
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<DEBUG_Section, DEBUG_Item>()
     private var dataSource: UITableViewDiffableDataSource<DEBUG_Section, DEBUG_Item>!
@@ -69,9 +69,7 @@ private extension DEBUG_UI {
 
     func configureDataSource() -> UITableViewDiffableDataSource<DEBUG_Section, DEBUG_Item> {
         .init(tableView: tableView) { [weak self] tableView, indexPath, item in
-            guard
-                let self = self
-            else {
+            guard let self = self else {
                 return UITableViewCell()
             }
 
@@ -105,7 +103,6 @@ private extension DEBUG_UI {
                 )
 
                 delegate.selectedThemeIndex(cell.segmentPublisher)
-
                 return cell
 
             case let .component(content):
@@ -116,7 +113,6 @@ private extension DEBUG_UI {
 
                 cell.textLabel?.text = content.rawValue.addSpaceAfterUppercase().uppercased()
                 cell.textLabel?.font = .italicSystemFont(ofSize: 18)
-
                 return cell
 
             case let .controller(content):
@@ -127,7 +123,6 @@ private extension DEBUG_UI {
 
                 cell.textLabel?.text = content.rawValue.addSpaceAfterUppercase().uppercased()
                 cell.textLabel?.font = .italicSystemFont(ofSize: 18)
-
                 return cell
         }
     }

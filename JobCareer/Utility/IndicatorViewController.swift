@@ -1,7 +1,6 @@
 import UIKit
 
 class IndicatorViewController: UIViewController {
-
     private let indicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.style = .medium

@@ -8,15 +8,6 @@ struct Career: Hashable {
 // MARK: - stored properties & init
 
 final class CareerCell: UICollectionViewCell {
-
-    private lazy var stackView: UIStackView = .init(
-        subViews: [titleLabel, descriptionLabel],
-        style: .vertical,
-        distributon: .fillEqually,
-        alignment: .leading,
-        space: 10
-    )
-
     private let titleLabel: UILabel = .init(
         styles: [.leftAlignment],
         fontType: .bold,
@@ -27,6 +18,14 @@ final class CareerCell: UICollectionViewCell {
         styles: [.leftAlignment, .numberOfLinesZero],
         fontType: .system,
         fontSize: .h3
+    )
+
+    private lazy var stackView: UIStackView = .init(
+        subViews: [titleLabel, descriptionLabel],
+        style: .vertical,
+        distributon: .fillEqually,
+        alignment: .leading,
+        space: 10
     )
 
     override init(frame: CGRect) {

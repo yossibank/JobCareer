@@ -6,9 +6,7 @@ extension HomeUI {
         collectionView: UICollectionView
     ) -> UICollectionViewDiffableDataSource<HomeSection, HomeItem> {
         .init(collectionView: collectionView) { collectionView, indexPath, item in
-            guard
-                let section = HomeSection.allCases.any(at: indexPath.section)
-            else {
+            guard let section = HomeSection.allCases.any(at: indexPath.section) else {
                 return nil
             }
 

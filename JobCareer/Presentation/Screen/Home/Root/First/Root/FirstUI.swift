@@ -4,7 +4,6 @@ import UIKit
 // MARK: - stored properties
 
 final class FirstUI {
-
     private let firstDetailbutton: UIButton = .init(
         style: .someStyle,
         title: Resources.Strings.Button.nextTitle

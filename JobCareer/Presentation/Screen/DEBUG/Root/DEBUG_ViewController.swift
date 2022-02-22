@@ -63,7 +63,6 @@ extension DEBUG_ViewController: UITableViewDelegate {
 
         header.textLabel?.textColor = .white
         header.textLabel?.text = section.rawValue.uppercased()
-
         return header
     }
 

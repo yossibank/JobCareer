@@ -7,7 +7,6 @@ protocol AppFlowControllerDelegate: AnyObject {
 // MARK: - stored properties & init
 
 final class AppFlowController: UIViewController {
-
     private let mainFlowController = MainFlowController()
     private let loginFlowController = LoginFlowController()
 

@@ -3,7 +3,6 @@ import UIKit
 // MARK: - stored properties & init
 
 final class LogoutCell: UICollectionViewCell {
-
     private let logoutButton: AnimationButton = .init(
         style: .cornerStyle,
         title: Resources.Strings.Profile.logout,

@@ -38,8 +38,7 @@ private extension FirstDetailViewController {
 
     func setupEvent() {
         ui.homeButtonTapPublisher.sink { [weak self] _ in
-            guard let self = self else { return }
-            self.delegate.didHomeButtonTapped()
+            self?.delegate.didHomeButtonTapped()
         }
         .store(in: &cancellables)
     }

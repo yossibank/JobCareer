@@ -3,13 +3,10 @@ import UIKit
 extension HomeUI {
 
     func createLayout() -> UICollectionViewLayout {
-
         let sectionProvider = { (sectionIndex: Int, _: NSCollectionLayoutEnvironment)
             -> NSCollectionLayoutSection? in
 
-            guard
-                let sectionKind = HomeSection.allCases.any(at: sectionIndex)
-            else {
+            guard let sectionKind = HomeSection.allCases.any(at: sectionIndex) else {
                 return nil
             }
 

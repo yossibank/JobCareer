@@ -25,7 +25,6 @@ extension ProfileUI {
                     }
 
                     cell.configure(item: item)
-
                     return cell
 
                 case let (.career, .career(item)):
@@ -39,7 +38,6 @@ extension ProfileUI {
                     }
 
                     cell.configure(item: item)
-
                     return cell
 
                 case (.logout, .logout):
@@ -53,7 +51,6 @@ extension ProfileUI {
                     }
 
                     self.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
-
                     return cell
 
                 default:

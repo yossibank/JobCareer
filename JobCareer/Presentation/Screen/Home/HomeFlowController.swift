@@ -3,7 +3,6 @@ import UIKit
 // MARK: - stored properties & init
 
 final class HomeFlowController: UIViewController {
-
     weak var delegate: MainFlowControllerDelegate!
 
     private let navVC = NavigationController()
