@@ -5,6 +5,7 @@ import UIKit
 protocol MainFlowControllerDelegate: AnyObject {
     func didHomeButtonTapped()
     func didLogoutButtonTapped()
+    func didChangeThemeSelected(value: Int)
 }
 
 // MARK: - stored properties & init
@@ -79,5 +80,9 @@ extension MainFlowController: MainFlowControllerDelegate {
     func didLogoutButtonTapped() {
         tabController.selectedIndex = TabBarType.home.rawValue
         delegate.didLogoutButtonTapped()
+    }
+
+    func didChangeThemeSelected(value: Int) {
+        delegate.didChangeThemeSelected(value: value)
     }
 }

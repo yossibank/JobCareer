@@ -1,11 +1,21 @@
 #if DEBUG
 
+import Combine
 import UIKit
+
+// MARK: - debug UI event protocol
+
+protocol DEBUG_UI_Delegate: AnyObject {
+    func selectedThemeIndex(_ publisher: AnyPublisher<Int, Never>)
+}
 
 // MARK: - stored properties
 
 final class DEBUG_UI {
     private let tableView = UITableView()
+
+    weak var delegate: DEBUG_UI_Delegate!
+
     private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<DEBUG_Section, DEBUG_Item>()
     private var dataSource: UITableViewDiffableDataSource<DEBUG_Section, DEBUG_Item>!
 }
@@ -14,6 +24,10 @@ final class DEBUG_UI {
 
 extension DEBUG_UI {
 
+    func injectDelegate(delegate: DEBUG_UI_Delegate) {
+        self.delegate = delegate
+    }
+
     func setupTableView(delegate: UITableViewDelegate) {
         dataSource = configureDataSource()
 
@@ -21,6 +35,12 @@ extension DEBUG_UI {
             UITableViewCell.self,
             forCellReuseIdentifier: UITableViewCell.resourceName
         )
+
+        tableView.register(
+            ThemeCell.self,
+            forCellReuseIdentifier: ThemeCell.resourceName
+        )
+
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         tableView.rowHeight = 60
@@ -33,7 +53,7 @@ extension DEBUG_UI {
         dataSourceSnapshot.appendSections(DEBUG_Section.allCases)
 
         DEBUG_Section.allCases.forEach {
-            dataSourceSnapshot.appendItems($0.initialItems, toSection: $0)
+            dataSourceSnapshot.appendItems($0.items, toSection: $0)
         }
 
         dataSource.apply(
@@ -68,14 +88,48 @@ private extension DEBUG_UI {
         indexPath : IndexPath,
         item: DEBUG_Item
     ) -> UITableViewCell? {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: UITableViewCell.resourceName,
-            for: indexPath
-        )
-        cell.textLabel?.font = .italicSystemFont(ofSize: 18)
-        cell.textLabel?.text = item.rawValue.addSpaceAfterUppercase().uppercased()
+        switch item {
+            case let .development(content):
+                guard
+                    let cell = tableView.dequeueReusableCell(
+                        withIdentifier: ThemeCell.resourceName,
+                        for: indexPath
+                    ) as? ThemeCell
+                else {
+                    return UITableViewCell()
+                }
 
-        return cell
+                cell.configure(
+                    title: content.rawValue,
+                    themeStyle: AppDataHolder.colorTheme
+                )
+
+                delegate.selectedThemeIndex(cell.segmentPublisher)
+
+                return cell
+
+            case let .component(content):
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: UITableViewCell.resourceName,
+                    for: indexPath
+                )
+
+                cell.textLabel?.text = content.rawValue.addSpaceAfterUppercase().uppercased()
+                cell.textLabel?.font = .italicSystemFont(ofSize: 18)
+
+                return cell
+
+            case let .controller(content):
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: UITableViewCell.resourceName,
+                    for: indexPath
+                )
+
+                cell.textLabel?.text = content.rawValue.addSpaceAfterUppercase().uppercased()
+                cell.textLabel?.font = .italicSystemFont(ofSize: 18)
+
+                return cell
+        }
     }
 }
 

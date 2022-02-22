@@ -23,6 +23,11 @@ final class LogoutCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        logoutButton.layer.borderColor = Resources.Colors.borderColor.cgColor
+    }
 }
 
 // MARK: - private methods

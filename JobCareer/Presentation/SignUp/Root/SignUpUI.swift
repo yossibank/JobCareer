@@ -168,6 +168,10 @@ extension SignUpUI {
     func getSignUpButtonOffsetY(rootView: UIView) -> CGFloat {
         signUpButton.convert(rootView.frame, to: rootView).origin.y
     }
+
+    func setThemeColor() {
+        signUpButton.layer.borderColor = Resources.Colors.borderColor.cgColor
+    }
 }
 
 // MARK: - protocol

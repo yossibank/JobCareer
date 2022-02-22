@@ -45,6 +45,11 @@ extension SignUpViewController {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        ui.setThemeColor()
+    }
 }
 
 // MARK: - private methods

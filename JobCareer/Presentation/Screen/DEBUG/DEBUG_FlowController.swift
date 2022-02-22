@@ -54,12 +54,23 @@ extension DEBUG_FlowController: FlowController {
 
 extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
 
-    func didItemSelected(item: DEBUG_Item) {
+    func didDevelopmentSelected(item: DEBUG_Development) {
+        switch item {
+            case .theme:
+                print("theme")
+        }
+    }
+
+    func didComponentSelected(item: DEBUG_Component) {
         switch item {
             case .bottomSheetContent:
                 let vc = Resources.ViewControllers.App.debugBottomSheetList()
                 navVC.present(vc, animated: true)
+        }
+    }
 
+    func didControllerSelected(item: DEBUG_Controller) {
+        switch item {
             case .home:
                 let vc = Resources.ViewControllers.App.home()
                 vc.delegate = self
@@ -84,6 +95,10 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
                 let vc = Resources.ViewControllers.App.second()
                 navVC.pushViewController(vc, animated: true)
         }
+    }
+
+    func didChangeThemeSelected(value: Int) {
+        delegate.didChangeThemeSelected(value: value)
     }
 }
 

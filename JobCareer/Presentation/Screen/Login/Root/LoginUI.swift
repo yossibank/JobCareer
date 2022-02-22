@@ -157,6 +157,11 @@ extension LoginUI {
     func getLoginButtonOffsetY(rootView: UIView) -> CGFloat {
         loginButton.convert(rootView.frame, to: rootView).origin.y
     }
+
+    func setThemeColor() {
+        loginButton.layer.borderColor = Resources.Colors.borderColor.cgColor
+        testLoginButton.layer.borderColor = Resources.Colors.borderColor.cgColor
+    }
 }
 
 // MARK: - protocol
