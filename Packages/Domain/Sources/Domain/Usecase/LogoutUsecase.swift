@@ -9,8 +9,8 @@ public extension UsecaseImpl where R == Repos.FirebaseAuth.Logout, M == EmptyMap
 
             repository.logout { result in
                 switch result {
-                    case let .success(response):
-                        let entity = mapper.convert(response: response)
+                    case .success:
+                        let entity = mapper.convert()
                         promise(.success(entity))
 
                     case let .failure(error):
