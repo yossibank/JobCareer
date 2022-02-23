@@ -89,7 +89,7 @@ extension ProfileUI {
         dataSourceSnapshot.appendSections(ProfileSection.allCases)
 
         ProfileSection.allCases.forEach {
-            dataSourceSnapshot.appendItems($0.initialItems, toSection: $0)
+            dataSourceSnapshot.appendItems($0.items, toSection: $0)
         }
 
         dataSource.apply(
