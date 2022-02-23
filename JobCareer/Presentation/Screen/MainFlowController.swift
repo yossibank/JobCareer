@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: - screen transition management
+// MARK: - received event main flow controller
 
 protocol MainFlowControllerDelegate: AnyObject {
     func didHomeButtonTapped()

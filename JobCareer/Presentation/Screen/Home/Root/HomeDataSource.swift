@@ -10,8 +10,8 @@ extension HomeUI {
                 return nil
             }
 
-            switch (section, item) {
-                case let (.news, .news(item)):
+            switch section {
+                case .news:
                     guard
                         let cell = collectionView.dequeueReusableCell(
                             withReuseIdentifier: NewsCell.resourceName,
@@ -21,11 +21,13 @@ extension HomeUI {
                         return UICollectionViewCell()
                     }
 
-                    cell.configure(item: item)
+                    if case let .news(item) = item {
+                        cell.configure(item: item)
+                    }
 
                     return cell
 
-                case let (.contents, .contents(item)):
+                case .contents:
                     guard
                         let cell = collectionView.dequeueReusableCell(
                             withReuseIdentifier: ContentsCell.resourceName,
@@ -35,12 +37,11 @@ extension HomeUI {
                         return UICollectionViewCell()
                     }
 
-                    cell.configure(item: item, index: indexPath.row)
+                    if case let .contents(item) = item {
+                        cell.configure(item: item, index: indexPath.row)
+                    }
 
                     return cell
-
-                default:
-                    return nil
             }
         }
     }

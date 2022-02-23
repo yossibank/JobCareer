@@ -24,7 +24,7 @@ final class DEBUG_UI {
 
 extension DEBUG_UI {
 
-    func injectDelegate(delegate: DEBUG_UI_Delegate) {
+    func injectDelegate(_ delegate: DEBUG_UI_Delegate) {
         self.delegate = delegate
     }
 

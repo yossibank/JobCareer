@@ -65,7 +65,7 @@ extension HomeUI {
         dataSourceSnapshot.appendSections(HomeSection.allCases)
 
         HomeSection.allCases.forEach {
-            dataSourceSnapshot.appendItems($0.initialItems, toSection: $0)
+            dataSourceSnapshot.appendItems($0.items, toSection: $0)
         }
 
         dataSource.apply(

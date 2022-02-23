@@ -1,10 +1,5 @@
 import UIKit
 
-struct Contents: Hashable {
-    let image: UIImage?
-    let description: String
-}
-
 // MARK: - stored properties & init
 
 final class ContentsCell: UICollectionViewCell {

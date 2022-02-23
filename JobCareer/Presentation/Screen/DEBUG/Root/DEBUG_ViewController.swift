@@ -36,7 +36,7 @@ extension DEBUG_ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ui.injectDelegate(delegate: self)
+        ui.injectDelegate(self)
         ui.setupView(rootView: view)
         ui.setupTableView(delegate: self)
     }

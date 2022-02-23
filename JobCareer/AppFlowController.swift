@@ -1,5 +1,7 @@
 import UIKit
 
+// MARK: - received event app delegate
+
 protocol AppFlowControllerDelegate: AnyObject {
     func didChangeThemeSelected(value: Int)
 }

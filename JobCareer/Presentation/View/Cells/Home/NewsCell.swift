@@ -1,10 +1,5 @@
 import UIKit
 
-struct News: Hashable {
-    let title: String
-    let description: String?
-}
-
 // MARK: - stored properties & init
 
 final class NewsCell: UICollectionViewCell {
