@@ -2,7 +2,6 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
     private lazy var appFlowController: AppFlowController = {
@@ -19,12 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = appFlowController
+        window?.settingTheme()
         window?.makeKeyAndVisible()
         appFlowController.start()
 
         return true
     }
 }
+
+// MARK: - deleagte
 
 extension UIWindow: AppFlowControllerDelegate {
 
@@ -34,5 +36,12 @@ extension UIWindow: AppFlowControllerDelegate {
         }
         overrideUserInterfaceStyle = style
         AppDataHolder.colorTheme = value
+    }
+
+    func settingTheme() {
+        guard let style = UIUserInterfaceStyle(rawValue: AppDataHolder.colorTheme ?? 0) else {
+            return
+        }
+        overrideUserInterfaceStyle = style
     }
 }

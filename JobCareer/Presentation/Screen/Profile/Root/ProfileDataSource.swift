@@ -13,8 +13,8 @@ extension ProfileUI {
                 return nil
             }
 
-            switch (section, item) {
-                case let (.main, .main(item)):
+            switch section {
+                case .main:
                     guard
                         let cell = collectionView.dequeueReusableCell(
                             withReuseIdentifier: MainCell.resourceName,
@@ -24,11 +24,13 @@ extension ProfileUI {
                         return UICollectionViewCell()
                     }
 
-                    cell.configure(item: item)
+                    if case let .main(item) = item {
+                        cell.configure(item: item)
+                    }
 
                     return cell
 
-                case let (.career, .career(item)):
+                case .career:
                     guard
                         let cell = collectionView.dequeueReusableCell(
                             withReuseIdentifier: CareerCell.resourceName,
@@ -38,11 +40,13 @@ extension ProfileUI {
                         return UICollectionViewCell()
                     }
 
-                    cell.configure(item: item)
+                    if case let .career(item) = item {
+                        cell.configure(item: item)
+                    }
 
                     return cell
 
-                case (.logout, .logout):
+                case .logout:
                     guard
                         let cell = collectionView.dequeueReusableCell(
                             withReuseIdentifier: LogoutCell.resourceName,
@@ -53,11 +57,7 @@ extension ProfileUI {
                     }
 
                     self.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
-
                     return cell
-
-                default:
-                    return nil
             }
         }
     }

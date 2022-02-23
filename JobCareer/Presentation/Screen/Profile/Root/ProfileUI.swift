@@ -11,7 +11,6 @@ protocol ProfileViewDelegate: AnyObject {
 // MARK: - stored properties
 
 final class ProfileUI {
-
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
             frame: .zero,
@@ -62,9 +61,7 @@ extension ProfileUI {
             let header = UICollectionView.SupplementaryRegistration<CollectionViewHeader>(
                 elementKind: CollectionViewHeader.resourceName
             ) { view, _, indexPath in
-                guard
-                    let section = ProfileSection.allCases.any(at: indexPath.section)
-                else {
+                guard let section = ProfileSection.allCases.any(at: indexPath.section) else {
                     return
                 }
 
@@ -92,7 +89,7 @@ extension ProfileUI {
         dataSourceSnapshot.appendSections(ProfileSection.allCases)
 
         ProfileSection.allCases.forEach {
-            dataSourceSnapshot.appendItems($0.initialItems, toSection: $0)
+            dataSourceSnapshot.appendItems($0.items, toSection: $0)
         }
 
         dataSource.apply(

@@ -3,7 +3,6 @@ import Domain
 import Utility
 
 final class LoginViewModel: ViewModel {
-
     typealias State = LoadingState<UserEntity, AppError>
 
     var emailValidated: AnyPublisher<ValidationResult, Never> {
@@ -32,9 +31,9 @@ final class LoginViewModel: ViewModel {
     @Published var password: String = .blank
     @Published private(set) var state: State = .standby
 
-    private var cancellables: Set<AnyCancellable> = []
-
     private let usecase: LoginUsecase
+
+    private var cancellables: Set<AnyCancellable> = []
 
     init(usecase: LoginUsecase = Domain.Usecase.Login()) {
         self.usecase = usecase

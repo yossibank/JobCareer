@@ -1,22 +1,8 @@
 import UIKit
 
-struct Contents: Hashable {
-    let image: UIImage?
-    let description: String
-}
-
 // MARK: - stored properties & init
 
 final class ContentsCell: UICollectionViewCell {
-
-    private lazy var stackView: UIStackView = .init(
-        subViews: [labelView, contentImageView],
-        style: .vertical,
-        distributon: .fillEqually,
-        alignment: .fill,
-        space: 10
-    )
-
     private let contentImageView: UIView = .init()
 
     private let imageView: UIImageView = .init(
@@ -29,6 +15,14 @@ final class ContentsCell: UICollectionViewCell {
         styles: [.leftAlignment, .contentLines],
         fontType: .italic,
         fontSize: .h3
+    )
+
+    private lazy var stackView: UIStackView = .init(
+        subViews: [labelView, contentImageView],
+        style: .vertical,
+        distributon: .fillEqually,
+        alignment: .fill,
+        space: 10
     )
 
     override init(frame: CGRect) {

@@ -4,7 +4,6 @@ import UIKit
 // MARK: - stored properties
 
 final class LoginUI {
-
     private lazy var stackView: UIStackView = .init(
         subViews: {
             #if DEBUG

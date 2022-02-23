@@ -13,9 +13,7 @@ protocol CompositeValidator: Validator {
 extension CompositeValidator {
 
     func validate() -> ValidationResult {
-        guard
-            let result = validators.map({ $0.validate() }).first(where: { !$0.isValid })
-        else {
+        guard let result = validators.map({ $0.validate() }).first(where: { !$0.isValid }) else {
             return .valid
         }
 

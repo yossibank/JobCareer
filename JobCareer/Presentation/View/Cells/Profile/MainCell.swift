@@ -1,13 +1,15 @@
 import UIKit
 
-struct Main: Hashable {
-    let name: String
-    let icon: UIImage
-}
-
 // MARK: - stored properties & init
 
 final class MainCell: UICollectionViewCell {
+    private let nameLabel: UILabel = .init(
+        styles: [.leftAlignment],
+        fontType: .bold,
+        fontSize: .h2
+    )
+
+    private let iconImageView: UIImageView = .init()
 
     private lazy var stackView: UIStackView = .init(
         subViews: [nameLabel, iconImageView],
@@ -16,14 +18,6 @@ final class MainCell: UICollectionViewCell {
         alignment: .fill,
         space: 12
     )
-
-    private let nameLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h2
-    )
-
-    private let iconImageView: UIImageView = .init()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

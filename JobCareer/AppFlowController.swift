@@ -1,5 +1,7 @@
 import UIKit
 
+// MARK: - received event app delegate
+
 protocol AppFlowControllerDelegate: AnyObject {
     func didChangeThemeSelected(value: Int)
 }
@@ -7,7 +9,6 @@ protocol AppFlowControllerDelegate: AnyObject {
 // MARK: - stored properties & init
 
 final class AppFlowController: UIViewController {
-
     private let mainFlowController = MainFlowController()
     private let loginFlowController = LoginFlowController()
 

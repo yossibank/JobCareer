@@ -13,13 +13,6 @@ final class ThemeCell: UITableViewCell {
         case dark
     }
 
-    private lazy var stackView: UIStackView = .init(
-        subViews: [titleLabel, themeSegment],
-        style: .horizontal,
-        distributon: .fillEqually,
-        alignment: .fill
-    )
-
     private let titleLabel: UILabel = .init(
         styles: [.leftAlignment],
         fontType: .italic,
@@ -37,6 +30,13 @@ final class ThemeCell: UITableViewCell {
         }
         return themeSegment
     }()
+
+    private lazy var stackView: UIStackView = .init(
+        subViews: [titleLabel, themeSegment],
+        style: .horizontal,
+        distributon: .fillEqually,
+        alignment: .fill
+    )
 
     lazy var segmentPublisher: AnyPublisher<Int, Never> = {
         themeSegment.selectedIndexPublisher

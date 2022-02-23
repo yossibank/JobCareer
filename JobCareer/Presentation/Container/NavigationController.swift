@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: - override init
+// MARK: - override methods
 
 final class NavigationController: UINavigationController {
 

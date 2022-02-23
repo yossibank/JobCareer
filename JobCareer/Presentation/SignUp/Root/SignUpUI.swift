@@ -4,7 +4,6 @@ import UIKit
 // MARK: - stored properties
 
 final class SignUpUI {
-
     private lazy var stackView: UIStackView = .init(
         subViews: [animationView, outputStackView, signUpButton],
         style: .vertical,

@@ -1,22 +1,8 @@
 import UIKit
 
-struct News: Hashable {
-    let title: String
-    let description: String?
-}
-
 // MARK: - stored properties & init
 
 final class NewsCell: UICollectionViewCell {
-
-    private lazy var stackView: UIStackView = .init(
-        subViews: [titleLabel, descriptionLabel],
-        style: .vertical,
-        distributon: .fill,
-        alignment: .fill,
-        space: 12
-    )
-
     private let titleLabel: UILabel = .init(
         styles: [.centerAlignment],
         fontType: .bold,
@@ -27,6 +13,14 @@ final class NewsCell: UICollectionViewCell {
         styles: [.leftAlignment, .numberOfLinesZero],
         fontType: .system,
         fontSize: .h3
+    )
+
+    private lazy var stackView: UIStackView = .init(
+        subViews: [titleLabel, descriptionLabel],
+        style: .vertical,
+        distributon: .fill,
+        alignment: .fill,
+        space: 12
     )
 
     override init(frame: CGRect) {

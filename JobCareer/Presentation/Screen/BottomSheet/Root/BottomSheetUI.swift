@@ -54,7 +54,6 @@ extension BottomSheetUI: UserInterface {
             bottomSheetLineImageView.widthAnchor.constraint(equalToConstant: 30),
             bottomSheetLineImageView.heightAnchor.constraint(equalToConstant: 5),
 
-            baseView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             baseView.topAnchor.constraint(equalTo: bottomSheetLineImageView.bottomAnchor, constant: 16),
             baseView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor, constant: -40),
             baseView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),

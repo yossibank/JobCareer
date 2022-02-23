@@ -5,7 +5,6 @@ import UIKit
 // MARK: - stored properties & init
 
 final class DEBUG_FlowController: UIViewController {
-
     weak var delegate: MainFlowControllerDelegate!
 
     private let navVC = NavigationController()

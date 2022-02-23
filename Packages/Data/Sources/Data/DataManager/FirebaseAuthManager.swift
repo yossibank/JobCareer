@@ -3,7 +3,6 @@ import FirebaseAuth
 public typealias UserResponse = FirebaseAuth.User
 
 public struct FirebaseAuthManager {
-
     public init() {}
 
     public func signUp(
@@ -14,6 +13,7 @@ public struct FirebaseAuthManager {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
                 completion(.failure(.error(error.localizedDescription)))
+                return
             }
 
             if let user = result?.user {
@@ -30,6 +30,7 @@ public struct FirebaseAuthManager {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 completion(.failure(.error(error.localizedDescription)))
+                return
             }
 
             if let user = result?.user {

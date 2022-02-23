@@ -1,6 +1,6 @@
 import UIKit
 
-// MARK: - screen transition management
+// MARK: - received event main flow controller
 
 protocol MainFlowControllerDelegate: AnyObject {
     func didHomeButtonTapped()
@@ -11,7 +11,6 @@ protocol MainFlowControllerDelegate: AnyObject {
 // MARK: - stored properties & init
 
 final class MainFlowController: UIViewController {
-
     weak var delegate: MainFlowControllerDelegate!
 
     private let tabController = TabBarController()

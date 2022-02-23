@@ -1,3 +1,5 @@
+import UIKit
+
 enum ProfileSection: CaseIterable, CustomStringConvertible {
     case main
     case career
@@ -16,16 +18,13 @@ enum ProfileSection: CaseIterable, CustomStringConvertible {
         }
     }
 
-    var initialItems: [ProfileItem] {
+    var items: [ProfileItem] {
         switch self {
             case .main:
-                return [.main(.init(name: "TEST1", icon: Resources.Images.Test.testIcon))]
+                return Main.component
 
             case .career:
-                return [
-                    .career(.init(title: "CAREER1", description: "career description")),
-                    .career(.init(title: "CAREER2", description: "career description"))
-                ]
+                return Career.component
 
             case .logout:
                 return [.logout]
@@ -37,4 +36,25 @@ enum ProfileItem: Hashable {
     case main(Main)
     case career(Career)
     case logout
+}
+
+struct Main: Hashable {
+    let name: String
+    let icon: UIImage
+
+    static var component: [ProfileItem] {
+        [.main(.init(name: "TEST1", icon: Resources.Images.Test.testIcon))]
+    }
+}
+
+struct Career: Hashable {
+    let title: String
+    let description: String
+
+    static var component: [ProfileItem] {
+        [
+            .career(.init(title: "CAREER1", description: "career description")),
+            .career(.init(title: "CAREER2", description: "career description"))
+        ]
+    }
 }
