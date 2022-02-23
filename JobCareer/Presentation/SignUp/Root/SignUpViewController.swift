@@ -118,30 +118,24 @@ private extension SignUpViewController {
                         AppDataHolder.isLogin = true
                         self.stopIndicator()
                         self.showBottomSheet(
-                            type: .signUp(
-                                content: .init(
-                                    handler: { [weak self] in
-                                        self?.presentingViewController?.dismiss(animated: true)
-                                        self?.delegate.didRegisterAccount()
-                                    }
-                                )
-                            )
+                            type: .signUp(.init { [weak self] in
+                                self?.presentingViewController?.dismiss(animated: true)
+                                self?.delegate.didRegisterAccount()
+                            })
                         )
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):
                         self.stopIndicator()
+
+                        let bodyMessage = error.errorMessage?.contain(pattern: "already") ?? false
+                            ? Resources.Strings.Alert.duplicateEmailAddress
+                            : Resources.Strings.Alert.failedSignUpMessage
+
                         self.showBottomSheet(
-                            type: .error(
-                                content: .init(
-                                    body: error.errorMessage?.contain(pattern: "already") ?? false
-                                        ? Resources.Strings.Alert.duplicateEmailAddress
-                                        : Resources.Strings.Alert.failedSignUpMessage,
-                                    handler: { [weak self] in
-                                        self?.dismiss(animated: true)
-                                    }
-                                )
-                            )
+                            type: .error(.init(body: bodyMessage) { [weak self] in
+                                self?.dismiss(animated: true)
+                            })
                         )
                         Logger.debug(message: "\(error.localizedDescription)")
                 }

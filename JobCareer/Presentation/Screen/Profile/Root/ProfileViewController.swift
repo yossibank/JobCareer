@@ -94,14 +94,10 @@ extension ProfileViewController: ProfileViewDelegate {
     func didLogoutButtonTapped(_ publisher: LogoutButtonPublisher) {
         publisher.sink { [weak self] _ in
             self?.showBottomSheet(
-                type: .logout(
-                    content: .init(
-                        handler: { [weak self] in
-                            self?.dismiss(animated: true)
-                            self?.viewModel.logout()
-                        }
-                    )
-                )
+                type: .logout(.init { [weak self] in
+                    self?.dismiss(animated: true)
+                    self?.viewModel.logout()
+                })
             )
         }
         .store(in: &cancellables)

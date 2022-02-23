@@ -1,10 +1,10 @@
 import UIKit
 
 enum BottomSheetType {
-    case debug(content: DebugContent)
-    case error(content: OneButton)
-    case signUp(content: OneButton)
-    case logout(content: OneButton)
+    case debug(_ content: DebugContent)
+    case error(_ content: OneButton)
+    case signUp(_ content: OneButton)
+    case logout(_ content: OneButton)
 
     struct BottomSheetContent {
         var title: String?
