@@ -40,7 +40,7 @@ public struct FirebaseAuthManager {
     }
 
     public func logout(completion: @escaping (Result<EmptyResponse, APIError>) -> Void) {
-        guard let _ = Auth.auth().currentUser else {
+        guard Auth.auth().currentUser != nil else {
             return
         }
 
