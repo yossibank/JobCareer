@@ -1,5 +1,5 @@
 import Domain
-import Firebase
+import FirebaseCore
 import Utility
 
 struct PackageConfig {

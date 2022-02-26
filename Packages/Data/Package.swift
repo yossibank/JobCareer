@@ -17,21 +17,20 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "../Utility",
+            url: "../Firebase",
             from: "1.0.0"
         ),
         .package(
-            name: "Firebase",
-            url: "https://github.com/firebase/firebase-ios-sdk.git",
-            from: "8.9.0"
+            url: "../Utility",
+            from: "1.0.0"
         )
     ],
     targets: [
         .target(
             name: "Data",
             dependencies: [
-                .product(name: "Utility", package: "Utility"),
-                .product(name: "FirebaseAuth", package: "Firebase")
+                .product(name: "Firebase", package: "Firebase"),
+                .product(name: "Utility", package: "Utility")
             ],
             resources: [
                 .process("TestData")
