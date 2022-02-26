@@ -11,7 +11,20 @@ let package = Package(
         .library(
             name: "Data",
             targets: [
-                "Data"
+                "Data",
+                "FirebaseAnalytics",
+                "FirebaseAuth",
+                "FirebaseCore",
+                "FirebaseCoreDiagnostics",
+                "FirebaseCrashlytics",
+                "FirebaseInstallations",
+                "GoogleAppMeasurement",
+                "GoogleAppMeasurementIdentitySupport",
+                "GoogleDataTransport",
+                "GoogleUtilities",
+                "GTMSessionFetcher",
+                "nanopb",
+                "PromisesObjC"
             ]
         )
     ],
@@ -19,23 +32,69 @@ let package = Package(
         .package(
             url: "../Utility",
             from: "1.0.0"
-        ),
-        .package(
-            name: "Firebase",
-            url: "https://github.com/firebase/firebase-ios-sdk.git",
-            from: "8.9.0"
         )
     ],
     targets: [
         .target(
             name: "Data",
             dependencies: [
-                .product(name: "Utility", package: "Utility"),
-                .product(name: "FirebaseAuth", package: "Firebase")
+                .product(name: "Utility", package: "Utility")
             ],
             resources: [
                 .process("TestData")
             ]
+        ),
+        .binaryTarget(
+            name: "FirebaseAnalytics",
+            path: "artifacts/FirebaseAnalytics.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseAuth",
+            path: "artifacts/FirebaseAuth.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseCore",
+            path: "artifacts/FirebaseCore.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseCoreDiagnostics",
+            path: "artifacts/FirebaseCoreDiagnostics.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseCrashlytics",
+            path: "artifacts/FirebaseCrashlytics.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseInstallations",
+            path: "artifacts/FirebaseInstallations.xcframework"
+        ),
+        .binaryTarget(
+            name: "GoogleAppMeasurement",
+            path: "artifacts/GoogleAppMeasurement.xcframework"
+        ),
+        .binaryTarget(
+            name: "GoogleAppMeasurementIdentitySupport",
+            path: "artifacts/GoogleAppMeasurementIdentitySupport.xcframework"
+        ),
+        .binaryTarget(
+            name: "GoogleDataTransport",
+            path: "artifacts/GoogleDataTransport.xcframework"
+        ),
+        .binaryTarget(
+            name: "GoogleUtilities",
+            path: "artifacts/GoogleUtilities.xcframework"
+        ),
+        .binaryTarget(
+            name: "GTMSessionFetcher",
+            path: "artifacts/GTMSessionFetcher.xcframework"
+        ),
+        .binaryTarget(
+            name: "nanopb",
+            path: "artifacts/nanopb.xcframework"
+        ),
+        .binaryTarget(
+            name: "PromisesObjC",
+            path: "artifacts/PromisesObjC.xcframework"
         ),
         .testTarget(
             name: "DataTests",
@@ -43,5 +102,6 @@ let package = Package(
                 "Data"
             ]
         )
-    ]
+    ],
+    cxxLanguageStandard: .cxx14
 )
