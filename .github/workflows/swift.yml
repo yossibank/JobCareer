@@ -26,16 +26,15 @@ jobs:
     - name: Remove Json file
       run: rm JobCareer/GoogleService-info.json
 
-    - name: Before Cache SPM
-      run: |
-        mkdir -p ~/SourcePackages
-        ls ~/SourcePackages
+      # Swiftプロジェクトのビルドの高速化
+    - name: Enable faster builds for Swift projects
+      run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
     - name: Cache Swift Packages
       uses: actions/cache@v1
       with:
-        path: ~/SourcePackages
-        key: ${{ runner.os }}-spm-${{ hashFiles('*.xcodeproj/project.xcworkspace/ xcshareddata/swiftpm/Package.resolved') }}
+        path: SourcePackages
+        key: ${{ runner.os }}-spm-${{ hashFiles('*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
         restore-keys: ${{ runner.os }}-spm-
 
     - name: Build
@@ -43,7 +42,7 @@ jobs:
         -scheme JobCareer
         -sdk iphonesimulator
         -configuration Debug
-        -clonedSourcePackagesDirPath ~/SourcePackages
+        -clonedSourcePackagesDirPath SourcePackages
         build
 
     - name: Run tests
