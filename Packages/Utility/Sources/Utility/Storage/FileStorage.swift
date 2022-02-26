@@ -22,7 +22,7 @@ public class FileStorage<T: Codable> {
             if let data = newValue {
                 LocalStorageManager.writeObjectToFile(fileName: fileName, jsonEncodable: data)
             } else {
-                /// setting value to nil will clear cache
+                // setting value to nil will clear cache
                 LocalStorageManager.deleteFile(fileName: fileName)
             }
         }

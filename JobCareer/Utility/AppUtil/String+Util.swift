@@ -19,7 +19,7 @@ extension String {
         let isFirstMatch = regex.firstMatch(
             in: self,
             options: .init(),
-            range: NSMakeRange(0, count)
+            range: NSRange(location: 0, length: count)
         )
 
         return isFirstMatch != nil

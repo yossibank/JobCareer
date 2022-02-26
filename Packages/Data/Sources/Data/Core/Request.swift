@@ -58,7 +58,7 @@ public protocol Request {
     var wantCache: Bool { get }
     var localDataInterceptor: (Parameters) -> Response? { get }
     var successHandler: (Response) -> Void { get }
-    var failureHandler: (Error) -> Void  { get }
+    var failureHandler: (Error) -> Void { get }
 
     #if DEBUG
     var testDataPath: URL? { get }

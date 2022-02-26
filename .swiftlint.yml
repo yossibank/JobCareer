@@ -1,0 +1,12 @@
+disabled_rules:
+  - colon
+  - cyclomatic_complexity
+  - force_cast
+  - force_try
+  - function_body_length
+  - function_parameter_count
+  - identifier_name
+  - line_length
+  - nesting
+  - switch_case_alignment
+  - type_name
