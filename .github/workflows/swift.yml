@@ -30,6 +30,12 @@ jobs:
     - name: Enable faster builds for Swift projects
       run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
+    - name: download-firebase-sdk
+      run: |
+        curl -OL https://github.com/firebase/firebase-ios-sdk/releases/download/v8.12.1/Firebase.zip
+        unzip -o Firebase.zip -d Packages/Firebase/Frameworks/
+        rm -f Firebase.zip
+
     - name: Before Cache SPM
       run: |
         mkdir -p ~/SourcePackages
