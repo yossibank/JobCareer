@@ -15,25 +15,25 @@ jobs:
     - name: Show Xcode Version
       run: xcodebuild -version
 
+    # GoogleService-info.jsonの読み込み
     - name: Translate secrets of base64 into GoogleService-info.json
       env:
         GOOGLE_SERVICE: ${{ secrets.GOOGLE_SERVICE_JSON }}
-      run: echo $GOOGLE_SERVICE | base64 --decode > ./JobCareer/GoogleService-info.json
+      run: |
+        echo $GOOGLE_SERVICE | base64 --decode > ./JobCareer/GoogleService-info.json
+        plutil -convert xml1 ./JobCareer/GoogleService-info.json -o ./JobCareer/GoogleService-info.plist
+        rm JobCareer/GoogleService-info.json
 
-    - name: Translate json into plist and generate GoogleService-info.plist
-      run: plutil -convert xml1 ./JobCareer/GoogleService-info.json -o ./JobCareer/GoogleService-info.plist
-
-    - name: Remove Json file
-      run: rm JobCareer/GoogleService-info.json
-
-      # Swiftプロジェクトのビルドの高速化
+    # Swiftプロジェクトのビルドの高速化
     - name: Enable faster builds for Swift projects
       run: defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
-    - name: Before Cache SPM
+    # Firebase SDKのダウンロード
+    - name: Download Firebase SDK
       run: |
-        mkdir -p ~/SourcePackages
-        ls ~/SourcePackages
+        curl -OL https://github.com/firebase/firebase-ios-sdk/releases/download/v8.12.1/Firebase.zip
+        unzip -o Firebase.zip -d Packages/Firebase/Frameworks/
+        rm -f Firebase.zip
 
     - name: Cache Swift Packages
       uses: actions/cache@v1
