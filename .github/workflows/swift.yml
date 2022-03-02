@@ -35,11 +35,6 @@ jobs:
         unzip -o Firebase.zip -d Packages/Firebase/Frameworks/
         rm -f Firebase.zip
 
-    - name: Before Cache SPM
-      run: |
-        mkdir -p ~/SourcePackages
-        ls ~/SourcePackages
-
     - name: Cache Swift Packages
       uses: actions/cache@v1
       with:
