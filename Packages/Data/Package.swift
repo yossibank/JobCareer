@@ -17,10 +17,6 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "../Firebase",
-            from: "1.0.0"
-        ),
-        .package(
             url: "../Utility",
             from: "1.0.0"
         )
@@ -29,7 +25,6 @@ let package = Package(
         .target(
             name: "Data",
             dependencies: [
-                .product(name: "Firebase", package: "Firebase"),
                 .product(name: "Utility", package: "Utility")
             ],
             resources: [
