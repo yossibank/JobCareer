@@ -24,12 +24,12 @@
 		7832D465278A9B4F00A959B1 /* CareerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832D464278A9B4F00A959B1 /* CareerCell.swift */; };
 		783ED8C8278D5E8600E7D076 /* ViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783ED8C7278D5E8500E7D076 /* ViewStyle.swift */; };
 		783ED8CA278D5F7B00E7D076 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783ED8C9278D5F7B00E7D076 /* Sizes.swift */; };
-		7853ADFA27CF1C78007E4102 /* Firebase in Frameworks */ = {isa = PBXBuildFile; productRef = 7853ADF927CF1C78007E4102 /* Firebase */; };
 		7853DCBC2793BFBD000EAEFF /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCBB2793BFBD000EAEFF /* TextFieldStyle.swift */; };
 		7853DCBE2793C15E000EAEFF /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCBD2793C15E000EAEFF /* BottomBorderTextField.swift */; };
 		7853DCC12793D68B000EAEFF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7853DCC02793D68B000EAEFF /* Lottie */; };
 		7853DCC82793DD0B000EAEFF /* penguin.json in Resources */ = {isa = PBXBuildFile; fileRef = 7853DCC72793DD0B000EAEFF /* penguin.json */; };
 		7853DCCA2793DD71000EAEFF /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCC92793DD71000EAEFF /* Animations.swift */; };
+		785A4CF827CF378800D585E2 /* Firebase in Frameworks */ = {isa = PBXBuildFile; productRef = 785A4CF727CF378800D585E2 /* Firebase */; };
 		7860A6E12786EBBC004C26DE /* ProfileUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E02786EBBC004C26DE /* ProfileUI.swift */; };
 		7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E22786EBC8004C26DE /* ProfileViewController.swift */; };
 		7860A6E52786EBD1004C26DE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */; };
@@ -161,7 +161,6 @@
 		782F03E727A2A773001A7B50 /* UITextField+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Publisher.swift"; sourceTree = "<group>"; };
 		7832D462278A9B4600A959B1 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		7832D464278A9B4F00A959B1 /* CareerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerCell.swift; sourceTree = "<group>"; };
-		78387FEE27CA01CA0056D8F8 /* Firebase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Firebase; sourceTree = "<group>"; };
 		783ED8C7278D5E8500E7D076 /* ViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyle.swift; sourceTree = "<group>"; };
 		783ED8C9278D5F7B00E7D076 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		7853DCBB2793BFBD000EAEFF /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
@@ -266,7 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7853ADFA27CF1C78007E4102 /* Firebase in Frameworks */,
+				785A4CF827CF378800D585E2 /* Firebase in Frameworks */,
 				78DD432727422AB1006684D0 /* Domain in Frameworks */,
 				7853DCC12793D68B000EAEFF /* Lottie in Frameworks */,
 				78DD432427415522006684D0 /* Data in Frameworks */,
@@ -378,7 +377,6 @@
 			children = (
 				789A4E6227414B3A00DD4661 /* Data */,
 				78DD432527421126006684D0 /* Domain */,
-				78387FEE27CA01CA0056D8F8 /* Firebase */,
 				789A4E5B27413FD300DD4661 /* Utility */,
 			);
 			path = Packages;
@@ -809,7 +807,7 @@
 				78DD432327415522006684D0 /* Data */,
 				78DD432627422AB1006684D0 /* Domain */,
 				7853DCC02793D68B000EAEFF /* Lottie */,
-				7853ADF927CF1C78007E4102 /* Firebase */,
+				785A4CF727CF378800D585E2 /* Firebase */,
 			);
 			productName = SwiftArchitectureTemplate;
 			productReference = 78A386F827401A9D00DF51CF /* JobCareer.app */;
@@ -829,6 +827,8 @@
 				78A3871027401A9F00DF51CF /* PBXTargetDependency */,
 			);
 			name = JobCareerTests;
+			packageProductDependencies = (
+			);
 			productName = SwiftArchitectureTemplateTests;
 			productReference = 78A3870E27401A9F00DF51CF /* JobCareerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1158,6 +1158,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1222,6 +1223,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1436,6 +1438,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1604,14 +1607,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7853ADF927CF1C78007E4102 /* Firebase */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Firebase;
-		};
 		7853DCC02793D68B000EAEFF /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7853DCBF2793D68B000EAEFF /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		785A4CF727CF378800D585E2 /* Firebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Firebase;
 		};
 		789A4E5D2741440000DD4661 /* Utility */ = {
 			isa = XCSwiftPackageProductDependency;
