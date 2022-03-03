@@ -87,7 +87,6 @@
 		78DD432D274234FE006684D0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD432C274234FE006684D0 /* Configuration.swift */; };
 		78DD432F27423592006684D0 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD432E27423592006684D0 /* Package.swift */; };
 		78DD4336274238DC006684D0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4335274238DC006684D0 /* API.swift */; };
-		78DD433827423995006684D0 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD433727423995006684D0 /* FirebaseProvider.swift */; };
 		78DD43442742440D006684D0 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD43432742440D006684D0 /* LoadingState.swift */; };
 		78DD434827424536006684D0 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD434727424536006684D0 /* Style.swift */; };
 		78DD434A274246E1006684D0 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4349274246E1006684D0 /* Localizable.swift */; };
@@ -230,7 +229,6 @@
 		78DD432C274234FE006684D0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		78DD432E27423592006684D0 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		78DD4335274238DC006684D0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		78DD433727423995006684D0 /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
 		78DD433A27423A81006684D0 /* Config.develop.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.develop.xcconfig; sourceTree = "<group>"; };
 		78DD433B27423AE4006684D0 /* Config.adhoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.adhoc.xcconfig; sourceTree = "<group>"; };
 		78DD433C27423B15006684D0 /* Config.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.release.xcconfig; sourceTree = "<group>"; };
@@ -593,7 +591,6 @@
 			isa = PBXGroup;
 			children = (
 				78BA64D22744FD9D005B2D61 /* BottomSheet+Convenience.swift */,
-				78DD433727423995006684D0 /* FirebaseProvider.swift */,
 				78EFA3F327AEAB5E00795193 /* IndicatorViewController.swift */,
 				7894BF0C279D002B00038B46 /* KeyboardHandler.swift */,
 				7894BF0A279CFC4100038B46 /* KeyboardState.swift */,
@@ -975,7 +972,6 @@
 				781F9CA12747598F0034F911 /* DEBUG_BottomSheetListUI.swift in Sources */,
 				78C20EF6277B42F800C7EC65 /* FlowController.swift in Sources */,
 				78844FA227434B6E00A02E9B /* Colors.swift in Sources */,
-				78DD433827423995006684D0 /* FirebaseProvider.swift in Sources */,
 				78C20EE7277B35D200C7EC65 /* AppFlowController.swift in Sources */,
 				78DD437C27425D69006684D0 /* TabBarController.swift in Sources */,
 				78DD436A27425445006684D0 /* FirstViewModel.swift in Sources */,

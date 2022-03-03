@@ -7,6 +7,6 @@ struct PackageConfig {
     static func setup() {
         FirebaseConfig.setup()
         DomainConfig.setup(baseURL: API.baseURL)
-        UtilityConfig.setup(analytics: FirebaseProvider())
+        UtilityConfig.setup(analytics: FirebaseProvider.shared)
     }
 }
