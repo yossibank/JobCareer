@@ -14,7 +14,7 @@ public extension UsecaseImpl where R == Repos.FirebaseAuth.Login, M == UserMappe
                         promise(.success(entity))
 
                     case let .failure(error):
-                        promise(.failure(error))
+                        promise(.failure(.error(error.localizedDescription)))
                 }
             }
         }

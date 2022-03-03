@@ -8,11 +8,11 @@ public struct FirebaseAuthManager {
     public func signUp(
         email: String,
         password: String,
-        completion: @escaping (Result<User, APIError>) -> Void
+        completion: @escaping (Result<User, Error>) -> Void
     ) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
-                completion(.failure(.error(error.localizedDescription)))
+                completion(.failure(error))
                 return
             }
 
@@ -25,11 +25,11 @@ public struct FirebaseAuthManager {
     public func login(
         email: String,
         password: String,
-        completion: @escaping (Result<User, APIError>) -> Void
+        completion: @escaping (Result<User, Error>) -> Void
     ) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
-                completion(.failure(.error(error.localizedDescription)))
+                completion(.failure(error))
                 return
             }
 
@@ -39,16 +39,16 @@ public struct FirebaseAuthManager {
         }
     }
 
-    public func logout(completion: @escaping (Result<EmptyResponse, APIError>) -> Void) {
+    public func logout(completion: @escaping (Result<Void, Error>) -> Void) {
         guard Auth.auth().currentUser != nil else {
             return
         }
 
         do {
             try Auth.auth().signOut()
-            completion(.success(.init()))
+            completion(.success(()))
         } catch {
-            completion(.failure(.error(error.localizedDescription)))
+            completion(.failure(error))
         }
     }
 }

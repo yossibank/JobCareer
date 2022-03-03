@@ -1,11 +1,11 @@
 import Domain
-import FirebaseCore
+import Firebase
 import Utility
 
 struct PackageConfig {
 
     static func setup() {
-        FirebaseApp.configure()
+        FirebaseConfig.setup()
         DomainConfig.setup(baseURL: API.baseURL)
         UtilityConfig.setup(analytics: FirebaseProvider())
     }
