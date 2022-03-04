@@ -2,9 +2,7 @@ import FirebaseAnalytics
 import Utility
 
 public struct FirebaseProvider: AnalyticsProvider {
-    public static var shared: FirebaseProvider = .init()
-
-    private init() {}
+    public init() {}
 
     public func sendEvent(title: String) {
         // TODO: please fix
