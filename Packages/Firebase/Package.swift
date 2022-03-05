@@ -2,6 +2,10 @@
 
 import PackageDescription
 
+let utilityDependencies: [Target.Dependency] = [
+    "Utility"
+]
+
 let firebaseAnalyticsDependencies: [Target.Dependency] = [
     "FirebaseAnalytics",
     "FirebaseCore",
@@ -35,6 +39,9 @@ let firebaseFirestoreDependencies: [Target.Dependency] = [
 
 let package = Package(
     name: "Firebase",
+    platforms: [
+        .iOS(.v13)
+    ],
     products: [
         .library(
             name: "Firebase",
@@ -43,10 +50,17 @@ let package = Package(
             ]
         )
     ],
+    dependencies: [
+        .package(
+            url: "../Utility",
+            from: "1.0.0"
+        )
+    ],
     targets: [
         .target(
             name: "Firebase",
-            dependencies: firebaseAnalyticsDependencies
+            dependencies: utilityDependencies
+                + firebaseAnalyticsDependencies
                 + firebaseAuthDependencies
                 + firebaseCrashlyticsDependencies
                 + firebaseFirestoreDependencies

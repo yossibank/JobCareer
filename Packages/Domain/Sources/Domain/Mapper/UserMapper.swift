@@ -1,4 +1,4 @@
-import Data
+import Firebase
 
 public struct UserMapper {
 

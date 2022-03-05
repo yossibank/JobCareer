@@ -1,9 +1,10 @@
 import FirebaseAnalytics
 import Utility
 
-struct FirebaseProvider: AnalyticsProvider {
+public struct FirebaseProvider: AnalyticsProvider {
+    public init() {}
 
-    func sendEvent(title: String) {
+    public func sendEvent(title: String) {
         // TODO: please fix
         Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
             AnalyticsParameterItemID: "id-\(title)",

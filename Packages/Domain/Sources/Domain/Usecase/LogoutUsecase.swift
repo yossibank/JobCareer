@@ -14,7 +14,7 @@ public extension UsecaseImpl where R == Repos.FirebaseAuth.Logout, M == EmptyMap
                         promise(.success(entity))
 
                     case let .failure(error):
-                        promise(.failure(error))
+                        promise(.failure(.firebase(error.localizedDescription)))
                 }
             }
         }

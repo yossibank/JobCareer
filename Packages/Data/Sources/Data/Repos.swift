@@ -1,3 +1,5 @@
+import Firebase
+
 public struct Repos {
 
     public struct Sample {
