@@ -14,6 +14,12 @@ extension Stylable where Self == UITextField {
 
 extension ViewStyle where T: UITextField {
 
+    static var debugStyle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)
+        }
+    }
+
     static var emailStyle: ViewStyle<T> {
         ViewStyle<T> {
             $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)

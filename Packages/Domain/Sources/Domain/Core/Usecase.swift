@@ -1,5 +1,6 @@
 import Combine
 import Data
+import Firebase
 import Utility
 
 protocol Usecase {

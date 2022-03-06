@@ -16,14 +16,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(
-            url: "../Firebase",
-            from: "1.0.0"
-        ),
-        .package(
-            url: "../Utility",
-            from: "1.0.0"
-        )
+        .package(url: "../Firebase", from: "1.0.0"),
+        .package(url: "../Utility", from: "1.0.0")
     ],
     targets: [
         .target(

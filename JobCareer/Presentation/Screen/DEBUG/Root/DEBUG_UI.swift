@@ -7,6 +7,8 @@ import UIKit
 
 protocol DEBUG_UI_Delegate: AnyObject {
     func selectedThemeIndex(_ publisher: AnyPublisher<Int, Never>)
+    func saveNameTextField(_ publisher: AnyPublisher<String, Never>)
+    func tappedSaveProfileButton(_ publisher: UIControl.Publisher<AnimationButton>)
 }
 
 // MARK: - stored properties
@@ -39,6 +41,11 @@ extension DEBUG_UI {
         tableView.register(
             ThemeCell.self,
             forCellReuseIdentifier: ThemeCell.resourceName
+        )
+
+        tableView.register(
+            ProfileCell.self,
+            forCellReuseIdentifier: ProfileCell.resourceName
         )
 
         tableView.dataSource = dataSource
@@ -88,22 +95,41 @@ private extension DEBUG_UI {
     ) -> UITableViewCell? {
         switch item {
             case let .development(content):
-                guard
-                    let cell = tableView.dequeueReusableCell(
-                        withIdentifier: ThemeCell.resourceName,
-                        for: indexPath
-                    ) as? ThemeCell
-                else {
-                    return UITableViewCell()
+                switch content {
+                    case .theme:
+                        guard
+                            let cell = tableView.dequeueReusableCell(
+                                withIdentifier: ThemeCell.resourceName,
+                                for: indexPath
+                            ) as? ThemeCell
+                        else {
+                            return UITableViewCell()
+                        }
+
+                        cell.configure(
+                            title: content.rawValue,
+                            themeStyle: AppDataHolder.colorTheme
+                        )
+
+                        delegate.selectedThemeIndex(cell.segmentPublisher)
+                        return cell
+
+                    case .profile:
+                        guard
+                            let cell = tableView.dequeueReusableCell(
+                                withIdentifier: ProfileCell.resourceName,
+                                for: indexPath
+                            ) as? ProfileCell
+                        else {
+                            return UITableViewCell()
+                        }
+
+                        cell.configure(title: content.rawValue)
+
+                        delegate.saveNameTextField(cell.nameTextPublisher)
+                        delegate.tappedSaveProfileButton(cell.buttonTapPublisher)
+                        return cell
                 }
-
-                cell.configure(
-                    title: content.rawValue,
-                    themeStyle: AppDataHolder.colorTheme
-                )
-
-                delegate.selectedThemeIndex(cell.segmentPublisher)
-                return cell
 
             case let .component(content):
                 let cell = tableView.dequeueReusableCell(

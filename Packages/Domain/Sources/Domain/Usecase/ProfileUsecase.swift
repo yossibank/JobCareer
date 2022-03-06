@@ -1,16 +1,16 @@
 import Combine
 import Data
 
-public extension UsecaseImpl where R == Repos.FirebaseAuth.Login, M == EmptyMapper {
+public extension UsecaseImpl where R == Repos.Firestore.Save, M == UserMapper {
 
-    func login(email: String, password: String) -> AnyPublisher<EmptyEntity, APIError> {
+    func save(displayName: String?) -> AnyPublisher<UserEntity, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
 
-            repository.login(email: email, password: password) { result in
+            repository.save(displayName: displayName) { result in
                 switch result {
-                    case .success:
-                        let entity = mapper.convert()
+                    case let .success(response):
+                        let entity = mapper.convert(response: response)
                         promise(.success(entity))
 
                     case let .failure(error):

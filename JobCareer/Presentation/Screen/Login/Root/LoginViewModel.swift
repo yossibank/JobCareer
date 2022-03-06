@@ -3,7 +3,7 @@ import Domain
 import Utility
 
 final class LoginViewModel: ViewModel {
-    typealias State = LoadingState<UserEntity, AppError>
+    typealias State = LoadingState<EmptyEntity, AppError>
 
     var emailValidated: AnyPublisher<ValidationResult, Never> {
         $email.map { email in

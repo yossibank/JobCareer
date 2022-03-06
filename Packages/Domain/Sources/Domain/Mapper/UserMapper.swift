@@ -2,7 +2,10 @@ import Firebase
 
 public struct UserMapper {
 
-    func convert(response: UserResponse) -> UserEntity {
-        .init(email: response.email)
+    func convert(response: Firebase.UserEntity) -> UserEntity {
+        .init(
+            name: response.name,
+            email: response.email
+        )
     }
 }
