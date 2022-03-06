@@ -1,12 +1,9 @@
 import Domain
 import Firebase
-import Utility
 
-struct PackageConfig {
-
+enum PackageConfig {
     static func setup() {
-        FirebaseConfig.setup()
         DomainConfig.setup(baseURL: API.baseURL)
-        UtilityConfig.setup(analytics: FirebaseProvider())
+        FirebaseConfig.setup(analytics: FirebaseProvider())
     }
 }
