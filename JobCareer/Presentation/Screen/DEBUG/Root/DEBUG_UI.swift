@@ -41,6 +41,11 @@ extension DEBUG_UI {
             forCellReuseIdentifier: ThemeCell.resourceName
         )
 
+        tableView.register(
+            ProfileCell.self,
+            forCellReuseIdentifier: ProfileCell.resourceName
+        )
+
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         tableView.rowHeight = 60
@@ -88,22 +93,39 @@ private extension DEBUG_UI {
     ) -> UITableViewCell? {
         switch item {
             case let .development(content):
-                guard
-                    let cell = tableView.dequeueReusableCell(
-                        withIdentifier: ThemeCell.resourceName,
-                        for: indexPath
-                    ) as? ThemeCell
-                else {
-                    return UITableViewCell()
+
+                switch content {
+                    case .theme:
+                        guard
+                            let cell = tableView.dequeueReusableCell(
+                                withIdentifier: ThemeCell.resourceName,
+                                for: indexPath
+                            ) as? ThemeCell
+                        else {
+                            return UITableViewCell()
+                        }
+
+                        cell.configure(
+                            title: content.rawValue,
+                            themeStyle: AppDataHolder.colorTheme
+                        )
+
+                        delegate.selectedThemeIndex(cell.segmentPublisher)
+                        return cell
+
+                    case .profile:
+                        guard
+                            let cell = tableView.dequeueReusableCell(
+                                withIdentifier: ProfileCell.resourceName,
+                                for: indexPath
+                            ) as? ProfileCell
+                        else {
+                            return UITableViewCell()
+                        }
+
+                        cell.configure(title: content.rawValue)
+                        return cell
                 }
-
-                cell.configure(
-                    title: content.rawValue,
-                    themeStyle: AppDataHolder.colorTheme
-                )
-
-                delegate.selectedThemeIndex(cell.segmentPublisher)
-                return cell
 
             case let .component(content):
                 let cell = tableView.dequeueReusableCell(

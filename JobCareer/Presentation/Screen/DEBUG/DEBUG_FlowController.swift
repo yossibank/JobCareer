@@ -57,6 +57,9 @@ extension DEBUG_FlowController: DEBUG_ViewControllerDelegate {
         switch item {
             case .theme:
                 print("theme")
+
+            case .profile:
+                print("save profile")
         }
     }
 

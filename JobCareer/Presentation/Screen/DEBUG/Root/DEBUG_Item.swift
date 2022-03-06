@@ -27,9 +27,16 @@ enum DEBUG_Item: Hashable {
 
 enum DEBUG_Development: String, CaseIterable, Hashable {
     case theme
+    case profile
 
     var component: DEBUG_Item {
-        .development(.theme)
+        switch self {
+            case .theme:
+                return .development(.theme)
+
+            case .profile:
+                return .development(.profile)
+        }
     }
 }
 
