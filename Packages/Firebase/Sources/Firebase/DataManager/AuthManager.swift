@@ -1,6 +1,10 @@
 import FirebaseAuth
 
 public struct AuthManager {
+    public static var currentUser: User? {
+        Auth.auth().currentUser
+    }
+
     public init() {}
 
     public func signUp(

@@ -16,7 +16,7 @@ public struct Repos {
     }
 
     public struct Firestore {
-        public typealias Save = Firestore
+        public typealias Save = FirestoreManager
     }
 
     public struct Onboarding {

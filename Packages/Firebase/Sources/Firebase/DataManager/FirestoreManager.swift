@@ -1,22 +1,32 @@
 import FirebaseFirestore
 
 public struct FirestoreManager {
-    private static let db = Firestore.firestore()
+    private let db = Firestore.firestore()
 
-    static func saveData(
-        documentPath: String,
-        entity: UserEntity
+    public init() {}
+
+    public func save(
+        displayName: String?,
+        completion: @escaping (Result<UserEntity, Error>) -> Void
     ) {
-        let data =  UserEntity(
-            id: entity.id,
-            name: entity.name,
-            email: entity.email
-        ).toDictionary()
-
-        db.collection(UserEntity.collectionName).document(documentPath).setData(data) { error in
-            if let error = error {
-                print("failure save data: \(error.localizedDescription)")
-            }
+        guard let user = AuthManager.currentUser else {
+            return
         }
+
+        let entity = UserEntity(
+            name: displayName,
+            email: user.email
+        )
+
+        db.collection(UserEntity.collectionName)
+            .document(user.uid)
+            .setData(entity.toDictionary()) { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                completion(.success(entity))
+            }
     }
 }
