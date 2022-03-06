@@ -10,9 +10,13 @@ public struct Repos {
     }
 
     public struct FirebaseAuth {
-        public typealias Login = FirebaseAuthManager
-        public typealias Logout = FirebaseAuthManager
-        public typealias SignUp = FirebaseAuthManager
+        public typealias Login = AuthManager
+        public typealias Logout = AuthManager
+        public typealias SignUp = AuthManager
+    }
+
+    public struct Firestore {
+        public typealias Save = Firestore
     }
 
     public struct Onboarding {

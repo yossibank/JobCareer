@@ -1,41 +1,35 @@
 import FirebaseAuth
 
-public typealias UserResponse = FirebaseAuth.User
-
-public struct FirebaseAuthManager {
+public struct AuthManager {
     public init() {}
 
     public func signUp(
         email: String,
         password: String,
-        completion: @escaping (Result<User, Error>) -> Void
+        completion: @escaping (Result<Void, Error>) -> Void
     ) {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+        Auth.auth().createUser(withEmail: email, password: password) { _, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
 
-            if let user = result?.user {
-                completion(.success(user))
-            }
+            completion(.success(()))
         }
     }
 
     public func login(
         email: String,
         password: String,
-        completion: @escaping (Result<User, Error>) -> Void
+        completion: @escaping (Result<Void, Error>) -> Void
     ) {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        Auth.auth().signIn(withEmail: email, password: password) { _, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
 
-            if let user = result?.user {
-                completion(.success(user))
-            }
+            completion(.success(()))
         }
     }
 
