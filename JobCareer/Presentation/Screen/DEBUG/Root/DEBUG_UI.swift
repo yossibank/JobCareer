@@ -7,6 +7,8 @@ import UIKit
 
 protocol DEBUG_UI_Delegate: AnyObject {
     func selectedThemeIndex(_ publisher: AnyPublisher<Int, Never>)
+    func saveNameTextField(_ publisher: AnyPublisher<String, Never>)
+    func tappedSaveProfileButton(_ publisher: UIControl.Publisher<AnimationButton>)
 }
 
 // MARK: - stored properties
@@ -93,7 +95,6 @@ private extension DEBUG_UI {
     ) -> UITableViewCell? {
         switch item {
             case let .development(content):
-
                 switch content {
                     case .theme:
                         guard
@@ -124,6 +125,9 @@ private extension DEBUG_UI {
                         }
 
                         cell.configure(title: content.rawValue)
+
+                        delegate.saveNameTextField(cell.nameTextPublisher)
+                        delegate.tappedSaveProfileButton(cell.buttonTapPublisher)
                         return cell
                 }
 

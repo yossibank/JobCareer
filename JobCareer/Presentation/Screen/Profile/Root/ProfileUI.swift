@@ -4,8 +4,7 @@ import UIKit
 // MARK: - screen transition management
 
 protocol ProfileViewDelegate: AnyObject {
-    typealias LogoutButtonPublisher = UIControl.Publisher<AnimationButton>
-    func didLogoutButtonTapped(_ publisher: LogoutButtonPublisher)
+    func didLogoutButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>)
 }
 
 // MARK: - stored properties

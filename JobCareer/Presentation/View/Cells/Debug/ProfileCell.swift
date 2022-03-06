@@ -2,12 +2,10 @@
 
 import Combine
 import UIKit
-import Data
 
 // MARK: - stored properties & init
 
 final class ProfileCell: UITableViewCell {
-
     private let titleLabel: UILabel = .init(
         styles: [.leftAlignment],
         fontType: .italic,
@@ -19,11 +17,19 @@ final class ProfileCell: UITableViewCell {
         placeholder: "DISPLAY NAME"
     )
 
-    private let saveButton: UIButton = .init(
+    private let saveButton: AnimationButton = .init(
         style: .cornerStyle,
         title: "SAVE",
         titleColor: Resources.Colors.dynamicColor
     )
+
+    lazy var nameTextPublisher: AnyPublisher<String, Never> = {
+        nameTextField.textDidChangePublisher
+    }()
+
+    lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
+        saveButton.publisher(for: .touchUpInside)
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

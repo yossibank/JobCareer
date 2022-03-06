@@ -91,7 +91,7 @@ extension ProfileViewController: UICollectionViewDelegate {
 
 extension ProfileViewController: ProfileViewDelegate {
 
-    func didLogoutButtonTapped(_ publisher: LogoutButtonPublisher) {
+    func didLogoutButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>) {
         publisher.sink { [weak self] _ in
             self?.showBottomSheet(
                 type: .logout(.init { [weak self] in

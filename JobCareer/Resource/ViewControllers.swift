@@ -72,7 +72,7 @@ extension Resources {
 
             func debug() -> DEBUG_ViewController {
                 let instance = DEBUG_ViewController()
-                instance.inject(ui: DEBUG_UI())
+                instance.inject(viewModel: DEBUG_ViewModel(), ui: DEBUG_UI())
                 instance.title = Resources.Strings.Navigation.Title.debug
                 return instance
             }

@@ -15,7 +15,7 @@ protocol DEBUG_ViewControllerDelegate: AnyObject {
 // MARK: - inject
 
 extension DEBUG_ViewController: VCInjectable {
-    typealias VM = NoViewModel
+    typealias VM = DEBUG_ViewModel
     typealias UI = DEBUG_UI
 }
 
@@ -98,6 +98,20 @@ extension DEBUG_ViewController: DEBUG_UI_Delegate {
     func selectedThemeIndex(_ publisher: AnyPublisher<Int, Never>) {
         publisher.sink { [weak self] value in
             self?.delegate.didChangeThemeSelected(value: value)
+        }
+        .store(in: &cancellables)
+    }
+
+    func saveNameTextField(_ publisher: AnyPublisher<String, Never>) {
+        publisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.displayName, on: viewModel)
+            .store(in: &cancellables)
+    }
+
+    func tappedSaveProfileButton(_ publisher: UIControl.Publisher<AnimationButton>) {
+        publisher.sink { [weak self] _ in
+            self?.viewModel.save()
         }
         .store(in: &cancellables)
     }
