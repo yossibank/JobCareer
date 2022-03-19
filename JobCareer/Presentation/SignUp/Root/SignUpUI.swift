@@ -65,9 +65,7 @@ final class SignUpUI {
     )
 
     private let signUpButton: AnimationButton = .init(
-        style: .cornerStyle,
-        title: Resources.Strings.Button.signUpTitle,
-        titleColor: Resources.Colors.dynamicColor
+        style: .signUp
     )
 
     var isEnabled: Bool = false {

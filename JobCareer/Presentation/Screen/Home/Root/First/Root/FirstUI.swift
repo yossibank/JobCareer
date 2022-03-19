@@ -5,8 +5,7 @@ import UIKit
 
 final class FirstUI {
     private let firstDetailbutton: UIButton = .init(
-        style: .someStyle,
-        title: Resources.Strings.Button.nextTitle
+        style: .first
     )
 
     private let someSwitch: UISwitch = .init()

@@ -1,46 +1,8 @@
 import UIKit
 
-// MARK: - init
-
-final class AnimationButton: UIButton {
-
-    init(
-        style: ViewStyle<AnimationButton>? = nil,
-        title: String,
-        titleColor: UIColor = .systemBackground,
-        fontType: FontType = .system,
-        fontSize: FontSize = .h3,
-        for state: UIControl.State = .normal
-    ) {
-        super.init(frame: .zero)
-        self.setTitle(title, for: state)
-        self.setTitleColor(titleColor, for: state)
-
-        switch fontType {
-            case .system:
-                self.titleLabel?.font = .systemFont(ofSize: fontSize.rawValue)
-
-            case .bold:
-                self.titleLabel?.font = .boldSystemFont(ofSize: fontSize.rawValue)
-
-            case .italic:
-                self.titleLabel?.font = .italicSystemFont(ofSize: fontSize.rawValue)
-        }
-
-        if let style = style {
-            apply(style)
-        }
-    }
-
-    @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
-
 // MARK: - override methods
 
-extension AnimationButton {
+final class AnimationButton: UIButton {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

@@ -15,9 +15,7 @@ final class ProfileCell: UITableViewCell {
     )
 
     private let saveButton: AnimationButton = .init(
-        style: .cornerStyle,
-        title: "SAVE",
-        titleColor: Resources.Colors.dynamicColor
+        style: .profileNameSave
     )
 
     lazy var nameTextPublisher: AnyPublisher<String, Never> = {

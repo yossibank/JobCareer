@@ -57,22 +57,15 @@ final class LoginUI {
     )
 
     private let loginButton: AnimationButton = .init(
-        style: .cornerStyle,
-        title: Resources.Strings.Button.loginTitle,
-        titleColor: Resources.Colors.dynamicColor
+        style: .login
     )
 
     private let testLoginButton: UIButton = .init(
-        style: .cornerStyle,
-        title: "テストログイン",
-        titleColor: Resources.Colors.dynamicColor
+        style: .testLogin
     )
 
     private let signUpButton: AnimationButton = .init(
-        title: Resources.Strings.Button.hereIsSignUpTitle,
-        titleColor: Resources.Colors.dynamicColor,
-        fontType: .bold,
-        fontSize: .h4
+        style: .goSignUp
     )
 
     var isEnabled: Bool = false {

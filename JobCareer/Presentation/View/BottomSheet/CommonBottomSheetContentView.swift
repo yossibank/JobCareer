@@ -17,13 +17,13 @@ extension BottomSheetAction {
         var type: ViewStyle<UIButton> {
             switch self {
                 case .default:
-                    return .bottomSheetDefaultStyle
+                    return .bottomSheetDefault
 
                 case .cancel:
-                    return .bottomSheetCanceltStyle
+                    return .bottomSheetCancel
 
                 case .alert:
-                    return .bottomSheetAlertStyle
+                    return .bottomSheetAlert
             }
         }
 
