@@ -28,8 +28,8 @@ extension ViewStyle where T: UIButton {
     static var cornerStyle: ViewStyle<T> {
         ViewStyle<T> {
             $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
-            $0.layer.cornerRadius = CornerRadiusSize.biggest.rawValue
+            $0.layer.borderWidth = .init(.standard)
+            $0.layer.cornerRadius = .init(.biggest)
         }
     }
 
@@ -37,7 +37,7 @@ extension ViewStyle where T: UIButton {
         ViewStyle<T> {
             $0.titleLabel?.font = .systemFont(ofSize: FontSize.h2.rawValue)
             $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
+            $0.layer.borderWidth = .init(.standard)
             $0.backgroundColor = .black
             $0.normalTitleColor = .white
             $0.selectedTitleColor = .white
@@ -49,9 +49,9 @@ extension ViewStyle where T: UIButton {
 
     static var bottomSheetCanceltStyle: ViewStyle<T> {
         ViewStyle<T> {
-            $0.titleLabel?.font = .systemFont(ofSize: FontSize.h2.rawValue)
+            $0.titleLabel?.font = .systemFont(ofSize: .init(.h2))
             $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
+            $0.layer.borderWidth = .init(.standard)
             $0.backgroundColor = .white
             $0.normalTitleColor = .black
             $0.selectedTitleColor = .black
@@ -63,9 +63,9 @@ extension ViewStyle where T: UIButton {
 
     static var bottomSheetAlertStyle: ViewStyle<T> {
         ViewStyle<T> {
-            $0.titleLabel?.font = .systemFont(ofSize: FontSize.h2.rawValue)
+            $0.titleLabel?.font = .systemFont(ofSize: .init(.h2))
             $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = BorderWidthSize.standard.rawValue
+            $0.layer.borderWidth = .init(.standard)
             $0.backgroundColor = .red
             $0.normalTitleColor = .white
             $0.selectedTitleColor = .white

@@ -17,7 +17,7 @@ extension ViewStyle where T: UIImageView {
     static var contentImage: ViewStyle<T> {
         ViewStyle<T> {
             $0.clipsToBounds = true
-            $0.layer.cornerRadius = BorderWidthSize.contentImage.rawValue
+            $0.layer.cornerRadius = .init(.contentImage)
         }
     }
 }

@@ -13,8 +13,7 @@ final class ProfileCell: UITableViewCell {
     )
 
     private let nameTextField: BottomBorderTextField = .init(
-        style: .debugStyle,
-        placeholder: "DISPLAY NAME"
+        style: .debug
     )
 
     private let saveButton: AnimationButton = .init(

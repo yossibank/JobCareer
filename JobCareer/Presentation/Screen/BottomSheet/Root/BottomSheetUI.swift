@@ -5,8 +5,7 @@ import UIKit
 final class BottomSheetUI {
 
     private let containerView: UIView = .init(
-        style: .maskToBounds,
-        cornerRadius: .bottomSheet
+        style: .bottomSheet
     )
 
     private let bottomSheetLineImageView: UIImageView = .init(

@@ -41,8 +41,7 @@ final class SignUpUI {
     }()
 
     private let emailTextField: BottomBorderTextField = .init(
-        style: .emailStyle,
-        placeholder: Resources.Strings.TextField.emailPlaceholder
+        style: .email
     )
 
     private let emailValidationLabel: UILabel = .init(
@@ -52,8 +51,7 @@ final class SignUpUI {
     )
 
     private let passwordTextField: BottomBorderTextField = .init(
-        style: .passwordStyle,
-        placeholder: Resources.Strings.TextField.passwordPlaceholder
+        style: .password
     )
 
     private let passwordValidationLabel: UILabel = .init(
@@ -63,8 +61,7 @@ final class SignUpUI {
     )
 
     private let confirmPasswordTextField: BottomBorderTextField = .init(
-        style: .confirmPasswordStyle,
-        placeholder: Resources.Strings.TextField.confirmPasswordPlaceholder
+        style: .confirmPassword
     )
 
     private let confirmPasswordValidationLabel: UILabel = .init(
