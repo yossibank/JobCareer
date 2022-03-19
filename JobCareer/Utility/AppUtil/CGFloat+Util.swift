@@ -1,11 +1,5 @@
 import UIKit
 
-enum FontType {
-    case system
-    case bold
-    case italic
-}
-
 enum FontSize: CGFloat {
     /** 21 */
     case h1 = 21
