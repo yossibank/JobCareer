@@ -5,8 +5,7 @@ import UIKit
 
 final class FirstDetailUI {
     private let homeButton: UIButton = .init(
-        style: .someStyle,
-        title: Resources.Strings.Button.backTitle
+        style: .firstDetail
     )
 
     lazy var homeButtonTapPublisher: UIControl.Publisher<UIButton> = {

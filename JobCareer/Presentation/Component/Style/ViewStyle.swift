@@ -2,23 +2,19 @@ import UIKit
 
 extension Stylable where Self == UIView {
 
-    init(
-        style: ViewStyle<Self>,
-        backgrounColor: UIColor = .systemBackground,
-        cornerRadius: CornerRadiusSize = .none
-    ) {
+    init(style: ViewStyle<Self>) {
         self.init()
-        self.backgroundColor = backgrounColor
-        self.layer.cornerRadius = cornerRadius.rawValue
         apply(style)
     }
 }
 
 extension ViewStyle where T: UIView {
 
-    static var maskToBounds: ViewStyle<T> {
+    static var bottomSheet: ViewStyle<T> {
         ViewStyle<T> {
-            $0.layer.masksToBounds = true
+            $0.backgroundColor = .systemBackground
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = .init(.bottomSheet)
         }
     }
 }

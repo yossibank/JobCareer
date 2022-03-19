@@ -41,44 +41,31 @@ final class LoginUI {
     }()
 
     private let emailTextField: BottomBorderTextField = .init(
-        style: .emailStyle,
-        placeholder: Resources.Strings.TextField.emailPlaceholder
+        style: .email
     )
 
     private let emailValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let passwordTextField: BottomBorderTextField = .init(
-        style: .passwordStyle,
-        placeholder: Resources.Strings.TextField.passwordPlaceholder
+        style: .password
     )
 
     private let passwordValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let loginButton: AnimationButton = .init(
-        style: .cornerStyle,
-        title: Resources.Strings.Button.loginTitle,
-        titleColor: Resources.Colors.dynamicColor
+        style: .login
     )
 
     private let testLoginButton: UIButton = .init(
-        style: .cornerStyle,
-        title: "テストログイン",
-        titleColor: Resources.Colors.dynamicColor
+        style: .testLogin
     )
 
     private let signUpButton: AnimationButton = .init(
-        title: Resources.Strings.Button.hereIsSignUpTitle,
-        titleColor: Resources.Colors.dynamicColor,
-        fontType: .bold,
-        fontSize: .h4
+        style: .goSignUp
     )
 
     var isEnabled: Bool = false {

@@ -5,9 +5,7 @@ import UIKit
 final class CollectionViewHeader: UICollectionReusableView {
 
     private let headerLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h1
+        style: .collectionViewHeader
     )
 
     override init(frame: CGRect) {

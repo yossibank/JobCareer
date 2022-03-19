@@ -4,9 +4,7 @@ import UIKit
 
 final class MainCell: UICollectionViewCell {
     private let nameLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h2
+        style: .profileName
     )
 
     private let iconImageView: UIImageView = .init()

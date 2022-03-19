@@ -12,9 +12,7 @@ final class ContentsCell: UICollectionViewCell {
     private let labelView: UIView = .init()
 
     private let descriptionLabel: UILabel = .init(
-        styles: [.leftAlignment, .contentLines],
-        fontType: .italic,
-        fontSize: .h3
+        style: .contentDescription
     )
 
     private lazy var stackView: UIStackView = .init(

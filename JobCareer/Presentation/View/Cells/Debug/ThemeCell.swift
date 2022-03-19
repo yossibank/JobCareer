@@ -14,9 +14,7 @@ final class ThemeCell: UITableViewCell {
     }
 
     private let titleLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .italic,
-        fontSize: .h2
+        style: .themeTitle
     )
 
     private let themeSegment: UISegmentedControl = {

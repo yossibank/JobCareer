@@ -1,28 +1,18 @@
 import UIKit
 
-extension Stylable where Self == UITextField {
-
-    init(
-        style: ViewStyle<Self>,
-        placeholder: String? = nil
-    ) {
-        self.init()
-        self.placeholder = placeholder
-        apply(style)
-    }
-}
-
 extension ViewStyle where T: UITextField {
 
-    static var debugStyle: ViewStyle<T> {
+    static var debug: ViewStyle<T> {
         ViewStyle<T> {
-            $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)
+            $0.placeholder = "DISPLAY NAME"
+            $0.font = .boldSystemFont(ofSize: .init(.h4))
         }
     }
 
-    static var emailStyle: ViewStyle<T> {
+    static var email: ViewStyle<T> {
         ViewStyle<T> {
-            $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)
+            $0.placeholder = Resources.Strings.TextField.emailPlaceholder
+            $0.font = .boldSystemFont(ofSize: .init(.h4))
             $0.textAlignment = .left
             $0.clearButtonMode = .unlessEditing
             $0.textContentType = .emailAddress
@@ -30,9 +20,10 @@ extension ViewStyle where T: UITextField {
         }
     }
 
-    static var passwordStyle: ViewStyle<T> {
+    static var password: ViewStyle<T> {
         ViewStyle<T> {
-            $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)
+            $0.placeholder = Resources.Strings.TextField.passwordPlaceholder
+            $0.font = .boldSystemFont(ofSize: .init(.h4))
             $0.textAlignment = .left
             $0.clearButtonMode = .unlessEditing
             $0.textContentType = .password
@@ -40,9 +31,10 @@ extension ViewStyle where T: UITextField {
         }
     }
 
-    static var confirmPasswordStyle: ViewStyle<T> {
+    static var confirmPassword: ViewStyle<T> {
         ViewStyle<T> {
-            $0.font = .boldSystemFont(ofSize: FontSize.h4.rawValue)
+            $0.placeholder = Resources.Strings.TextField.confirmPasswordPlaceholder
+            $0.font = .boldSystemFont(ofSize: .init(.h4))
             $0.textAlignment = .left
             $0.clearButtonMode = .unlessEditing
             $0.textContentType = .newPassword

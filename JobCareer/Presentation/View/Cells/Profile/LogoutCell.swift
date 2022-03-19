@@ -5,9 +5,7 @@ import UIKit
 
 final class LogoutCell: UICollectionViewCell {
     private let logoutButton: AnimationButton = .init(
-        style: .cornerStyle,
-        title: Resources.Strings.Profile.logout,
-        titleColor: Resources.Colors.dynamicColor
+        style: .logout
     )
 
     lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {

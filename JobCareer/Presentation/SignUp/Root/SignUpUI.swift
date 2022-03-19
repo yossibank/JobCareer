@@ -41,42 +41,31 @@ final class SignUpUI {
     }()
 
     private let emailTextField: BottomBorderTextField = .init(
-        style: .emailStyle,
-        placeholder: Resources.Strings.TextField.emailPlaceholder
+        style: .email
     )
 
     private let emailValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let passwordTextField: BottomBorderTextField = .init(
-        style: .passwordStyle,
-        placeholder: Resources.Strings.TextField.passwordPlaceholder
+        style: .password
     )
 
     private let passwordValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let confirmPasswordTextField: BottomBorderTextField = .init(
-        style: .confirmPasswordStyle,
-        placeholder: Resources.Strings.TextField.confirmPasswordPlaceholder
+        style: .confirmPassword
     )
 
     private let confirmPasswordValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let signUpButton: AnimationButton = .init(
-        style: .cornerStyle,
-        title: Resources.Strings.Button.signUpTitle,
-        titleColor: Resources.Colors.dynamicColor
+        style: .signUp
     )
 
     var isEnabled: Bool = false {

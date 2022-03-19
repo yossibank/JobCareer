@@ -7,20 +7,15 @@ import UIKit
 
 final class ProfileCell: UITableViewCell {
     private let titleLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .italic,
-        fontSize: .h2
+        style: .profileTitle
     )
 
     private let nameTextField: BottomBorderTextField = .init(
-        style: .debugStyle,
-        placeholder: "DISPLAY NAME"
+        style: .debug
     )
 
     private let saveButton: AnimationButton = .init(
-        style: .cornerStyle,
-        title: "SAVE",
-        titleColor: Resources.Colors.dynamicColor
+        style: .profileNameSave
     )
 
     lazy var nameTextPublisher: AnyPublisher<String, Never> = {

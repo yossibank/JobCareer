@@ -23,9 +23,7 @@ extension TopViewControllerAccessible {
     }
 
     func getVisibleViewController() -> UIViewController? {
-        guard
-            let rootViewController = rootViewController
-        else {
+        guard let rootViewController = rootViewController else {
             return nil
         }
 
@@ -44,11 +42,7 @@ extension TopViewControllerAccessible {
         }
 
         if let tabBarController = rootViewController as? UITabBarController {
-
-            if
-                let navigationController
-                = tabBarController.selectedViewController as? UINavigationController
-            {
+            if let navigationController = tabBarController.selectedViewController as? UINavigationController {
                 let visible = navigationController.visibleViewController
 
                 if visible is UISearchController || visible is UIAlertController {
