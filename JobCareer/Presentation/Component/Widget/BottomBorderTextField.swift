@@ -1,28 +1,8 @@
 import UIKit
 
-// MARK: - init
-
-final class BottomBorderTextField: UITextField {
-
-    init(
-        style: ViewStyle<BottomBorderTextField>,
-        placeholder: String? = nil
-    ) {
-        super.init(frame: .zero)
-        self.placeholder = placeholder
-        self.borderStyle = .none
-        apply(style)
-    }
-
-    @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
-
 // MARK: - override methods
 
-extension BottomBorderTextField {
+final class BottomBorderTextField: UITextField {
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -32,7 +12,7 @@ extension BottomBorderTextField {
 
 // MARK: - private methods
 
-extension BottomBorderTextField {
+private extension BottomBorderTextField {
 
     func addBorder() {
         let border = CALayer()
