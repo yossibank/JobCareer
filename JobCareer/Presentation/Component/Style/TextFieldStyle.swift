@@ -1,13 +1,5 @@
 import UIKit
 
-extension Stylable where Self == UITextField {
-
-    init(style: ViewStyle<Self>) {
-        self.init()
-        apply(style)
-    }
-}
-
 extension ViewStyle where T: UITextField {
 
     static var debug: ViewStyle<T> {

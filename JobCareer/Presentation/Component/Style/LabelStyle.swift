@@ -1,13 +1,5 @@
 import UIKit
 
-extension Stylable where Self == UILabel {
-
-    init(style: ViewStyle<Self>) {
-        self.init()
-        apply(style)
-    }
-}
-
 extension ViewStyle where T: UILabel {
 
     static var input: ViewStyle<T> {
