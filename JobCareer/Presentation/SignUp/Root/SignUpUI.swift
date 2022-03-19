@@ -45,9 +45,7 @@ final class SignUpUI {
     )
 
     private let emailValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let passwordTextField: BottomBorderTextField = .init(
@@ -55,9 +53,7 @@ final class SignUpUI {
     )
 
     private let passwordValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let confirmPasswordTextField: BottomBorderTextField = .init(
@@ -65,9 +61,7 @@ final class SignUpUI {
     )
 
     private let confirmPasswordValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let signUpButton: AnimationButton = .init(

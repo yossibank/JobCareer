@@ -4,15 +4,11 @@ import UIKit
 
 final class CareerCell: UICollectionViewCell {
     private let titleLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h1
+        style: .careerTitle
     )
 
     private let descriptionLabel: UILabel = .init(
-        styles: [.leftAlignment, .numberOfLinesZero],
-        fontType: .system,
-        fontSize: .h3
+        style: .carrerDescription
     )
 
     private lazy var stackView: UIStackView = .init(

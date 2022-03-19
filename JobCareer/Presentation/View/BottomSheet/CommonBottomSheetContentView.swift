@@ -48,15 +48,11 @@ final class CommonBottomSheetContentView: UIView {
     private let titleLabelBackView = UIView()
 
     private let titleLabel: UILabel = .init(
-        styles: [.numberOfLinesZero, .centerAlignment],
-        fontType: .bold,
-        fontSize: .h1
+        style: .bottomSheetTitle
     )
 
     private let messageBodyLabel: UILabel = .init(
-        styles: [.numberOfLinesZero],
-        fontType: .italic,
-        fontSize: .h2
+        style: .bottomSheetBody
     )
 
     private lazy var buttonContainerStackView: UIStackView = .init(

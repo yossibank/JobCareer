@@ -4,15 +4,11 @@ import UIKit
 
 final class NewsCell: UICollectionViewCell {
     private let titleLabel: UILabel = .init(
-        styles: [.centerAlignment],
-        fontType: .bold,
-        fontSize: .h1
+        style: .newsTitle
     )
 
     private let descriptionLabel: UILabel = .init(
-        styles: [.leftAlignment, .numberOfLinesZero],
-        fontType: .system,
-        fontSize: .h3
+        style: .newsDescription
     )
 
     private lazy var stackView: UIStackView = .init(

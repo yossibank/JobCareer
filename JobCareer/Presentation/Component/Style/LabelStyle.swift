@@ -2,60 +2,99 @@ import UIKit
 
 extension Stylable where Self == UILabel {
 
-    init(
-        styles: [ViewStyle<Self>],
-        fontType: FontType,
-        fontSize: FontSize,
-        textColor: UIColor = Resources.Colors.dynamicColor
-    ) {
+    init(style: ViewStyle<Self>) {
         self.init()
-
-        switch fontType {
-            case .system:
-                self.font = .systemFont(ofSize: fontSize.rawValue)
-
-            case .bold:
-                self.font = .boldSystemFont(ofSize: fontSize.rawValue)
-
-            case .italic:
-                self.font = .italicSystemFont(ofSize: fontSize.rawValue)
-        }
-
-        self.textColor = textColor
-
-        styles.forEach { apply($0) }
+        apply(style)
     }
 }
 
 extension ViewStyle where T: UILabel {
 
-    static var centerAlignment: ViewStyle<T> {
-        ViewStyle<T> {
-            $0.textAlignment = .center
-        }
-    }
-
-    static var leftAlignment: ViewStyle<T> {
+    static var input: ViewStyle<T> {
         ViewStyle<T> {
             $0.textAlignment = .left
+            $0.font = .boldSystemFont(ofSize: .init(.h5))
         }
     }
 
-    static var rightAlignment: ViewStyle<T> {
+    static var collectionViewHeader: ViewStyle<T> {
         ViewStyle<T> {
-            $0.textAlignment = .right
+            $0.textAlignment = .left
+            $0.font = .boldSystemFont(ofSize: .init(.h1))
         }
     }
 
-    static var numberOfLinesZero: ViewStyle<T> {
+    static var newsTitle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .center
+            $0.font = .boldSystemFont(ofSize: .init(.h1))
+        }
+    }
+
+    static var newsDescription: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.numberOfLines = 0
+            $0.font = .systemFont(ofSize: .init(.h3))
+        }
+    }
+
+    static var contentDescription: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.numberOfLines = 5
+            $0.font = .italicSystemFont(ofSize: .init(.h3))
+        }
+    }
+
+    static var profileName: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.font = .boldSystemFont(ofSize: .init(.h2))
+        }
+    }
+
+    static var careerTitle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.font = .systemFont(ofSize: .init(.h3))
+        }
+    }
+
+    static var carrerDescription: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.numberOfLines = 0
+            $0.font = .systemFont(ofSize: .init(.h3))
+        }
+    }
+
+    static var themeTitle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.font = .italicSystemFont(ofSize: .init(.h2))
+        }
+    }
+
+    static var profileTitle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.font = .italicSystemFont(ofSize: .init(.h2))
+        }
+    }
+
+    static var bottomSheetTitle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .center
+            $0.numberOfLines = 0
+            $0.font = .boldSystemFont(ofSize: .init(.h1))
+        }
+    }
+
+    static var bottomSheetBody: ViewStyle<T> {
         ViewStyle<T> {
             $0.numberOfLines = 0
-        }
-    }
-
-    static var contentLines: ViewStyle<T> {
-        ViewStyle<T> {
-            $0.numberOfLines = 5
+            $0.font = .italicSystemFont(ofSize: .init(.h2))
         }
     }
 }

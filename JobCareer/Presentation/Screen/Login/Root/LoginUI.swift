@@ -45,9 +45,7 @@ final class LoginUI {
     )
 
     private let emailValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let passwordTextField: BottomBorderTextField = .init(
@@ -55,9 +53,7 @@ final class LoginUI {
     )
 
     private let passwordValidationLabel: UILabel = .init(
-        styles: [.leftAlignment],
-        fontType: .bold,
-        fontSize: .h5
+        style: .input
     )
 
     private let loginButton: AnimationButton = .init(
