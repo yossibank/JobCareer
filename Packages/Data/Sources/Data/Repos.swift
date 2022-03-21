@@ -9,11 +9,7 @@ public struct Repos {
         public typealias Delete = Repository<SampleDeleteRequest>
     }
 
-    public struct FirebaseAuth {
-        public typealias Login = AuthManager
-        public typealias Logout = AuthManager
-        public typealias SignUp = AuthManager
-    }
+    public typealias FirebaseAuth = AuthManager
 
     public struct Firestore {
         public typealias Save = FirestoreManager

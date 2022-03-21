@@ -7,11 +7,11 @@ final class ProfileViewModel: ViewModel {
 
     @Published private(set) var state: State = .standby
 
-    private let usecase: LogoutUsecase
+    private let usecase: FirebaseAuthUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: LogoutUsecase = Domain.Usecase.FirebaseAuth.Logout()) {
+    init(usecase: FirebaseAuthUsecase = Domain.Usecase.FirebaseAuth()) {
         self.usecase = usecase
     }
 }
