@@ -35,6 +35,8 @@ extension ProfileViewController {
         ui.injectDelegate(delegate: self)
         ui.setupView(rootView: view)
         ui.setupCollectionView(delegate: self)
+        ui.apply(item: nil)
+        viewModel.fetch()
         bindToView()
     }
 }
@@ -44,7 +46,7 @@ extension ProfileViewController {
 private extension ProfileViewController {
 
     func bindToView() {
-        viewModel.$state
+        viewModel.$authState
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 guard let self = self else { return }
@@ -61,6 +63,31 @@ private extension ProfileViewController {
                         AppDataHolder.isLogin = false
                         self.stopIndicator()
                         self.delegate.didLogoutButtonTapped()
+                        Logger.debug(message: "\(entity)")
+
+                    case let .failed(error):
+                        self.stopIndicator()
+                        Logger.debug(message: "\(error.localizedDescription)")
+                }
+            }
+            .store(in: &cancellables)
+
+        viewModel.$firestoreState
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                guard let self = self else { return }
+
+                switch state {
+                    case .standby:
+                        Logger.debug(message: "standby")
+
+                    case .loading:
+                        self.startIndicator()
+                        Logger.debug(message: "loading")
+
+                    case let .done(entity):
+                        self.stopIndicator()
+                        self.ui.apply(item: .init(name: entity.name ?? .blank, icon: Resources.Images.Test.testIcon))
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):

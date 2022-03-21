@@ -17,23 +17,10 @@ enum ProfileSection: CaseIterable, CustomStringConvertible {
                 return Resources.Strings.Profile.logout
         }
     }
-
-    var items: [ProfileItem] {
-        switch self {
-            case .main:
-                return Main.component
-
-            case .career:
-                return Career.component
-
-            case .logout:
-                return [.logout]
-        }
-    }
 }
 
 enum ProfileItem: Hashable {
-    case main(Main)
+    case main(Main?)
     case career(Career)
     case logout
 }
@@ -41,20 +28,9 @@ enum ProfileItem: Hashable {
 struct Main: Hashable {
     let name: String
     let icon: UIImage
-
-    static var component: [ProfileItem] {
-        [.main(.init(name: "TEST1", icon: Resources.Images.Test.testIcon))]
-    }
 }
 
 struct Career: Hashable {
     let title: String
     let description: String
-
-    static var component: [ProfileItem] {
-        [
-            .career(.init(title: "CAREER1", description: "career description")),
-            .career(.init(title: "CAREER2", description: "career description"))
-        ]
-    }
 }
