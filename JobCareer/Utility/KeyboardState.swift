@@ -1,5 +1,9 @@
 import UIKit
 
+/** Keyboard and Combine
+ * https://www.swiftjectivec.com/keyboard-and-combine/
+ */
+
 enum KeyboardTransitionState {
     case unset
     case willShow

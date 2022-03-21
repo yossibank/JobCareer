@@ -1,10 +1,14 @@
 import Combine
 import UIKit
 
+/** Keyboard and Combine
+ * https://www.swiftjectivec.com/keyboard-and-combine/
+ */
+
 // MARK: - stored properties & init
 
 final class KeyboardHandler {
-    let onChange: (KeyboardState) -> Void
+    private let onChange: (KeyboardState) -> Void
 
     private(set) var currentState: KeyboardState?
 
@@ -27,24 +31,5 @@ final class KeyboardHandler {
             self.currentState = KeyboardState(with: notification)
             self.onChange(KeyboardState(with: notification))
         }
-    }
-}
-
-// MARK: - internal methods
-
-extension KeyboardHandler {
-
-    func unsubscribe() {
-        cancellables?.cancel()
-    }
-}
-
-// MARK: - private methods
-
-private extension KeyboardHandler {
-
-    @objc func receivedKeyboardNotification(notification: Notification) {
-        currentState = .init(with: notification)
-        onChange(.init(with: notification))
     }
 }
