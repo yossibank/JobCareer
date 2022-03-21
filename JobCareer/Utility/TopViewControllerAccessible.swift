@@ -7,9 +7,7 @@ extension UIViewController: TopViewControllerAccessible {}
 extension TopViewControllerAccessible {
 
     var rootViewController: UIViewController? {
-        UIApplication.shared.windows.first {
-            $0.isKeyWindow
-        }?.rootViewController
+        UIApplication.shared.windows.first { $0.isKeyWindow }?.rootViewController
     }
 
     func getTopViewController() -> UIViewController? {
@@ -30,9 +28,7 @@ extension TopViewControllerAccessible {
         return getVisibleViewController(rootViewController)
     }
 
-    private func getVisibleViewController(
-        _ rootViewController: UIViewController
-    ) -> UIViewController? {
+    private func getVisibleViewController(_ rootViewController: UIViewController) -> UIViewController? {
         if let presentedViewController = rootViewController.presentedViewController {
             return getVisibleViewController(presentedViewController)
         }
