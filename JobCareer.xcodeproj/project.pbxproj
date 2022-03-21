@@ -308,6 +308,35 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		782519FE27E826D800B3B195 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				78C20EE9277B35F800C7EC65 /* LoginFlowController.swift */,
+				78C20EE8277B35E000C7EC65 /* Login */,
+				78D03FCF279BE1D70058878F /* SignUp */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		782519FF27E826E300B3B195 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				78A4E9382778659F005FBB36 /* MainFlowController.swift */,
+				78DD435E27424E5C006684D0 /* DEBUG */,
+				78EE794D2780122E00F7FCB9 /* Home */,
+				7860A6DC2786EB89004C26DE /* Profile */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		78251A0027E827A600B3B195 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				78BA64C12744C812005B2D61 /* BottomSheet */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		7832D460278A9AE100A959B1 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,7 +518,6 @@
 		78C20EE8277B35E000C7EC65 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				78C20EE9277B35F800C7EC65 /* LoginFlowController.swift */,
 				78C20EF8277B458500C7EC65 /* Root */,
 			);
 			path = Login;
@@ -568,8 +596,7 @@
 			children = (
 				78D03FD2279BE3810058878F /* Root */,
 			);
-			name = SignUp;
-			path = ../SignUp;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		78D03FD2279BE3810058878F /* Root */ = {
@@ -686,14 +713,10 @@
 		78DD4352274247DF006684D0 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				78A4E9382778659F005FBB36 /* MainFlowController.swift */,
+				782519FE27E826D800B3B195 /* Account */,
+				78251A0027E827A600B3B195 /* Common */,
 				78DD437D27425E60006684D0 /* Launch */,
-				78BA64C12744C812005B2D61 /* BottomSheet */,
-				78DD435E27424E5C006684D0 /* DEBUG */,
-				78EE794D2780122E00F7FCB9 /* Home */,
-				78C20EE8277B35E000C7EC65 /* Login */,
-				7860A6DC2786EB89004C26DE /* Profile */,
-				78D03FCF279BE1D70058878F /* SignUp */,
+				782519FF27E826E300B3B195 /* Main */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
