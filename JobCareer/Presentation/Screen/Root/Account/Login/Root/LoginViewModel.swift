@@ -35,7 +35,7 @@ final class LoginViewModel: ViewModel {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: LoginUsecase = Domain.Usecase.Login()) {
+    init(usecase: LoginUsecase = Domain.Usecase.FirebaseAuth.Login()) {
         self.usecase = usecase
     }
 }

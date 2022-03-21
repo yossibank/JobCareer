@@ -12,6 +12,30 @@ public struct Domain {
 
     public struct Usecase {
 
+        public struct FirebaseAuth {
+
+            public static func Login() -> LoginUsecase {
+                .init(
+                    repository: Repos.FirebaseAuth.Login(),
+                    mapper: EmptyMapper()
+                )
+            }
+
+            public static func Logout() -> LogoutUsecase {
+                .init(
+                    repository: Repos.FirebaseAuth.Logout(),
+                    mapper: EmptyMapper()
+                )
+            }
+
+            public static func SignUp() -> SignUpUsecase {
+                .init(
+                    repository: Repos.FirebaseAuth.SignUp(),
+                    mapper: EmptyMapper()
+                )
+            }
+        }
+
         public static func FetchSample(useTestData: Bool = false) -> FetchSampleUsecase {
             .init(
                 repository: Repos.Sample.Get(),
@@ -24,27 +48,6 @@ public struct Domain {
             .init(
                 repository: Repos.Firestore.Save(),
                 mapper: UserMapper()
-            )
-        }
-
-        public static func Login() -> LoginUsecase {
-            .init(
-                repository: Repos.FirebaseAuth.Login(),
-                mapper: EmptyMapper()
-            )
-        }
-
-        public static func Logout() -> LogoutUsecase {
-            .init(
-                repository: Repos.FirebaseAuth.Logout(),
-                mapper: EmptyMapper()
-            )
-        }
-
-        public static func SignUp() -> SignUpUsecase {
-            .init(
-                repository: Repos.FirebaseAuth.SignUp(),
-                mapper: EmptyMapper()
             )
         }
     }

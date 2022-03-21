@@ -1,7 +1,7 @@
 import Combine
 import UIKit
 
-/** Keyboard and Combine
+/* Keyboard and Combine
  * https://www.swiftjectivec.com/keyboard-and-combine/
  */
 

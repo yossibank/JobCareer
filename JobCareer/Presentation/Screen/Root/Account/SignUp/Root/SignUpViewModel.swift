@@ -53,7 +53,7 @@ final class SignUpViewModel: ViewModel {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: SignUpUsecase = Domain.Usecase.SignUp()) {
+    init(usecase: SignUpUsecase = Domain.Usecase.FirebaseAuth.SignUp()) {
         self.usecase = usecase
     }
 }
