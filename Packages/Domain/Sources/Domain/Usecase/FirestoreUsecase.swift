@@ -19,4 +19,21 @@ public extension UsecaseImpl where R == Repos.Firestore, M == UserMapper {
             }
         }
     }
+
+    func fetch() -> AnyPublisher<UserEntity, APIError> {
+        toPublisher { promise in
+            analytics.sendEvent()
+
+            repository.fetch { result in
+                switch result {
+                    case let .success(response):
+                        let entity = mapper.convert(response: response)
+                        promise(.success(entity))
+
+                    case let .failure(error):
+                        promise(.failure(.firebase(error.localizedDescription)))
+                }
+            }
+        }
+    }
 }
