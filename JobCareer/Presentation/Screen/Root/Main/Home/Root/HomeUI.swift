@@ -12,7 +12,6 @@ final class HomeUI {
         return collectionView
     }()
 
-    private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<HomeSection, HomeItem>()
     private var dataSource: UICollectionViewDiffableDataSource<HomeSection, HomeItem>!
 }
 
@@ -61,12 +60,35 @@ extension HomeUI {
         collectionView.backgroundColor = .systemBackground
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
+    }
 
+    func apply() {
+        var dataSourceSnapshot = NSDiffableDataSourceSnapshot<HomeSection, HomeItem>()
         dataSourceSnapshot.appendSections(HomeSection.allCases)
 
-        HomeSection.allCases.forEach {
-            dataSourceSnapshot.appendItems($0.items, toSection: $0)
-        }
+        dataSourceSnapshot.appendItems(
+            [
+                .contents(.init(image: Resources.Images.Test.testIcon, description: "content1")),
+                .contents(.init(image: Resources.Images.Test.testIcon, description: "content2")),
+                .contents(.init(image: Resources.Images.Test.testIcon, description: "content3")),
+                .contents(.init(image: Resources.Images.Test.testIcon, description: "content4")),
+                .contents(.init(image: Resources.Images.Test.testIcon, description: "content5")),
+                .contents(.init(image: Resources.Images.Test.testIcon, description: "content6"))
+            ],
+            toSection: .contents
+        )
+
+        dataSourceSnapshot.appendItems(
+            [
+                .news(.init(title: "news1", description: "description1")),
+                .news(.init(title: "news2", description: "description2")),
+                .news(.init(title: "news3", description: "description3")),
+                .news(.init(title: "news4", description: "description4")),
+                .news(.init(title: "news5", description: "description5")),
+                .news(.init(title: "news6", description: "description6"))
+            ],
+            toSection: .news
+        )
 
         dataSource.apply(
             dataSourceSnapshot,

@@ -32,6 +32,7 @@ extension HomeViewController {
         super.viewDidLoad()
         ui.setupView(rootView: view)
         ui.setupCollectionView(delegate: self)
+        ui.apply()
     }
 }
 
