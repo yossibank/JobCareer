@@ -10,10 +10,7 @@ public struct Repos {
     }
 
     public typealias FirebaseAuth = AuthManager
-
-    public struct Firestore {
-        public typealias Save = FirestoreManager
-    }
+    public typealias Firestore = FirestoreManager
 
     public struct Onboarding {
         public typealias GetIsFinished = Repository<GetOnboardingFinishedRequest>

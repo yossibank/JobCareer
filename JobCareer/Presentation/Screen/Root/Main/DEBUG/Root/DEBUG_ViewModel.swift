@@ -11,11 +11,11 @@ final class DEBUG_ViewModel: ViewModel {
 
     @Published var displayName: String = .blank
 
-    private let usecase: SaveUsecase
+    private let usecase: FirestoreUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: SaveUsecase = Domain.Usecase.Save()) {
+    init(usecase: FirestoreUsecase = Domain.Usecase.Firestore()) {
         self.usecase = usecase
     }
 }

@@ -4,7 +4,7 @@ public struct EmptyRepository {}
 
 public typealias FetchSampleUsecase = UsecaseImpl<Repos.Sample.Get, SampleMapper>
 public typealias FirebaseAuthUsecase = UsecaseImpl<Repos.FirebaseAuth, EmptyMapper>
-public typealias SaveUsecase = UsecaseImpl<Repos.Firestore.Save, UserMapper>
+public typealias FirestoreUsecase = UsecaseImpl<Repos.Firestore, UserMapper>
 
 public struct Domain {
 
@@ -25,9 +25,9 @@ public struct Domain {
             )
         }
 
-        public static func Save() -> SaveUsecase {
+        public static func Firestore() -> FirestoreUsecase {
             .init(
-                repository: Repos.Firestore.Save(),
+                repository: Repos.Firestore(),
                 mapper: UserMapper()
             )
         }
