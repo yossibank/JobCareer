@@ -19,13 +19,13 @@ extension ProfileUI {
                 case .main:
                     let itemSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalHeight(1.0)
+                        heightDimension: .estimated(56)
                     )
                     let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
                     let groupSize = NSCollectionLayoutSize(
                         widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .fractionalHeight(0.6)
+                        heightDimension: .estimated(56)
                     )
                     let group = NSCollectionLayoutGroup.horizontal(
                         layoutSize: groupSize,
