@@ -12,6 +12,11 @@ class IndicatorViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.bringSubviewToFront(indicator)
+    }
 }
 
 // MARK: - internal methods

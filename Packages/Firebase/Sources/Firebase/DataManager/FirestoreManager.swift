@@ -29,4 +29,28 @@ public struct FirestoreManager {
                 completion(.success(entity))
             }
     }
+
+    public func fetch(completion: @escaping (Result<UserEntity, Error>) -> Void) {
+        guard let user = AuthManager.currentUser else {
+            return
+        }
+
+        db.collection(UserEntity.collectionName)
+            .document(user.uid)
+            .getDocument { querySnapshot, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                guard
+                    let querySnapshot = querySnapshot,
+                    let data = querySnapshot.data()
+                else {
+                    return
+                }
+
+                completion(.success(.init(data: data)))
+            }
+    }
 }

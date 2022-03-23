@@ -31,11 +31,11 @@ final class LoginViewModel: ViewModel {
     @Published var password: String = .blank
     @Published private(set) var state: State = .standby
 
-    private let usecase: LoginUsecase
+    private let usecase: FirebaseAuthUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: LoginUsecase = Domain.Usecase.Login()) {
+    init(usecase: FirebaseAuthUsecase = Domain.Usecase.FirebaseAuth()) {
         self.usecase = usecase
     }
 }

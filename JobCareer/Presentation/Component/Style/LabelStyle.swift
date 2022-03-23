@@ -42,7 +42,21 @@ extension ViewStyle where T: UILabel {
     static var profileName: ViewStyle<T> {
         ViewStyle<T> {
             $0.textAlignment = .left
-            $0.font = .boldSystemFont(ofSize: .init(.h2))
+            $0.font = .boldSystemFont(ofSize: .init(.h1))
+        }
+    }
+
+    static var age: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.font = .italicSystemFont(ofSize: .init(.h2))
+        }
+    }
+
+    static var spec: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.textAlignment = .left
+            $0.font = .italicSystemFont(ofSize: .init(.h3))
         }
     }
 

@@ -89,7 +89,7 @@ extension ViewStyle where T: UIButton {
 
     static var bottomSheetDefault: ViewStyle<T> {
         ViewStyle<T> {
-            $0.titleLabel?.font = .systemFont(ofSize: FontSize.h2.rawValue)
+            $0.titleLabel?.font = .systemFont(ofSize: .init(.h2))
             $0.backgroundColor = .black
             $0.normalTitleColor = .white
             $0.selectedTitleColor = .white

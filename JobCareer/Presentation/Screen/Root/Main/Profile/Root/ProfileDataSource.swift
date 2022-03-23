@@ -6,15 +6,8 @@ extension ProfileUI {
         collectionView: UICollectionView
     ) -> UICollectionViewDiffableDataSource<ProfileSection, ProfileItem> {
         .init(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
-            guard
-                let self = self,
-                let section = ProfileSection.allCases.any(at: indexPath.section)
-            else {
-                return nil
-            }
-
-            switch section {
-                case .main:
+            switch item {
+                case let .main(item):
                     guard
                         let cell = collectionView.dequeueReusableCell(
                             withReuseIdentifier: MainCell.resourceName,
@@ -24,13 +17,15 @@ extension ProfileUI {
                         return UICollectionViewCell()
                     }
 
-                    if case let .main(item) = item {
+                    if let item = item {
                         cell.configure(item: item)
                     }
 
+                    self?.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
+
                     return cell
 
-                case .career:
+                case let .career(item):
                     guard
                         let cell = collectionView.dequeueReusableCell(
                             withReuseIdentifier: CareerCell.resourceName,
@@ -40,9 +35,7 @@ extension ProfileUI {
                         return UICollectionViewCell()
                     }
 
-                    if case let .career(item) = item {
-                        cell.configure(item: item)
-                    }
+                    cell.configure(item: item)
 
                     return cell
 
@@ -56,7 +49,8 @@ extension ProfileUI {
                         return UICollectionViewCell()
                     }
 
-                    self.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
+                    self?.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
+
                     return cell
             }
         }

@@ -9,15 +9,8 @@ public struct Repos {
         public typealias Delete = Repository<SampleDeleteRequest>
     }
 
-    public struct FirebaseAuth {
-        public typealias Login = AuthManager
-        public typealias Logout = AuthManager
-        public typealias SignUp = AuthManager
-    }
-
-    public struct Firestore {
-        public typealias Save = FirestoreManager
-    }
+    public typealias FirebaseAuth = AuthManager
+    public typealias Firestore = FirestoreManager
 
     public struct Onboarding {
         public typealias GetIsFinished = Repository<GetOnboardingFinishedRequest>

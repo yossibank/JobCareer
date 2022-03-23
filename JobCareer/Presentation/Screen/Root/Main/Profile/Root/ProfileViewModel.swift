@@ -3,16 +3,23 @@ import Domain
 import Utility
 
 final class ProfileViewModel: ViewModel {
-    typealias State = LoadingState<EmptyEntity, AppError>
+    typealias AuthState = LoadingState<EmptyEntity, AppError>
+    typealias FirestoreState = LoadingState<UserEntity, AppError>
 
-    @Published private(set) var state: State = .standby
+    @Published private(set) var authState: AuthState = .standby
+    @Published private(set) var firestoreState: FirestoreState = .standby
 
-    private let usecase: LogoutUsecase
+    private let authUsecase: FirebaseAuthUsecase
+    private let firestoreUsecase: FirestoreUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: LogoutUsecase = Domain.Usecase.Logout()) {
-        self.usecase = usecase
+    init(
+        authUsecase: FirebaseAuthUsecase = Domain.Usecase.FirebaseAuth(),
+        firestoreUsecase: FirestoreUsecase = Domain.Usecase.Firestore()
+    ) {
+        self.authUsecase = authUsecase
+        self.firestoreUsecase = firestoreUsecase
     }
 }
 
@@ -20,21 +27,40 @@ final class ProfileViewModel: ViewModel {
 
 extension ProfileViewModel {
 
-    func logout() {
-        state = .loading
+    func fetch() {
+        firestoreState = .loading
 
-        usecase.logout()
+        firestoreUsecase.fetch()
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):
-                        self?.state = .failed(.init(error: error))
+                        self?.firestoreState = .failed(.init(error: error))
                         Logger.debug(message: error.localizedDescription)
 
                     case .finished:
                         Logger.debug(message: "finished")
                 }
             } receiveValue: { [weak self] state in
-                self?.state = .done(state)
+                self?.firestoreState = .done(state)
+            }
+            .store(in: &cancellables)
+    }
+
+    func logout() {
+        authState = .loading
+
+        authUsecase.logout()
+            .sink { [weak self] completion in
+                switch completion {
+                    case let .failure(error):
+                        self?.authState = .failed(.init(error: error))
+                        Logger.debug(message: error.localizedDescription)
+
+                    case .finished:
+                        Logger.debug(message: "finished")
+                }
+            } receiveValue: { [weak self] state in
+                self?.authState = .done(state)
             }
             .store(in: &cancellables)
     }

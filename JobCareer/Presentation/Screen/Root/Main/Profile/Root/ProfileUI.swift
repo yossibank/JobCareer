@@ -20,7 +20,6 @@ final class ProfileUI {
 
     weak var delegate: ProfileViewDelegate!
 
-    private var dataSourceSnapshot = NSDiffableDataSourceSnapshot<ProfileSection, ProfileItem>()
     private var dataSource: UICollectionViewDiffableDataSource<ProfileSection, ProfileItem>!
 }
 
@@ -84,12 +83,21 @@ extension ProfileUI {
         collectionView.backgroundColor = .systemBackground
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
+    }
 
+    func apply(item: Main?) {
+        var dataSourceSnapshot = NSDiffableDataSourceSnapshot<ProfileSection, ProfileItem>()
         dataSourceSnapshot.appendSections(ProfileSection.allCases)
 
-        ProfileSection.allCases.forEach {
-            dataSourceSnapshot.appendItems($0.items, toSection: $0)
-        }
+        dataSourceSnapshot.appendItems([.main(item)], toSection: .main)
+        dataSourceSnapshot.appendItems(
+            [
+                .career(.init(title: "CAREER1", description: "career description")),
+                .career(.init(title: "CAREER2", description: "career description2"))
+            ],
+            toSection: .career
+        )
+        dataSourceSnapshot.appendItems([.logout], toSection: .logout)
 
         dataSource.apply(
             dataSourceSnapshot,
