@@ -21,6 +21,8 @@ extension ProfileUI {
                         cell.configure(item: item)
                     }
 
+                    self?.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
+
                     return cell
 
                 case let .career(item):

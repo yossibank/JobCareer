@@ -4,7 +4,7 @@ import UIKit
 
 final class MainCell: UICollectionViewCell {
     private lazy var stackView: UIStackView = .init(
-        subViews: [accountStackView, specStackView],
+        subViews: [accountStackView, specStackView, logoutStackView],
         style: .vertical,
         distributon: .fill,
         alignment: .fill,
@@ -41,6 +41,21 @@ final class MainCell: UICollectionViewCell {
         style: .spec
     )
 
+    private lazy var logoutStackView: UIStackView = .init(
+        subViews: [UIView(), logoutButton],
+        style: .horizontal,
+        distributon: .fill,
+        alignment: .trailing
+    )
+
+    private let logoutButton: AnimationButton = .init(
+        style: .logout
+    )
+
+    lazy var buttonTapPublisher: UIControl.Publisher<AnimationButton> = {
+        logoutButton.publisher(for: .touchUpInside)
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -49,6 +64,11 @@ final class MainCell: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        logoutButton.layer.borderColor = Resources.Colors.borderColor.cgColor
     }
 }
 
@@ -88,7 +108,9 @@ private extension MainCell {
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
 
             iconImageView.widthAnchor.constraint(equalToConstant: 56),
-            iconImageView.heightAnchor.constraint(equalToConstant: 56)
+            iconImageView.heightAnchor.constraint(equalToConstant: 56),
+
+            logoutButton.widthAnchor.constraint(equalToConstant: 128)
         )
     }
 }
