@@ -1,7 +1,7 @@
 import Combine
 import Data
 
-public extension UsecaseImpl where R == Repos.Firestore, M == UserMapper {
+public extension UsecaseImpl where R == Repos.Firebase.Firestore, M == UserMapper {
 
     func save(displayName: String?) -> AnyPublisher<UserEntity, APIError> {
         toPublisher { promise in

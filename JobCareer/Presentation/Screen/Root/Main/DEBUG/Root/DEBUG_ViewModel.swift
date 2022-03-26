@@ -11,12 +11,12 @@ final class DEBUG_ViewModel: ViewModel {
 
     @Published var displayName: String = .blank
 
-    private let usecase: FirestoreUsecase
+    private let authUsecase: FirestoreUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: FirestoreUsecase = Domain.Usecase.Firestore()) {
-        self.usecase = usecase
+    init(authUsecase: FirestoreUsecase = Domain.Usecase.Firestore()) {
+        self.authUsecase = authUsecase
     }
 }
 
@@ -25,7 +25,7 @@ final class DEBUG_ViewModel: ViewModel {
 extension DEBUG_ViewModel {
 
     func save() {
-        usecase.save(displayName: displayName)
+        authUsecase.save(displayName: displayName)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):

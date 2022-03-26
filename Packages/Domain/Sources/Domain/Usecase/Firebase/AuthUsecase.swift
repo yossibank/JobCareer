@@ -1,7 +1,7 @@
 import Combine
 import Data
 
-public extension UsecaseImpl where R == Repos.FirebaseAuth, M == EmptyMapper {
+public extension UsecaseImpl where R == Repos.Firebase.Auth, M == EmptyMapper {
 
     func signUp(email: String, password: String) -> AnyPublisher<EmptyEntity, APIError> {
         toPublisher { promise in

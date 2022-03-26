@@ -49,12 +49,17 @@ final class SignUpViewModel: ViewModel {
     @Published var confirmPassword: String = .blank
     @Published private(set) var state: State = .standby
 
-    private let usecase: FirebaseAuthUsecase
+    private let authUsecase: FirebaseAuthUsecase
+    private let storageUsecase: FirebaseStorageUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: FirebaseAuthUsecase = Domain.Usecase.FirebaseAuth()) {
-        self.usecase = usecase
+    init(
+        authUsecase: FirebaseAuthUsecase = Domain.Usecase.FirebaseAuth(),
+        storageUsecase: FirebaseStorageUsecase = Domain.Usecase.Storage()
+    ) {
+        self.authUsecase = authUsecase
+        self.storageUsecase = storageUsecase
     }
 }
 
@@ -65,7 +70,7 @@ extension SignUpViewModel {
     func signUp() {
         state = .loading
 
-        usecase.signUp(email: email, password: password)
+        authUsecase.signUp(email: email, password: password)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):
@@ -73,10 +78,36 @@ extension SignUpViewModel {
                         Logger.debug(message: error.localizedDescription)
 
                     case .finished:
+                        self?.saveIcon()
                         Logger.debug(message: "finished")
                 }
             } receiveValue: { [weak self] state in
                 self?.state = .done(state)
+            }
+            .store(in: &cancellables)
+    }
+}
+
+// MARK: - private methods
+
+private extension SignUpViewModel {
+
+    func saveIcon() {
+        guard let data = Resources.Images.Icon.default.jpegData(compressionQuality: 0.3) else {
+            return
+        }
+
+        storageUsecase.save(data: data)
+            .sink { completion in
+                switch completion {
+                    case let .failure(error):
+                        Logger.debug(message: error.localizedDescription)
+
+                    case .finished:
+                        Logger.debug(message: "finished")
+                }
+            } receiveValue: { state in
+                Logger.debug(message: "receive value: \(state)")
             }
             .store(in: &cancellables)
     }
