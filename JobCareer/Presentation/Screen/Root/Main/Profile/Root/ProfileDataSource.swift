@@ -42,14 +42,14 @@ extension ProfileUI {
                 case .logout:
                     guard
                         let cell = collectionView.dequeueReusableCell(
-                            withReuseIdentifier: LogoutCell.resourceName,
+                            withReuseIdentifier: WithdrawalCell.resourceName,
                             for: indexPath
-                        ) as? LogoutCell
+                        ) as? WithdrawalCell
                     else {
                         return UICollectionViewCell()
                     }
 
-                    self?.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
+                    self?.delegate.didWithdrawalButtonTapped(cell.buttonTapPublisher)
 
                     return cell
             }

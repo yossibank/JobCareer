@@ -67,6 +67,11 @@ private extension ProfileViewController {
 
                     case let .failed(error):
                         self.stopIndicator()
+                        self.showBottomSheet(
+                            type: .error(.init(body: Resources.Strings.Alert.failedErrorMessage) { [weak self] in
+                                self?.dismiss(animated: true)
+                            })
+                        )
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }
@@ -126,6 +131,35 @@ extension ProfileViewController: ProfileViewDelegate {
                     self?.viewModel.logout()
                 })
             )
+        }
+        .store(in: &cancellables)
+    }
+
+    func didWithdrawalButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>) {
+        let bottomSheetContent = WithdrawalBottomSheetContent()
+
+        bottomSheetContent.withdrawalButtonTapPublisher
+            .sink { [weak self] _ in
+                self?.dismiss(animated: true)
+                self?.viewModel.withdrawal()
+                bottomSheetContent.clearText()
+            }
+            .store(in: &cancellables)
+
+        bottomSheetContent.passwordTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.passowrd, on: viewModel)
+            .store(in: &cancellables)
+
+        viewModel.isEnabled
+            .receive(on: DispatchQueue.main)
+            .sink { isEnabled in
+                bottomSheetContent.isEnabled = isEnabled
+            }
+            .store(in: &cancellables)
+
+        publisher.sink { [weak self] _ in
+            self?.showBottomSheet(view: bottomSheetContent)
         }
         .store(in: &cancellables)
     }

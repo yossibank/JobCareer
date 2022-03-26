@@ -5,6 +5,7 @@ import UIKit
 
 protocol ProfileViewDelegate: AnyObject {
     func didLogoutButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>)
+    func didWithdrawalButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>)
 }
 
 // MARK: - stored properties
@@ -51,8 +52,8 @@ extension ProfileUI {
         )
 
         collectionView.register(
-            LogoutCell.self,
-            forCellWithReuseIdentifier: LogoutCell.resourceName
+            WithdrawalCell.self,
+            forCellWithReuseIdentifier: WithdrawalCell.resourceName
         )
 
         if #available(iOS 14.0, *) {

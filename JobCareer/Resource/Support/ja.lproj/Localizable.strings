@@ -12,7 +12,9 @@
 "success_signUp_message" = "ユーザー登録が完了しました";
 "failed_signUp_message" = "登録に失敗しました\nご入力内容をもう一度ご確認ください";
 "failed_duplicate_email_address" = "既に登録されているメールアドレスです\n別のメールアドレスをご使用ください";
+"failed_error_message" = "エラーが発生しました\n通信状況またはご入力内容をご確認ください";
 "would_you_like_to_logout" = "ログアウトしてもよろしいでしょうか？";
+"would_you_like_to_withdrawal_membership" = "退会してもよろしいでしょうか？";
 
 /* SignUp/Login */
 "email_textfield_placeholder" = "メールアドレス";
@@ -31,6 +33,9 @@
 "profile" = "プロフィール";
 "career" = "経歴";
 "logout" = "ログアウト";
+"withdrawal" = "退会する";
+"please_input_the_password" = "パスワードを入力してください";
+"withdrawal_password_textfield_placeholder" = "現在登録されているパスワード(6文字以上)をご入力ください";
 
 /* Navigation */
 "signUp" = "新規登録";

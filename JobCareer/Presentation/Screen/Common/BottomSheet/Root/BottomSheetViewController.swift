@@ -15,15 +15,18 @@ final class BottomSheetViewController: UIViewController {
 
     private var contentView: UIView?
     private var dismissCallback: VoidBlock?
+    private var keyboardHandler: KeyboardHandler?
 
     init(dismissCallBack: VoidBlock? = nil) {
         self.dismissCallback = dismissCallBack
         super.init(nibName: nil, bundle: nil)
+        setupKeyboard()
     }
 
     required init?(coder: NSCoder) {
         self.dismissCallback = nil
         super.init(coder: coder)
+        setupKeyboard()
     }
 }
 
@@ -66,6 +69,22 @@ extension BottomSheetViewController {
 // MARK: - private methods
 
 private extension BottomSheetViewController {
+
+    func setupKeyboard() {
+        keyboardHandler = KeyboardHandler { [weak self] keyboard in
+            guard let self = self else { return }
+
+            switch keyboard.state {
+                case .willShow:
+                    UIView.animate(withDuration: keyboard.animationDuration) {
+                        self.view.frame.origin.y == 0 ? self.view.frame.origin.y -= (keyboard.height - 16) : ()
+                    }
+
+                case .willHide, .unset:
+                    self.view.frame.origin.y = 0
+            }
+        }
+    }
 
     @objc func viewTapped() {
         dismiss(animated: true) { [weak self] in

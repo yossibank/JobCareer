@@ -5,6 +5,7 @@ enum BottomSheetType {
     case error(OneButton)
     case signUp(OneButton)
     case logout(OneButton)
+    case withdrawal(OneButton)
 
     struct BottomSheetContent {
         var title: String?
@@ -61,6 +62,17 @@ enum BottomSheetType {
                 return .init(
                     title: Resources.Strings.Alert.warn,
                     body: Resources.Strings.Alert.wouldYouLikeToLogout,
+                    actions: [.init(
+                        title: Resources.Strings.Alert.ok,
+                        style: .alert,
+                        handler: content.handler
+                    )]
+                )
+
+            case let .withdrawal(content):
+                return .init(
+                    title: Resources.Strings.Alert.warn,
+                    body: Resources.Strings.Alert.wouldYouLikeToWithdrawal,
                     actions: [.init(
                         title: Resources.Strings.Alert.ok,
                         style: .alert,
