@@ -77,6 +77,7 @@ extension ProfileViewModel {
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):
+                        self?.passowrd = .blank
                         self?.authState = .failed(.init(error: error))
                         Logger.debug(message: error.localizedDescription)
 

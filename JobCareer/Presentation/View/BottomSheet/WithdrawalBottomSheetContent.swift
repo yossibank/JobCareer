@@ -55,7 +55,7 @@ final class WithdrawalBottomSheetContent: UIView {
 extension WithdrawalBottomSheetContent {
 
     func clearText() {
-        withdrawalPasswordTextField.text = nil
+        withdrawalPasswordTextField.text = .blank
     }
 }
 
