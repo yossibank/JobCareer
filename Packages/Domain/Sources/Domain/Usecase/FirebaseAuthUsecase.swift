@@ -54,11 +54,11 @@ public extension UsecaseImpl where R == Repos.FirebaseAuth, M == EmptyMapper {
         }
     }
 
-    func withdrawal() -> AnyPublisher<EmptyEntity, APIError> {
+    func withdrawal(password: String) -> AnyPublisher<EmptyEntity, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
 
-            repository.withdrawal { result in
+            repository.withdrawal(password: password) { result in
                 switch result {
                     case .success:
                         let entity = mapper.convert()

@@ -135,7 +135,7 @@ extension ProfileViewController: ProfileViewDelegate {
             self?.showBottomSheet(
                 type: .withdrawal(.init { [weak self] in
                     self?.dismiss(animated: true)
-                    self?.viewModel.withdrawal()
+                    self?.viewModel.withdrawal(password: "")
                 })
             )
         }

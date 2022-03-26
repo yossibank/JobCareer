@@ -65,10 +65,10 @@ extension ProfileViewModel {
             .store(in: &cancellables)
     }
 
-    func withdrawal() {
+    func withdrawal(password: String) {
         authState = .loading
 
-        authUsecase.withdrawal()
+        authUsecase.withdrawal(password: password)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):

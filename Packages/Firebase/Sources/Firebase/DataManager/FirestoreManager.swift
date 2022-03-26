@@ -25,7 +25,6 @@ public struct FirestoreManager {
                     completion(.failure(error))
                     return
                 }
-
                 completion(.success(entity))
             }
     }
@@ -49,8 +48,23 @@ public struct FirestoreManager {
                 else {
                     return
                 }
-
                 completion(.success(.init(data: data)))
+            }
+    }
+
+    public func delete(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let user = AuthManager.currentUser else {
+            return
+        }
+
+        db.collection(UserEntity.collectionName)
+            .document(user.uid)
+            .delete { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(()))
             }
     }
 }
