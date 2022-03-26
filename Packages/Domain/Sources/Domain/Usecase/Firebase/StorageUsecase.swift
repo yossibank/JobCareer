@@ -20,4 +20,20 @@ public extension UsecaseImpl where R == Repos.Firebase.Storage, M == EmptyMapper
             }
         }
     }
+
+    func fetch() -> AnyPublisher<URL, APIError> {
+        toPublisher { promise in
+            analytics.sendEvent()
+
+            repository.fetch { result in
+                switch result {
+                case let .success(url):
+                    promise(.success(url))
+
+                case let .failure(error):
+                    promise(.failure(.firebase(error.localizedDescription)))
+                }
+            }
+        }
+    }
 }

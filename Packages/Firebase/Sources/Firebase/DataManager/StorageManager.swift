@@ -30,4 +30,24 @@ public struct StorageManager {
                 completion(.success(()))
             }
     }
+
+    public func fetch(completion: @escaping (Result<URL, Error>) -> Void) {
+        guard let user = AuthManager.currentUser else {
+            return
+        }
+
+        reference
+            .child(UserEntity.collectionName)
+            .child(user.uid)
+            .downloadURL { url, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                if let url = url {
+                    completion(.success(url))
+                }
+            }
+    }
 }
