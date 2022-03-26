@@ -41,4 +41,15 @@ extension ViewStyle where T: UITextField {
             $0.isSecureTextEntry = true
         }
     }
+
+    static var withdrawalPassword: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.placeholder = Resources.Strings.TextField.withdrawalPasswordPlaceholder
+            $0.font = .boldSystemFont(ofSize: .init(.h5))
+            $0.textAlignment = .left
+            $0.clearButtonMode = .unlessEditing
+            $0.textContentType = .newPassword
+            $0.isSecureTextEntry = true
+        }
+    }
 }

@@ -33,6 +33,8 @@
 "career" = "経歴";
 "logout" = "ログアウト";
 "withdrawal" = "退会する";
+"please_input_the_password" = "パスワードを入力してください";
+"withdrawal_password_textfield_placeholder" = "現在登録されているパスワード(6文字以上)をご入力ください";
 
 /* Navigation */
 "signUp" = "新規登録";

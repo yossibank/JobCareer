@@ -75,6 +75,14 @@ extension ViewStyle where T: UILabel {
         }
     }
 
+    static var withdrawalTitle: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.text = Resources.Strings.Profile.pleaseInputThePassword
+            $0.textAlignment = .center
+            $0.font = .italicSystemFont(ofSize: .init(.h2))
+        }
+    }
+
     static var themeTitle: ViewStyle<T> {
         ViewStyle<T> {
             $0.textAlignment = .left

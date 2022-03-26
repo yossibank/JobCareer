@@ -6,6 +6,11 @@ final class ProfileViewModel: ViewModel {
     typealias AuthState = LoadingState<EmptyEntity, AppError>
     typealias FirestoreState = LoadingState<UserEntity, AppError>
 
+    var isEnabled: AnyPublisher<Bool, Never> {
+        $passowrd.map { !$0.isEmpty && $0.count >= 6 }.eraseToAnyPublisher()
+    }
+
+    @Published var passowrd: String = .blank
     @Published private(set) var authState: AuthState = .standby
     @Published private(set) var firestoreState: FirestoreState = .standby
 
@@ -65,10 +70,10 @@ extension ProfileViewModel {
             .store(in: &cancellables)
     }
 
-    func withdrawal(password: String) {
+    func withdrawal() {
         authState = .loading
 
-        authUsecase.withdrawal(password: password)
+        authUsecase.withdrawal(password: passowrd)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):

@@ -1,7 +1,16 @@
-/* Components */
+/* Button */
+"signUp_button_title" = "新規登録";
+"here_is_sign_up" = "新規登録はこちらから";
+"login_button_title" = "ログイン";
 "next_button_title" = "次へ";
 "back_button_title" = "戻る";
 "cancel_button_title" = "キャンセル";
+
+/* TextField */
+"email_textfield_placeholder" = "メールアドレス";
+"password_textfield_placeholder" = "パスワード";
+"confirm_password_textfield_placeholder" = "パスワード(確認)";
+"withdrawal_password_textfield_placeholder" = "現在登録されているパスワード(6文字以上)をご入力ください";
 
 /* Alert */
 "ok" = "OK";
@@ -15,14 +24,6 @@
 "would_you_like_to_logout" = "ログアウトしてもよろしいでしょうか？";
 "would_you_like_to_withdrawal_membership" = "退会してもよろしいでしょうか？";
 
-/* SignUp/Login */
-"email_textfield_placeholder" = "メールアドレス";
-"password_textfield_placeholder" = "パスワード";
-"confirm_password_textfield_placeholder" = "パスワード(確認)";
-"signUp_button_title" = "新規登録";
-"login_button_title" = "ログイン";
-"here_is_sign_up" = "新規登録はこちらから";
-
 /* Home */
 "home" = "ホーム";
 "news" = "ニュース";
@@ -33,6 +34,7 @@
 "career" = "経歴";
 "logout" = "ログアウト";
 "withdrawal" = "退会する";
+"please_input_the_password" = "パスワードを入力してください";
 
 /* Navigation */
 "signUp" = "新規登録";

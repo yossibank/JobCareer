@@ -13,12 +13,13 @@ struct StringResource {
         @Localizable static var emailPlaceholder = "email_textfield_placeholder"
         @Localizable static var passwordPlaceholder = "password_textfield_placeholder"
         @Localizable static var confirmPasswordPlaceholder = "confirm_password_textfield_placeholder"
+        @Localizable static var withdrawalPasswordPlaceholder = "withdrawal_password_textfield_placeholder"
     }
 
     struct Alert {
-        @Localizable static var error = "error"
-        @Localizable static var done = "done"
         @Localizable static var ok = "OK"
+        @Localizable static var done = "done"
+        @Localizable static var error = "error"
         @Localizable static var warn = "warn"
         @Localizable static var failedLoginMessage = "failed_login_message"
         @Localizable static var successSignUpMessage = "success_signUp_message"
@@ -39,6 +40,7 @@ struct StringResource {
         @Localizable static var career = "career"
         @Localizable static var logout = "logout"
         @Localizable static var withdrawal = "withdrawal"
+        @Localizable static var pleaseInputThePassword = "please_input_the_password"
     }
 
     struct Navigation {

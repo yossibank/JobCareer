@@ -68,12 +68,13 @@ public struct AuthManager {
                 return
             }
 
+            FirestoreManager().delete(completion: completion)
+
             user.delete { error in
                 if let error = error {
                     completion(.failure(error))
                     return
                 }
-                FirestoreManager().delete(completion: completion)
                 completion(.success(()))
             }
         }

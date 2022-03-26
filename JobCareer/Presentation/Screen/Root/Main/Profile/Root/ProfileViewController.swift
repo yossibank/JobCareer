@@ -131,13 +131,29 @@ extension ProfileViewController: ProfileViewDelegate {
     }
 
     func didWithdrawalButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>) {
+        let bottomSheetContent = WithdrawalBottomSheetContent()
+
+        bottomSheetContent.withdrawalButtonTapPublisher
+            .sink { [weak self] _ in
+                self?.dismiss(animated: true)
+                self?.viewModel.withdrawal()
+            }
+            .store(in: &cancellables)
+
+        bottomSheetContent.passwordTextPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.passowrd, on: viewModel)
+            .store(in: &cancellables)
+
+        viewModel.isEnabled
+            .receive(on: DispatchQueue.main)
+            .sink { isEnabled in
+                bottomSheetContent.isEnabled = isEnabled
+            }
+            .store(in: &cancellables)
+
         publisher.sink { [weak self] _ in
-            self?.showBottomSheet(
-                type: .withdrawal(.init { [weak self] in
-                    self?.dismiss(animated: true)
-                    self?.viewModel.withdrawal(password: "")
-                })
-            )
+            self?.showBottomSheet(view: bottomSheetContent)
         }
         .store(in: &cancellables)
     }
