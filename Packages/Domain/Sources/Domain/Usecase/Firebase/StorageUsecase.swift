@@ -27,11 +27,11 @@ public extension UsecaseImpl where R == Repos.Firebase.Storage, M == EmptyMapper
 
             repository.fetch { result in
                 switch result {
-                case let .success(url):
-                    promise(.success(url))
+                    case let .success(url):
+                        promise(.success(url))
 
-                case let .failure(error):
-                    promise(.failure(.firebase(error.localizedDescription)))
+                    case let .failure(error):
+                        promise(.failure(.firebase(error.localizedDescription)))
                 }
             }
         }

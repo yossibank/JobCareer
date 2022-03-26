@@ -25,7 +25,7 @@ final class DEBUG_ViewModel: ViewModel {
 extension DEBUG_ViewModel {
 
     func save() {
-        authUsecase.save(displayName: displayName)
+        authUsecase.save(displayName: displayName, iconUrl: nil)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):

@@ -3,11 +3,11 @@ import Data
 
 public extension UsecaseImpl where R == Repos.Firebase.Firestore, M == UserMapper {
 
-    func save(displayName: String?) -> AnyPublisher<UserEntity, APIError> {
+    func save(displayName: String?, iconUrl: String?) -> AnyPublisher<UserEntity, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
 
-            repository.save(displayName: displayName) { result in
+            repository.save(displayName: displayName, iconUrl: iconUrl) { result in
                 switch result {
                     case let .success(response):
                         let entity = mapper.convert(response: response)

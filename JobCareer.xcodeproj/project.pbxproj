@@ -31,6 +31,8 @@
 		7853DCC12793D68B000EAEFF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7853DCC02793D68B000EAEFF /* Lottie */; };
 		7853DCC82793DD0B000EAEFF /* penguin.json in Resources */ = {isa = PBXBuildFile; fileRef = 7853DCC72793DD0B000EAEFF /* penguin.json */; };
 		7853DCCA2793DD71000EAEFF /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7853DCC92793DD71000EAEFF /* Animations.swift */; };
+		785CF9E927EF43590065E1A9 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 785CF9E827EF43590065E1A9 /* Nuke */; };
+		785CF9EB27EF48510065E1A9 /* UIImageView+Nuke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785CF9EA27EF48510065E1A9 /* UIImageView+Nuke.swift */; };
 		7860A6E12786EBBC004C26DE /* ProfileUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E02786EBBC004C26DE /* ProfileUI.swift */; };
 		7860A6E32786EBC8004C26DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E22786EBC8004C26DE /* ProfileViewController.swift */; };
 		7860A6E52786EBD1004C26DE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */; };
@@ -171,6 +173,7 @@
 		7853DCBD2793C15E000EAEFF /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
 		7853DCC72793DD0B000EAEFF /* penguin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = penguin.json; sourceTree = "<group>"; };
 		7853DCC92793DD71000EAEFF /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		785CF9EA27EF48510065E1A9 /* UIImageView+Nuke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Nuke.swift"; sourceTree = "<group>"; };
 		7860A6E02786EBBC004C26DE /* ProfileUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUI.swift; sourceTree = "<group>"; };
 		7860A6E22786EBC8004C26DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7860A6E42786EBD1004C26DE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -273,6 +276,7 @@
 				7853DCC12793D68B000EAEFF /* Lottie in Frameworks */,
 				78DD432427415522006684D0 /* Data in Frameworks */,
 				789A4E5E2741440000DD4661 /* Utility in Frameworks */,
+				785CF9E927EF43590065E1A9 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +650,7 @@
 				78BA64C72744DA66005B2D61 /* UIButton+StateConvenience.swift */,
 				78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */,
 				782F03E727A2A773001A7B50 /* UITextField+Publisher.swift */,
+				785CF9EA27EF48510065E1A9 /* UIImageView+Nuke.swift */,
 				78A4E93A27786631005FBB36 /* UIViewController+Container.swift */,
 				78B3D0BE2776F93500A8EC6F /* UIView+Layout.swift */,
 				78B9C4A127A4F11B009BB8D7 /* Validator.swift */,
@@ -844,6 +849,7 @@
 				78DD432327415522006684D0 /* Data */,
 				78DD432627422AB1006684D0 /* Domain */,
 				7853DCC02793D68B000EAEFF /* Lottie */,
+				785CF9E827EF43590065E1A9 /* Nuke */,
 			);
 			productName = SwiftArchitectureTemplate;
 			productReference = 78A386F827401A9D00DF51CF /* JobCareer.app */;
@@ -920,6 +926,7 @@
 			mainGroup = 78A386EF27401A9D00DF51CF;
 			packageReferences = (
 				7853DCBF2793D68B000EAEFF /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				785CF9E727EF43590065E1A9 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 78A386F927401A9D00DF51CF /* Products */;
 			projectDirPath = "";
@@ -1097,6 +1104,7 @@
 				78DD4373274254D1006684D0 /* FirstDetailViewController.swift in Sources */,
 				78214F4727829DA1008CB225 /* NewsCell.swift in Sources */,
 				7894BF0B279CFC4100038B46 /* KeyboardState.swift in Sources */,
+				785CF9EB27EF48510065E1A9 /* UIImageView+Nuke.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1640,6 +1648,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		785CF9E727EF43590065E1A9 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1647,6 +1663,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7853DCBF2793D68B000EAEFF /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		785CF9E827EF43590065E1A9 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 785CF9E727EF43590065E1A9 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 		789A4E5D2741440000DD4661 /* Utility */ = {
 			isa = XCSwiftPackageProductDependency;

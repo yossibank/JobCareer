@@ -7,6 +7,7 @@ public struct FirestoreManager {
 
     public func save(
         displayName: String?,
+        iconUrl: String?,
         completion: @escaping (Result<UserEntity, Error>) -> Void
     ) {
         guard let user = AuthManager.currentUser else {
@@ -15,7 +16,8 @@ public struct FirestoreManager {
 
         let entity = UserEntity(
             name: displayName,
-            email: user.email
+            email: user.email,
+            iconUrl: iconUrl
         )
 
         db.collection(UserEntity.collectionName)

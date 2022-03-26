@@ -50,15 +50,18 @@ final class SignUpViewModel: ViewModel {
     @Published private(set) var state: State = .standby
 
     private let authUsecase: FirebaseAuthUsecase
+    private let firestoreUsecase: FirestoreUsecase
     private let storageUsecase: FirebaseStorageUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
     init(
         authUsecase: FirebaseAuthUsecase = Domain.Usecase.FirebaseAuth(),
+        firestoreUsecase: FirestoreUsecase = Domain.Usecase.Firestore(),
         storageUsecase: FirebaseStorageUsecase = Domain.Usecase.Storage()
     ) {
         self.authUsecase = authUsecase
+        self.firestoreUsecase = firestoreUsecase
         self.storageUsecase = storageUsecase
     }
 }
@@ -78,7 +81,7 @@ extension SignUpViewModel {
                         Logger.debug(message: error.localizedDescription)
 
                     case .finished:
-                        self?.saveIcon()
+                        self?.saveStorage()
                         Logger.debug(message: "finished")
                 }
             } receiveValue: { [weak self] state in
@@ -92,12 +95,45 @@ extension SignUpViewModel {
 
 private extension SignUpViewModel {
 
-    func saveIcon() {
+    func saveStorage() {
         guard let data = Resources.Images.Icon.default.jpegData(compressionQuality: 0.3) else {
             return
         }
 
         storageUsecase.save(data: data)
+            .sink { [weak self] completion in
+                switch completion {
+                    case let .failure(error):
+                        Logger.debug(message: error.localizedDescription)
+
+                    case .finished:
+                        self?.fetchStorage()
+                        Logger.debug(message: "finished")
+                }
+            } receiveValue: { state in
+                Logger.debug(message: "receive value: \(state)")
+            }
+            .store(in: &cancellables)
+    }
+
+    func fetchStorage() {
+        storageUsecase.fetch()
+            .sink { completion in
+                switch completion {
+                    case let .failure(error):
+                        Logger.debug(message: error.localizedDescription)
+
+                    case .finished:
+                        Logger.debug(message: "finished")
+                }
+            } receiveValue: { [weak self] url in
+                self?.saveFirestore(urlString: url.absoluteString)
+            }
+            .store(in: &cancellables)
+    }
+
+    func saveFirestore(urlString: String) {
+        firestoreUsecase.save(displayName: nil, iconUrl: urlString)
             .sink { completion in
                 switch completion {
                     case let .failure(error):

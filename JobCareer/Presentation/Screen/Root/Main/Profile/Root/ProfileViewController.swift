@@ -92,7 +92,12 @@ private extension ProfileViewController {
 
                     case let .done(entity):
                         self.stopIndicator()
-                        self.ui.apply(item: .init(name: entity.name ?? .blank, icon: Resources.Images.Test.testIcon))
+                        self.ui.apply(
+                            item: .init(
+                                name: entity.name ?? .blank,
+                                iconUrl: entity.iconUrl ?? .blank
+                            )
+                        )
                         Logger.debug(message: "\(entity)")
 
                     case let .failed(error):

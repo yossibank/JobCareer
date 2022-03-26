@@ -50,4 +50,21 @@ public struct StorageManager {
                 }
             }
     }
+
+    public func delete(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let user = AuthManager.currentUser else {
+            return
+        }
+
+        reference
+            .child(UserEntity.collectionName)
+            .child(user.uid)
+            .delete { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(()))
+            }
+    }
 }
