@@ -78,7 +78,7 @@
 		78C20EF2277B3ADF00C7EC65 /* DEBUG_FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF1277B3ADF00C7EC65 /* DEBUG_FlowController.swift */; };
 		78C20EF4277B401600C7EC65 /* DEBUG_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF3277B401600C7EC65 /* DEBUG_Item.swift */; };
 		78C20EF6277B42F800C7EC65 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C20EF5277B42F800C7EC65 /* FlowController.swift */; };
-		78C57E4F2791136E00F212A0 /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E4E2791136E00F212A0 /* LogoutCell.swift */; };
+		78C57E4F2791136E00F212A0 /* WithdrawalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E4E2791136E00F212A0 /* WithdrawalCell.swift */; };
 		78C57E522791280C00F212A0 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C57E512791280C00F212A0 /* AnimationButton.swift */; };
 		78C5F95027C1EEA90068453E /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5F94F27C1EEA90068453E /* ThemeCell.swift */; };
 		78CB9D2B277705FF00AA8A94 /* UIControl+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */; };
@@ -223,7 +223,7 @@
 		78C20EF1277B3ADF00C7EC65 /* DEBUG_FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_FlowController.swift; sourceTree = "<group>"; };
 		78C20EF3277B401600C7EC65 /* DEBUG_Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEBUG_Item.swift; sourceTree = "<group>"; };
 		78C20EF5277B42F800C7EC65 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
-		78C57E4E2791136E00F212A0 /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
+		78C57E4E2791136E00F212A0 /* WithdrawalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalCell.swift; sourceTree = "<group>"; };
 		78C57E512791280C00F212A0 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		78C5F94F27C1EEA90068453E /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		78CB9D2A277705FF00AA8A94 /* UIControl+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Publisher.swift"; sourceTree = "<group>"; };
@@ -340,8 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				7832D464278A9B4F00A959B1 /* CareerCell.swift */,
-				78C57E4E2791136E00F212A0 /* LogoutCell.swift */,
 				7832D462278A9B4600A959B1 /* MainCell.swift */,
+				78C57E4E2791136E00F212A0 /* WithdrawalCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1038,7 +1038,7 @@
 				78BA64C32744C82A005B2D61 /* BottomSheetViewController.swift in Sources */,
 				78EFA3F427AEAB5E00795193 /* IndicatorViewController.swift in Sources */,
 				78DD436427424F55006684D0 /* SecondViewController.swift in Sources */,
-				78C57E4F2791136E00F212A0 /* LogoutCell.swift in Sources */,
+				78C57E4F2791136E00F212A0 /* WithdrawalCell.swift in Sources */,
 				7824D6652782C71C00F3AA1C /* ContentsCell.swift in Sources */,
 				7860A6E52786EBD1004C26DE /* ProfileViewModel.swift in Sources */,
 				7860A6E12786EBBC004C26DE /* ProfileUI.swift in Sources */,

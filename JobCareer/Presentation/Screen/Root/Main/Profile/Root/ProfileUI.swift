@@ -51,8 +51,8 @@ extension ProfileUI {
         )
 
         collectionView.register(
-            LogoutCell.self,
-            forCellWithReuseIdentifier: LogoutCell.resourceName
+            WithdrawalCell.self,
+            forCellWithReuseIdentifier: WithdrawalCell.resourceName
         )
 
         if #available(iOS 14.0, *) {

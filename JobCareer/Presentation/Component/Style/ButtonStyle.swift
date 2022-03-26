@@ -77,6 +77,16 @@ extension ViewStyle where T: UIButton {
         }
     }
 
+    static var withdrawal: ViewStyle<T> {
+        ViewStyle<T> {
+            $0.setTitle(Resources.Strings.Profile.withdrawal, for: .normal)
+            $0.setTitleColor(Resources.Colors.dynamicColor, for: .normal)
+            $0.layer.borderColor = UIColor.red.cgColor
+            $0.layer.borderWidth = .init(.standard)
+            $0.layer.cornerRadius = .init(.biggest)
+        }
+    }
+
     static var profileNameSave: ViewStyle<T> {
         ViewStyle<T> {
             $0.setTitle("SAVE", for: .normal)

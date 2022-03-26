@@ -37,6 +37,7 @@ struct StringResource {
         @Localizable static var profile = "profile"
         @Localizable static var career = "career"
         @Localizable static var logout = "logout"
+        @Localizable static var withdrawal = "withdrawal"
     }
 
     struct Navigation {
