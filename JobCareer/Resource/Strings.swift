@@ -25,6 +25,7 @@ struct StringResource {
         @Localizable static var successSignUpMessage = "success_signUp_message"
         @Localizable static var failedSignUpMessage = "failed_signUp_message"
         @Localizable static var duplicateEmailAddress = "failed_duplicate_email_address"
+        @Localizable static var failedErrorMessage = "failed_error_message"
         @Localizable static var wouldYouLikeToLogout = "would_you_like_to_logout"
         @Localizable static var wouldYouLikeToWithdrawal = "would_you_like_to_withdrawal_membership"
     }

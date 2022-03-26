@@ -67,6 +67,11 @@ private extension ProfileViewController {
 
                     case let .failed(error):
                         self.stopIndicator()
+                        self.showBottomSheet(
+                            type: .error(.init(body: Resources.Strings.Alert.failedErrorMessage) { [weak self] in
+                                self?.dismiss(animated: true)
+                            })
+                        )
                         Logger.debug(message: "\(error.localizedDescription)")
                 }
             }
@@ -137,6 +142,7 @@ extension ProfileViewController: ProfileViewDelegate {
             .sink { [weak self] _ in
                 self?.dismiss(animated: true)
                 self?.viewModel.withdrawal()
+                bottomSheetContent.clearText()
             }
             .store(in: &cancellables)
 

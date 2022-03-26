@@ -50,6 +50,15 @@ final class WithdrawalBottomSheetContent: UIView {
     }
 }
 
+// MARK: - internal methods
+
+extension WithdrawalBottomSheetContent {
+
+    func clearText() {
+        withdrawalPasswordTextField.text = nil
+    }
+}
+
 // MARK: - private methods
 
 private extension WithdrawalBottomSheetContent {

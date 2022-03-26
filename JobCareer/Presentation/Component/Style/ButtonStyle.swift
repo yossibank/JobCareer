@@ -100,24 +100,24 @@ extension ViewStyle where T: UIButton {
     static var bottomSheetDefault: ViewStyle<T> {
         ViewStyle<T> {
             $0.titleLabel?.font = .systemFont(ofSize: .init(.h2))
-            $0.backgroundColor = .black
-            $0.normalTitleColor = .white
-            $0.selectedTitleColor = .white
-            $0.disabledTitleColor = .white
-            $0.highlightedTitleColor = .white
-            $0.focusedTitleColor = .white
+            $0.backgroundColor = Resources.Colors.staticColor
+            $0.normalTitleColor = Resources.Colors.dynamicColor
+            $0.selectedTitleColor = Resources.Colors.dynamicColor
+            $0.disabledTitleColor = Resources.Colors.dynamicColor
+            $0.highlightedTitleColor = Resources.Colors.dynamicColor
+            $0.focusedTitleColor = Resources.Colors.dynamicColor
         }
     }
 
     static var bottomSheetCancel: ViewStyle<T> {
         ViewStyle<T> {
             $0.titleLabel?.font = .systemFont(ofSize: .init(.h2))
-            $0.backgroundColor = .white
-            $0.normalTitleColor = .black
-            $0.selectedTitleColor = .black
-            $0.disabledTitleColor = .lightGray
-            $0.highlightedTitleColor = .black
-            $0.focusedTitleColor = .black
+            $0.backgroundColor = Resources.Colors.dynamicColor
+            $0.normalTitleColor = Resources.Colors.staticColor
+            $0.selectedTitleColor = Resources.Colors.staticColor
+            $0.disabledTitleColor = Resources.Colors.staticColor
+            $0.highlightedTitleColor = Resources.Colors.staticColor
+            $0.focusedTitleColor = Resources.Colors.staticColor
         }
     }
 
