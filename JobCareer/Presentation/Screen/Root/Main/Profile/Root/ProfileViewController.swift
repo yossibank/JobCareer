@@ -129,4 +129,16 @@ extension ProfileViewController: ProfileViewDelegate {
         }
         .store(in: &cancellables)
     }
+
+    func didWithdrawalButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>) {
+        publisher.sink { [weak self] _ in
+            self?.showBottomSheet(
+                type: .withdrawal(.init { [weak self] in
+                    self?.dismiss(animated: true)
+                    self?.viewModel.withdrawal()
+                })
+            )
+        }
+        .store(in: &cancellables)
+    }
 }

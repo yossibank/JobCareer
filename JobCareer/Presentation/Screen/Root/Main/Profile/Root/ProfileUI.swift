@@ -5,6 +5,7 @@ import UIKit
 
 protocol ProfileViewDelegate: AnyObject {
     func didLogoutButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>)
+    func didWithdrawalButtonTapped(_ publisher: UIControl.Publisher<AnimationButton>)
 }
 
 // MARK: - stored properties

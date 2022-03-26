@@ -3,6 +3,23 @@ import Data
 
 public extension UsecaseImpl where R == Repos.FirebaseAuth, M == EmptyMapper {
 
+    func signUp(email: String, password: String) -> AnyPublisher<EmptyEntity, APIError> {
+        toPublisher { promise in
+            analytics.sendEvent()
+
+            repository.signUp(email: email, password: password) { result in
+                switch result {
+                    case .success:
+                        let entity = mapper.convert()
+                        promise(.success(entity))
+
+                    case let .failure(error):
+                        promise(.failure(.firebase(error.localizedDescription)))
+                }
+            }
+        }
+    }
+
     func login(email: String, password: String) -> AnyPublisher<EmptyEntity, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
@@ -37,11 +54,11 @@ public extension UsecaseImpl where R == Repos.FirebaseAuth, M == EmptyMapper {
         }
     }
 
-    func signUp(email: String, password: String) -> AnyPublisher<EmptyEntity, APIError> {
+    func withdrawal() -> AnyPublisher<EmptyEntity, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
 
-            repository.signUp(email: email, password: password) { result in
+            repository.withdrawal { result in
                 switch result {
                     case .success:
                         let entity = mapper.convert()

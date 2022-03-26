@@ -49,7 +49,7 @@ extension ProfileUI {
                         return UICollectionViewCell()
                     }
 
-                    self?.delegate.didLogoutButtonTapped(cell.buttonTapPublisher)
+                    self?.delegate.didWithdrawalButtonTapped(cell.buttonTapPublisher)
 
                     return cell
             }

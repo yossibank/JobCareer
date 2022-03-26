@@ -106,8 +106,6 @@ extension ViewStyle where T: UIButton {
             $0.disabledTitleColor = .white
             $0.highlightedTitleColor = .white
             $0.focusedTitleColor = .white
-            $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = .init(.standard)
         }
     }
 
@@ -120,8 +118,6 @@ extension ViewStyle where T: UIButton {
             $0.disabledTitleColor = .lightGray
             $0.highlightedTitleColor = .black
             $0.focusedTitleColor = .black
-            $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = .init(.standard)
         }
     }
 
@@ -134,8 +130,6 @@ extension ViewStyle where T: UIButton {
             $0.disabledTitleColor = .white
             $0.highlightedTitleColor = .white
             $0.focusedTitleColor = .white
-            $0.layer.borderColor = Resources.Colors.borderColor.cgColor
-            $0.layer.borderWidth = .init(.standard)
         }
     }
 }

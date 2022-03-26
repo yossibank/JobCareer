@@ -17,7 +17,6 @@ public struct AuthManager {
                 completion(.failure(error))
                 return
             }
-
             completion(.success(()))
         }
     }
@@ -32,7 +31,6 @@ public struct AuthManager {
                 completion(.failure(error))
                 return
             }
-
             completion(.success(()))
         }
     }
@@ -47,6 +45,20 @@ public struct AuthManager {
             completion(.success(()))
         } catch {
             completion(.failure(error))
+        }
+    }
+
+    public func withdrawal(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard Auth.auth().currentUser != nil else {
+            return
+        }
+
+        Auth.auth().currentUser?.delete { error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            completion(.success(()))
         }
     }
 }
