@@ -31,6 +31,25 @@ public struct FirestoreManager {
             }
     }
 
+    public func updateName(
+        _ name: String,
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        guard let user = AuthManager.currentUser else {
+            return
+        }
+
+        db.collection(UserEntity.collectionName)
+            .document(user.uid)
+            .updateData(["name": name]) { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(()))
+            }
+    }
+
     public func fetch(completion: @escaping (Result<UserEntity, Error>) -> Void) {
         guard let user = AuthManager.currentUser else {
             return

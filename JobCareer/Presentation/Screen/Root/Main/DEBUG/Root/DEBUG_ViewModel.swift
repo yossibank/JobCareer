@@ -5,7 +5,7 @@ import Domain
 import Utility
 
 final class DEBUG_ViewModel: ViewModel {
-    typealias State = LoadingState<UserEntity, AppError>
+    typealias State = LoadingState<EmptyEntity, AppError>
 
     @Published private(set) var state: State = .standby
 
@@ -25,7 +25,7 @@ final class DEBUG_ViewModel: ViewModel {
 extension DEBUG_ViewModel {
 
     func save() {
-        authUsecase.save(displayName: displayName, iconUrl: nil)
+        authUsecase.updateName(displayName)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):
