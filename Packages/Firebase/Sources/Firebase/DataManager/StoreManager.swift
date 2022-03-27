@@ -1,6 +1,6 @@
 import FirebaseFirestore
 
-public struct FirestoreManager {
+public struct StoreManager {
     private let db = Firestore.firestore()
 
     public init() {}

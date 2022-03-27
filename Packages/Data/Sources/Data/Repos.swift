@@ -11,8 +11,8 @@ public struct Repos {
 
     public struct Firebase {
         public typealias Auth = AuthManager
-        public typealias Firestore = FirestoreManager
         public typealias Storage = StorageManager
+        public typealias Store = StoreManager
     }
 
     public struct Onboarding {

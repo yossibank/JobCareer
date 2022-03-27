@@ -49,20 +49,20 @@ final class SignUpViewModel: ViewModel {
     @Published var confirmPassword: String = .blank
     @Published private(set) var state: State = .standby
 
-    private let authUsecase: FirebaseAuthUsecase
-    private let firestoreUsecase: FirestoreUsecase
-    private let storageUsecase: FirebaseStorageUsecase
+    private let authUsecase: AuthUsecase
+    private let storageUsecase: StorageUsecase
+    private let storeUsecase: StoreUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
     init(
-        authUsecase: FirebaseAuthUsecase = Domain.Usecase.FirebaseAuth(),
-        firestoreUsecase: FirestoreUsecase = Domain.Usecase.Firestore(),
-        storageUsecase: FirebaseStorageUsecase = Domain.Usecase.Storage()
+        authUsecase: AuthUsecase = Domain.Usecase.Auth(),
+        storageUsecase: StorageUsecase = Domain.Usecase.Storage(),
+        storeUsecase: StoreUsecase = Domain.Usecase.Store()
     ) {
         self.authUsecase = authUsecase
-        self.firestoreUsecase = firestoreUsecase
         self.storageUsecase = storageUsecase
+        self.storeUsecase = storeUsecase
     }
 }
 
@@ -127,13 +127,13 @@ private extension SignUpViewModel {
                         Logger.debug(message: "finished")
                 }
             } receiveValue: { [weak self] url in
-                self?.saveFirestore(urlString: url.absoluteString)
+                self?.saveStore(urlString: url.absoluteString)
             }
             .store(in: &cancellables)
     }
 
-    func saveFirestore(urlString: String) {
-        firestoreUsecase.save(displayName: nil, iconUrl: urlString)
+    func saveStore(urlString: String) {
+        storeUsecase.save(displayName: nil, iconUrl: urlString)
             .sink { completion in
                 switch completion {
                     case let .failure(error):

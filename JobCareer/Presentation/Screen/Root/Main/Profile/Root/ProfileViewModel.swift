@@ -14,17 +14,17 @@ final class ProfileViewModel: ViewModel {
     @Published private(set) var authState: AuthState = .standby
     @Published private(set) var firestoreState: FirestoreState = .standby
 
-    private let authUsecase: FirebaseAuthUsecase
-    private let firestoreUsecase: FirestoreUsecase
+    private let authUsecase: AuthUsecase
+    private let storeUsecase: StoreUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
     init(
-        authUsecase: FirebaseAuthUsecase = Domain.Usecase.FirebaseAuth(),
-        firestoreUsecase: FirestoreUsecase = Domain.Usecase.Firestore()
+        authUsecase: AuthUsecase = Domain.Usecase.Auth(),
+        storeUsecase: StoreUsecase = Domain.Usecase.Store()
     ) {
         self.authUsecase = authUsecase
-        self.firestoreUsecase = firestoreUsecase
+        self.storeUsecase = storeUsecase
     }
 }
 
@@ -35,7 +35,7 @@ extension ProfileViewModel {
     func fetch() {
         firestoreState = .loading
 
-        firestoreUsecase.fetch()
+        storeUsecase.fetch()
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):
