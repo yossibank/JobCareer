@@ -20,6 +20,8 @@ enum ContentSize: CGFloat {
     case contentImage = 50.0
     /** 16.0 */
     case bottomSheet = 16.0
+    /** 12.0 */
+    case profileIcon = 12.0
     /** 8.0 */
     case biggest = 8.0
     /** 6.0 */

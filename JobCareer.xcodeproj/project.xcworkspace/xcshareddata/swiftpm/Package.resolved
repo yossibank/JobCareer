@@ -9,6 +9,15 @@
           "revision": "4a6058cbbdfe4f74aeae92c8bd51ad3b0de2a1ee",
           "version": "3.3.0"
         }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke",
+        "state": {
+          "branch": null,
+          "revision": "7f73ceaeacd5df75a7994cd82e165ad9ff1815db",
+          "version": "9.6.1"
+        }
       }
     ]
   },

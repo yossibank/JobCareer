@@ -17,7 +17,6 @@ public struct AuthManager {
                 completion(.failure(error))
                 return
             }
-            FirestoreManager().save(displayName: nil) { _ in }
             completion(.success(()))
         }
     }
@@ -68,7 +67,8 @@ public struct AuthManager {
                 return
             }
 
-            FirestoreManager().delete(completion: completion)
+            StorageManager().delete(completion: completion)
+            StoreManager().delete(completion: completion)
 
             user.delete { error in
                 if let error = error {

@@ -27,7 +27,7 @@ enum ProfileItem: Hashable {
 
 struct Main: Hashable {
     let name: String
-    let icon: UIImage
+    let iconUrl: String
 }
 
 struct Career: Hashable {

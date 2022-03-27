@@ -9,8 +9,11 @@ public struct Repos {
         public typealias Delete = Repository<SampleDeleteRequest>
     }
 
-    public typealias FirebaseAuth = AuthManager
-    public typealias Firestore = FirestoreManager
+    public struct Firebase {
+        public typealias Auth = AuthManager
+        public typealias Storage = StorageManager
+        public typealias Store = StoreManager
+    }
 
     public struct Onboarding {
         public typealias GetIsFinished = Repository<GetOnboardingFinishedRequest>

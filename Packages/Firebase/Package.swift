@@ -37,6 +37,10 @@ let firebaseFirestoreDependencies: [Target.Dependency] = [
     "leveldb-library"
 ]
 
+let firebaseStorageDependencies: [Target.Dependency] = [
+    "FirebaseStorage"
+]
+
 let package = Package(
     name: "Firebase",
     platforms: [
@@ -64,6 +68,7 @@ let package = Package(
                 + firebaseAuthDependencies
                 + firebaseCrashlyticsDependencies
                 + firebaseFirestoreDependencies
+                + firebaseStorageDependencies
         ),
         .binaryTarget(
             name: "FirebaseAnalytics",
@@ -140,6 +145,10 @@ let package = Package(
         .binaryTarget(
             name: "leveldb-library",
             path: "./Frameworks/Firebase/FirebaseFirestore/leveldb-library.xcframework"
+        ),
+        .binaryTarget(
+            name: "FirebaseStorage",
+            path: "./Frameworks/Firebase/FirebaseStorage/FirebaseStorage.xcframework"
         )
     ]
 )

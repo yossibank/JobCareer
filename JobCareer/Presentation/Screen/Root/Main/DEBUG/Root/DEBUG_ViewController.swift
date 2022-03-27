@@ -111,7 +111,7 @@ extension DEBUG_ViewController: DEBUG_UI_Delegate {
 
     func tappedSaveProfileButton(_ publisher: UIControl.Publisher<AnimationButton>) {
         publisher.sink { [weak self] _ in
-            self?.viewModel.save()
+            self?.viewModel.updateName()
         }
         .store(in: &cancellables)
     }

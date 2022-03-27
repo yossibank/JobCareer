@@ -5,17 +5,17 @@ import Domain
 import Utility
 
 final class DEBUG_ViewModel: ViewModel {
-    typealias State = LoadingState<UserEntity, AppError>
+    typealias State = LoadingState<EmptyEntity, AppError>
 
     @Published private(set) var state: State = .standby
 
     @Published var displayName: String = .blank
 
-    private let usecase: FirestoreUsecase
+    private let usecase: StoreUsecase
 
     private var cancellables: Set<AnyCancellable> = []
 
-    init(usecase: FirestoreUsecase = Domain.Usecase.Firestore()) {
+    init(usecase: StoreUsecase = Domain.Usecase.Store()) {
         self.usecase = usecase
     }
 }
@@ -24,8 +24,8 @@ final class DEBUG_ViewModel: ViewModel {
 
 extension DEBUG_ViewModel {
 
-    func save() {
-        usecase.save(displayName: displayName)
+    func updateName() {
+        usecase.updateName(displayName)
             .sink { [weak self] completion in
                 switch completion {
                     case let .failure(error):

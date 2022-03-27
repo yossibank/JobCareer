@@ -1,12 +1,12 @@
 import FirebaseFirestore
 
-public struct FirestoreManager {
+public struct StoreManager {
     private let db = Firestore.firestore()
 
     public init() {}
 
     public func save(
-        displayName: String?,
+        userEntity: UserEntity,
         completion: @escaping (Result<UserEntity, Error>) -> Void
     ) {
         guard let user = AuthManager.currentUser else {
@@ -14,8 +14,9 @@ public struct FirestoreManager {
         }
 
         let entity = UserEntity(
-            name: displayName,
-            email: user.email
+            name: userEntity.name,
+            email: user.email,
+            iconUrl: userEntity.iconUrl
         )
 
         db.collection(UserEntity.collectionName)
@@ -26,6 +27,25 @@ public struct FirestoreManager {
                     return
                 }
                 completion(.success(entity))
+            }
+    }
+
+    public func updateName(
+        _ name: String,
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        guard let user = AuthManager.currentUser else {
+            return
+        }
+
+        db.collection(UserEntity.collectionName)
+            .document(user.uid)
+            .updateData(["name": name]) { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(()))
             }
     }
 

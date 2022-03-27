@@ -23,7 +23,9 @@ final class MainCell: UICollectionViewCell {
         style: .profileName
     )
 
-    private let iconImageView: UIImageView = .init()
+    private let iconImageView: UIImageView = .init(
+        style: .profileIcon
+    )
 
     private lazy var specStackView: UIStackView = .init(
         subViews: [ageLabel, specLabel],
@@ -78,7 +80,7 @@ extension MainCell {
 
     func configure(item: Main) {
         nameLabel.text = item.name
-        iconImageView.image = item.icon
+        iconImageView.loadImage(with: item.iconUrl)
 
         if ageLabel.text == nil && specLabel.text == nil {
             specStackView.isHidden = true

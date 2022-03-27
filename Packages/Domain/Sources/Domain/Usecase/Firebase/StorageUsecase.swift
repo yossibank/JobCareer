@@ -1,16 +1,17 @@
 import Combine
 import Data
+import Foundation
 
-public extension UsecaseImpl where R == Repos.Firestore, M == UserMapper {
+public extension UsecaseImpl where R == Repos.Firebase.Storage, M == EmptyMapper {
 
-    func save(displayName: String?) -> AnyPublisher<UserEntity, APIError> {
+    func save(data: Data) -> AnyPublisher<EmptyEntity, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
 
-            repository.save(displayName: displayName) { result in
+            repository.save(data: data) { result in
                 switch result {
-                    case let .success(response):
-                        let entity = mapper.convert(response: response)
+                    case .success:
+                        let entity = mapper.convert()
                         promise(.success(entity))
 
                     case let .failure(error):
@@ -20,15 +21,14 @@ public extension UsecaseImpl where R == Repos.Firestore, M == UserMapper {
         }
     }
 
-    func fetch() -> AnyPublisher<UserEntity, APIError> {
+    func fetch() -> AnyPublisher<URL, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
 
             repository.fetch { result in
                 switch result {
-                    case let .success(response):
-                        let entity = mapper.convert(response: response)
-                        promise(.success(entity))
+                    case let .success(url):
+                        promise(.success(url))
 
                     case let .failure(error):
                         promise(.failure(.firebase(error.localizedDescription)))
