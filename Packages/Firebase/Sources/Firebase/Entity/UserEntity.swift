@@ -3,6 +3,16 @@ public struct UserEntity: Codable, Equatable {
     public let email: String?
     public let iconUrl: String?
 
+    public init(
+        name: String? = nil,
+        email: String? = nil,
+        iconUrl: String? = nil
+    ) {
+        self.name = name
+        self.email = email
+        self.iconUrl = iconUrl
+    }
+
     public func toDictionary() -> [String: Any] {
         [
             "name": name ?? "",

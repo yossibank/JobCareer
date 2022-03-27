@@ -6,8 +6,7 @@ public struct StoreManager {
     public init() {}
 
     public func save(
-        displayName: String?,
-        iconUrl: String?,
+        userEntity: UserEntity,
         completion: @escaping (Result<UserEntity, Error>) -> Void
     ) {
         guard let user = AuthManager.currentUser else {
@@ -15,9 +14,9 @@ public struct StoreManager {
         }
 
         let entity = UserEntity(
-            name: displayName,
+            name: userEntity.name,
             email: user.email,
-            iconUrl: iconUrl
+            iconUrl: userEntity.iconUrl
         )
 
         db.collection(UserEntity.collectionName)

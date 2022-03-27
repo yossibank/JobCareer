@@ -127,13 +127,13 @@ private extension SignUpViewModel {
                         Logger.debug(message: "finished")
                 }
             } receiveValue: { [weak self] url in
-                self?.saveStore(urlString: url.absoluteString)
+                self?.saveStore(iconUrl: url.absoluteString)
             }
             .store(in: &cancellables)
     }
 
-    func saveStore(urlString: String) {
-        storeUsecase.save(displayName: nil, iconUrl: urlString)
+    func saveStore(iconUrl: String) {
+        storeUsecase.save(userEntity: .init(iconUrl: iconUrl))
             .sink { completion in
                 switch completion {
                     case let .failure(error):

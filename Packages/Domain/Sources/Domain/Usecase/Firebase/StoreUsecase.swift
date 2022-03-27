@@ -1,13 +1,14 @@
 import Combine
 import Data
+import Firebase
 
 public extension UsecaseImpl where R == Repos.Firebase.Store, M == UserMapper {
 
-    func save(displayName: String?, iconUrl: String?) -> AnyPublisher<UserEntity, APIError> {
+    func save(userEntity: Firebase.UserEntity) -> AnyPublisher<UserEntity, APIError> {
         toPublisher { promise in
             analytics.sendEvent()
 
-            repository.save(displayName: displayName, iconUrl: iconUrl) { result in
+            repository.save(userEntity: userEntity) { result in
                 switch result {
                     case let .success(response):
                         let entity = mapper.convert(response: response)
